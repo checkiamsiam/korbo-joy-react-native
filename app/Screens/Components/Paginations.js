@@ -6,12 +6,13 @@ import { COLORS, FONTS } from '../../constants/theme';
 import Header from '../../layout/Header';
 import RoundedPagination from '../../components/Paginations/RoundedPagination';
 import DropShadow from 'react-native-drop-shadow';
+import { StatusBar } from 'react-native';
 
 const Paginations = () => {
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}
       >
         <Header title={'Paginations'} titleLeft leftIcon={'back'} />
         <ScrollView>

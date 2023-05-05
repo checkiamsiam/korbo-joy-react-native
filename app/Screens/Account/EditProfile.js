@@ -4,6 +4,7 @@ import CustomButton from '../../components/CustomButton';
 import { GlobalStyleSheet } from '../../constants/StyleSheet';
 import { COLORS } from '../../constants/theme';
 import Header from '../../layout/Header';
+import { StatusBar } from 'react-native';
 
 const EditProfile = (props) => {
   const [isFocused, setisFocused] = useState(false);
@@ -16,6 +17,7 @@ const EditProfile = (props) => {
       style={{
         flex: 1,
         backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
       }}
     >
       <Header titleLeft leftIcon={'back'} title={'Manage Profile'} />

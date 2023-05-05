@@ -1,47 +1,40 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import { IconButton } from 'react-native-paper';
-import FeatherIcon from 'react-native-vector-icons/Feather';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { COLORS, FONTS } from '../../constants/theme';
+import React from "react";
+import { SafeAreaView, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { IconButton } from "react-native-paper";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import { COLORS, FONTS } from "../../constants/theme";
 
 const SearchData = [
   {
-    title: 'boat earbuds',
+    title: "boat earbuds",
   },
   {
-    title: 'mobile phones',
+    title: "mobile phones",
   },
   {
-    title: 'realme earphones',
+    title: "realme earphones",
   },
   {
-    title: 'vivo t1 5g',
+    title: "vivo t1 5g",
   },
   {
-    title: 'washing machine',
+    title: "washing machine",
   },
   {
-    title: 'Air conditioner',
+    title: "Air conditioner",
   },
   {
-    title: 'refrigerator',
+    title: "refrigerator",
   },
   {
-    title: 'neckbands wireless',
+    title: "neckbands wireless",
   },
   {
-    title: 'home theatre',
+    title: "home theatre",
   },
   {
-    title: 'boat earbuds',
+    title: "boat earbuds",
   },
 ];
 
@@ -51,22 +44,17 @@ const Search = ({ navigation }) => {
       style={{
         flex: 1,
         backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
       }}
     >
       <View
         style={{
-          flexDirection: 'row',
+          flexDirection: "row",
           borderBottomWidth: 1,
           borderBottomColor: COLORS.borderColor,
         }}
       >
-        <IconButton
-          onPress={() => {}}
-          size={24}
-          icon={() => (
-            <FeatherIcon color={COLORS.text} name="search" size={22} />
-          )}
-        />
+        <IconButton onPress={() => {}} size={24} icon={() => <FeatherIcon color={COLORS.text} name="search" size={22} />} />
         <TextInput
           style={{
             ...FONTS.font,
@@ -85,13 +73,11 @@ const Search = ({ navigation }) => {
       >
         {SearchData.map((data, index) => (
           <TouchableOpacity
-            onPress={() =>
-              navigation.navigate('Items', { type: 'Electronics' })
-            }
+            onPress={() => navigation.navigate("Items", { type: "Electronics" })}
             key={index}
             style={{
-              flexDirection: 'row',
-              alignItems: 'center',
+              flexDirection: "row",
+              alignItems: "center",
               paddingHorizontal: 15,
               paddingVertical: 12,
             }}
@@ -102,7 +88,7 @@ const Search = ({ navigation }) => {
               style={{
                 marginRight: 12,
               }}
-              name={'history'}
+              name={"history"}
             />
             <Text
               numberOfLines={2}
@@ -115,12 +101,7 @@ const Search = ({ navigation }) => {
             >
               {data.title}
             </Text>
-            <FeatherIcon
-              style={{ opacity: 0.6 }}
-              color={COLORS.text}
-              size={20}
-              name="arrow-up-left"
-            />
+            <FeatherIcon style={{ opacity: 0.6 }} color={COLORS.text} size={20} name="arrow-up-left" />
           </TouchableOpacity>
         ))}
       </ScrollView>

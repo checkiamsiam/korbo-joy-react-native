@@ -1,6 +1,6 @@
+import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import { Image, ImageBackground, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+import { Image, ImageBackground, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import { IconButton } from "react-native-paper";
 import Swiper from "react-native-swiper";
 import FeatherIcon from "react-native-vector-icons/Feather";
@@ -193,6 +193,7 @@ const MainHome = ({ navigation }) => {
       style={{
         flex: 1,
         backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
       }}
     >
       <View

@@ -4,6 +4,7 @@ import CouponItem from '../../components/CouponItem';
 import { GlobalStyleSheet } from '../../constants/StyleSheet';
 import { COLORS } from '../../constants/theme';
 import Header from '../../layout/Header';
+import { StatusBar } from 'react-native';
 
 const CouponsData = [
   {
@@ -29,6 +30,7 @@ const Coupons = () => {
       style={{
         flex: 1,
         backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
       }}
     >
       <Header titleLeft leftIcon={'back'} title={'My Coupons'} />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LayoutAnimation, SafeAreaView, ScrollView, View } from 'react-native';
+import { LayoutAnimation, SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
 import Header from '../../layout/Header';
 import SwipeBox from '../../components/SwipeBox';
 import { COLORS } from '../../constants/theme';
@@ -60,7 +60,7 @@ const SwipeableScreen = () => {
     <SafeAreaView
       style={{
         flex: 1,
-        backgroundColor: COLORS.backgroundColor,
+        backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight
       }}
     >
       <Header leftIcon={'back'} title={'Swipeable'} titleLeft />

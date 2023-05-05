@@ -7,11 +7,12 @@ import BasicPieChart from "../../components/Charts/PieChart";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
+import { StatusBar } from "react-native";
 
 const Charts = () => {
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight, }}>
         <Header titleLeft title={"Charts"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>

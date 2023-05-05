@@ -12,6 +12,7 @@ import SuccessSheet from "../../components/ActionSheet/SuccessSheet";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
+import { StatusBar } from "react-native";
 
 const option = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -116,7 +117,7 @@ const ActionSheet = () => {
         )}
       </RBSheet>
 
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight, }}>
         <Header titleLeft title={"Action Sheet"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>

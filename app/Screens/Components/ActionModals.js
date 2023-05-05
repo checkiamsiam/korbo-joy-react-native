@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Modal, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import DropShadow from "react-native-drop-shadow";
 import Ripple from "react-native-material-ripple";
 import { SvgXml } from "react-native-svg";
@@ -112,7 +112,7 @@ const ActionModals = () => {
         </View>
       </Modal>
 
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background, paddingTop: StatusBar.currentHeight }}>
         <Header titleLeft title={"Action Modals"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>

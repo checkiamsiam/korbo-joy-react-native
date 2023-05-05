@@ -6,12 +6,13 @@ import PricingStyle1 from '../../components/Pricing/PricingStyle1';
 import PricingStyle2 from '../../components/Pricing/PricingStyle2';
 import PricingStyle3 from '../../components/Pricing/PricingStyle3';
 import { COLORS } from '../../constants/theme';
+import { StatusBar } from 'react-native';
 
 const Pricings = () => {
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{ flex: 1, backgroundColor: COLORS.backgroundColor  , paddingTop: StatusBar.currentHeight }}
       >
         <Header title={'Pricings'} titleLeft leftIcon={'back'} />
         <ScrollView>

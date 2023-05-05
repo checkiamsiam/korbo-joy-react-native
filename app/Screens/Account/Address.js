@@ -9,6 +9,7 @@ import {
 import { GlobalStyleSheet } from '../../constants/StyleSheet';
 import { COLORS, FONTS } from '../../constants/theme';
 import Header from '../../layout/Header';
+import { StatusBar } from 'react-native';
 
 const Address = ({ navigation }) => {
   return (
@@ -16,6 +17,7 @@ const Address = ({ navigation }) => {
       style={{
         flex: 1,
         backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
       }}
     >
       <Header titleLeft leftIcon={'back'} title={'Address'} />

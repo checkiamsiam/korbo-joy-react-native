@@ -1,27 +1,25 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
-import Header from '../../layout/Header';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import { COLORS, FONTS, SIZES } from '../../constants/theme';
-import Button from '../../components/Button/Button';
-import ButtonLight from '../../components/Button/ButtonLight';
-import ButtonOutline from '../../components/Button/ButtonOutline';
-import ButtonSm from '../../components/Button/ButtonSm';
-import ButtonLg from '../../components/Button/ButtonLg';
-import DropShadow from 'react-native-drop-shadow';
+import React from "react";
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
+import DropShadow from "react-native-drop-shadow";
+import Button from "../../components/Button/Button";
+import ButtonLg from "../../components/Button/ButtonLg";
+import ButtonLight from "../../components/Button/ButtonLight";
+import ButtonOutline from "../../components/Button/ButtonOutline";
+import ButtonSm from "../../components/Button/ButtonSm";
+import { GlobalStyleSheet } from "../../constants/StyleSheet";
+import { COLORS, FONTS, SIZES } from "../../constants/theme";
+import Header from "../../layout/Header";
 
 const Buttons = () => {
   return (
     <>
-      <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
-      >
-        <Header titleLeft title={'Buttons'} leftIcon={'back'} />
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+        <Header titleLeft title={"Buttons"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
             <DropShadow
               style={{
-                shadowColor: '#000',
+                shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
                   height: 5,
@@ -42,38 +40,32 @@ const Buttons = () => {
                   >
                     Default Button
                   </Text>
-                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
-                    Default button style
-                  </Text>
+                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>Default button style</Text>
                 </View>
                 <View style={GlobalStyleSheet.row}>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button title={'Button'} />
+                    <Button title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button color={COLORS.secondary} title={'Button'} />
+                    <Button color={COLORS.secondary} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button color={COLORS.success} title={'Button'} />
+                    <Button color={COLORS.success} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button color={COLORS.danger} title={'Button'} />
+                    <Button color={COLORS.danger} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button color={COLORS.warning} title={'Button'} />
+                    <Button color={COLORS.warning} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button color={COLORS.info} title={'Button'} />
+                    <Button color={COLORS.info} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button color={COLORS.dark} title={'Button'} />
+                    <Button color={COLORS.dark} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button
-                      color={COLORS.light}
-                      textColor={COLORS.title}
-                      title={'Button'}
-                    />
+                    <Button color={COLORS.light} textColor={COLORS.title} title={"Button"} />
                   </View>
                 </View>
               </View>
@@ -81,7 +73,7 @@ const Buttons = () => {
 
             <DropShadow
               style={{
-                shadowColor: '#000',
+                shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
                   height: 5,
@@ -102,43 +94,32 @@ const Buttons = () => {
                   >
                     Button Square
                   </Text>
-                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
-                    Square button style
-                  </Text>
+                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>Square button style</Text>
                 </View>
                 <View style={GlobalStyleSheet.row}>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button btnSquare title={'Button'} />
+                    <Button btnSquare title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button
-                      btnSquare
-                      color={COLORS.secondary}
-                      title={'Button'}
-                    />
+                    <Button btnSquare color={COLORS.secondary} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button btnSquare color={COLORS.success} title={'Button'} />
+                    <Button btnSquare color={COLORS.success} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button btnSquare color={COLORS.danger} title={'Button'} />
+                    <Button btnSquare color={COLORS.danger} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button btnSquare color={COLORS.warning} title={'Button'} />
+                    <Button btnSquare color={COLORS.warning} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button btnSquare color={COLORS.info} title={'Button'} />
+                    <Button btnSquare color={COLORS.info} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button btnSquare color={COLORS.dark} title={'Button'} />
+                    <Button btnSquare color={COLORS.dark} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button
-                      btnSquare
-                      color={COLORS.light}
-                      textColor={COLORS.title}
-                      title={'Button'}
-                    />
+                    <Button btnSquare color={COLORS.light} textColor={COLORS.title} title={"Button"} />
                   </View>
                 </View>
               </View>
@@ -146,7 +127,7 @@ const Buttons = () => {
 
             <DropShadow
               style={{
-                shadowColor: '#000',
+                shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
                   height: 5,
@@ -167,51 +148,32 @@ const Buttons = () => {
                   >
                     Button Rounded
                   </Text>
-                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
-                    Rounded button style
-                  </Text>
+                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>Rounded button style</Text>
                 </View>
                 <View style={GlobalStyleSheet.row}>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button btnRounded title={'Button'} />
+                    <Button btnRounded title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button
-                      btnRounded
-                      color={COLORS.secondary}
-                      title={'Button'}
-                    />
+                    <Button btnRounded color={COLORS.secondary} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button
-                      btnRounded
-                      color={COLORS.success}
-                      title={'Button'}
-                    />
+                    <Button btnRounded color={COLORS.success} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button btnRounded color={COLORS.danger} title={'Button'} />
+                    <Button btnRounded color={COLORS.danger} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button
-                      btnRounded
-                      color={COLORS.warning}
-                      title={'Button'}
-                    />
+                    <Button btnRounded color={COLORS.warning} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button btnRounded color={COLORS.info} title={'Button'} />
+                    <Button btnRounded color={COLORS.info} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button btnRounded color={COLORS.dark} title={'Button'} />
+                    <Button btnRounded color={COLORS.dark} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <Button
-                      btnRounded
-                      color={COLORS.light}
-                      textColor={COLORS.title}
-                      title={'Button'}
-                    />
+                    <Button btnRounded color={COLORS.light} textColor={COLORS.title} title={"Button"} />
                   </View>
                 </View>
               </View>
@@ -219,7 +181,7 @@ const Buttons = () => {
 
             <DropShadow
               style={{
-                shadowColor: '#000',
+                shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
                   height: 5,
@@ -240,28 +202,26 @@ const Buttons = () => {
                   >
                     Button Light
                   </Text>
-                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
-                    Light button style
-                  </Text>
+                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>Light button style</Text>
                 </View>
                 <View style={GlobalStyleSheet.row}>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <ButtonLight title={'Button'} />
+                    <ButtonLight title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <ButtonLight color={COLORS.secondary} title={'Button'} />
+                    <ButtonLight color={COLORS.secondary} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <ButtonLight color={COLORS.success} title={'Button'} />
+                    <ButtonLight color={COLORS.success} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <ButtonLight color={COLORS.danger} title={'Button'} />
+                    <ButtonLight color={COLORS.danger} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <ButtonLight color={COLORS.warning} title={'Button'} />
+                    <ButtonLight color={COLORS.warning} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <ButtonLight color={COLORS.info} title={'Button'} />
+                    <ButtonLight color={COLORS.info} title={"Button"} />
                   </View>
                 </View>
               </View>
@@ -269,7 +229,7 @@ const Buttons = () => {
 
             <DropShadow
               style={{
-                shadowColor: '#000',
+                shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
                   height: 5,
@@ -290,28 +250,26 @@ const Buttons = () => {
                   >
                     Button Outline
                   </Text>
-                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
-                    Outline button style
-                  </Text>
+                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>Outline button style</Text>
                 </View>
                 <View style={GlobalStyleSheet.row}>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <ButtonOutline title={'Button'} />
+                    <ButtonOutline title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <ButtonOutline color={COLORS.secondary} title={'Button'} />
+                    <ButtonOutline color={COLORS.secondary} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <ButtonOutline color={COLORS.success} title={'Button'} />
+                    <ButtonOutline color={COLORS.success} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <ButtonOutline color={COLORS.danger} title={'Button'} />
+                    <ButtonOutline color={COLORS.danger} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <ButtonOutline color={COLORS.warning} title={'Button'} />
+                    <ButtonOutline color={COLORS.warning} title={"Button"} />
                   </View>
                   <View style={[GlobalStyleSheet.col33, { marginBottom: 10 }]}>
-                    <ButtonOutline color={COLORS.info} title={'Button'} />
+                    <ButtonOutline color={COLORS.info} title={"Button"} />
                   </View>
                 </View>
               </View>
@@ -319,7 +277,7 @@ const Buttons = () => {
 
             <DropShadow
               style={{
-                shadowColor: '#000',
+                shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
                   height: 5,
@@ -340,19 +298,17 @@ const Buttons = () => {
                   >
                     Button Sizes
                   </Text>
-                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
-                    Size button style
-                  </Text>
+                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>Size button style</Text>
                 </View>
                 <View>
                   <View style={{ marginBottom: 10 }}>
-                    <ButtonLg title={'Large Button'} />
+                    <ButtonLg title={"Large Button"} />
                   </View>
                   <View style={{ marginBottom: 10 }}>
-                    <Button title={'Default Button'} />
+                    <Button title={"Default Button"} />
                   </View>
                   <View style={{ marginBottom: 10 }}>
-                    <ButtonSm title={'Small Button'} />
+                    <ButtonSm title={"Small Button"} />
                   </View>
                 </View>
               </View>

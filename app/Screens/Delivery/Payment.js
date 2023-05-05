@@ -17,6 +17,7 @@ import personal from "../../assets/images/icons/personal.png";
 import phonepe from "../../assets/images/icons/phonepe.png";
 import wallet from "../../assets/images/icons/wallet.png";
 import CustomButton from "../../components/CustomButton";
+import { StatusBar } from "react-native";
 //import DropShadow from 'react-native-drop-shadow';
 
 const Payment = (props) => {
@@ -41,7 +42,7 @@ const Payment = (props) => {
 
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight}}>
         <Header titleLeft leftIcon={"back"} title={"Payment"} />
 
         <View

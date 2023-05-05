@@ -17,6 +17,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import DropShadow from 'react-native-drop-shadow';
+import { StatusBar } from 'react-native';
 
 const Inputs = () => {
   const [passwordShow, setPasswordShow] = useState(true);
@@ -28,7 +29,7 @@ const Inputs = () => {
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}
       >
         <Header titleLeft title={'Inputs'} leftIcon={'back'} />
         <ScrollView>

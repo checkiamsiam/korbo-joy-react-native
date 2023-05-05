@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+import { LinearGradient } from 'expo-linear-gradient';
 import { Snackbar } from "react-native-paper";
 import Swiper from "react-native-swiper";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -10,6 +10,7 @@ import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import Header from "../../layout/Header";
+import { StatusBar } from "react-native";
 
 const productImage = [pic1, pic1, pic1];
 
@@ -40,7 +41,7 @@ const ProductDetail = ({ navigation, route }) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
       <ScrollView contentContainerStyle={{ paddingBottom: 30 }}>
         <Header transparent={true} leftIcon={"back"} rightIcon={"more"} />
         <View>

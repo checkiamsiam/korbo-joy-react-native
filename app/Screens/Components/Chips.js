@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, ScrollView, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import DropShadow from "react-native-drop-shadow";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Chip from "../../components/Chip";
@@ -10,7 +10,7 @@ import Header from "../../layout/Header";
 const Chips = () => {
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}>
         <Header titleLeft title={"Chips"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>

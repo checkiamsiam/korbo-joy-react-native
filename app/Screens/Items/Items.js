@@ -26,6 +26,7 @@ import ProductItem from "../../components/ProductItem";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import Header from "../../layout/Header";
+import { StatusBar } from "react-native";
 
 const ProductData = [
   {
@@ -364,7 +365,8 @@ const Items = ({ navigation, route }) => {
       <SafeAreaView
         style={{
           flex: 1,
-          backgroundColor: COLORS.backgroundColor,
+          backgroundColor: COLORS.backgroundColor
+          , paddingTop: StatusBar.currentHeight
         }}
       >
         <Header titleLeft leftIcon={"back"} title={type} />

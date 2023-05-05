@@ -7,6 +7,8 @@ const FontProvider = ({ children }) => {
     "OpenSans-ExtraBold": require("../assets/fonts/OpenSans-ExtraBold.ttf"),
     "OpenSans-ExtraBoldItalic": require("../assets/fonts/OpenSans-ExtraBoldItalic.ttf"),
     "OpenSans-Italic": require("../assets/fonts/OpenSans-Italic.ttf"),
+    "OpenSans-Medium": require("../assets/fonts/OpenSans-Medium.ttf"),
+    "OpenSans-MediumItalic": require("../assets/fonts/OpenSans-MediumItalic.ttf"),
     "OpenSans-Light": require("../assets/fonts/OpenSans-Light.ttf"),
     "OpenSans-LightItalic": require("../assets/fonts/OpenSans-LightItalic.ttf"),
     "OpenSans-Regular": require("../assets/fonts/OpenSans-Regular.ttf"),

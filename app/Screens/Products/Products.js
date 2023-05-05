@@ -8,6 +8,7 @@ import Header from '../../layout/Header';
 import BestItems from './BestItems';
 import PopularItems from './PopularItems';
 import SaleItems from './SaleItems';
+import { StatusBar } from 'react-native';
 
 const renderScene = SceneMap({
   Popular: PopularItems,
@@ -26,7 +27,7 @@ const Products = (props) => {
   ]);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
       <Header
         leftIcon={'back'}
         title={'Products'}

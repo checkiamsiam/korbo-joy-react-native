@@ -5,12 +5,13 @@ import Header from '../../layout/Header';
 import ClassicTable from '../../components/Tables/ClassicTable';
 import TableOddEven from '../../components/Tables/TableOddEven';
 import { COLORS } from '../../constants/theme';
+import { StatusBar } from 'react-native';
 
 const Tables = () => {
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight}}
       >
         <Header title={'Tables'} titleLeft leftIcon={'back'} />
         <ScrollView>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FlatList, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import ItemCard from "../../components/ItemCard";
 import ShopItem from "../../components/ShopItem";
@@ -118,7 +118,7 @@ const Home = (props) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}>
       <Header main={true} title={"Home"} />
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
         <View style={GlobalStyleSheet.container}>

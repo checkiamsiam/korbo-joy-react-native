@@ -7,12 +7,13 @@ import Header from '../../layout/Header';
 import SocialBtn from '../../components/Socials/SocialBtn';
 import SocialIcon from '../../components/Socials/SocialIcon';
 import DropShadow from 'react-native-drop-shadow';
+import { StatusBar } from 'react-native';
 
 const Socials = () => {
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}
       >
         <Header title={'Socials'} titleLeft leftIcon={'back'} />
         <ScrollView>
