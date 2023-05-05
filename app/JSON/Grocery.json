@@ -1,0 +1,268 @@
+{
+    "slider" : [
+        {
+            "id" : "1",
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/banner/banner1.png"
+        },
+        {
+            "id" : "2",
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/banner/banner2.png"
+        },
+        {
+            "id" : "3",
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/banner/banner3.png"
+        }
+    ],
+    "categories" : [
+        {
+            "title" : "Atta, Rice",
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/categories/pic1.png"
+        },
+        {
+            "title" : "Masala, Spices",
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/categories/pic2.png"
+        },
+        {
+            "title" : "Oil & Ghee",
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/categories/pic3.png"
+        },
+        {
+            "title" : "Dry Fruits",
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/categories/pic4.png"
+        },
+        {
+            "title" : "Beverages",
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/categories/pic5.png"
+        },
+        {
+            "title" : "Hair Care",
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/categories/pic6.png"
+        },
+        {
+            "title" : "Body & Skincare",
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/categories/pic7.png"
+        },
+        {
+            "title" : "Snacks",
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/categories/pic8.png"
+        }
+    ],
+    "sale" : [
+        {
+            "layout" : "1",
+            "title" : "Top Offers on week",
+            "items" : [
+                {
+                    "title" : "Chocolates",
+                    "image" : "https://appzilla.dexignzone.com/wedo/grocery/items/pic1.png",
+                    "offer" : "Up to 50% off"
+                },
+                {
+                    "title" : "Cookies & Cake",
+                    "image" : "https://appzilla.dexignzone.com/wedo/grocery/items/pic2.png",
+                    "offer" : "From ₹1,099"
+                },
+                {
+                    "title" : "Noodles & Pasta",
+                    "image" : "https://appzilla.dexignzone.com/wedo/grocery/items/pic3.png",
+                    "offer" : "Up to 50% off"
+                },
+                {
+                    "title" : "Jams & Honey",
+                    "image" : "https://appzilla.dexignzone.com/wedo/grocery/items/pic4.png",
+                    "offer" : "Up to 60% off"
+                }
+            ]
+        },
+        {
+            "layout" : "2",
+            "title" : "Most Reviewed Items",
+            "items" : [
+                {
+                    "title" : "Wheat Atta",
+                    "image" : "https://appzilla.dexignzone.com/wedo/grocery/items/pic5.png",
+                    "offer" : "From ₹39/Kg"
+                },
+                {
+                    "title" : "Cooking Oil",
+                    "image" : "https://appzilla.dexignzone.com/wedo/grocery/items/pic6.png",
+                    "offer" : "Just ₹169/L"
+                },
+                {
+                    "title" : "Winter Skincare",
+                    "image" : "https://appzilla.dexignzone.com/wedo/grocery/items/pic7.png",
+                    "offer" : "Up to 60% off"
+                },
+                {
+                    "title" : "Party Needs",
+                    "image" : "https://appzilla.dexignzone.com/wedo/grocery/items/pic8.png",
+                    "offer" : "Up to 50% off"
+                }
+            ]
+        }
+    ],
+    "middleBanner" : "https://appzilla.dexignzone.com/wedo/grocery/banner/banner4.png",
+    "recentViewItems" : [
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/items/pic2.png",
+            "title" : "Pumpum Rice Cracker",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "30% off",
+            "price" : "₹1,299",
+            "oldPrice" : "1590"
+        },
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/items/pic4.png",
+            "title" : "Cadbury 5 Star",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "20% off",
+            "price" : "₹250",
+            "oldPrice" : "300"
+        }
+    ],
+    "items" : [
+        {
+            "id" : 1,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item1.png",
+            "title" : "Red paper chips",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$48",
+            "oldPrice" : "$68",
+            "rating" : "3.8",
+            "reviews" : "154",
+            "isLike" : false
+        },
+        {
+            "id" : 2,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item2.png",
+            "title" : "Pepsi Cane",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$71",
+            "oldPrice" : "$97",
+            "rating" : "4.2",
+            "reviews" : "648",
+            "isLike" : false
+        },
+        {
+            "id" : 3,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item3.png",
+            "title" : "Black Salt",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$39",
+            "oldPrice" : "$48",
+            "rating" : "4.2",
+            "reviews" : "654",
+            "isLike" : false
+        },
+        {
+            "id" : 4,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item4.png",
+            "title" : "Coconut oil",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$87",
+            "oldPrice" : "$105",
+            "rating" : "4.4",
+            "reviews" : "1548"
+        },
+        {
+            "id" : 5,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item5.png",
+            "title" : "Sun anti oil",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$198",
+            "oldPrice" : "$228",
+            "rating" : "4.5",
+            "reviews" : "874"
+        },
+        {
+            "id" : 6,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item6.png",
+            "title" : "White Flour",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$65",
+            "oldPrice" : "$98",
+            "rating" : "3.5",
+            "reviews" : "458"
+        },
+        {
+            "id" : 7,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item7.png",
+            "title" : "White Flour",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$157",
+            "oldPrice" : "$345",
+            "rating" : "4.5",
+            "reviews" : "185"
+        },
+        {
+            "id" : 8,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item8.png",
+            "title" : "Coconut oil",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$67",
+            "oldPrice" : "$95",
+            "rating" : "4.2",
+            "reviews" : "418"
+        },
+        {
+            "id" : 9,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item9.png",
+            "title" : "turmeric powder",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$154",
+            "oldPrice" : "$258",
+            "rating" : "4.1",
+            "reviews" : "1545"
+        },
+        {
+            "id" : 10,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item10.png",
+            "title" : "Soyabin powder",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$198",
+            "oldPrice" : "$295",
+            "rating" : "4.2",
+            "reviews" : "395"
+        },
+        {
+            "id" : 11,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item11.png",
+            "title" : "Pineapple juice",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$145",
+            "oldPrice" : "$295",
+            "rating" : "4.4",
+            "reviews" : "489"
+        },
+        {
+            "id" : 12,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item12.png",
+            "title" : "Flour biscuite",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$198",
+            "oldPrice" : "$285",
+            "rating" : "3.8",
+            "reviews" : "1567"
+        },
+        {
+            "id" : 13,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item13.png",
+            "title" : "Dark Chocolate",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$186",
+            "oldPrice" : "$255",
+            "rating" : "4.6",
+            "reviews" : "1245"
+        },
+        {
+            "id" : 14,
+            "image" : "https://appzilla.dexignzone.com/wedo/grocery/products/item14.png",
+            "title" : "Cadbury Chocolate",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "147"
+        }
+    ]
+}

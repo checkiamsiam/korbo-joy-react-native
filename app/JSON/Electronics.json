@@ -1,0 +1,353 @@
+{
+    "slider" : [
+        {
+            "id" : "1",
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/banner/banner1.png"
+        },
+        {
+            "id" : "2",
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/banner/banner2.png"
+        },
+        {
+            "id" : "3",
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/banner/banner3.png"
+        }
+    ],
+    "categories" : [
+        {
+            "title" : "Laptops",
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/categories/pic1.png"
+        },
+        {
+            "title" : "Headphones",
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/categories/pic2.png"
+        },
+        {
+            "title" : "Cameras",
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/categories/pic3.png"
+        },
+        {
+            "title" : "Speakers",
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/categories/pic4.png"
+        },
+        {
+            "title" : "Watches",
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/categories/pic5.png"
+        },
+        {
+            "title" : "Mobile Accessories",
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/categories/pic6.png"
+        },
+        {
+            "title" : "Gaming Accessories",
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/categories/pic7.png"
+        },
+        {
+            "title" : "Tablets",
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/categories/pic8.png"
+        }
+    ],
+    "sale" : [
+        {
+            "layout" : "1",
+            "title" : "Top Offers on week",
+            "items" : [
+                {
+                    "title" : "Thin & Light Laptops",
+                    "image" : "https://appzilla.dexignzone.com/wedo/electronics/items/pic1.png",
+                    "offer" : "From ₹20,999"
+                },
+                {
+                    "title" : "Wireless Earbuds",
+                    "image" : "https://appzilla.dexignzone.com/wedo/electronics/items/pic2.png",
+                    "offer" : "From ₹1,299"
+                },
+                {
+                    "title" : "Entertainment Tablets",
+                    "image" : "https://appzilla.dexignzone.com/wedo/electronics/items/pic3.png",
+                    "offer" : "Up to 50% off"
+                },
+                {
+                    "title" : "Gaming Monitors",
+                    "image" : "https://appzilla.dexignzone.com/wedo/electronics/items/pic4.png",
+                    "offer" : "From ₹8,999"
+                }
+            ]
+        },
+        {
+            "layout" : "2",
+            "title" : "Most Reviewed Items",
+            "items" : [
+                {
+                    "title" : "Asus TUF Gaming",
+                    "image" : "https://appzilla.dexignzone.com/wedo/electronics/items/pic5.png",
+                    "offer" : "50 - 80% off"
+                },
+                {
+                    "title" : "boAt Bassheads",
+                    "image" : "https://appzilla.dexignzone.com/wedo/electronics/items/pic6.png",
+                    "offer" : "upto 50% off"
+                },
+                {
+                    "title" : "Hyper x Gaming",
+                    "image" : "https://appzilla.dexignzone.com/wedo/electronics/items/pic7.png",
+                    "offer" : "50 - 80% off"
+                },
+                {
+                    "title" : "Gaming keyboard",
+                    "image" : "https://appzilla.dexignzone.com/wedo/electronics/items/pic8.png",
+                    "offer" : "80% off"
+                }
+            ]
+        }
+    ],
+    "middleBanner" : "https://appzilla.dexignzone.com/wedo/electronics/banner/banner4.png",
+    "recentViewItems" : [
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/items/pic2.png",
+            "title" : "Wireless earbuds",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "60% off",
+            "price" : "₹1,299",
+            "oldPrice" : "1590"
+        },
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/items/pic4.png",
+            "title" : "Asus Laptop",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "60% off",
+            "price" : "₹40,299",
+            "oldPrice" : "55,999"
+        },
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/items/pic3.png",
+            "title" : "Xiomi Tablet",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "60% off",
+            "price" : "₹15,599",
+            "oldPrice" : "20,999"
+        }
+    ],
+    "items" : [
+        {
+            "id" : 1,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item1.png",
+            "title" : "Apple MacBook Pro",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$1250.5",
+            "oldPrice" : "$1500",
+            "rating" : "4.0",
+            "reviews" : "720",
+            "isLike" : false
+        },
+        {
+            "id" : 2,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item2.png",
+            "title" : "Asus HQ067WS TUF F15",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$1150",
+            "oldPrice" : "$1400",
+            "rating" : "4.2",
+            "reviews" : "543",
+            "isLike" : false
+        },
+        {
+            "id" : 3,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item3.png",
+            "title" : "Dell Alienware 15 R4",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$1050",
+            "oldPrice" : "$1200",
+            "rating" : "4.2",
+            "reviews" : "651",
+            "isLike" : false
+        },
+        {
+            "id" : 4,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item4.png",
+            "title" : "Yamaha YH-L700A Advance",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$450.5",
+            "oldPrice" : "$600",
+            "rating" : "4.1",
+            "reviews" : "975",
+            "isLike" : false
+        },
+        {
+            "id" : 5,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item5.png",
+            "title" : "Nokia Headset T4010",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$450.5",
+            "oldPrice" : "$1000",
+            "rating" : "4.4",
+            "reviews" : "152",
+            "isLike" : false
+        },
+        {
+            "id" : 6,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item6.png",
+            "title" : "Fujifilm GFX 100S Mirrorless",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$1152.15",
+            "oldPrice" : "$1600",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 7,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item7.png",
+            "title" : "Sony Alpha ILCE-1 Mirrorless",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$768.6",
+            "oldPrice" : "$1000",
+            "rating" : "4.2",
+            "reviews" : "458",
+            "isLike" : false
+        },
+        {
+            "id" : 8,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item8.png",
+            "title" : "Bose S1 Pro Bluetooth Party Speaker",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$620",
+            "oldPrice" : "$800",
+            "rating" : "4.2",
+            "reviews" : "959",
+            "isLike" : false
+        },
+        {
+            "id" : 9,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item9.png",
+            "title" : "Sony SA-D40 80 watts 4.1 Channel Speaker",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$142.8",
+            "oldPrice" : "$250",
+            "rating" : "4.2",
+            "reviews" : "748",
+            "isLike" : false
+        },
+        {
+            "id" : 10,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item10.png",
+            "title" : "Noise ColorFit Pulse Grand Smart Watch",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$561.2",
+            "oldPrice" : "$750",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 11,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item11.png",
+            "title" : "Garmin Fenix 6 1.3 Inch",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$523.7",
+            "oldPrice" : "$700",
+            "rating" : "4.2",
+            "reviews" : "95",
+            "isLike" : false
+        },
+        {
+            "id" : 12,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item12.png",
+            "title" : "SAMSUNG Galaxy Watch5 Smartwatch",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$450.6",
+            "oldPrice" : "$700",
+            "rating" : "4.2",
+            "reviews" : "252",
+            "isLike" : false
+        },
+        {
+            "id" : 14,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item13.png",
+            "title" : "25W Travel Adapter TA800 Black",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 15,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item14.png",
+            "title" : "DualShock 4 Wireless Controller for PlayStation 4",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 16,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item15.png",
+            "title" : "Hori Wireless Controller Light for PlayStation 4",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 17,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item16.png",
+            "title" : "Xiaomi Mi Pad 5 (Cosmic Gray, 128GB, 6GB RAM)",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 18,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item17.png",
+            "title" : "Acer Nitro Gaming Monitor |QG221Q",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 19,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item18.png",
+            "title" : "APPLE Airpods Pro with MagSafe Charging Case",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 20,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item19.png",
+            "title" : "Bose Sport 805746-0020 In-Ear Truly Wireless Earbuds",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 21,
+            "image" : "https://appzilla.dexignzone.com/wedo/electronics/products/item20.png",
+            "title" : "Logitech G413 TKL SE Wired Mechanical Gaming Keyboard",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        }
+    ]
+}

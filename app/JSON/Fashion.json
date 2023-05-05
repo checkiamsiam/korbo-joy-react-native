@@ -1,0 +1,321 @@
+{
+    "slider" : [
+        {
+            "id" : "1",
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/banner/banner3.png"
+        },
+        {
+            "id" : "2",
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/banner/banner4.png"
+        },
+        {
+            "id" : "3",
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/banner/banner2.png"
+        }
+    ],
+    "categories" : [
+        {
+            "title" : "Men",
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/categories/pic1.png"
+        },
+        {
+            "title" : "Women",
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/categories/pic2.png"
+        },
+        {
+            "title" : "Footwear",
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/categories/pic3.png"
+        },
+        {
+            "title" : "Shirts",
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/categories/pic5.png"
+        },
+        {
+            "title" : "Luaggage",
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/categories/pic6.png"
+        },
+        {
+            "title" : "Sunglasses",
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/categories/pic7.png"
+        },
+        {
+            "title" : "Wallets",
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/categories/pic8.png"
+        },
+        {
+            "title" : "T-shirts",
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/categories/pic4.png"
+        }
+    ],
+    "sale" : [
+        {
+            "layout" : "1",
+            "title" : "Top Offers on week",
+            "items" : [
+                {
+                    "title" : "T-shirts",
+                    "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic1.png",
+                    "offer" : "50% of upto 200"
+                },
+                {
+                    "title" : "Running Shoes",
+                    "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic2.png",
+                    "offer" : "Up to 50% off"
+                },
+                {
+                    "title" : "Watches",
+                    "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic3.png",
+                    "offer" : "Start from 150"
+                },
+                {
+                    "title" : "Dress & Lehengs",
+                    "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic4.png",
+                    "offer" : "Up to 25% off"
+                },
+                {
+                    "title" : "Casual Shoes",
+                    "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic5.png",
+                    "offer" : "Up to 50% off"
+                }
+            ]
+        },
+        {
+            "layout" : "2",
+            "title" : "Most Reviewed Styles",
+            "items" : [
+                {
+                    "title" : "Wrong, HRX Roadster",
+                    "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic6.png",
+                    "offer" : "50 - 80% off"
+                },
+                {
+                    "title" : "Adidas, Nike, Rebook",
+                    "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic7.png",
+                    "offer" : "upto 50% off"
+                },
+                {
+                    "title" : "Raymond Shirts",
+                    "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic8.png",
+                    "offer" : "50 - 80% off"
+                },
+                {
+                    "title" : "Adidas Shoes",
+                    "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic9.png",
+                    "offer" : "80% off"
+                },
+                {
+                    "title" : "Wrong, HRX Roadster",
+                    "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic10.png",
+                    "offer" : "50 - 80% off"
+                },
+                {
+                    "title" : "Raymond Shirts",
+                    "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic11.png",
+                    "offer" : "50% off"
+                }
+            ]
+        }
+    ],
+    "trendItems" : {
+        "title" : "# In Trend Now",
+        "data" : [
+            {
+                "title" : "Party Dresses",
+                "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic12.png"
+            },
+            {
+                "title" : "Caracter T-shirts",
+                "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic13.png"
+            },
+            {
+                "title" : "Classic Polo T-shirts",
+                "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic14.png"
+            },
+            {
+                "title" : "Rhinestone Watches",
+                "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic15.png"
+            },
+            {
+                "title" : "Colorblock Sneakers",
+                "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic16.png"
+            },
+            {
+                "title" : "Half Shirts",
+                "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic17.png"
+            }
+        ]
+    },
+    "middleBanner" : "https://appzilla.dexignzone.com/wedo/fashion/banner/banner1.png",
+    "recentViewItems" : [
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic2.png",
+            "title" : "Nike Shoes",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "60% off",
+            "price" : "₹499",
+            "oldPrice" : "1290"
+        },
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic6.png",
+            "title" : "Wrong, HRX Roadster",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "60% off",
+            "price" : "₹499",
+            "oldPrice" : "1290"
+        },
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/items/pic3.png",
+            "title" : "Rinestone watche",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "60% off",
+            "price" : "₹499",
+            "oldPrice" : "1290"
+        }
+    ],
+    "items" : [
+        {
+            "id" : 1,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item1.jpg",
+            "title" : "Leather Retail",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$258.15",
+            "oldPrice" : "$400",
+            "rating" : "4.0",
+            "reviews" : "150",
+            "status" : "Trending",
+            "isLike" : false
+        },{
+            "id" : 2,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item2.jpg",
+            "title" : "U.S. Polo Assn.",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$185",
+            "oldPrice" : "$300",
+            "rating" : "3.8",
+            "reviews" : "585",
+            "isLike" : false
+        },{
+            "id" : 3,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item3.jpg",
+            "title" : "HRX by Hrithik Roshan",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$365.1",
+            "oldPrice" : "$500",
+            "rating" : "4.4",
+            "reviews" : "154",
+            "isLike" : false
+        },{
+            "id" : 4,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item4.jpg",
+            "title" : "Tokyo Talkies",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$196.4",
+            "oldPrice" : "$350",
+            "rating" : "4.5",
+            "reviews" : "658",
+            "status" : "Sale",
+            "isLike" : false
+        },{
+            "id" : 5,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item5.jpg",
+            "title" : "Jack & Jones",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$178.5",
+            "oldPrice" : "$250",
+            "rating" : "4.1",
+            "reviews" : "298",
+            "isLike" : false
+        },{
+            "id" : 6,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item6.jpg",
+            "title" : "HIGHLANDER",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$218",
+            "oldPrice" : "$300",
+            "rating" : "4.3",
+            "reviews" : "181",
+            "isLike" : false
+        },{
+            "id" : 7,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item7.jpg",
+            "title" : "Allen Solly",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$682",
+            "oldPrice" : "$1000",
+            "rating" : "3.8",
+            "reviews" : "158",
+            "status" : "Trending",
+            "isLike" : false
+        },{
+            "id" : 8,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item8.jpg",
+            "title" : "Allen Solly Sport",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$154",
+            "oldPrice" : "$200",
+            "rating" : "4.4",
+            "reviews" : "784",
+            "isLike" : false
+        },{
+            "id" : 9,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item9.png",
+            "title" : "Dexture Air Jordan",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$425",
+            "oldPrice" : "$550",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 10,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item10.png",
+            "title" : "Lace Fastening Flat",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$551",
+            "oldPrice" : "$658",
+            "rating" : "4.5",
+            "reviews" : "684",
+            "isLike" : false
+        },{
+            "id" : 11,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item11.png",
+            "title" : "Vincent Chase Polarized",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$295",
+            "oldPrice" : "$350",
+            "rating" : "4.1",
+            "reviews" : "142",
+            "isLike" : false
+        },{
+            "id" : 12,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item12.png",
+            "title" : "FASTRACK Black Wayfarer",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$516",
+            "oldPrice" : "$654",
+            "rating" : "3.2",
+            "reviews" : "54",
+            "isLike" : false
+        },{
+            "id" : 13,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item13.png",
+            "title" : "Monte Carlo Hardside",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$748",
+            "oldPrice" : "$1054",
+            "rating" : "3.9",
+            "reviews" : "187",
+            "isLike" : false
+        },{
+            "id" : 14,
+            "image" : "https://appzilla.dexignzone.com/wedo/fashion/products/item14.png",
+            "title" : "Coastline Hard luggage",
+            "desc" : "Solid Denim Jacket",
+            "price" : "$148",
+            "oldPrice" : "$204",
+            "rating" : "4.2",
+            "reviews" : "658",
+            "isLike" : false
+        }
+    ]
+}

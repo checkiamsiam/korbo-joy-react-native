@@ -1,0 +1,251 @@
+{
+    "slider" : [
+        {
+            "id" : "1",
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/banner/banner1.png"
+        },
+        {
+            "id" : "2",
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/banner/banner2.png"
+        },
+        {
+            "id" : "3",
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/banner/banner3.png"
+        }
+    ],
+    "categories" : [
+        {
+            "title" : "Apple",
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/categories/pic1.png"
+        },
+        {
+            "title" : "One Plus",
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/categories/pic2.png"
+        },
+        {
+            "title" : "Xiaomi",
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/categories/pic3.png"
+        },
+        {
+            "title" : "Samsung",
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/categories/pic4.png"
+        },
+        {
+            "title" : "Motorola",
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/categories/pic5.png"
+        },
+        {
+            "title" : "Vivo",
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/categories/pic6.png"
+        },
+        {
+            "title" : "OPPO",
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/categories/pic7.png"
+        },
+        {
+            "title" : "realme",
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/categories/pic8.png"
+        }
+    ],
+    "sale" : [
+        {
+            "layout" : "1",
+            "title" : "Top Offers on week",
+            "items" : [
+                {
+                    "title" : "realme GT Neo 3T",
+                    "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic1.png",
+                    "offer" : "From ₹23,999"
+                },
+                {
+                    "title" : "Moto g62 5G",
+                    "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic2.png",
+                    "offer" : "From ₹14,999"
+                },
+                {
+                    "title" : "POCO M4 Pro 5G",
+                    "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic3.png",
+                    "offer" : "From ₹12,249"
+                },
+                {
+                    "title" : "Infinix Hot 12 Pro",
+                    "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic4.png",
+                    "offer" : "From ₹8,999"
+                },
+                {
+                    "title" : "vivo T1 44w",
+                    "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic5.png",
+                    "offer" : "From ₹12,999"
+                }
+            ]
+        },
+        {
+            "layout" : "2",
+            "title" : "Most Reviewed Mobiles",
+            "items" : [
+                {
+                    "title" : "OPPO Reno8 5G",
+                    "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic6.png",
+                    "offer" : "50 - 80% off"
+                },
+                {
+                    "title" : "iPhone 12",
+                    "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic7.png",
+                    "offer" : "upto 50% off"
+                },
+                {
+                    "title" : "Google Pixel 6a",
+                    "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic8.png",
+                    "offer" : "50 - 80% off"
+                },
+                {
+                    "title" : "Samsung F23 5G",
+                    "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic9.png",
+                    "offer" : "80% off"
+                }
+            ]
+        }
+    ],
+    "trendItems" : {
+        "title" : "# Best Sellers",
+        "data" : [
+            {
+                "title" : "Google Pixel 7",
+                "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic10.png"
+            },
+            {
+                "title" : "motorola edge 30",
+                "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic11.png"
+            },
+            {
+                "title" : "Samsung Galaxy S23",
+                "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic12.png"
+            },
+            {
+                "title" : "OPPO Reno8 5G",
+                "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic13.png"
+            },
+            {
+                "title" : "realme 9i 5G",
+                "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic14.png"
+            }
+        ]
+    },
+    "middleBanner" : "https://appzilla.dexignzone.com/wedo/mobiles/banner/banner4.png",
+    "recentViewItems" : [
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic2.png",
+            "title" : "Moto g62 5G",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "60% off",
+            "price" : "₹499",
+            "oldPrice" : "1290"
+        },
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic1.png",
+            "title" : "realme GT Neo 3T",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "60% off",
+            "price" : "₹499",
+            "oldPrice" : "1290"
+        },
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/items/pic3.png",
+            "title" : "POCO M4 Pro 5G",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "60% off",
+            "price" : "₹499",
+            "oldPrice" : "1290"
+        }
+    ],
+    "items" : [
+        {
+            "id" : 1,
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/products/item1.png",
+            "title" : "Huwai p50 Pro",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$289.85",
+            "oldPrice" : "$400",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 2,
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/products/item2.png",
+            "title" : "Xiaomi Note 12",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$217.39",
+            "oldPrice" : "$380",
+            "rating" : "4.4",
+            "reviews" : "1250",
+            "isLike" : false
+        },
+        {
+            "id" : 3,
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/products/item3.png",
+            "title" : "Redmi 9a",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$120.77",
+            "oldPrice" : "$200",
+            "rating" : "4.0",
+            "reviews" : "150",
+            "isLike" : false
+        },
+        {
+            "id" : 4,
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/products/item4.png",
+            "title" : "iPhone 12",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$1,250",
+            "oldPrice" : "$2,000",
+            "rating" : "4.2",
+            "reviews" : "320",
+            "isLike" : false
+        },
+        {
+            "id" : 5,
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/products/item5.png",
+            "title" : "Pantech",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$350",
+            "oldPrice" : "$450",
+            "rating" : "3.5",
+            "reviews" : "1125",
+            "isLike" : false
+        },
+        {
+            "id" : 6,
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/products/item6.png",
+            "title" : "OPPO Reno8 5G",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$525.5",
+            "oldPrice" : "$800",
+            "rating" : "3.9",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 7,
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/products/item7.png",
+            "title" : "Xiaomi 11 i",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$320.15",
+            "oldPrice" : "$400",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 8,
+            "image" : "https://appzilla.dexignzone.com/wedo/mobiles/products/item8.png",
+            "title" : "Fairphone",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$285",
+            "oldPrice" : "$350",
+            "rating" : "4.4",
+            "reviews" : "1420",
+            "isLike" : false
+        }
+    ]
+}

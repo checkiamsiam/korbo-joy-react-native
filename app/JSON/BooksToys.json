@@ -1,0 +1,263 @@
+{
+    "slider" : [
+        {
+            "id" : "1",
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/banner/banner1.png"
+        },
+        {
+            "id" : "2",
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/banner/banner2.png"
+        },
+        {
+            "id" : "3",
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/banner/banner3.png"
+        }
+    ],
+    "categories" : [
+        {
+            "title" : "Soft Toys",
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/categories/pic1.png"
+        },
+        {
+            "title" : "Baby Care Essentials",
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/categories/pic2.png"
+        },
+        {
+            "title" : "Remote Control Toys",
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/categories/pic3.png"
+        },
+        {
+            "title" : "Stationary",
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/categories/pic4.png"
+        }
+    ],
+    "sale" : [
+        {
+            "layout" : "1",
+            "title" : "Top Offers on week",
+            "items" : [
+                {
+                    "title" : "Drones",
+                    "image" : "https://appzilla.dexignzone.com/wedo/toys/items/pic1.png",
+                    "offer" : "Up to 50% off"
+                },
+                {
+                    "title" : "Tents & Beach Toys",
+                    "image" : "https://appzilla.dexignzone.com/wedo/toys/items/pic2.png",
+                    "offer" : "Up to 60% off"
+                },
+                {
+                    "title" : "School Supplies",
+                    "image" : "https://appzilla.dexignzone.com/wedo/toys/items/pic3.png",
+                    "offer" : "Up to 50% off"
+                },
+                {
+                    "title" : "RC Cars & more",
+                    "image" : "https://appzilla.dexignzone.com/wedo/toys/items/pic4.png",
+                    "offer" : "From ₹499"
+                }
+            ]
+        },
+        {
+            "layout" : "2",
+            "title" : "Most Reviewed Items",
+            "items" : [
+                {
+                    "title" : "Cycles",
+                    "image" : "https://appzilla.dexignzone.com/wedo/toys/items/pic5.png",
+                    "offer" : "From ₹6,999"
+                },
+                {
+                    "title" : "Guitar",
+                    "image" : "https://appzilla.dexignzone.com/wedo/toys/items/pic6.png",
+                    "offer" : "Up to 50% off"
+                },
+                {
+                    "title" : "Diapers",
+                    "image" : "https://appzilla.dexignzone.com/wedo/toys/items/pic7.png",
+                    "offer" : "Up to 60% off"
+                },
+                {
+                    "title" : "Baby Hair Care",
+                    "image" : "https://appzilla.dexignzone.com/wedo/toys/items/pic8.png",
+                    "offer" : "From ₹255"
+                }
+            ]
+        }
+    ],
+    "middleBanner" : "https://appzilla.dexignzone.com/wedo/toys/banner/banner4.png",
+    "recentViewItems" : [
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/items/pic2.png",
+            "title" : "Water Purifiers",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "30% off",
+            "price" : "₹1,299",
+            "oldPrice" : "1590"
+        },
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/items/pic4.png",
+            "title" : "Refrigerators",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "20% off",
+            "price" : "₹250",
+            "oldPrice" : "300"
+        }
+    ],
+    "items" : [
+        {
+            "id" : 1,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item1.png",
+            "title" : "Mirada 55Cm Jumbo Butter Cream Color Teddy Bear",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 2,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item2.png",
+            "title" : "Remote Control Rock Crawler",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 3,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item3.png",
+            "title" : "ARVEL Cream 4 Feet Teddy Bear",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 4,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item4.png",
+            "title" : "Yamaha FS80C Black Acoustic Guitar",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 5,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item5.png",
+            "title" : "Playzu F1 Remote Control Die Cast",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 6,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item6.png",
+            "title" : "32 Ltrs Grey Casual Backpack",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 7,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item7.png",
+            "title" : "Pampers pack",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 8,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item8.png",
+            "title" : "baby oil",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 9,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item9.png",
+            "title" : "TOYS 2.4GHz 4WD 6 Wheel Remote Controlled Car",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 10,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item10.png",
+            "title" : "Mavic Mini 2 Fly More Combo",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 11,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item11.png",
+            "title" : "Omobikes Hybrid Cycle",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 12,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item12.png",
+            "title" : "Oil Products",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 13,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item13.png",
+            "title" : "Wooden Guitar",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },
+        {
+            "id" : 14,
+            "image" : "https://appzilla.dexignzone.com/wedo/toys/products/item14.png",
+            "title" : "Tant house",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        }
+    ]
+}

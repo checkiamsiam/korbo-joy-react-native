@@ -1,0 +1,266 @@
+{
+    "slider" : [
+        {
+            "id" : "1",
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/banner/banner1.png"
+        },
+        {
+            "id" : "2",
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/banner/banner2.png"
+        },
+        {
+            "id" : "3",
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/banner/banner3.png"
+        }
+    ],
+    "categories" : [
+        {
+            "title" : "Televisions",
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/categories/pic1.png"
+        },
+        {
+            "title" : "Refrigerators",
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/categories/pic2.png"
+        },
+        {
+            "title" : "AC",
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/categories/pic3.png"
+        },
+        {
+            "title" : "Microwaves",
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/categories/pic4.png"
+        },
+        {
+            "title" : "Washing Machines",
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/categories/pic5.png"
+        },
+        {
+            "title" : "Kitchen Appliances",
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/categories/pic6.png"
+        },
+        {
+            "title" : "Home Appliances",
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/categories/pic7.png"
+        },
+        {
+            "title" : "Fans & Air Coolers",
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/categories/pic8.png"
+        }
+    ],
+    "sale" : [
+        {
+            "layout" : "1",
+            "title" : "Top Offers on week",
+            "items" : [
+                {
+                    "title" : "Washing Machine",
+                    "image" : "https://appzilla.dexignzone.com/wedo/appliances/items/pic1.png",
+                    "offer" : "From ₹488/m"
+                },
+                {
+                    "title" : "Water Purifiers",
+                    "image" : "https://appzilla.dexignzone.com/wedo/appliances/items/pic2.png",
+                    "offer" : "Up to 50% off"
+                },
+                {
+                    "title" : "Televisions",
+                    "image" : "https://appzilla.dexignzone.com/wedo/appliances/items/pic3.png",
+                    "offer" : "Up to 50% off"
+                },
+                {
+                    "title" : "Top Refrigerators",
+                    "image" : "https://appzilla.dexignzone.com/wedo/appliances/items/pic4.png",
+                    "offer" : "From ₹15,999"
+                }
+            ]
+        },
+        {
+            "layout" : "2",
+            "title" : "Most Reviewed Items",
+            "items" : [
+                {
+                    "title" : "Limited Offfer TV",
+                    "image" : "https://appzilla.dexignzone.com/wedo/appliances/items/pic5.png",
+                    "offer" : "From ₹6,999"
+                },
+                {
+                    "title" : "Mixers",
+                    "image" : "https://appzilla.dexignzone.com/wedo/appliances/items/pic6.png",
+                    "offer" : "Under ₹2,599"
+                },
+                {
+                    "title" : "Water Gaysers",
+                    "image" : "https://appzilla.dexignzone.com/wedo/appliances/items/pic7.png",
+                    "offer" : "Up to 60% off"
+                },
+                {
+                    "title" : "Air Conditioners",
+                    "image" : "https://appzilla.dexignzone.com/wedo/appliances/items/pic8.png",
+                    "offer" : "From ₹1,488/m"
+                }
+            ]
+        }
+    ],
+    "middleBanner" : "https://appzilla.dexignzone.com/wedo/appliances/banner/banner4.png",
+    "recentViewItems" : [
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/items/pic2.png",
+            "title" : "Water Purifiers",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "30% off",
+            "price" : "₹1,299",
+            "oldPrice" : "1590"
+        },
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/items/pic4.png",
+            "title" : "Refrigerators",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "20% off",
+            "price" : "₹250",
+            "oldPrice" : "300"
+        }
+    ],
+    "items" : [
+        {
+            "id" : 1,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item1.png",
+            "title" : "Samsung 253L Double Door Refrigerator",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 2,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item2.png",
+            "title" : "Whirlpool 265 L 2 Star Frost-Free",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 3,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item3.png",
+            "title" : "Bosch 8 kg 5 Star Inverter Fully Automatic",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 4,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item4.png",
+            "title" : "Sony ICF-P26 FM/AM",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 5,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item5.png",
+            "title" : "Havells Digi Plus 7-Litres",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 6,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item6.png",
+            "title" : "Blue Star Cresto 7",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 7,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item7.png",
+            "title" : "Philips Viva Collection",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 8,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item8.png",
+            "title" : "BLAZE HAIR DRYER",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 9,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item9.png",
+            "title" : "Haier 190L 2 Star Direct Cool Single Door",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 10,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item10.png",
+            "title" : "Voltas Beko MS20MPW10 20L",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 11,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item11.png",
+            "title" : "BRIZE Extreme 15 Metal Body",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 12,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item12.png",
+            "title" : "Voltas Minimagic Pure",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 13,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item13.png",
+            "title" : "Hisense AS-12TC4RAM0, White 1 Ton",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        },{
+            "id" : 14,
+            "image" : "https://appzilla.dexignzone.com/wedo/appliances/products/item14.png",
+            "title" : "Ambrane 2 Setting Hair Dryer",
+            "desc" : "True-Form Dual-Camera",
+            "price" : "$151.15",
+            "oldPrice" : "$255.11",
+            "rating" : "4.2",
+            "reviews" : "245",
+            "isLike" : false
+        }
+    ]
+}

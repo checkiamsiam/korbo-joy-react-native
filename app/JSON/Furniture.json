@@ -1,0 +1,271 @@
+{
+    "slider" : [
+        {
+            "id" : "1",
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/banner/banner3.png"
+        },
+        {
+            "id" : "2",
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/banner/banner2.png"
+        },
+        {
+            "id" : "3",
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/banner/banner1.png"
+        }
+    ],
+    "categories" : [
+        {
+            "title" : "Beds",
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/categories/pic1.png"
+        },
+        {
+            "title" : "Sofas",
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/categories/pic2.png"
+        },
+        {
+            "title" : "Office Chairs",
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/categories/pic3.png"
+        },
+        {
+            "title" : "Tables",
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/categories/pic4.png"
+        }
+    ],
+    "sale" : [
+        {
+            "layout" : "1",
+            "title" : "Top Offers on week",
+            "items" : [
+                {
+                    "title" : "Gaming Chairs",
+                    "image" : "https://appzilla.dexignzone.com/wedo/furniture/items/pic1.png",
+                    "offer" : "From ₹8,999"
+                },
+                {
+                    "title" : "L-Shape Sofa sets",
+                    "image" : "https://appzilla.dexignzone.com/wedo/furniture/items/pic2.png",
+                    "offer" : "From ₹14,599"
+                },
+                {
+                    "title" : "Laptop Tables",
+                    "image" : "https://appzilla.dexignzone.com/wedo/furniture/items/pic3.png",
+                    "offer" : "Up to 50% off"
+                },
+                {
+                    "title" : "Wood Storage Beds",
+                    "image" : "https://appzilla.dexignzone.com/wedo/furniture/items/pic4.png",
+                    "offer" : "From ₹11,999"
+                }
+            ]
+        },
+        {
+            "layout" : "2",
+            "title" : "Most Reviewed Items",
+            "items" : [
+                {
+                    "title" : "Bean Bags",
+                    "image" : "https://appzilla.dexignzone.com/wedo/furniture/items/pic5.png",
+                    "offer" : "50 - 80% off"
+                },
+                {
+                    "title" : "Swings",
+                    "image" : "https://appzilla.dexignzone.com/wedo/furniture/items/pic6.png",
+                    "offer" : "upto 50% off"
+                },
+                {
+                    "title" : "Dining Sets",
+                    "image" : "https://appzilla.dexignzone.com/wedo/furniture/items/pic7.png",
+                    "offer" : "50 - 80% off"
+                },
+                {
+                    "title" : "TV Units",
+                    "image" : "https://appzilla.dexignzone.com/wedo/furniture/items/pic8.png",
+                    "offer" : "80% off"
+                }
+            ]
+        }
+    ],
+    "middleBanner" : "https://appzilla.dexignzone.com/wedo/furniture/banner/banner4.png",
+    "recentViewItems" : [
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/items/pic2.png",
+            "title" : "L-Shape Sofa sets",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "60% off",
+            "price" : "₹1,299",
+            "oldPrice" : "1590"
+        },
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/items/pic4.png",
+            "title" : "Wood Storage Bed",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "60% off",
+            "price" : "₹40,299",
+            "oldPrice" : "55,999"
+        },
+        {
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/items/pic3.png",
+            "title" : "Laptop Table",
+            "desc" : "Dual dore , Red tone",
+            "offer" : "60% off",
+            "price" : "₹15,599",
+            "oldPrice" : "20,999"
+        }
+    ],
+    "items" : [
+        {
+            "id" : 1,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item3.png",
+            "title" : "Sleepwell Dual Pro Mattress",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$650",
+            "oldPrice" : "$780",
+            "rating" : "4.1",
+            "reviews" : "1451",
+            "isLike" : false
+        },
+        {
+            "id" : 2,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item4.png",
+            "title" : "Elev8 Smart Adjustable Recliner Bed",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$348",
+            "oldPrice" : "$420",
+            "rating" : "4.2",
+            "reviews" : "198",
+            "isLike" : false
+        },
+        {
+            "id" : 3,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item5.png",
+            "title" : "Parker 97 2-Piece Chaise Sectional",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$457",
+            "oldPrice" : "$650",
+            "rating" : "3.8",
+            "reviews" : "348",
+            "isLike" : false
+        },
+        {
+            "id" : 4,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item6.png",
+            "title" : "Midnight Brown Satin Bed",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$285.5",
+            "oldPrice" : "$350",
+            "rating" : "4.5",
+            "reviews" : "153",
+            "isLike" : false
+        },
+        {
+            "id" : 5,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item7.png",
+            "title" : "Elastic Stretchable Computer Chair",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$451",
+            "oldPrice" : "$584",
+            "rating" : "4.4",
+            "reviews" : "449",
+            "isLike" : false
+        },
+        {
+            "id" : 6,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item8.png",
+            "title" : "Ikkita - Dining / Arm chair",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$197",
+            "oldPrice" : "$325",
+            "rating" : "3.5",
+            "reviews" : "265",
+            "isLike" : false
+        },
+        {
+            "id" : 7,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item9.png",
+            "title" : "Gecreation Metal Living Room Chair",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$348",
+            "oldPrice" : "$482",
+            "rating" : "4.2",
+            "reviews" : "141",
+            "isLike" : false
+        },
+        {
+            "id" : 8,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item10.png",
+            "title" : "Limraz Furniture Fabric 2 Seater Sofa",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$547",
+            "oldPrice" : "$624",
+            "rating" : "4.5",
+            "reviews" : "345",
+            "isLike" : false
+        },
+        {
+            "id" : 9,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item11.png",
+            "title" : "Ormond Accent Chairs",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$248",
+            "oldPrice" : "$351",
+            "rating" : "4.4",
+            "reviews" : "645",
+            "isLike" : false
+        },
+        {
+            "id" : 10,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item12.png",
+            "title" : "Solid Wood Base Comfy Sofa",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$168",
+            "oldPrice" : "$285",
+            "rating" : "4.6",
+            "reviews" : "1474",
+            "isLike" : false
+        },
+        {
+            "id" : 11,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item13.png",
+            "title" : "Eliot 3 Seater Couch",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$454",
+            "oldPrice" : "$574",
+            "rating" : "4.2",
+            "reviews" : "144",
+            "isLike" : false
+        },
+        {
+            "id" : 12,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item14.png",
+            "title" : "Amazing & Luxary Sofa Sets For Home",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$864",
+            "oldPrice" : "$1545",
+            "rating" : "3.9",
+            "reviews" : "1454",
+            "isLike" : false
+        },
+        {
+            "id" : 13,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item1.png",
+            "title" : "Sleepwell Dual Pro Mattress",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$354",
+            "oldPrice" : "$497",
+            "rating" : "4.2",
+            "reviews" : "541",
+            "isLike" : false
+        },
+        {
+            "id" : 14,
+            "image" : "https://appzilla.dexignzone.com/wedo/furniture/products/item2.png",
+            "title" : "Beavin Plain Double Bed",
+            "desc" : "Medium Soft Feel with Responsive",
+            "price" : "$187",
+            "oldPrice" : "$350",
+            "rating" : "4.5",
+            "reviews" : "174",
+            "isLike" : false
+        }
+    ]
+}
