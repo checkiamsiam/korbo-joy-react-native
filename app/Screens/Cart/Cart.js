@@ -3,6 +3,7 @@ import {
   Image,
   SafeAreaView,
   ScrollView,
+  StatusBar,
   Text,
   TextInput,
   TouchableOpacity,
@@ -51,6 +52,7 @@ const Cart = ({ navigation }) => {
       style={{
         flex: 1,
         backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
       }}
     >
       <Header

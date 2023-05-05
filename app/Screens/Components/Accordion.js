@@ -1,25 +1,23 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
-import DropShadow from 'react-native-drop-shadow';
-import Header from '../../layout/Header';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import { COLORS, FONTS, SIZES } from '../../constants/theme';
-import ClassicAccordion from '../../components/Accordion/ClassicAccordion';
-import AccordionHighlight from '../../components/Accordion/AccordionHighlight';
-import AccordionSeprator from '../../components/Accordion/AccordionSeprator';
+import React from "react";
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
+import DropShadow from "react-native-drop-shadow";
+import AccordionHighlight from "../../components/Accordion/AccordionHighlight";
+import AccordionSeprator from "../../components/Accordion/AccordionSeprator";
+import ClassicAccordion from "../../components/Accordion/ClassicAccordion";
+import { GlobalStyleSheet } from "../../constants/StyleSheet";
+import { COLORS, FONTS, SIZES } from "../../constants/theme";
+import Header from "../../layout/Header";
 
 const AccordionScreen = () => {
   return (
     <>
-      <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
-      >
-        <Header titleLeft title={'Accordions'} leftIcon={'back'} />
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+        <Header titleLeft title={"Accordions"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
             <DropShadow
               style={{
-                shadowColor: '#000',
+                shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
                   height: 5,
@@ -40,16 +38,14 @@ const AccordionScreen = () => {
                   >
                     Classic Accordion
                   </Text>
-                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
-                    You can use accordion with icon or without icon.
-                  </Text>
+                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>You can use accordion with icon or without icon.</Text>
                 </View>
                 <ClassicAccordion />
               </View>
             </DropShadow>
             <DropShadow
               style={{
-                shadowColor: '#000',
+                shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
                   height: 5,
@@ -70,16 +66,14 @@ const AccordionScreen = () => {
                   >
                     Accordion Highlight
                   </Text>
-                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
-                    You can use accordion with icon or without icon.
-                  </Text>
+                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>You can use accordion with icon or without icon.</Text>
                 </View>
                 <AccordionHighlight />
               </View>
             </DropShadow>
             <DropShadow
               style={{
-                shadowColor: '#000',
+                shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
                   height: 5,
@@ -100,9 +94,7 @@ const AccordionScreen = () => {
                   >
                     Accordion Seprator
                   </Text>
-                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
-                    You can use accordion with icon or without icon.
-                  </Text>
+                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>You can use accordion with icon or without icon.</Text>
                 </View>
                 <AccordionSeprator />
               </View>

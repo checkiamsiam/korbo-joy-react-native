@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, ScrollView, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import Ripple from "react-native-material-ripple";
 import { SvgXml } from "react-native-svg";
 import FeatherIcon from "react-native-vector-icons/Feather";
@@ -167,7 +167,7 @@ const Components = (props) => {
 
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white, paddingTop: StatusBar.currentHeight }}>
         <Header leftIcon={"back"} titleLeft title={"Components"} />
         <ScrollView contentContainerStyle={{ paddingBottom: 10, paddingTop: 5 }}>
           {ComponentData.map((data, index) => {

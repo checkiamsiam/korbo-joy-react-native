@@ -1,6 +1,6 @@
 import { useTheme } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView, ScrollView, View } from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, View } from "react-native";
 import HeaderStyle1 from "../../components/Headers/HeaderStyle1";
 import HeaderStyle2 from "../../components/Headers/HeaderStyle2";
 import HeaderStyle3 from "../../components/Headers/HeaderStyle3";
@@ -12,7 +12,7 @@ const Headers = (props) => {
 
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}>
         <Header title={"Header styles"} bgWhite leftIcon={"back"} />
         <ScrollView>
           <View style={{ paddingVertical: 30 }}>

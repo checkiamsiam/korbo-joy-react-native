@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+import { LinearGradient } from 'expo-linear-gradient';
 import { IconButton } from "react-native-paper";
 import Swiper from "react-native-swiper";
 import FeatherIcon from "react-native-vector-icons/Feather";
@@ -15,6 +15,7 @@ import ProductCardStyle2 from "../../components/ProductCardStyle2";
 import ProductListItem from "../../components/ProductListItem";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS } from "../../constants/theme";
+import { StatusBar } from "react-native";
 
 const CategoryHome = ({ navigation, route }) => {
   const { title } = route.params;
@@ -40,6 +41,7 @@ const CategoryHome = ({ navigation, route }) => {
       style={{
         flex: 1,
         backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
       }}
     >
       <View

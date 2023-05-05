@@ -59,7 +59,7 @@ const StackNavigator = () => {
         detachInactiveScreens={true}
         screenOptions={{
           headerShown: false,
-          cardStyle: { backgroundColor: "transparent" },
+          cardStyle: { backgroundColor: "transparent"},
         }}
       >
         <StackComponent.Screen name={"Splash"} component={Splash} />

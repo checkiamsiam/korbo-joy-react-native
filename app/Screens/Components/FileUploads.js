@@ -9,6 +9,7 @@ import Button from "../../components/Button/Button";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import Header from "../../layout/Header";
+import { StatusBar } from "react-native";
 
 const FileUploads = (props) => {
   const { colors } = useTheme();
@@ -43,7 +44,7 @@ const FileUploads = (props) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}>
       <Header titleLeft title={"File Upload"} leftIcon={"back"} />
       <ScrollView>
         <View style={GlobalStyleSheet.container}>

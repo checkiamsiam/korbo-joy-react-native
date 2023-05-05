@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
 import Collapsible from 'react-native-collapsible';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Header from '../../layout/Header';
@@ -18,7 +18,7 @@ const CollapseElements = () => {
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight}}
       >
         <Header titleLeft title={'Collapse'} leftIcon={'back'} />
         <ScrollView>

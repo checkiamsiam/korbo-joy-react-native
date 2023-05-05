@@ -7,6 +7,7 @@ import Header from '../../layout/Header';
 import { COLORS } from '../../constants/theme';
 import ListStyle1 from '../../components/list/ListStyle1';
 import { showMessage } from "react-native-flash-message";
+import { StatusBar } from 'react-native';
 
 const Snackbars = () => {
   const ShowSnackbarSuccess = () => {
@@ -37,7 +38,7 @@ const Snackbars = () => {
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}
       >
         <Header title={'Snackbars'} titleLeft leftIcon={'back'} />
         <ScrollView>

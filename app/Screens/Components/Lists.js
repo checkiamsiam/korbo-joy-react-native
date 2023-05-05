@@ -13,6 +13,7 @@ import pic3 from '../../assets/images/small/pic3.jpg';
 import pic4 from '../../assets/images/small/pic4.jpg';
 import ListStyle2 from '../../components/list/ListStyle2';
 import DropShadow from 'react-native-drop-shadow';
+import { StatusBar } from 'react-native';
 
 const table =
   '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><rect fill="#4A89DC" opacity="0.3" x="4" y="5" width="16" height="6" rx="1.5"/><rect fill="#4A89DC" x="4" y="13" width="16" height="6" rx="1.5"/></g></svg>';
@@ -27,7 +28,7 @@ const ListScreen = () => {
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}
       >
         <Header titleLeft title={'List Styles'} leftIcon={'back'} />
         <ScrollView>

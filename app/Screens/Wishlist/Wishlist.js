@@ -4,6 +4,7 @@ import { Snackbar } from "react-native-paper";
 import ItemCard from "../../components/ItemCard";
 import { COLORS } from "../../constants/theme";
 import Header from "../../layout/Header";
+import { StatusBar } from "react-native";
 
 const WishlistData = [
   {
@@ -115,6 +116,7 @@ const Wishlist = () => {
       style={{
         flex: 1,
         backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
       }}
     >
       <Header leftIcon={"back"} title={"Wishlist"} rightIcon={"grid"} itemView={itemView} setItemView={setItemView} />

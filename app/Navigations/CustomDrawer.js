@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { COLORS, FONTS, IMAGES } from "../constants/theme";
 
@@ -54,7 +54,7 @@ const CustomDrawer = ({ navigation }) => {
 
   return (
     <>
-      <View style={{ flex: 1, backgroundColor: COLORS.white }}>
+      <View style={{ flex: 1, backgroundColor: COLORS.white, paddingTop: StatusBar.currentHeight }}>
         <View
           style={{
             flexDirection: "row",

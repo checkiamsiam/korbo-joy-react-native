@@ -21,6 +21,7 @@ import UnitedStates from "../../assets/images/flags/UnitedStates.png";
 import german from "../../assets/images/flags/german.png";
 import italian from "../../assets/images/flags/italian.png";
 import spanish from "../../assets/images/flags/spanish.png";
+import { StatusBar } from "react-native";
 
 const languagetData = [
   {
@@ -114,6 +115,7 @@ const Profile = ({ navigation }) => {
         style={{
           flex: 1,
           backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
         }}
       >
         <Header title={"Profile"} />

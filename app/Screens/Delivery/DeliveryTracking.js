@@ -14,6 +14,7 @@ import Header from '../../layout/Header';
 import CheckoutItem from '../../components/CheckoutItem';
 import { GlobalStyleSheet } from '../../constants/StyleSheet';
 import DeliveryMap from './DeliveryMap';
+import { StatusBar } from 'react-native';
 
 const CheckoutData = [
   {
@@ -28,7 +29,7 @@ const CheckoutData = [
 
 const DeliveryTracking = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
       <Header
         leftIcon={'back'}
         title={'Tracking Orders'}

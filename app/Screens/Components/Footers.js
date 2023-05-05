@@ -5,12 +5,13 @@ import { GlobalStyleSheet } from '../../constants/StyleSheet';
 import { COLORS } from '../../constants/theme';
 import ListStyle1 from '../../components/list/ListStyle1';
 import DropShadow from 'react-native-drop-shadow';
+import { StatusBar } from 'react-native';
 
 const Footers = (props) => {
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}
       >
         <Header title={'Footer styles'} titleLeft leftIcon={'back'} />
         <ScrollView>

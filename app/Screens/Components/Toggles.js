@@ -8,11 +8,12 @@ import ToggleStyle4 from "../../components/Toggles/ToggleStyle4";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
+import { StatusBar } from "react-native";
 
 const Toggles = () => {
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}>
         <Header title={"Toggles"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View style={{ ...GlobalStyleSheet.container }}>
