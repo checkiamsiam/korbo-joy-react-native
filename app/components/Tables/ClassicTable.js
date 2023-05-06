@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS } from "../../constants/theme";
 
@@ -30,7 +29,7 @@ const ClassicTable = () => {
 
   return (
     <>
-      <DropShadow
+      <View
         style={{
           shadowColor: "#000",
           shadowOffset: {
@@ -39,6 +38,7 @@ const ClassicTable = () => {
           },
           shadowOpacity: 0.15,
           shadowRadius: 5,
+          elevation: 5, // This is required for Android
         }}
       >
         <View style={{ ...GlobalStyleSheet.card, padding: 5 }}>
@@ -92,7 +92,7 @@ const ClassicTable = () => {
             );
           })}
         </View>
-      </DropShadow>
+      </View>
     </>
   );
 };

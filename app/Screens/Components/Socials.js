@@ -1,30 +1,26 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import { COLORS, FONTS } from '../../constants/theme';
-import Header from '../../layout/Header';
-import SocialBtn from '../../components/Socials/SocialBtn';
-import SocialIcon from '../../components/Socials/SocialIcon';
-import DropShadow from 'react-native-drop-shadow';
-import { StatusBar } from 'react-native';
+import React from "react";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import SocialBtn from "../../components/Socials/SocialBtn";
+import SocialIcon from "../../components/Socials/SocialIcon";
+import { GlobalStyleSheet } from "../../constants/StyleSheet";
+import { COLORS, FONTS } from "../../constants/theme";
+import Header from "../../layout/Header";
 
 const Socials = () => {
   return (
     <>
-      <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}
-      >
-        <Header title={'Socials'} titleLeft leftIcon={'back'} />
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+        <Header title={"Socials"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View style={{ ...GlobalStyleSheet.container }}>
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -38,87 +34,35 @@ const Socials = () => {
                     marginBottom: 10,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
-                    Social Button
-                  </Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>Social Button</Text>
                 </View>
                 <View style={GlobalStyleSheet.row}>
                   <View style={[GlobalStyleSheet.col50, { marginBottom: 10 }]}>
-                    <SocialBtn
-                      icon={
-                        <FontAwesome
-                          name="facebook"
-                          size={16}
-                          color={COLORS.white}
-                        />
-                      }
-                      color={'#3b5998'}
-                      text={'Facebook'}
-                    />
+                    <SocialBtn icon={<FontAwesome name="facebook" size={16} color={COLORS.white} />} color={"#3b5998"} text={"Facebook"} />
                   </View>
                   <View style={[GlobalStyleSheet.col50, { marginBottom: 10 }]}>
-                    <SocialBtn
-                      icon={
-                        <FontAwesome
-                          name="linkedin-square"
-                          size={16}
-                          color={COLORS.white}
-                        />
-                      }
-                      color={'#007bb6'}
-                      text={'LinkdIn'}
-                    />
+                    <SocialBtn icon={<FontAwesome name="linkedin-square" size={16} color={COLORS.white} />} color={"#007bb6"} text={"LinkdIn"} />
                   </View>
                   <View style={[GlobalStyleSheet.col50, { marginBottom: 10 }]}>
-                    <SocialBtn
-                      icon={
-                        <FontAwesome
-                          name="twitter"
-                          size={16}
-                          color={COLORS.white}
-                        />
-                      }
-                      color={'#1da1f2'}
-                      text={'Twitter'}
-                    />
+                    <SocialBtn icon={<FontAwesome name="twitter" size={16} color={COLORS.white} />} color={"#1da1f2"} text={"Twitter"} />
                   </View>
                   <View style={[GlobalStyleSheet.col50, { marginBottom: 10 }]}>
-                    <SocialBtn
-                      icon={
-                        <FontAwesome
-                          name="whatsapp"
-                          size={16}
-                          color={COLORS.white}
-                        />
-                      }
-                      color={'#25d366'}
-                      text={'WhatsApp'}
-                    />
+                    <SocialBtn icon={<FontAwesome name="whatsapp" size={16} color={COLORS.white} />} color={"#25d366"} text={"WhatsApp"} />
                   </View>
                   <View style={[GlobalStyleSheet.col50, { marginBottom: 10 }]}>
-                    <SocialBtn
-                      icon={
-                        <FontAwesome
-                          name="pinterest"
-                          size={16}
-                          color={COLORS.white}
-                        />
-                      }
-                      color={'#bd081c'}
-                      text={'Pinterest'}
-                    />
+                    <SocialBtn icon={<FontAwesome name="pinterest" size={16} color={COLORS.white} />} color={"#bd081c"} text={"Pinterest"} />
                   </View>
                 </View>
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -132,92 +76,40 @@ const Socials = () => {
                     marginBottom: 10,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
-                    Social Button Rounded
-                  </Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>Social Button Rounded</Text>
                 </View>
                 <View style={GlobalStyleSheet.row}>
                   <View style={[GlobalStyleSheet.col50, { marginBottom: 10 }]}>
-                    <SocialBtn
-                      rounded
-                      icon={
-                        <FontAwesome
-                          name="facebook"
-                          size={16}
-                          color={COLORS.white}
-                        />
-                      }
-                      color={'#3b5998'}
-                      text={'Facebook'}
-                    />
+                    <SocialBtn rounded icon={<FontAwesome name="facebook" size={16} color={COLORS.white} />} color={"#3b5998"} text={"Facebook"} />
                   </View>
                   <View style={[GlobalStyleSheet.col50, { marginBottom: 10 }]}>
                     <SocialBtn
                       rounded
-                      icon={
-                        <FontAwesome
-                          name="linkedin-square"
-                          size={16}
-                          color={COLORS.white}
-                        />
-                      }
-                      color={'#007bb6'}
-                      text={'LinkdIn'}
+                      icon={<FontAwesome name="linkedin-square" size={16} color={COLORS.white} />}
+                      color={"#007bb6"}
+                      text={"LinkdIn"}
                     />
                   </View>
                   <View style={[GlobalStyleSheet.col50, { marginBottom: 10 }]}>
-                    <SocialBtn
-                      rounded
-                      icon={
-                        <FontAwesome
-                          name="twitter"
-                          size={16}
-                          color={COLORS.white}
-                        />
-                      }
-                      color={'#1da1f2'}
-                      text={'Twitter'}
-                    />
+                    <SocialBtn rounded icon={<FontAwesome name="twitter" size={16} color={COLORS.white} />} color={"#1da1f2"} text={"Twitter"} />
                   </View>
                   <View style={[GlobalStyleSheet.col50, { marginBottom: 10 }]}>
-                    <SocialBtn
-                      rounded
-                      icon={
-                        <FontAwesome
-                          name="whatsapp"
-                          size={16}
-                          color={COLORS.white}
-                        />
-                      }
-                      color={'#25d366'}
-                      text={'WhatsApp'}
-                    />
+                    <SocialBtn rounded icon={<FontAwesome name="whatsapp" size={16} color={COLORS.white} />} color={"#25d366"} text={"WhatsApp"} />
                   </View>
                   <View style={[GlobalStyleSheet.col50, { marginBottom: 10 }]}>
-                    <SocialBtn
-                      rounded
-                      icon={
-                        <FontAwesome
-                          name="pinterest"
-                          size={16}
-                          color={COLORS.white}
-                        />
-                      }
-                      color={'#bd081c'}
-                      text={'Pinterest'}
-                    />
+                    <SocialBtn rounded icon={<FontAwesome name="pinterest" size={16} color={COLORS.white} />} color={"#bd081c"} text={"Pinterest"} />
                   </View>
                 </View>
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -231,73 +123,26 @@ const Socials = () => {
                     marginBottom: 10,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
-                    Social Icons
-                  </Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>Social Icons</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                  <SocialIcon
-                    color={'#3b5998'}
-                    icon={
-                      <FontAwesome
-                        name="facebook"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    color={'#007bb6'}
-                    icon={
-                      <FontAwesome
-                        name="linkedin-square"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    color={'#1da1f2'}
-                    icon={
-                      <FontAwesome
-                        name="twitter"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    color={'#25d366'}
-                    icon={
-                      <FontAwesome
-                        name="whatsapp"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    color={'#bd081c'}
-                    icon={
-                      <FontAwesome
-                        name="pinterest"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
+                <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+                  <SocialIcon color={"#3b5998"} icon={<FontAwesome name="facebook" size={16} color={COLORS.white} />} />
+                  <SocialIcon color={"#007bb6"} icon={<FontAwesome name="linkedin-square" size={16} color={COLORS.white} />} />
+                  <SocialIcon color={"#1da1f2"} icon={<FontAwesome name="twitter" size={16} color={COLORS.white} />} />
+                  <SocialIcon color={"#25d366"} icon={<FontAwesome name="whatsapp" size={16} color={COLORS.white} />} />
+                  <SocialIcon color={"#bd081c"} icon={<FontAwesome name="pinterest" size={16} color={COLORS.white} />} />
                 </View>
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -311,78 +156,26 @@ const Socials = () => {
                     marginBottom: 10,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
-                    Social Icons Rounded
-                  </Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>Social Icons Rounded</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                  <SocialIcon
-                    rounded
-                    color={'#3b5998'}
-                    icon={
-                      <FontAwesome
-                        name="facebook"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    rounded
-                    color={'#007bb6'}
-                    icon={
-                      <FontAwesome
-                        name="linkedin-square"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    rounded
-                    color={'#1da1f2'}
-                    icon={
-                      <FontAwesome
-                        name="twitter"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    rounded
-                    color={'#25d366'}
-                    icon={
-                      <FontAwesome
-                        name="whatsapp"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    rounded
-                    color={'#bd081c'}
-                    icon={
-                      <FontAwesome
-                        name="pinterest"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
+                <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+                  <SocialIcon rounded color={"#3b5998"} icon={<FontAwesome name="facebook" size={16} color={COLORS.white} />} />
+                  <SocialIcon rounded color={"#007bb6"} icon={<FontAwesome name="linkedin-square" size={16} color={COLORS.white} />} />
+                  <SocialIcon rounded color={"#1da1f2"} icon={<FontAwesome name="twitter" size={16} color={COLORS.white} />} />
+                  <SocialIcon rounded color={"#25d366"} icon={<FontAwesome name="whatsapp" size={16} color={COLORS.white} />} />
+                  <SocialIcon rounded color={"#bd081c"} icon={<FontAwesome name="pinterest" size={16} color={COLORS.white} />} />
                 </View>
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -396,78 +189,26 @@ const Socials = () => {
                     marginBottom: 10,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
-                    Social Icons Square
-                  </Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>Social Icons Square</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                  <SocialIcon
-                    square
-                    color={'#3b5998'}
-                    icon={
-                      <FontAwesome
-                        name="facebook"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    square
-                    color={'#007bb6'}
-                    icon={
-                      <FontAwesome
-                        name="linkedin-square"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    square
-                    color={'#1da1f2'}
-                    icon={
-                      <FontAwesome
-                        name="twitter"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    square
-                    color={'#25d366'}
-                    icon={
-                      <FontAwesome
-                        name="whatsapp"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    square
-                    color={'#bd081c'}
-                    icon={
-                      <FontAwesome
-                        name="pinterest"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
+                <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+                  <SocialIcon square color={"#3b5998"} icon={<FontAwesome name="facebook" size={16} color={COLORS.white} />} />
+                  <SocialIcon square color={"#007bb6"} icon={<FontAwesome name="linkedin-square" size={16} color={COLORS.white} />} />
+                  <SocialIcon square color={"#1da1f2"} icon={<FontAwesome name="twitter" size={16} color={COLORS.white} />} />
+                  <SocialIcon square color={"#25d366"} icon={<FontAwesome name="whatsapp" size={16} color={COLORS.white} />} />
+                  <SocialIcon square color={"#bd081c"} icon={<FontAwesome name="pinterest" size={16} color={COLORS.white} />} />
                 </View>
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -481,47 +222,16 @@ const Socials = () => {
                     marginBottom: 10,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
-                    Social Icons Sizes
-                  </Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>Social Icons Sizes</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                  <SocialIcon
-                    btnLg
-                    color={'#3b5998'}
-                    icon={
-                      <FontAwesome
-                        name="facebook"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    color={'#007bb6'}
-                    icon={
-                      <FontAwesome
-                        name="linkedin-square"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
-                  <SocialIcon
-                    btnSm
-                    color={'#1da1f2'}
-                    icon={
-                      <FontAwesome
-                        name="twitter"
-                        size={16}
-                        color={COLORS.white}
-                      />
-                    }
-                  />
+                <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+                  <SocialIcon btnLg color={"#3b5998"} icon={<FontAwesome name="facebook" size={16} color={COLORS.white} />} />
+                  <SocialIcon color={"#007bb6"} icon={<FontAwesome name="linkedin-square" size={16} color={COLORS.white} />} />
+                  <SocialIcon btnSm color={"#1da1f2"} icon={<FontAwesome name="twitter" size={16} color={COLORS.white} />} />
                 </View>
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

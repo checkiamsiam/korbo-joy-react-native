@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS } from "../../constants/theme";
 
@@ -30,13 +29,13 @@ const TableOddEven = () => {
 
   return (
     <>
-      <DropShadow
+      <View
         style={{
+          backgroundColor: "#fff",
+          borderRadius: 10,
+          elevation: 5,
           shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 5,
-          },
+          shadowOffset: { width: 0, height: 5 },
           shadowOpacity: 0.15,
           shadowRadius: 5,
         }}
@@ -98,7 +97,7 @@ const TableOddEven = () => {
             );
           })}
         </View>
-      </DropShadow>
+      </View>
     </>
   );
 };

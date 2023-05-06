@@ -1,6 +1,5 @@
 import React from "react";
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Divider from "../../components/Dividers/Divider";
 import DividerIcon from "../../components/Dividers/DividerIcon";
@@ -15,13 +14,13 @@ const DividerElements = () => {
         <Header titleLeft title={"Dividers"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -46,15 +45,15 @@ const DividerElements = () => {
                 <Divider color={COLORS.info} />
                 <Divider color={COLORS.title} />
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -79,15 +78,15 @@ const DividerElements = () => {
                 <Divider dashed color={COLORS.info} />
                 <Divider dashed color={COLORS.title} />
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -112,15 +111,15 @@ const DividerElements = () => {
                 <DividerIcon color={COLORS.info} icon={<FeatherIcon name={"truck"} color={COLORS.info} size={18} />} />
                 <DividerIcon color={COLORS.title} icon={<FeatherIcon name={"settings"} color={COLORS.title} size={18} />} />
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -145,7 +144,7 @@ const DividerElements = () => {
                 <DividerIcon dashed color={COLORS.info} icon={<FeatherIcon name={"truck"} color={COLORS.info} size={18} />} />
                 <DividerIcon dashed color={COLORS.title} icon={<FeatherIcon name={"settings"} color={COLORS.title} size={18} />} />
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

@@ -19,8 +19,8 @@ const BottomNavigation = () => {
     >
       <Tab.Screen name="Home" component={MainHome} />
       <Tab.Screen name="Categories" component={Categories} />
-      <Tab.Screen name="Account" component={Profile} />
       <Tab.Screen name="Cart" component={Cart} />
+      <Tab.Screen name="Account" component={Profile} />
     </Tab.Navigator>
   );
 };

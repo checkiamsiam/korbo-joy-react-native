@@ -1,11 +1,9 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, View } from 'react-native';
-import Header from '../../layout/Header';
+import { SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
+import ListStyle1 from '../../components/list/ListStyle1';
 import { GlobalStyleSheet } from '../../constants/StyleSheet';
 import { COLORS } from '../../constants/theme';
-import ListStyle1 from '../../components/list/ListStyle1';
-import DropShadow from 'react-native-drop-shadow';
-import { StatusBar } from 'react-native';
+import Header from '../../layout/Header';
 
 const Footers = (props) => {
   return (
@@ -16,17 +14,17 @@ const Footers = (props) => {
         <Header title={'Footer styles'} titleLeft leftIcon={'back'} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
-              style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
-                shadowOpacity: 0.15,
-                shadowRadius: 5,
-              }}
-            >
+            <View
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: 10,
+              elevation: 5,
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 5 },
+              shadowOpacity: 0.15,
+              shadowRadius: 5,
+            }}
+          >
               <View style={GlobalStyleSheet.card}>
                 <ListStyle1
                   onPress={() => props.navigation.navigate('TabStyle1')}
@@ -49,7 +47,7 @@ const Footers = (props) => {
                   title={'Footer Style 4'}
                 />
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

@@ -1,6 +1,5 @@
 import React from "react";
-import { SafeAreaView, ScrollView, Text, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import ToggleStyle1 from "../../components/Toggles/ToggleStyle1";
 import ToggleStyle2 from "../../components/Toggles/ToggleStyle2";
 import ToggleStyle3 from "../../components/Toggles/ToggleStyle3";
@@ -8,22 +7,21 @@ import ToggleStyle4 from "../../components/Toggles/ToggleStyle4";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
-import { StatusBar } from "react-native";
 
 const Toggles = () => {
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
         <Header title={"Toggles"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View style={{ ...GlobalStyleSheet.container }}>
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -121,7 +119,7 @@ const Toggles = () => {
                   <ToggleStyle4 />
                 </View>
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
