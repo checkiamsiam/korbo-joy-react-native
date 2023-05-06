@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Modal, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
 import Ripple from "react-native-material-ripple";
 import { SvgXml } from "react-native-svg";
 import FeatherIcon from "react-native-vector-icons/Feather";
@@ -116,13 +115,13 @@ const ActionModals = () => {
         <Header titleLeft title={"Action Modals"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -167,7 +166,7 @@ const ActionModals = () => {
                   );
                 })}
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

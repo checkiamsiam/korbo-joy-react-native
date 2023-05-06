@@ -1,28 +1,26 @@
 import React from "react";
-import { SafeAreaView, ScrollView, Text, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import BasicBarChart from "../../components/Charts/BarChart";
 import BasicLineChart from "../../components/Charts/LineChart";
 import BasicPieChart from "../../components/Charts/PieChart";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
-import { StatusBar } from "react-native";
 
 const Charts = () => {
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight, }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
         <Header titleLeft title={"Charts"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -42,15 +40,15 @@ const Charts = () => {
                 </View>
                 <BasicLineChart />
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -71,15 +69,15 @@ const Charts = () => {
 
                 <BasicBarChart />
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -100,7 +98,7 @@ const Charts = () => {
 
                 <BasicPieChart />
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

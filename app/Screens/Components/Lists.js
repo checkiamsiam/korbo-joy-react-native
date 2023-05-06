@@ -1,19 +1,18 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import React from "react";
+import { SafeAreaView, ScrollView, Text, View } from "react-native";
+import { SvgXml } from "react-native-svg";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { SvgXml } from 'react-native-svg';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import { COLORS, FONTS } from '../../constants/theme';
-import Header from '../../layout/Header';
-import ListStyle1 from '../../components/list/ListStyle1';
+import ListStyle1 from "../../components/list/ListStyle1";
+import { GlobalStyleSheet } from "../../constants/StyleSheet";
+import { COLORS, FONTS } from "../../constants/theme";
+import Header from "../../layout/Header";
 
-import pic1 from '../../assets/images/small/pic1.jpg';
-import pic2 from '../../assets/images/small/pic2.jpg';
-import pic3 from '../../assets/images/small/pic3.jpg';
-import pic4 from '../../assets/images/small/pic4.jpg';
-import ListStyle2 from '../../components/list/ListStyle2';
-import DropShadow from 'react-native-drop-shadow';
-import { StatusBar } from 'react-native';
+import { StatusBar } from "react-native";
+import pic1 from "../../assets/images/small/pic1.jpg";
+import pic2 from "../../assets/images/small/pic2.jpg";
+import pic3 from "../../assets/images/small/pic3.jpg";
+import pic4 from "../../assets/images/small/pic4.jpg";
+import ListStyle2 from "../../components/list/ListStyle2";
 
 const table =
   '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><rect fill="#4A89DC" opacity="0.3" x="4" y="5" width="16" height="6" rx="1.5"/><rect fill="#4A89DC" x="4" y="13" width="16" height="6" rx="1.5"/></g></svg>';
@@ -27,19 +26,17 @@ const button =
 const ListScreen = () => {
   return (
     <>
-      <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}
-      >
-        <Header titleLeft title={'List Styles'} leftIcon={'back'} />
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+        <Header titleLeft title={"List Styles"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -53,25 +50,23 @@ const ListScreen = () => {
                     marginBottom: 10,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
-                    Default list
-                  </Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>Default list</Text>
                 </View>
 
-                <ListStyle1 arrowRight title={'Accordion'} />
-                <ListStyle1 arrowRight title={'Action List'} />
-                <ListStyle1 arrowRight title={'Action Modal'} />
-                <ListStyle1 arrowRight title={'Buttons'} />
+                <ListStyle1 arrowRight title={"Accordion"} />
+                <ListStyle1 arrowRight title={"Action List"} />
+                <ListStyle1 arrowRight title={"Action Modal"} />
+                <ListStyle1 arrowRight title={"Buttons"} />
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -85,61 +80,23 @@ const ListScreen = () => {
                     marginBottom: 10,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
-                    List with icon
-                  </Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>List with icon</Text>
                 </View>
 
-                <ListStyle1
-                  arrowRight
-                  icon={
-                    <FontAwesome
-                      name={'share-alt'}
-                      size={15}
-                      color={COLORS.danger}
-                    />
-                  }
-                  title={'Social'}
-                />
-                <ListStyle1
-                  arrowRight
-                  icon={
-                    <FontAwesome
-                      name={'envelope'}
-                      size={15}
-                      color={COLORS.secondary}
-                    />
-                  }
-                  title={'Emails'}
-                />
-                <ListStyle1
-                  arrowRight
-                  icon={
-                    <FontAwesome name={'phone'} size={15} color={COLORS.info} />
-                  }
-                  title={'Phones'}
-                />
-                <ListStyle1
-                  arrowRight
-                  icon={
-                    <FontAwesome
-                      name={'table'}
-                      size={15}
-                      color={COLORS.primary}
-                    />
-                  }
-                  title={'Buttons'}
-                />
+                <ListStyle1 arrowRight icon={<FontAwesome name={"share-alt"} size={15} color={COLORS.danger} />} title={"Social"} />
+                <ListStyle1 arrowRight icon={<FontAwesome name={"envelope"} size={15} color={COLORS.secondary} />} title={"Emails"} />
+                <ListStyle1 arrowRight icon={<FontAwesome name={"phone"} size={15} color={COLORS.info} />} title={"Phones"} />
+                <ListStyle1 arrowRight icon={<FontAwesome name={"table"} size={15} color={COLORS.primary} />} title={"Buttons"} />
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -153,25 +110,23 @@ const ListScreen = () => {
                     marginBottom: 10,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
-                    List with image
-                  </Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>List with image</Text>
                 </View>
 
-                <ListStyle1 arrowRight image={pic1} title={'James'} />
-                <ListStyle1 arrowRight image={pic2} title={'Robert'} />
-                <ListStyle1 arrowRight image={pic3} title={'John Doe'} />
-                <ListStyle1 arrowRight image={pic4} title={'David geta'} />
+                <ListStyle1 arrowRight image={pic1} title={"James"} />
+                <ListStyle1 arrowRight image={pic2} title={"Robert"} />
+                <ListStyle1 arrowRight image={pic3} title={"John Doe"} />
+                <ListStyle1 arrowRight image={pic4} title={"David geta"} />
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -185,33 +140,15 @@ const ListScreen = () => {
                     marginBottom: 10,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
-                    List with detail
-                  </Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>List with detail</Text>
                 </View>
 
-                <ListStyle2
-                  icon={<SvgXml xml={table} />}
-                  title="Accordions"
-                  desc="Use for compacting content"
-                />
-                <ListStyle2
-                  icon={<SvgXml xml={sheet} />}
-                  title="Action Sheets"
-                  desc="Use for compacting content"
-                />
-                <ListStyle2
-                  icon={<SvgXml xml={modal} />}
-                  title="Action Modals"
-                  desc="Use for compacting content"
-                />
-                <ListStyle2
-                  icon={<SvgXml xml={button} />}
-                  title="Buttons"
-                  desc="Use for compacting content"
-                />
+                <ListStyle2 icon={<SvgXml xml={table} />} title="Accordions" desc="Use for compacting content" />
+                <ListStyle2 icon={<SvgXml xml={sheet} />} title="Action Sheets" desc="Use for compacting content" />
+                <ListStyle2 icon={<SvgXml xml={modal} />} title="Action Modals" desc="Use for compacting content" />
+                <ListStyle2 icon={<SvgXml xml={button} />} title="Buttons" desc="Use for compacting content" />
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

@@ -18,7 +18,6 @@ import phonepe from "../../assets/images/icons/phonepe.png";
 import wallet from "../../assets/images/icons/wallet.png";
 import CustomButton from "../../components/CustomButton";
 import { StatusBar } from "react-native";
-//import DropShadow from 'react-native-drop-shadow';
 
 const Payment = (props) => {
   const [paymentOption, setPaymentOption] = useState("");

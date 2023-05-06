@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
-import { SafeAreaView, ScrollView, Text, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import Ripple from "react-native-material-ripple";
 import RBSheet from "react-native-raw-bottom-sheet";
 import { SvgXml } from "react-native-svg";
@@ -12,7 +11,6 @@ import SuccessSheet from "../../components/ActionSheet/SuccessSheet";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
-import { StatusBar } from "react-native";
 
 const option = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -117,12 +115,15 @@ const ActionSheet = () => {
         )}
       </RBSheet>
 
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight, }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
         <Header titleLeft title={"Action Sheet"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#FFF",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
@@ -172,7 +173,7 @@ const ActionSheet = () => {
                   );
                 })}
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

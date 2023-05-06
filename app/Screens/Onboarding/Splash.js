@@ -21,9 +21,9 @@ const Splash = (props) => {
         />
       </View>
       <View style={{ alignItems: 'center', paddingVertical: 15 }}>
-        <Text style={{ ...FONTS.h5, color: COLORS.primary }}>Wedo</Text>
+        <Text style={{ ...FONTS.h5, color: COLORS.primary }}>Korbo Joy</Text>
         <Text style={{ ...FONTS.font, marginBottom: 4 }}>
-          Fashion Store App
+          Online Store Platform.
         </Text>
         <Text style={{ ...FONTS.font }}>v1.0.0</Text>
       </View>

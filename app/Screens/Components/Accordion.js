@@ -1,6 +1,5 @@
 import React from "react";
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
 import AccordionHighlight from "../../components/Accordion/AccordionHighlight";
 import AccordionSeprator from "../../components/Accordion/AccordionSeprator";
 import ClassicAccordion from "../../components/Accordion/ClassicAccordion";
@@ -15,7 +14,7 @@ const AccordionScreen = () => {
         <Header titleLeft title={"Accordions"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
+            <View
               style={{
                 shadowColor: "#000",
                 shadowOffset: {
@@ -24,6 +23,7 @@ const AccordionScreen = () => {
                 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
+                elevation: 5,
               }}
             >
               <View style={styles.card}>
@@ -42,8 +42,8 @@ const AccordionScreen = () => {
                 </View>
                 <ClassicAccordion />
               </View>
-            </DropShadow>
-            <DropShadow
+            </View>
+            <View
               style={{
                 shadowColor: "#000",
                 shadowOffset: {
@@ -52,6 +52,9 @@ const AccordionScreen = () => {
                 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
+                elevation: 5,
+                backgroundColor: "#fff",
+                borderRadius: 10,
               }}
             >
               <View style={styles.card}>
@@ -70,9 +73,11 @@ const AccordionScreen = () => {
                 </View>
                 <AccordionHighlight />
               </View>
-            </DropShadow>
-            <DropShadow
+            </View>
+            <View
               style={{
+                backgroundColor: "#FFF",
+                borderRadius: 10,
                 shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
@@ -80,6 +85,7 @@ const AccordionScreen = () => {
                 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
+                elevation: 5,
               }}
             >
               <View style={styles.card}>
@@ -98,7 +104,7 @@ const AccordionScreen = () => {
                 </View>
                 <AccordionSeprator />
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

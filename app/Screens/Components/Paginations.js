@@ -1,12 +1,10 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
 import DefaultPagination from '../../components/Paginations/DefaultPagination';
+import RoundedPagination from '../../components/Paginations/RoundedPagination';
 import { GlobalStyleSheet } from '../../constants/StyleSheet';
 import { COLORS, FONTS } from '../../constants/theme';
 import Header from '../../layout/Header';
-import RoundedPagination from '../../components/Paginations/RoundedPagination';
-import DropShadow from 'react-native-drop-shadow';
-import { StatusBar } from 'react-native';
 
 const Paginations = () => {
   return (
@@ -17,17 +15,17 @@ const Paginations = () => {
         <Header title={'Paginations'} titleLeft leftIcon={'back'} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
-              style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
-                shadowOpacity: 0.15,
-                shadowRadius: 5,
-              }}
-            >
+            <View
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: 10,
+              elevation: 5,
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 5 },
+              shadowOpacity: 0.15,
+              shadowRadius: 5,
+            }}
+          >
               <View style={GlobalStyleSheet.card}>
                 <View
                   style={{
@@ -44,19 +42,19 @@ const Paginations = () => {
 
                 <DefaultPagination />
               </View>
-            </DropShadow>
+              </View>
 
-            <DropShadow
-              style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
-                shadowOpacity: 0.15,
-                shadowRadius: 5,
-              }}
-            >
+            <View
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: 10,
+              elevation: 5,
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 5 },
+              shadowOpacity: 0.15,
+              shadowRadius: 5,
+            }}
+          >
               <View style={GlobalStyleSheet.card}>
                 <View
                   style={{
@@ -73,19 +71,19 @@ const Paginations = () => {
 
                 <RoundedPagination />
               </View>
-            </DropShadow>
+              </View>
 
-            <DropShadow
-              style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
-                shadowOpacity: 0.15,
-                shadowRadius: 5,
-              }}
-            >
+            <View
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: 10,
+              elevation: 5,
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 5 },
+              shadowOpacity: 0.15,
+              shadowRadius: 5,
+            }}
+          >
               <View style={GlobalStyleSheet.card}>
                 <View
                   style={{
@@ -110,7 +108,7 @@ const Paginations = () => {
                   <DefaultPagination paginationSm />
                 </View>
               </View>
-            </DropShadow>
+              </View>
           </View>
         </ScrollView>
       </SafeAreaView>

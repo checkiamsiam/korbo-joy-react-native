@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { Animated, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
 import TabButtonStyle1 from "../../components/Tabs/TabButtonStyle1";
 import TabButtonStyle2 from "../../components/Tabs/TabButtonStyle2";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
@@ -26,13 +25,13 @@ const Tabs = () => {
         <Header title={"Tabs"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -84,15 +83,15 @@ const Tabs = () => {
                   </View>
                 </ScrollView>
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -144,7 +143,7 @@ const Tabs = () => {
                   </View>
                 </ScrollView>
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

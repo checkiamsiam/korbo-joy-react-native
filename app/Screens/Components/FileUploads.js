@@ -1,7 +1,6 @@
 import { useTheme } from "@react-navigation/native";
 import React, { useState } from "react";
-import { Image, PermissionsAndroid, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
+import { Image, PermissionsAndroid, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import { launchImageLibrary } from "react-native-image-picker";
 import uuid from "react-native-uuid";
 import FeatherIcon from "react-native-vector-icons/Feather";
@@ -9,7 +8,6 @@ import Button from "../../components/Button/Button";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import Header from "../../layout/Header";
-import { StatusBar } from "react-native";
 
 const FileUploads = (props) => {
   const { colors } = useTheme();
@@ -44,17 +42,17 @@ const FileUploads = (props) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
       <Header titleLeft title={"File Upload"} leftIcon={"back"} />
       <ScrollView>
         <View style={GlobalStyleSheet.container}>
-          <DropShadow
+          <View
             style={{
+              backgroundColor: "#fff",
+              borderRadius: 10,
+              elevation: 5,
               shadowColor: "#000",
-              shadowOffset: {
-                width: 0,
-                height: 5,
-              },
+              shadowOffset: { width: 0, height: 5 },
               shadowOpacity: 0.15,
               shadowRadius: 5,
             }}
@@ -141,7 +139,7 @@ const FileUploads = (props) => {
 
               <Button onPress={() => UploadFile("photo")} title={"Upload image"} />
             </View>
-          </DropShadow>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
