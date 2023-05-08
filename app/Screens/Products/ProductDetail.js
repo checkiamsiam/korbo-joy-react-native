@@ -266,7 +266,7 @@ const ProductDetail = ({ navigation, route }) => {
             </Text>
           </View>
         </View>
-        <CustomButton onPress={() => navigation.navigate("Cart")} title="BUY NOW" />
+        <CustomButton onPress={() => navigation.navigate("Cart")} title="ADD TO CART" />
       </View>
       <Snackbar
         visible={isSnackbar}

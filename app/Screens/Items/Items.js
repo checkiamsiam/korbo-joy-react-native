@@ -1,6 +1,6 @@
-import CheckBox from "@react-native-community/checkbox";
 import React, { useRef, useState } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { CheckBox } from "react-native-elements";
 import Ripple from "react-native-material-ripple";
 import { List, RadioButton, Snackbar } from "react-native-paper";
 import RBSheet from "react-native-raw-bottom-sheet";
@@ -26,7 +26,6 @@ import ProductItem from "../../components/ProductItem";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import Header from "../../layout/Header";
-import { StatusBar } from "react-native";
 
 const ProductData = [
   {
@@ -312,13 +311,11 @@ const Items = ({ navigation, route }) => {
                     onPress={() => handleFilterSelected(data.title)}
                     left={() => (
                       <CheckBox
-                        tintColors={{
-                          true: COLORS.primary,
-                          false: COLORS.text,
-                        }}
-                        style={{ left: 10 }}
-                        value={data.selected}
-                        disabled
+                        checked={data.selected}
+                        checkedColor={COLORS.primary}
+                        uncheckedColor={COLORS.text}
+                        containerStyle={{ marginLeft: 20 }}
+                        disabled={false}
                       />
                     )}
                     title={() => (
@@ -365,8 +362,8 @@ const Items = ({ navigation, route }) => {
       <SafeAreaView
         style={{
           flex: 1,
-          backgroundColor: COLORS.backgroundColor
-          , paddingTop: StatusBar.currentHeight
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
         }}
       >
         <Header titleLeft leftIcon={"back"} title={type} />
