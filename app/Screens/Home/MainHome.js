@@ -425,7 +425,7 @@ const MainHome = ({ navigation }) => {
               flex: 1,
             }}
           >
-            Suggest for You
+            Feature Products
           </Text>
           <TouchableOpacity
             onPress={() => navigation.navigate("Items", { type: "Fashion" })}
@@ -438,6 +438,7 @@ const MainHome = ({ navigation }) => {
             <FeatherIcon size={16} color={COLORS.title} name="chevron-right" />
           </TouchableOpacity>
         </View>
+
         <View
           style={{
             borderBottomWidth: 1,
@@ -469,6 +470,7 @@ const MainHome = ({ navigation }) => {
             })}
           </ScrollView>
         </View>
+
         <View>
           <View
             style={{
@@ -488,6 +490,7 @@ const MainHome = ({ navigation }) => {
             ))}
           </View>
         </View>
+
         <View
           style={{
             paddingHorizontal: 15,
@@ -508,7 +511,7 @@ const MainHome = ({ navigation }) => {
               flex: 1,
             }}
           >
-            Popular Items
+            Top Sales
           </Text>
           <TouchableOpacity
             style={{
@@ -546,7 +549,7 @@ const MainHome = ({ navigation }) => {
           }}
         >
           <View>
-            <Text style={{ ...FONTS.h6, marginBottom: 5, color: COLORS.white }}>Top Selection</Text>
+            <Text style={{ ...FONTS.h6, marginBottom: 5, color: COLORS.white }}>New Arrivals</Text>
           </View>
           <View style={GlobalStyleSheet.row}>
             {TopSelectionData.map((data, index) => {

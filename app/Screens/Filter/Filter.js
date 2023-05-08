@@ -1,6 +1,6 @@
-import CheckBox from "@react-native-community/checkbox";
 import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
+import { CheckBox } from "react-native-elements";
 import { List } from "react-native-paper";
 import CustomButton from "../../components/CustomButton";
 import { COLORS, FONTS } from "../../constants/theme";
@@ -686,7 +686,13 @@ const Filter = () => {
                 key={index}
                 onPress={() => handleFilterSelected(data.title)}
                 left={() => (
-                  <CheckBox tintColors={{ true: COLORS.primary, false: COLORS.text }} style={{ left: 10 }} value={data.selected} disabled />
+                  <CheckBox
+                    checked={data.selected}
+                    checkedColor={COLORS.primary}
+                    uncheckedColor={COLORS.text}
+                    containerStyle={{ marginLeft: 20 }}
+                    disabled={false}
+                  />
                 )}
                 title={() => (
                   <Text

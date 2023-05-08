@@ -50,8 +50,9 @@ const Toggles = () => {
                       color: COLORS.title,
                       ...FONTS.fontBold,
                     }}
-                  />
-                  Toggle Style 1
+                  >
+                    Toggle Style 1
+                  </Text>
                   <ToggleStyle1 />
                 </View>
                 <View
@@ -70,7 +71,9 @@ const Toggles = () => {
                       color: COLORS.title,
                       ...FONTS.fontBold,
                     }}
-                  />
+                  >
+                    Toggle Style 2
+                  </Text>
 
                   <ToggleStyle2 />
 
@@ -92,8 +95,9 @@ const Toggles = () => {
                       color: COLORS.title,
                       ...FONTS.fontBold,
                     }}
-                  />
-                  Toggle Style 3
+                  >
+                    Toggle Style 3
+                  </Text>
                   <ToggleStyle3 />
                 </View>
                 <View
@@ -112,8 +116,9 @@ const Toggles = () => {
                       color: COLORS.title,
                       ...FONTS.fontBold,
                     }}
-                  />
-
+                  >
+                    Toggle Style 4
+                  </Text>
                   <ToggleStyle4 />
 
                   <ToggleStyle4 />
