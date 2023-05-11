@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Collapsible from "react-native-collapsible";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
@@ -7,19 +7,16 @@ import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 //import Button from '../../../components/Button/Button';
 //import CustomInput from '../../../components/Input/CustomInput';
-import bank from "../../assets/images/icons/bank.png";
-import card from "../../assets/images/icons/card.png";
-import cash from "../../assets/images/icons/cash.png";
-import discount from "../../assets/images/icons/discount.png";
-import gift from "../../assets/images/icons/gift.png";
-import pay from "../../assets/images/icons/pay.png";
-import personal from "../../assets/images/icons/personal.png";
-import phonepe from "../../assets/images/icons/phonepe.png";
-import wallet from "../../assets/images/icons/wallet.png";
-import CustomButton from "../../components/CustomButton";
 import { StatusBar } from "react-native";
+import { useDispatch } from "react-redux";
+import cash from "../../assets/images/icons/cash.png";
+import phonepe from "../../assets/images/icons/phonepe.png";
+import CustomButton from "../../components/CustomButton";
+import { setActionSheet } from "../../features/ActionSheets/ActionSheetSlice";
+import { actionSheetRef } from "../../utils/globalRef";
 
 const Payment = (props) => {
+  const dispatch = useDispatch();
   const [paymentOption, setPaymentOption] = useState("");
 
   const [payActive, setPayActive] = useState("");
@@ -39,9 +36,23 @@ const Payment = (props) => {
     },
   ];
 
+  const paymentDone = () => {
+    props.navigation.navigate("Home");
+    dispatch(
+      setActionSheet({
+        activeSheet: "success",
+        data: {
+          title: "Payment Successful",
+          subTitle: "Your payment has been successfully completed. Your Order Id is #7777777",
+        },
+      })
+    );
+    actionSheetRef.current.open();
+  };
+
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
         <Header titleLeft leftIcon={"back"} title={"Payment"} />
 
         <View
@@ -51,7 +62,7 @@ const Payment = (props) => {
           }}
         >
           <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-            <View style={[GlobalStyleSheet.container]}>
+            {/* <View style={[GlobalStyleSheet.container]}>
               <View
                 style={{
                   flexDirection: "row",
@@ -78,7 +89,7 @@ const Payment = (props) => {
                   10% instant Savings on Citi Credit and Debit Cards on a min spend of Rs 3,0000. TCA
                 </Text>
               </View>
-            </View>
+            </View> */}
             <View
               style={{
                 backgroundColor: "#eee",
@@ -99,7 +110,7 @@ const Payment = (props) => {
               <Collapsible collapsed={paymentOption === "Cash" ? false : true} />
             </View>
 
-            <View style={{ borderBottomWidth: 1, borderColor: COLORS.borderColor }}>
+            {/* <View style={{ borderBottomWidth: 1, borderColor: COLORS.borderColor }}>
               <TouchableOpacity onPress={() => setPaymentOption(paymentOption === "Credit" ? "" : "Credit")} style={[styles.list]}>
                 <Image style={[styles.listImg, { tintColor: COLORS.title }]} source={card} />
                 <Text style={[styles.listTitle, { color: COLORS.title }]}>Credit / Debit Card</Text>
@@ -440,7 +451,7 @@ const Payment = (props) => {
                   </Text>
                 </TouchableOpacity>
               </View>
-            </View>
+            </View> */}
             <View style={[GlobalStyleSheet.container]}>
               <View
                 style={{
@@ -533,7 +544,7 @@ const Payment = (props) => {
                 </TouchableOpacity>
               </View>
               <View style={{ flex: 1 }}>
-                <CustomButton onPress={() => props.navigation.navigate("DeliveryTracking")} title={"Pay now"} color={COLORS.primary} />
+                <CustomButton onPress={paymentDone} title={"Pay now"} color={COLORS.primary} />
               </View>
             </View>
           </View>

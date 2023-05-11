@@ -1,16 +1,14 @@
+import { LinearGradient } from "expo-linear-gradient";
 import React, { useState } from "react";
-import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
+import { Image, SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import { Snackbar } from "react-native-paper";
 import Swiper from "react-native-swiper";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Octicons from "react-native-vector-icons/Octicons";
 import pic1 from "../../assets/images/shop/detail/pic1.png";
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import Header from "../../layout/Header";
-import { StatusBar } from "react-native";
 
 const productImage = [pic1, pic1, pic1];
 
@@ -86,7 +84,7 @@ const ProductDetail = ({ navigation, route }) => {
               );
             })}
           </Swiper>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => handleLike()}
             activeOpacity={0.95}
             style={{
@@ -102,7 +100,7 @@ const ProductDetail = ({ navigation, route }) => {
             }}
           >
             {isLike ? <FontAwesome name="heart" color={COLORS.primary} size={22} /> : <FontAwesome name="heart-o" color={COLORS.primary} size={22} />}
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         <View style={GlobalStyleSheet.container}>
           <View
@@ -150,7 +148,7 @@ const ProductDetail = ({ navigation, route }) => {
                 <Text style={FONTS.font}>(256 Reviews)</Text>
               </View>
 
-              <View
+              {/* <View
                 style={{
                   flexDirection: "row",
                 }}
@@ -191,7 +189,7 @@ const ProductDetail = ({ navigation, route }) => {
                     </TouchableOpacity>
                   );
                 })}
-              </View>
+              </View> */}
             </View>
           </View>
           <View

@@ -80,7 +80,6 @@ const ActionSheet = () => {
   return (
     <>
       <RBSheet
-        ref={refRBSheet}
         closeOnDragDown={true}
         height={
           activeSheet === "option" ? 270 : activeSheet === "success" ? 220 : activeSheet === "login" ? 360 : activeSheet === "register" ? 430 : 230

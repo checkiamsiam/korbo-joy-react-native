@@ -15,21 +15,21 @@ const CustomDrawer = ({ navigation }) => {
       name: "Products",
       navigate: "Products",
     },
-    {
-      icon: "grid",
-      name: "Components",
-      navigate: "Components",
-    },
+    // {
+    //   icon: "grid",
+    //   name: "Components",
+    //   navigate: "Components",
+    // },
     {
       icon: "list",
       name: "Featured",
       navigate: "Featured",
     },
-    {
-      icon: "heart",
-      name: "Wishlist",
-      navigate: "Wishlist",
-    },
+    // {
+    //   icon: "heart",
+    //   name: "Wishlist",
+    //   navigate: "Wishlist",
+    // },
     {
       icon: "repeat",
       name: "Orders",
@@ -127,7 +127,7 @@ const CustomDrawer = ({ navigation }) => {
             marginTop: 10,
           }}
         >
-          <Text style={{ ...FONTS.fontLg, color: COLORS.title, marginBottom: 6 }}>Wedo Fashion Store</Text>
+          <Text style={{ ...FONTS.fontLg, color: COLORS.title, marginBottom: 6 }}>Korbo Joy Store</Text>
           <Text style={{ ...FONTS.font, color: "rgba(0,0,0,.5)" }}>App Version 1.0</Text>
         </View>
       </View>

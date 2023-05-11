@@ -1,6 +1,7 @@
+import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
+import FeatherIcon from "react-native-vector-icons/Feather";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { COLORS, FONTS } from "../constants/theme";
 
@@ -60,7 +61,7 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
           </View>
         )}
         <TouchableOpacity
-          onPress={() => handleItemLike && handleItemLike(id)}
+          onPress={() => console.log("pressed cart")}
           style={{
             height: 40,
             width: 40,
@@ -72,7 +73,7 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
             justifyContent: "center",
           }}
         >
-          {isLike ? <FontAwesome color={COLORS.primary} size={24} name="heart" /> : <FontAwesome color={COLORS.white} size={24} name="heart-o" />}
+          <FeatherIcon color={COLORS.primaryLight} size={24} name="shopping-cart" />
         </TouchableOpacity>
       </View>
       <View

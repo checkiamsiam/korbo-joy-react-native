@@ -1,48 +1,39 @@
-import React from 'react';
-import {
-  Image,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import FeatherIcon from 'react-native-vector-icons/Feather';
-import CheckoutItem from '../../components/CheckoutItem';
-import { COLORS, FONTS, IMAGES } from '../../constants/theme';
-import Header from '../../layout/Header';
-import pic1 from '../../assets/images/product/pic1.jpg';
-import pic2 from '../../assets/images/product/pic2.jpg';
-import pic3 from '../../assets/images/product/pic3.jpg';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import CustomButton from '../../components/CustomButton';
+import React from "react";
+import { Image, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import pic1 from "../../assets/images/product/pic1.jpg";
+import pic2 from "../../assets/images/product/pic2.jpg";
+import pic3 from "../../assets/images/product/pic3.jpg";
+import CheckoutItem from "../../components/CheckoutItem";
+import CustomButton from "../../components/CustomButton";
+import { GlobalStyleSheet } from "../../constants/StyleSheet";
+import { COLORS, FONTS, IMAGES } from "../../constants/theme";
+import Header from "../../layout/Header";
 
 const CheckoutData = [
   {
     image: pic1,
-    title: 'Peter England Causual',
-    type: 'Printed Longline Pure Cotteon T-shirt',
+    title: "Peter England Causual",
+    type: "Printed Longline Pure Cotteon T-shirt",
     quantity: 1,
-    price: '$158.2',
-    oldPrice: '$170',
+    price: "$158.2",
+    oldPrice: "$170",
   },
   {
     image: pic2,
-    title: 'Peter England Causual',
-    type: 'Printed Longline Pure Cotteon T-shirt',
+    title: "Peter England Causual",
+    type: "Printed Longline Pure Cotteon T-shirt",
     quantity: 1,
-    price: '$158.2',
-    oldPrice: '$170',
+    price: "$158.2",
+    oldPrice: "$170",
   },
   {
     image: pic3,
-    title: 'Peter England Causual',
-    type: 'Printed Longline Pure Cotteon T-shirt',
+    title: "Peter England Causual",
+    type: "Printed Longline Pure Cotteon T-shirt",
     quantity: 1,
-    price: '$158.2',
-    oldPrice: '$170',
+    price: "$158.2",
+    oldPrice: "$170",
   },
 ];
 
@@ -55,16 +46,11 @@ const Cart = ({ navigation }) => {
         paddingTop: StatusBar.currentHeight,
       }}
     >
-      <Header
-        backAction={() => navigation.navigate('Home')}
-        title={'Cart'}
-        leftIcon={'back'}
-        rightIcon={'more'}
-      />
+      <Header backAction={() => navigation.navigate("Home")} title={"Cart"} leftIcon={"back"} rightIcon={"more"} />
       <View
         style={{
-          flexDirection: 'row',
-          alignItems: 'center',
+          flexDirection: "row",
+          alignItems: "center",
           paddingHorizontal: 15,
           paddingVertical: 12,
           borderBottomWidth: 1,
@@ -92,8 +78,8 @@ const Cart = ({ navigation }) => {
         </Text>
         <TouchableOpacity
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
+            flexDirection: "row",
+            alignItems: "center",
           }}
         >
           <Text
@@ -105,12 +91,7 @@ const Cart = ({ navigation }) => {
           >
             Ram krishan, puram
           </Text>
-          <FeatherIcon
-            color={COLORS.primary}
-            style={{ marginLeft: 2, top: 1 }}
-            size={16}
-            name="chevron-down"
-          />
+          <FeatherIcon color={COLORS.primary} style={{ marginLeft: 2, top: 1 }} size={16} name="chevron-down" />
         </TouchableOpacity>
       </View>
       <View style={{ flex: 1 }}>
@@ -118,14 +99,14 @@ const Cart = ({ navigation }) => {
           {CheckoutData.map((data, index) => (
             <CheckoutItem
               onPress={() =>
-                navigation.navigate('ProductDetail', {
+                navigation.navigate("ProductDetail", {
                   item: {
                     imagePath: data.image,
                     title: data.title,
                     price: data.price,
                     oldPrice: data.oldPrice,
                   },
-                  category: 'Fashion',
+                  category: "Fashion",
                 })
               }
               key={index}
@@ -138,7 +119,7 @@ const Cart = ({ navigation }) => {
             />
           ))}
           <View style={GlobalStyleSheet.container}>
-            <Text
+            {/* <Text
               style={{ ...FONTS.fontSm, ...FONTS.fontBold, marginBottom: 6 }}
             >
               Have a coupon code ? enter here
@@ -177,11 +158,11 @@ const Cart = ({ navigation }) => {
                   name="chevron-right"
                 />
               </TouchableOpacity>
-            </View>
+            </View> */}
             <View
               style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
+                flexDirection: "row",
+                justifyContent: "space-between",
                 marginBottom: 8,
                 marginTop: 12,
               }}
@@ -199,8 +180,8 @@ const Cart = ({ navigation }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
+                flexDirection: "row",
+                justifyContent: "space-between",
                 marginBottom: 8,
               }}
             >
@@ -217,8 +198,8 @@ const Cart = ({ navigation }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
+                flexDirection: "row",
+                justifyContent: "space-between",
                 marginBottom: 8,
               }}
             >
@@ -235,13 +216,13 @@ const Cart = ({ navigation }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
+                flexDirection: "row",
+                justifyContent: "space-between",
                 marginBottom: 10,
                 marginTop: 5,
-                alignItems: 'center',
+                alignItems: "center",
                 borderTopWidth: 1,
-                borderStyle: 'dashed',
+                borderStyle: "dashed",
                 borderColor: COLORS.borderColor,
                 paddingTop: 8,
               }}
@@ -254,7 +235,7 @@ const Cart = ({ navigation }) => {
       </View>
       <View
         style={{
-          flexDirection: 'row',
+          flexDirection: "row",
           paddingHorizontal: 15,
           paddingVertical: 10,
           borderTopWidth: 1,
@@ -280,11 +261,7 @@ const Cart = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={{ flex: 1 }}>
-          <CustomButton
-            btnSm
-            onPress={() => navigation.navigate('AddDeliveryAddress')}
-            title="Checkout"
-          />
+          <CustomButton btnSm onPress={() => navigation.navigate("AddDeliveryAddress")} title="Checkout" />
         </View>
       </View>
     </SafeAreaView>

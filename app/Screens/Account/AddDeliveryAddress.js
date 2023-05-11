@@ -40,7 +40,7 @@ const AddDeliveryAddress = ({ navigation }) => {
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
               <Text style={GlobalStyleSheet.label}>Full Name</Text>
-              <TextInput style={GlobalStyleSheet.formControl} placeholder="Type your name" placeholderTextColor={COLORS.label} />
+              <TextInput value="ds"  editable={false} d style={GlobalStyleSheet.formControl} placeholder="Type your name" placeholderTextColor={COLORS.label} />
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
               <Text style={GlobalStyleSheet.label}>Mobile No.</Text>
@@ -65,10 +65,6 @@ const AddDeliveryAddress = ({ navigation }) => {
               </Text>
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
-              <Text style={GlobalStyleSheet.label}>Pin Code</Text>
-              <TextInput style={GlobalStyleSheet.formControl} placeholder="Pin Code" placeholderTextColor={COLORS.label} />
-            </View>
-            <View style={GlobalStyleSheet.inputGroup}>
               <Text style={GlobalStyleSheet.label}>Address</Text>
               <TextInput style={GlobalStyleSheet.formControl} placeholder="Address" placeholderTextColor={COLORS.label} />
             </View>
@@ -76,7 +72,7 @@ const AddDeliveryAddress = ({ navigation }) => {
               <Text style={GlobalStyleSheet.label}>Locality/Town</Text>
               <TextInput style={GlobalStyleSheet.formControl} placeholder="Locality/Town" placeholderTextColor={COLORS.label} />
             </View>
-            <View style={[GlobalStyleSheet.row]}>
+            {/* <View style={[GlobalStyleSheet.row]}>
               <View style={[GlobalStyleSheet.col50]}>
                 <View style={GlobalStyleSheet.inputGroup}>
                   <Text style={GlobalStyleSheet.label}>City/District</Text>
@@ -89,7 +85,7 @@ const AddDeliveryAddress = ({ navigation }) => {
                   <TextInput style={GlobalStyleSheet.formControl} placeholder="State" placeholderTextColor={COLORS.label} />
                 </View>
               </View>
-            </View>
+            </View> */}
             <View
               style={{
                 borderBottomWidth: 1,

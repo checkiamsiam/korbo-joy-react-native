@@ -1,7 +1,8 @@
+import { API_BASE } from "@env";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://api.github.com/",
+  baseUrl: API_BASE,
   prepareHeaders: (headers, { getState }) => {
     /**
      *

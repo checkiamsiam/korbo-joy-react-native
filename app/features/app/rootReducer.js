@@ -1,10 +1,10 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import counterReducer from "../Counter/Counter";
+import actionSheetReducer from "../ActionSheets/ActionSheetSlice";
 import ApiBase from "./ApiBase";
 
 const rootReducer = combineReducers({
   [ApiBase.reducerPath]: ApiBase.reducer,
-  counter: counterReducer,
+  actionSheet: actionSheetReducer,
 });
 
 export default rootReducer;

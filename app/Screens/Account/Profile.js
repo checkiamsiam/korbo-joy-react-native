@@ -1,27 +1,18 @@
-import React, { useRef } from "react";
-import {
-  Image,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
 import { IconButton } from "@react-native-material/core";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import FeatherIcon from "react-native-vector-icons/Feather";
+import React, { useRef } from "react";
+import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import Octicons from "react-native-vector-icons/Octicons";
+import UnitedStates from "../../assets/images/flags/UnitedStates.png";
+import german from "../../assets/images/flags/german.png";
+import india from "../../assets/images/flags/india.png";
+import italian from "../../assets/images/flags/italian.png";
+import spanish from "../../assets/images/flags/spanish.png";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, IMAGES } from "../../constants/theme";
 import Header from "../../layout/Header";
-import india from "../../assets/images/flags/india.png";
-import UnitedStates from "../../assets/images/flags/UnitedStates.png";
-import german from "../../assets/images/flags/german.png";
-import italian from "../../assets/images/flags/italian.png";
-import spanish from "../../assets/images/flags/spanish.png";
-import { StatusBar } from "react-native";
 
 const languagetData = [
   {
@@ -47,8 +38,7 @@ const languagetData = [
 ];
 
 const Profile = ({ navigation }) => {
-
-    const RBSheetLanguage = useRef();
+  const RBSheetLanguage = useRef();
 
   return (
     <>
@@ -79,9 +69,7 @@ const Profile = ({ navigation }) => {
         >
           <Text style={{ ...FONTS.h5, color: COLORS.title }}>Language</Text>
         </View>
-        <ScrollView
-          contentContainerStyle={{ paddingBottom: 20, paddingHorizontal: 15 }}
-        >
+        <ScrollView contentContainerStyle={{ paddingBottom: 20, paddingHorizontal: 15 }}>
           {languagetData.map((data, index) => (
             <TouchableOpacity
               onPress={() => RBSheetLanguage.current.close()}
@@ -102,9 +90,7 @@ const Profile = ({ navigation }) => {
                 }}
                 source={data.flag}
               />
-              <Text style={{ ...FONTS.fontLg, color: COLORS.title, flex: 1 }}>
-                {data.name}
-              </Text>
+              <Text style={{ ...FONTS.fontLg, color: COLORS.title, flex: 1 }}>{data.name}</Text>
               <FeatherIcon name="chevron-right" color={COLORS.text} size={24} />
             </TouchableOpacity>
           ))}
@@ -159,20 +145,12 @@ const Profile = ({ navigation }) => {
               }}
             >
               <View style={{ width: "50%", paddingHorizontal: 5 }}>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate("Orders")}
-                  style={styles.profileBtn}
-                >
-                  <Ionicons
-                    style={{ marginRight: 10, top: -1 }}
-                    color={COLORS.text}
-                    size={20}
-                    name={"cube-outline"}
-                  />
+                <TouchableOpacity onPress={() => navigation.navigate("Orders")} style={styles.profileBtn}>
+                  <Ionicons style={{ marginRight: 10, top: -1 }} color={COLORS.text} size={20} name={"cube-outline"} />
                   <Text style={{ ...FONTS.h6 }}>Orders</Text>
                 </TouchableOpacity>
               </View>
-              <View style={{ width: "50%", paddingHorizontal: 5 }}>
+              {/* <View style={{ width: "50%", paddingHorizontal: 5 }}>
                 <TouchableOpacity
                   onPress={() => navigation.navigate("Wishlist")}
                   style={styles.profileBtn}
@@ -199,15 +177,10 @@ const Profile = ({ navigation }) => {
                   />
                   <Text style={{ ...FONTS.h6 }}>Coupons</Text>
                 </TouchableOpacity>
-              </View>
+              </View> */}
               <View style={{ width: "50%", paddingHorizontal: 5 }}>
                 <TouchableOpacity style={styles.profileBtn}>
-                  <FeatherIcon
-                    style={{ marginRight: 10, top: -1 }}
-                    color={COLORS.text}
-                    size={20}
-                    name={"headphones"}
-                  />
+                  <FeatherIcon style={{ marginRight: 10, top: -1 }} color={COLORS.text} size={20} name={"headphones"} />
                   <Text style={{ ...FONTS.h6 }}>Help Center</Text>
                 </TouchableOpacity>
               </View>
@@ -220,49 +193,19 @@ const Profile = ({ navigation }) => {
               borderColor: COLORS.borderColor,
             }}
           >
-            <Text style={{ ...FONTS.h6, marginBottom: 5 }}>
-              Account Settings
-            </Text>
+            <Text style={{ ...FONTS.h6, marginBottom: 5 }}>Account Settings</Text>
             <View>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("EditProfile")}
-                style={styles.listItem}
-              >
-                <FeatherIcon
-                  style={{ marginRight: 12 }}
-                  color={COLORS.secondary}
-                  size={20}
-                  name="user"
-                />
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>
-                  Edit Profile
-                </Text>
-                <FeatherIcon
-                  size={20}
-                  color={COLORS.title}
-                  name="chevron-right"
-                />
+              <TouchableOpacity onPress={() => navigation.navigate("EditProfile")} style={styles.listItem}>
+                <FeatherIcon style={{ marginRight: 12 }} color={COLORS.secondary} size={20} name="user" />
+                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Edit Profile</Text>
+                <FeatherIcon size={20} color={COLORS.title} name="chevron-right" />
               </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("Address")}
-                style={styles.listItem}
-              >
-                <FeatherIcon
-                  style={{ marginRight: 12 }}
-                  color={COLORS.secondary}
-                  size={18}
-                  name="map-pin"
-                />
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>
-                  Saved Addresses
-                </Text>
-                <FeatherIcon
-                  size={20}
-                  color={COLORS.title}
-                  name="chevron-right"
-                />
+              <TouchableOpacity onPress={() => navigation.navigate("Address")} style={styles.listItem}>
+                <FeatherIcon style={{ marginRight: 12 }} color={COLORS.secondary} size={18} name="map-pin" />
+                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Saved Addresses</Text>
+                <FeatherIcon size={20} color={COLORS.title} name="chevron-right" />
               </TouchableOpacity>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 onPress={() => RBSheetLanguage.current.open()}
                 style={styles.listItem}
               >
@@ -296,25 +239,11 @@ const Profile = ({ navigation }) => {
                   color={COLORS.title}
                   name="chevron-right"
                 />
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("Onboarding")}
-                style={styles.listItem}
-              >
-                <FeatherIcon
-                  style={{ marginRight: 12 }}
-                  color={COLORS.secondary}
-                  size={20}
-                  name="log-out"
-                />
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>
-                  Log Out
-                </Text>
-                <FeatherIcon
-                  size={20}
-                  color={COLORS.title}
-                  name="chevron-right"
-                />
+              </TouchableOpacity> */}
+              <TouchableOpacity onPress={() => navigation.navigate("Onboarding")} style={styles.listItem}>
+                <FeatherIcon style={{ marginRight: 12 }} color={COLORS.secondary} size={20} name="log-out" />
+                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Log Out</Text>
+                <FeatherIcon size={20} color={COLORS.title} name="chevron-right" />
               </TouchableOpacity>
             </View>
           </View>

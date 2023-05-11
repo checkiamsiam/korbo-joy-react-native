@@ -5,9 +5,9 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import Routes from "./app/Navigations/Route";
+import ActionSheets from "./app/components/ActionSheets";
 import FontProvider from "./app/components/FontsProvider";
 import { persistor, store } from "./app/features/app/store";
-
 const App = () => {
   return (
     <Provider store={store}>
@@ -16,6 +16,7 @@ const App = () => {
           <SafeAreaProvider>
             <Routes />
             <FlashMessage position="top" />
+            <ActionSheets />
           </SafeAreaProvider>
         </FontProvider>
       </PersistGate>
