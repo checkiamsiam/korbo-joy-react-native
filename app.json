@@ -28,7 +28,8 @@
       }
     },
     "web": {
-      "favicon": "./app/assets/images/logo.png"
+      "favicon": "./app/assets/images/logo.png",
+      "name": "Korbo Joy"
     },
     "extra": {
       "eas": {
