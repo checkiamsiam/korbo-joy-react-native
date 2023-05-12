@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "korbo-joy",
+    "name": "Korbo Joy",
     "slug": "korbo-joy",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,12 +11,17 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.korbojoy.app",
+      "buildNumber": "1.0.0"
     },
     "android": {
-      "hermesEnabled": true,
+      "package": "com.korbojoy.app",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/images/logo.png",
         "backgroundColor": "#ffffff"
@@ -24,6 +29,11 @@
     },
     "web": {
       "favicon": "./app/assets/images/logo.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "66202eaa-67d2-408a-bd21-075d8e2ff10a"
+      }
     }
   }
 }
