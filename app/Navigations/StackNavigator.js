@@ -11,8 +11,6 @@ import Payment from "../Screens/Delivery/Payment";
 import Featured from "../Screens/Featured/Featured";
 import Filter from "../Screens/Filter/Filter";
 import Items from "../Screens/Items/Items";
-import Onboarding from "../Screens/Onboarding/Onboarding";
-import Splash from "../Screens/Onboarding/Splash";
 import Welcome from "../Screens/Onboarding/Welcome";
 import Orders from "../Screens/Orders/Orders";
 import ProductDetail from "../Screens/Products/ProductDetail";
@@ -33,8 +31,6 @@ const StackNavigator = () => {
           cardStyle: { backgroundColor: "transparent" },
         }}
       >
-        <StackComponent.Screen name={"Splash"} component={Splash} />
-        <StackComponent.Screen name={"Onboarding"} component={Onboarding} />
         <StackComponent.Screen name={"Welcome"} component={Welcome} />
         <StackComponent.Screen name={"SignUp"} component={SignUp} />
         <StackComponent.Screen name={"SignIn"} component={SignIn} />
@@ -52,6 +48,8 @@ const StackNavigator = () => {
         <StackComponent.Screen name={"Filter"} component={Filter} />
         <StackComponent.Screen name={"Items"} component={Items} />
         <StackComponent.Screen name={"Search"} component={Search} />
+        {/* <StackComponent.Screen name={"Splash"} component={Splash} /> */}
+        {/* <StackComponent.Screen name={"Onboarding"} component={Onboarding} /> */}
         {/* <StackComponent.Screen name={"DeliveryTracking"} component={DeliveryTracking} />
         <StackComponent.Screen name={"Wishlist"} component={Wishlist} />
         <StackComponent.Screen name={"Coupons"} component={Coupons} />

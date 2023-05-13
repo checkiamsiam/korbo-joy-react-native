@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, IMAGES, SIZES } from "../../constants/theme";
+import { COLORS, FONTS, IMAGES } from "../../constants/theme";
 
 const SignUp = (props) => {
   const [isFocused, setisFocused] = useState(false);
@@ -121,9 +120,9 @@ const SignUp = (props) => {
           >
             Already have an account?
           </Text>
-          <CustomButton outline title="Continue with email" />
+          <CustomButton onPress={() => props.navigation.navigate("SignIn")} outline title="Continue with email" />
 
-          <View
+          {/* <View
             style={{
               flexDirection: "row",
               marginVertical: 15,
@@ -156,7 +155,7 @@ const SignUp = (props) => {
             >
               <MaterialCommunityIcons color={"#fff"} name="facebook" size={22} />
             </TouchableOpacity>
-          </View>
+          </View> */}
         </View>
       </View>
     </ScrollView>
