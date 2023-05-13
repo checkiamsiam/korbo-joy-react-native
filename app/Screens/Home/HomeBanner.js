@@ -2,10 +2,11 @@ import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Image, View } from "react-native";
 import Swiper from "react-native-swiper";
+import { useSelector } from "react-redux";
 import { COLORS } from "../../constants/theme";
-import { bannerData } from "./DummyData";
 
 const HomeBanner = () => {
+  const { sliders } = useSelector((state) => state.slider);
   return (
     <View
       style={{
@@ -21,7 +22,7 @@ const HomeBanner = () => {
         activeDotColor={COLORS.white}
         paginationStyle={{ bottom: 10 }}
       >
-        {bannerData.map((data, index) => {
+        {sliders.map((data, index) => {
           return (
             <View key={index}>
               <LinearGradient

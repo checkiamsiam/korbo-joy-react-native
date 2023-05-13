@@ -8,7 +8,7 @@ import { COLORS, FONTS } from "../../constants/theme";
 const CategoryHeader = () => {
   const navigation = useNavigation();
   const {
-    params: { title },
+    params: { name },
   } = useRoute();
   return (
     <View
@@ -31,7 +31,7 @@ const CategoryHeader = () => {
           marginLeft: 5,
         }}
       >
-        {title}
+        {name}
       </Text>
       <IconButton icon={() => <FeatherIcon color={COLORS.title} size={20} name="search" />} size={25} onPress={() => navigation.navigate("Search")} />
       <IconButton

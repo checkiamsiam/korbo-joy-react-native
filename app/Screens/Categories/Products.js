@@ -1,8 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import ProductItem from "../../components/ProductItem";
-import { COLORS, FONTS } from "../../constants/theme";
 
 const Products = ({ pageData }) => {
   const navigation = useNavigation();

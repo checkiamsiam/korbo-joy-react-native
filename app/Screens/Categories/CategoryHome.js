@@ -1,35 +1,17 @@
+import { IMAGE_BASE } from "@env";
 import React from "react";
 import { Image, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
-import AppliancesData from "../../JSON/Appliances.json";
-import BookToysData from "../../JSON/BooksToys.json";
-import ElectronicsData from "../../JSON/Electronics.json";
+import { useSelector } from "react-redux";
 import FashionData from "../../JSON/Fashion.json";
-import FurnitureData from "../../JSON/Furniture.json";
-import GroceryData from "../../JSON/Grocery.json";
-import MobilesData from "../../JSON/Mobiles.json";
 import { COLORS, FONTS } from "../../constants/theme";
 import CategoryHeader from "./CategoryHeader";
 import Products from "./Products";
 
 const CategoryHome = ({ navigation, route }) => {
-  const { title } = route.params;
+  const { name, categoryId } = route.params;
+  const { allCategories } = useSelector((state) => state.categories);
+  const thisCategory = allCategories.find((c) => c.id === categoryId);
 
-  const pageData =
-    title === "Fashion"
-      ? FashionData
-      : title === "Mobiles"
-      ? MobilesData
-      : title === "Electronics"
-      ? ElectronicsData
-      : title === "Furniture"
-      ? FurnitureData
-      : title === "Grocery"
-      ? GroceryData
-      : title === "Appliances"
-      ? AppliancesData
-      : title === "Books,Toys"
-      ? BookToysData
-      : [];
   return (
     <SafeAreaView
       style={{
@@ -41,7 +23,7 @@ const CategoryHome = ({ navigation, route }) => {
       <CategoryHeader />
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
         <View>
-          {pageData.categories && (
+          {thisCategory && (
             <View
               style={{
                 flexDirection: "row",
@@ -52,7 +34,7 @@ const CategoryHome = ({ navigation, route }) => {
                 paddingBottom: 5,
               }}
             >
-              {pageData.categories.map((d2, i2) => {
+              {thisCategory?.categorySubs.map((d2, i2) => {
                 return (
                   <View
                     key={i2}
@@ -62,7 +44,7 @@ const CategoryHome = ({ navigation, route }) => {
                     }}
                   >
                     <TouchableOpacity
-                      onPress={() => navigation.navigate("Items", { type: title })}
+                      onPress={() => navigation.navigate("Items", { type: name })}
                       style={{
                         alignItems: "center",
                         marginBottom: 18,
@@ -87,7 +69,7 @@ const CategoryHome = ({ navigation, route }) => {
                             width: "100%",
                             height: 60,
                           }}
-                          source={{ uri: d2.image }}
+                          source={{ uri: `${IMAGE_BASE}/${d2.mobileicon}` }}
                         />
                       </View>
                       <Text
@@ -98,7 +80,7 @@ const CategoryHome = ({ navigation, route }) => {
                           textAlign: "center",
                         }}
                       >
-                        {d2.title}
+                        {d2.name}
                       </Text>
                     </TouchableOpacity>
                   </View>
@@ -124,10 +106,10 @@ const CategoryHome = ({ navigation, route }) => {
               flex: 1,
             }}
           >
-            {title} Products
+            {name} Products
           </Text>
         </View>
-        <Products pageData={pageData.items} />
+        <Products pageData={FashionData.items} />
       </ScrollView>
     </SafeAreaView>
   );

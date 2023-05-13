@@ -4,21 +4,21 @@ import { persistReducer, persistStore } from "redux-persist";
 import ApiBase from "./ApiBase";
 import rootReducer from "./rootReducer";
 
-
 const persistConfig = {
   key: "sku-markets",
   version: 1,
   storage: AsyncStorage,
-  whitelist: [],
+  whitelist: ["auth"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: (gtm) => gtm({
-    serializableCheck: false,
-  }).concat(ApiBase.middleware),
+  middleware: (gtm) =>
+    gtm({
+      serializableCheck: false,
+    }).concat(ApiBase.middleware),
   devTools: true,
 });
 

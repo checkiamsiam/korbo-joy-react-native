@@ -67,7 +67,7 @@ const Header = (props) => {
             },
           ]}
         >
-          {props.leftIcon == 'back' && (
+          {props.leftIcon === 'back' && (
             <IconButton
               onPress={() =>
                 props.backAction ? props.backAction() : navigation.goBack()
@@ -94,20 +94,20 @@ const Header = (props) => {
               </Text>
             )}
           </View>
-          {props.rightIcon2 == 'search' && (
+          {props.rightIcon2 === 'search' && (
             <IconButton
               onPress={() => navigation.navigate('Search')}
               color={'#4E4E4E'}
               icon={(props) => <FeatherIcon name="search" {...props} />}
             />
           )}
-          {props.rightIcon == 'more' && (
+          {props.rightIcon === 'more' && (
             <IconButton
               color={props.transparent ? '#fff' : '#4E4E4E'}
               icon={(props) => <MaterialIcons name="more-vert" {...props} />}
             />
           )}
-          {props.rightIcon == 'grid' && (
+          {props.rightIcon === 'grid' && (
             <View
               style={{
                 flexDirection: 'row',
@@ -117,13 +117,13 @@ const Header = (props) => {
               <IconButton
                 onPress={() => props.setItemView('list')}
                 style={{ borderRadius: 0 }}
-                color={props.itemView == 'list' ? COLORS.primary : '#4E4E4E'}
+                color={props.itemView === 'list' ? COLORS.primary : '#4E4E4E'}
                 icon={(props) => <FeatherIcon name="list" {...props} />}
               />
               <IconButton
                 onPress={() => props.setItemView('grid')}
                 style={{ borderRadius: 0 }}
-                color={props.itemView == 'grid' ? COLORS.primary : '#4E4E4E'}
+                color={props.itemView === 'grid' ? COLORS.primary : '#4E4E4E'}
                 icon={(props) => <FeatherIcon name="grid" {...props} />}
               />
             </View>

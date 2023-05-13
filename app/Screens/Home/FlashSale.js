@@ -1,15 +1,16 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { ScrollView, View } from "react-native";
+import { useSelector } from "react-redux";
 import ProductCardStyle1 from "../../components/ProductCardStyle1";
-import { SuggestData } from "./DummyData";
 
 const FlashSale = () => {
   const navigation = useNavigation();
+  const { products } = useSelector((state) => state.flashSale);
   return (
     <View>
       <ScrollView contentContainerStyle={{ paddingLeft: 15 }} horizontal showsHorizontalScrollIndicator={false}>
-        {SuggestData.map((data, index) => {
+        {products.map((data, index) => {
           return (
             <View
               key={index}

@@ -99,7 +99,7 @@ const Welcome = (props) => {
               title={"Continue with Email"}
             />
           </View>
-          <View style={{ marginBottom: 10 }}>
+          {/* <View style={{ marginBottom: 10 }}>
             <CustomButton
               onPress={() => props.navigation.navigate("SignIn")}
               icon={<MaterialCommunityIcons color={"#fff"} name="facebook" size={22} />}
@@ -115,7 +115,7 @@ const Welcome = (props) => {
               color={"#fff"}
               title={"Sign in With Google"}
             />
-          </View>
+          </View> */}
         </View>
       </View>
     </ScrollView>

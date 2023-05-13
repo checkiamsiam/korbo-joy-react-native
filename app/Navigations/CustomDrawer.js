@@ -48,7 +48,7 @@ const CustomDrawer = ({ navigation }) => {
     {
       icon: "log-out",
       name: "Logout",
-      navigate: "Onboarding",
+      navigate: "Welcome",
     },
   ];
 

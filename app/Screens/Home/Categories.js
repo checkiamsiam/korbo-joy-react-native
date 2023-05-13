@@ -1,12 +1,13 @@
+import { IMAGE_BASE } from "@env";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import { useSelector } from "react-redux";
 import { COLORS, FONTS } from "../../constants/theme";
-import { categoryData } from "./DummyData";
-import { useNavigation } from "@react-navigation/native";
-
 const Categories = () => {
   const navigation = useNavigation();
+  const { homeCategories } = useSelector((state) => state.categories);
   return (
     <View
       style={{
@@ -15,7 +16,7 @@ const Categories = () => {
         marginTop: 20,
       }}
     >
-      {categoryData.map((data, index) => {
+      {homeCategories.map((data, index) => {
         return (
           <View
             key={index}
@@ -26,10 +27,11 @@ const Categories = () => {
           >
             <TouchableOpacity
               onPress={() => {
-                data.title === "More"
+                data.name === "More"
                   ? navigation.navigate("Categories")
                   : navigation.navigate("CategoryHome", {
-                      title: data.title,
+                      name: data.name,
+                      categoryId: data.id,
                     });
                 //navigation.navigate('Featured')
               }}
@@ -52,7 +54,7 @@ const Categories = () => {
                   justifyContent: "center",
                 }}
               >
-                {data.title === "More" ? (
+                {data.name === "More" ? (
                   <MaterialIcons color={COLORS.primary} size={40} name="more-horiz" />
                 ) : (
                   <Image
@@ -60,7 +62,9 @@ const Categories = () => {
                       width: "100%",
                       height: 60,
                     }}
-                    source={data.image}
+                    source={{
+                      uri: `${IMAGE_BASE}/${data.mobileicon}`,
+                    }}
                   />
                 )}
               </View>
@@ -71,7 +75,7 @@ const Categories = () => {
                   color: COLORS.title,
                 }}
               >
-                {data.title}
+                {data.name}
               </Text>
             </TouchableOpacity>
           </View>
