@@ -17,6 +17,20 @@ export const categoryAPI = ApiBase.injectEndpoints({
         }
       },
     }),
+    getCategoryProduct: builder.query({
+      query: (id) => ({
+        url: `/api/ev1/categoryAllProduct/${id}`,
+        method: "GET",
+      }),
+      async onQueryStarted(query, { queryFulfilled, dispatch }) {
+        try {
+          const res = await queryFulfilled;
+          dispatch(setCategories(res.data));
+        } catch (err) {
+          console.log(err);
+        }
+      },
+    }),
   }),
 });
 

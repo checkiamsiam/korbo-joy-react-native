@@ -44,7 +44,7 @@ const Welcome = (props) => {
           />
           <Image
             style={{
-              height: 25,
+              height: 60,
               resizeMode: "contain",
             }}
             source={IMAGES.logoTextWhite}

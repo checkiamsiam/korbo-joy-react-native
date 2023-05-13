@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SuggestData } from "../../Screens/Home/DummyData";
 
 const initialState = {
-  products: SuggestData,
+  products: [],
 };
 
 const flashSaleSlice = createSlice({

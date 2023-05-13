@@ -11,7 +11,7 @@ export const flashSaleApi = ApiBase.injectEndpoints({
       async onQueryStarted(query, { queryFulfilled, dispatch }) {
         try {
           const res = await queryFulfilled;
-          dispatch(setFlashSaleProducts(res));
+          dispatch(setFlashSaleProducts(res.data));
         } catch (err) {
           console.log(err);
         }

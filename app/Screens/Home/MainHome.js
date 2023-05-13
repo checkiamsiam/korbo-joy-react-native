@@ -1,8 +1,7 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StatusBar } from "react-native";
+import { SafeAreaView, StatusBar } from "react-native";
+import { ScrollView } from "react-native-virtualized-view";
 import { COLORS } from "../../constants/theme";
-import { useGetCategoriesQuery } from "../../features/Categories/CategoriesApi";
-import { useGetSliderQuery } from "../../features/SliderFeature/SliderApi";
 import Categories from "./Categories";
 import FlashSale from "./FlashSale";
 import HomeBanner from "./HomeBanner";
