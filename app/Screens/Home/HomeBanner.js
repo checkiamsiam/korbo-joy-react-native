@@ -1,11 +1,14 @@
+import { IMAGE_BASE } from "@env";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Image, View } from "react-native";
 import Swiper from "react-native-swiper";
 import { useSelector } from "react-redux";
 import { COLORS } from "../../constants/theme";
+import { useGetSliderQuery } from "../../features/SliderFeature/SliderApi";
 
 const HomeBanner = () => {
+  const { isLoading: sliderLoading } = useGetSliderQuery();
   const { sliders } = useSelector((state) => state.slider);
   return (
     <View
@@ -40,7 +43,7 @@ const HomeBanner = () => {
                   height: undefined,
                   aspectRatio: 250 / 100,
                 }}
-                source={data.image}
+                source={{ uri: `${IMAGE_BASE}/${data?.img}` }}
               />
             </View>
           );

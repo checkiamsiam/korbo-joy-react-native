@@ -11,7 +11,7 @@ export const sliderApi = ApiBase.injectEndpoints({
       async onQueryStarted(query, { queryFulfilled, dispatch }) {
         try {
           const res = await queryFulfilled;
-          dispatch(setSliders(res));
+          dispatch(setSliders(res.data));
         } catch (err) {
           console.log(err);
         }

@@ -20,11 +20,11 @@ const CustomDrawer = ({ navigation }) => {
     //   name: "Components",
     //   navigate: "Components",
     // },
-    {
-      icon: "list",
-      name: "Featured",
-      navigate: "Featured",
-    },
+    // {
+    //   icon: "list",
+    //   name: "Featured",
+    //   navigate: "Featured",
+    // },
     // {
     //   icon: "heart",
     //   name: "Wishlist",
