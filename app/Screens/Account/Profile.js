@@ -5,6 +5,7 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Octicons from "react-native-vector-icons/Octicons";
+import { useSelector } from "react-redux";
 import UnitedStates from "../../assets/images/flags/UnitedStates.png";
 import german from "../../assets/images/flags/german.png";
 import india from "../../assets/images/flags/india.png";
@@ -39,6 +40,7 @@ const languagetData = [
 
 const Profile = ({ navigation }) => {
   const RBSheetLanguage = useRef();
+  const { user, token } = useSelector((state) => state.auth);
 
   return (
     <>
@@ -128,8 +130,8 @@ const Profile = ({ navigation }) => {
                   flex: 1,
                 }}
               >
-                <Text style={{ ...FONTS.h6 }}>Elena</Text>
-                <Text style={{ ...FONTS.font }}>elena@example.com</Text>
+                <Text style={{ ...FONTS.h6 }}>{user.name ? user.name : "Guest"}</Text>
+                <Text style={{ ...FONTS.font }}>{user.number ? user.number : "+880XXXXXXXXXX"}</Text>
               </View>
               <IconButton
                 onPress={() => navigation.navigate("EditProfile")}

@@ -5,6 +5,7 @@ import FeatherIcon from "react-native-vector-icons/Feather";
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, IMAGES } from "../../constants/theme";
+import { useLoginMutation } from "../../features/Auth/AuthApi";
 
 const SignIn = (props) => {
   const [isFocused, setisFocused] = useState(false);
@@ -16,9 +17,15 @@ const SignIn = (props) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [login] = useLoginMutation();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const body = {
+      username: data.number,
+      password: data.password,
+    };
+    await login(body);
+    props.navigation.navigate("Home");
   };
 
   return (

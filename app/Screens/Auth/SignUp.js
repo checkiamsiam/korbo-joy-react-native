@@ -5,6 +5,7 @@ import FeatherIcon from "react-native-vector-icons/Feather";
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, IMAGES } from "../../constants/theme";
+import { useRegisterMutation } from "../../features/Auth/AuthApi";
 
 const SignUp = (props) => {
   const [isFocused, setisFocused] = useState(false);
@@ -19,9 +20,17 @@ const SignUp = (props) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [signup] = useRegisterMutation();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const body = {
+      accountType: "user",
+      name: data.name,
+      password: data.password,
+      number: data.number,
+    };
+    await signup(body);
+    props.navigation.navigate("SignIn");
   };
 
   return (
