@@ -5,10 +5,10 @@ import ApiBase from "./ApiBase";
 import rootReducer from "./rootReducer";
 
 const persistConfig = {
-  key: "sku-markets",
+  key: "korbo-joy",
   version: 1,
   storage: AsyncStorage,
-  whitelist: ["user"],
+  whitelist: ["auth"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
