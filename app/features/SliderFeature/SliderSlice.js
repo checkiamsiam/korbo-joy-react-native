@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { bannerData } from "../../Screens/Home/DummyData";
 
 const initialState = {
-  sliders: bannerData,
+  sliders: [],
 };
 
 const sliderSlice = createSlice({

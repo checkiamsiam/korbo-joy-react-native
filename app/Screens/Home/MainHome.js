@@ -1,7 +1,7 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StatusBar } from "react-native";
+import { SafeAreaView, StatusBar } from "react-native";
+import { ScrollView } from "react-native-virtualized-view";
 import { COLORS } from "../../constants/theme";
-import { useGetCategoriesQuery } from "../../features/Categories/CategoriesApi";
 import Categories from "./Categories";
 import FlashSale from "./FlashSale";
 import HomeBanner from "./HomeBanner";
@@ -11,7 +11,6 @@ import OurVendors from "./OurVendors";
 import SectionHeader from "./SectionHeader";
 
 const MainHome = ({ navigation }) => {
-  const { isLoading } = useGetCategoriesQuery();
   return (
     <SafeAreaView
       style={{

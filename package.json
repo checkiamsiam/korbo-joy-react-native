@@ -29,6 +29,7 @@
     "expo-status-bar": "~1.4.4",
     "expo-updates": "~0.16.4",
     "react": "18.2.0",
+    "react-hook-form": "^7.43.9",
     "react-native": "^0.71.7",
     "react-native-chart-kit": "^6.12.0",
     "react-native-collapsible": "^1.6.0",
@@ -50,6 +51,7 @@
     "react-native-toast-message": "^2.1.6",
     "react-native-uuid": "^2.0.1",
     "react-native-vector-icons": "^9.2.0",
+    "react-native-virtualized-view": "^1.0.0",
     "react-redux": "^8.0.5",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0"

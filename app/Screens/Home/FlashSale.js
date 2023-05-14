@@ -3,8 +3,10 @@ import React from "react";
 import { ScrollView, View } from "react-native";
 import { useSelector } from "react-redux";
 import ProductCardStyle1 from "../../components/ProductCardStyle1";
+import { useGetFlashSalePdQuery } from "../../features/FlashSale/FlashSaleApi";
 
 const FlashSale = () => {
+  const { isLoading } = useGetFlashSalePdQuery();
   const navigation = useNavigation();
   const { products } = useSelector((state) => state.flashSale);
   return (
@@ -21,11 +23,11 @@ const FlashSale = () => {
             >
               <ProductCardStyle1
                 onPress={() => navigation.navigate("Items", { type: "Fashion" })}
-                image={data.image}
-                title={data.title}
+                image={JSON.parse(data.img)[0]}
+                title={data.name}
                 price={data.price}
-                oldPrice={data.oldPrice}
-                offer={data.offer}
+                oldPrice={data?.salesPrice}
+                offer={data?.offerAmount}
               />
             </View>
           );

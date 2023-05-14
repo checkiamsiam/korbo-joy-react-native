@@ -6,8 +6,6 @@ import pic1 from "../../assets/images/featured/pic1.png";
 import pic2 from "../../assets/images/featured/pic2.png";
 import pic3 from "../../assets/images/featured/pic3.png";
 import pic4 from "../../assets/images/featured/pic4.png";
-import FeaturedCard from "../../components/FeaturedCard";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
@@ -104,7 +102,7 @@ const Categories = ({ navigation }) => {
             );
           })}
         </View>
-        <View
+        {/* <View
           style={{
             ...GlobalStyleSheet.container,
             borderTopWidth: 1,
@@ -115,7 +113,7 @@ const Categories = ({ navigation }) => {
           {FeaturedData.map((data, index) => {
             return <FeaturedCard key={index} image={data.image} title={data.title} />;
           })}
-        </View>
+        </View> */}
       </ScrollView>
     </SafeAreaView>
   );

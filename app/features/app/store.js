@@ -8,7 +8,7 @@ const persistConfig = {
   key: "sku-markets",
   version: 1,
   storage: AsyncStorage,
-  whitelist: ["auth"],
+  whitelist: ["user"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

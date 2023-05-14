@@ -1,8 +1,8 @@
+import { IMAGE_BASE } from "@env";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { COLORS, FONTS } from "../constants/theme";
 
 const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews, status, imgLength, onPress, imageSrc, isLike, handleItemLike }) => {
@@ -26,7 +26,7 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
             borderTopLeftRadius: 6,
             borderTopRightRadius: 6,
           }}
-          source={imageSrc ? { uri: imageSrc } : image}
+          source={imageSrc ? { uri: `${IMAGE_BASE}/${imageSrc}` } : image}
         />
         <LinearGradient
           colors={["rgba(0,0,0,.3)", "rgba(0,0,0,0)", "rgba(0,0,0,0)"]}
@@ -43,23 +43,24 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
             ],
           }}
         />
-        {status && (
-          <View
-            style={{
-              position: "absolute",
-              left: 0,
-              top: 15,
-              backgroundColor: status === "Trending" ? COLORS.primary : COLORS.secondary,
-              paddingHorizontal: 10,
-              paddingVertical: 3,
-              borderTopRightRadius: 10,
-              borderBottomRightRadius: 10,
-              alignItems: "center",
-            }}
-          >
-            <Text style={{ ...FONTS.fontXs, color: COLORS.white }}>{status}</Text>
-          </View>
-        )}
+        {status === "Offer" ||
+          (status === "'FlashSales" && (
+            <View
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 15,
+                backgroundColor: status === "Offer" ? COLORS.primary : COLORS.secondary,
+                paddingHorizontal: 10,
+                paddingVertical: 3,
+                borderTopRightRadius: 10,
+                borderBottomRightRadius: 10,
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ ...FONTS.fontXs, color: COLORS.white }}>{status}</Text>
+            </View>
+          ))}
         <TouchableOpacity
           onPress={() => console.log("pressed cart")}
           style={{
@@ -114,7 +115,7 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
             {oldPrice}
           </Text>
         </View>
-        <View
+        {/* <View
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -124,7 +125,7 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
           <Text style={{ ...FONTS.font, ...FONTS.fontMedium, color: COLORS.title }}>{rating}</Text>
           <FontAwesome style={{ marginLeft: 3, marginRight: 10 }} color={"#FFA800"} size={14} name="star" />
           <Text style={{ ...FONTS.fontSm }}>({reviews} Reviews)</Text>
-        </View>
+        </View> */}
       </View>
     </TouchableOpacity>
   );

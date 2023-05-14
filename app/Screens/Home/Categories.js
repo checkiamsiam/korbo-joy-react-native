@@ -5,7 +5,9 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useSelector } from "react-redux";
 import { COLORS, FONTS } from "../../constants/theme";
+import { useGetCategoriesQuery } from "../../features/Categories/CategoriesApi";
 const Categories = () => {
+  const { isLoading: categoriesLoading  } = useGetCategoriesQuery();
   const navigation = useNavigation();
   const { homeCategories } = useSelector((state) => state.categories);
   return (
