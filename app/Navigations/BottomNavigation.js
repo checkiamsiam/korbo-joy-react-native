@@ -5,7 +5,7 @@ import Profile from "../Screens/Account/Profile";
 import Cart from "../Screens/Cart/Cart";
 import Categories from "../Screens/Categories/Categories";
 import MainHome from "../Screens/Home/MainHome";
-import protectedScreen from "../components/ProtectedScreen";
+import protectedScreen from "../utils/ProtectedScreen";
 import CustomBottomNavigation from "./CustomBottomNavigation";
 
 const Tab = createBottomTabNavigator();

@@ -17,7 +17,7 @@ import Orders from "../Screens/Orders/Orders";
 import ProductDetail from "../Screens/Products/ProductDetail";
 import Products from "../Screens/Products/Products";
 import Search from "../Screens/Search/Search";
-import protectedScreen from "../components/ProtectedScreen";
+import protectedScreen from "../utils/ProtectedScreen";
 import DrawerNavigation from "./DrawerNavigation";
 
 const StackComponent = createNativeStackNavigator();

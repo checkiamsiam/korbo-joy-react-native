@@ -40,7 +40,7 @@ const languagetData = [
 
 const Profile = ({ navigation }) => {
   const RBSheetLanguage = useRef();
-  const { user, token } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <>
