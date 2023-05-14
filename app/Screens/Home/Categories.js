@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { COLORS, FONTS } from "../../constants/theme";
 import { useGetCategoriesQuery } from "../../features/Categories/CategoriesApi";
 const Categories = () => {
-  const { isLoading: categoriesLoading  } = useGetCategoriesQuery();
+  const { isLoading: categoriesLoading } = useGetCategoriesQuery();
   const navigation = useNavigation();
   const { homeCategories } = useSelector((state) => state.categories);
   return (

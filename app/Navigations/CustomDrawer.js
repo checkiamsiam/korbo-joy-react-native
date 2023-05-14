@@ -84,7 +84,7 @@ const CustomDrawer = ({ navigation }) => {
             source={IMAGES.user}
           />
           <View style={{ flex: 1 }}>
-            <Text style={{ ...FONTS.h6, color: COLORS.title, top: 2 }}>{user.name ? user.name : "Guest"}</Text>
+            <Text style={{ ...FONTS.h6, color: COLORS.title, top: 2 , textTransform: "capitalize" }}>{user.name ? user.name : "Guest"}</Text>
             <Text style={{ ...FONTS.font, color: "rgba(0,0,0,.6)" }}>{user.number ? user.number : "+880XXXXXXXXXX"}</Text>
           </View>
         </View>

@@ -4,13 +4,15 @@ import { Image, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, Vie
 import { useSelector } from "react-redux";
 import FashionData from "../../JSON/Fashion.json";
 import { COLORS, FONTS } from "../../constants/theme";
+import { useGetCategoryProductQuery } from "../../features/Categories/CategoriesApi";
 import CategoryHeader from "./CategoryHeader";
 import Products from "./Products";
 
 const CategoryHome = ({ navigation, route }) => {
   const { name, categoryId } = route.params;
-  const { allCategories } = useSelector((state) => state.categories);
+  const { allCategories, categoryWiseProducts } = useSelector((state) => state.categories);
   const thisCategory = allCategories.find((c) => c.id === categoryId);
+  const {} = useGetCategoryProductQuery(categoryId);
 
   return (
     <SafeAreaView

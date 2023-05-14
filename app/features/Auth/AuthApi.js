@@ -1,3 +1,4 @@
+import decode from "jwt-decode";
 import { showMessage } from "react-native-flash-message";
 import ApiBase from "../app/ApiBase";
 import { setUser } from "./AuthSlice";
@@ -43,9 +44,13 @@ export const categoryAPI = ApiBase.injectEndpoints({
           });
           const res = await queryFulfilled;
           const token = res.data;
-          // const jsonValue = JSON.stringify({ token });
-          // await AsyncStorage.setItem("korbo-joy-user", jsonValue);
-          dispatch(setUser({ token }));
+          const decoded = decode(token);
+          const userData = {
+            name: decoded.name,
+            number: decoded.number,
+            token: token,
+          };
+          dispatch(setUser(userData));
           showMessage({
             message: "Logged in Successfully",
             type: "success",

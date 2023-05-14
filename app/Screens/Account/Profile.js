@@ -130,7 +130,7 @@ const Profile = ({ navigation }) => {
                   flex: 1,
                 }}
               >
-                <Text style={{ ...FONTS.h6 }}>{user.name ? user.name : "Guest"}</Text>
+                <Text style={{ ...FONTS.h6, textTransform: "capitalize" }}>{user.name ? user.name : "Guest"}</Text>
                 <Text style={{ ...FONTS.font }}>{user.number ? user.number : "+880XXXXXXXXXX"}</Text>
               </View>
               <IconButton

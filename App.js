@@ -8,7 +8,11 @@ import Routes from "./app/Navigations/Route";
 import ActionSheets from "./app/components/ActionSheets";
 import FontProvider from "./app/components/FontsProvider";
 import { persistor, store } from "./app/features/app/store";
+import jwt_decode from "jwt-decode";
+
 const App = () => {
+  
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

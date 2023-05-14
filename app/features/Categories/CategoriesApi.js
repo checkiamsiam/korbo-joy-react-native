@@ -1,5 +1,5 @@
 import ApiBase from "../app/ApiBase";
-import { setCategories } from "./CategoriesSlice";
+import { setCategories, setSelectedCategoryProducts } from "./CategoriesSlice";
 
 export const categoryAPI = ApiBase.injectEndpoints({
   endpoints: (builder) => ({
@@ -25,7 +25,8 @@ export const categoryAPI = ApiBase.injectEndpoints({
       async onQueryStarted(query, { queryFulfilled, dispatch }) {
         try {
           const res = await queryFulfilled;
-          dispatch(setCategories(res.data));
+          dispatch(setSelectedCategoryProducts(res.data));
+          console.log(res?.data[0]);
         } catch (err) {
           console.log(err);
         }
@@ -34,4 +35,4 @@ export const categoryAPI = ApiBase.injectEndpoints({
   }),
 });
 
-export const { useGetCategoriesQuery } = categoryAPI;
+export const { useGetCategoriesQuery, useGetCategoryProductQuery } = categoryAPI;
