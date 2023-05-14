@@ -1,7 +1,7 @@
-import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import CustomDrawer from './CustomDrawer';
-import BottomNavigation from './BottomNavigation';
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import React from "react";
+import BottomNavigation from "./BottomNavigation";
+import CustomDrawer from "./CustomDrawer";
 
 const Drawer = createDrawerNavigator();
 const DrawerNavigation = (props) => {

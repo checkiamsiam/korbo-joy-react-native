@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
+import { useSelector } from "react-redux";
 import AddDeliveryAddress from "../Screens/Account/AddDeliveryAddress";
 import Address from "../Screens/Account/Address";
 import EditProfile from "../Screens/Account/EditProfile";
@@ -16,11 +17,13 @@ import Orders from "../Screens/Orders/Orders";
 import ProductDetail from "../Screens/Products/ProductDetail";
 import Products from "../Screens/Products/Products";
 import Search from "../Screens/Search/Search";
+import protectedScreen from "../components/ProtectedScreen";
 import DrawerNavigation from "./DrawerNavigation";
 
 const StackComponent = createNativeStackNavigator();
 
 const StackNavigator = () => {
+  const { token } = useSelector((state) => state.auth);
   return (
     <>
       <StackComponent.Navigator
@@ -39,12 +42,12 @@ const StackNavigator = () => {
         <StackComponent.Screen name={"Products"} component={Products} />
         <StackComponent.Screen name={"ProductDetail"} component={ProductDetail} />
         <StackComponent.Screen name={"Featured"} component={Featured} />
-        <StackComponent.Screen name={"Orders"} component={Orders} />
-        <StackComponent.Screen name={"Profile"} component={Profile} />
-        <StackComponent.Screen name={"EditProfile"} component={EditProfile} />
-        <StackComponent.Screen name={"Address"} component={Address} />
-        <StackComponent.Screen name={"Payment"} component={Payment} />
-        <StackComponent.Screen name={"AddDeliveryAddress"} component={AddDeliveryAddress} />
+        <StackComponent.Screen name={"Orders"} component={protectedScreen(Orders, token)} />
+        <StackComponent.Screen name={"Profile"} component={protectedScreen(Profile, token)} />
+        <StackComponent.Screen name={"EditProfile"} component={protectedScreen(EditProfile, token)} />
+        <StackComponent.Screen name={"Address"} component={protectedScreen(Address, token)} />
+        <StackComponent.Screen name={"Payment"} component={protectedScreen(Payment, token)} />
+        <StackComponent.Screen name={"AddDeliveryAddress"} component={protectedScreen(AddDeliveryAddress, token)} />
         <StackComponent.Screen name={"Filter"} component={Filter} />
         <StackComponent.Screen name={"Items"} component={Items} />
         <StackComponent.Screen name={"Search"} component={Search} />
