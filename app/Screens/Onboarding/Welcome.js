@@ -1,7 +1,6 @@
 import React from "react";
 import { Image, ScrollView, Text, View } from "react-native";
 import Swiper from "react-native-swiper";
-import { MaterialCommunityIcons } from "react-native-vector-icons";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
@@ -95,8 +94,8 @@ const Welcome = (props) => {
           <View style={{ marginBottom: 10 }}>
             <CustomButton
               onPress={() => props.navigation.navigate("SignIn")}
-              icon={<FeatherIcon name="mail" color={"#fff"} size={22} />}
-              title={"Continue with Email"}
+              icon={<FeatherIcon name="phone" color={"#fff"} size={22} />}
+              title={"Continue with Phone Number"}
             />
           </View>
           {/* <View style={{ marginBottom: 10 }}>

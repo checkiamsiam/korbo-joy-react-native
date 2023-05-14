@@ -33,12 +33,12 @@ const SignIn = (props) => {
         </View>
 
         <View style={GlobalStyleSheet.inputGroup}>
-          <Text style={GlobalStyleSheet.label}>Username</Text>
+          <Text style={GlobalStyleSheet.label}>Phone Number</Text>
           <TextInput
             style={[GlobalStyleSheet.formControl, isFocused && GlobalStyleSheet.activeInput]}
             onFocus={() => setisFocused(true)}
             onBlur={() => setisFocused(false)}
-            placeholder="Type Username Here"
+            placeholder="Type Phone Number Here"
             placeholderTextColor={COLORS.label}
           />
         </View>
@@ -76,7 +76,7 @@ const SignIn = (props) => {
 
         <CustomButton onPress={() => props.navigation.navigate("DrawerNavigation")} title="Login" />
 
-        <View
+        {/* <View
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -88,7 +88,7 @@ const SignIn = (props) => {
           <TouchableOpacity>
             <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>Reset here</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
 
         <View style={{ marginTop: 20 }}>
           <Text

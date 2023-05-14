@@ -16,25 +16,34 @@ export const GlobalStyleSheet = {
     borderWidth: 2,
     borderColor: COLORS.primary,
   },
+  errorInput: {
+    borderWidth: 2,
+    borderColor: COLORS.danger,
+  },
   label: {
     ...FONTS.font,
     color: COLORS.label,
     marginBottom: 8,
   },
+  errorInputText: {
+    ...FONTS.font,
+    color: COLORS.danger,
+    alignSelf: "center",
+  },
   inputGroup: {
     marginBottom: 15,
   },
   row: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
     marginHorizontal: -5,
   },
   col50: {
-    width: '50%',
+    width: "50%",
     paddingHorizontal: 5,
   },
   col33: {
-    width: '33.33%',
+    width: "33.33%",
     paddingHorizontal: 5,
   },
   card: {

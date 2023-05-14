@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import CustomButton from "../../components/CustomButton";
@@ -7,10 +8,21 @@ import { COLORS, FONTS, IMAGES } from "../../constants/theme";
 
 const SignUp = (props) => {
   const [isFocused, setisFocused] = useState(false);
+  const [isFocused1, setisFocused1] = useState(false);
   const [isFocused2, setisFocused2] = useState(false);
   const [isFocused3, setisFocused3] = useState(false);
+  const [password, setPassword] = useState("");
   const [handlePassword, setHandlePassword] = useState(true);
   const [handlePassword2, setHandlePassword2] = useState(true);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -24,28 +36,85 @@ const SignUp = (props) => {
         <View
           style={{
             alignItems: "center",
-            paddingVertical: 30,
+            paddingVertical: 20,
           }}
         >
           <Image style={{ height: 70, resizeMode: "contain" }} source={IMAGES.logo} />
         </View>
-        <View style={{ marginBottom: 20 }}>
+        <View style={{ marginBottom: 10 }}>
           <Text style={{ ...FONTS.h3 }}>Create account Free</Text>
-          <Text style={{ ...FONTS.font }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </Text>
         </View>
 
         <View style={GlobalStyleSheet.inputGroup}>
-          <Text style={GlobalStyleSheet.label}>Username</Text>
-          <TextInput
-            style={[GlobalStyleSheet.formControl, isFocused && GlobalStyleSheet.activeInput]}
-            onFocus={() => setisFocused(true)}
-            onBlur={() => setisFocused(false)}
-            placeholder="Type Username Here"
-            placeholderTextColor={COLORS.label}
+          <Text style={GlobalStyleSheet.label}>Phone Number *</Text>
+          <Controller
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "Phone Number is required",
+              },
+              pattern: {
+                value: /^[\+0-9]+$/,
+                message: "Phone Number should contain only numbers",
+              },
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                style={[GlobalStyleSheet.formControl, isFocused1 && GlobalStyleSheet.activeInput, errors.phoneNumber && GlobalStyleSheet.errorInput]}
+                onFocus={() => {
+                  setisFocused1(true);
+                }}
+                onChangeText={onChange}
+                value={value}
+                onBlur={() => {
+                  setisFocused1(false);
+                  onBlur();
+                }}
+                placeholder="Type Phone Number Here"
+                placeholderTextColor={COLORS.label}
+              />
+            )}
+            name="phoneNumber"
           />
+          {errors.phoneNumber && <Text style={GlobalStyleSheet.errorInputText}>{errors.phoneNumber?.message}</Text>}
         </View>
         <View style={GlobalStyleSheet.inputGroup}>
-          <Text style={GlobalStyleSheet.label}>Password</Text>
+          <Text style={GlobalStyleSheet.label}>Name *</Text>
+          <Controller
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "Name is required",
+              },
+              minLength: {
+                value: 3,
+                message: "Name is to short",
+              },
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                style={[GlobalStyleSheet.formControl, isFocused && GlobalStyleSheet.activeInput, errors.name && GlobalStyleSheet.errorInput]}
+                onFocus={() => {
+                  setisFocused(true);
+                }}
+                onChangeText={onChange}
+                value={value}
+                onBlur={() => {
+                  setisFocused(false);
+                  onBlur();
+                }}
+                placeholder="Type Your Name Here"
+                placeholderTextColor={COLORS.label}
+              />
+            )}
+            name="name"
+          />
+          {errors.name && <Text style={GlobalStyleSheet.errorInputText}>{errors.name?.message}</Text>}
+        </View>
+        <View style={GlobalStyleSheet.inputGroup}>
+          <Text style={GlobalStyleSheet.label}>Password *</Text>
           <View>
             <TouchableOpacity
               onPress={() => setHandlePassword(!handlePassword)}
@@ -65,14 +134,37 @@ const SignUp = (props) => {
                 <FeatherIcon name="eye-off" color={COLORS.secondary} size={22} />
               )}
             </TouchableOpacity>
-            <TextInput
-              style={[GlobalStyleSheet.formControl, isFocused2 && GlobalStyleSheet.activeInput]}
-              onFocus={() => setisFocused2(true)}
-              onBlur={() => setisFocused2(false)}
-              secureTextEntry={handlePassword}
-              placeholder="Type Password Here"
-              placeholderTextColor={COLORS.label}
+            <Controller
+              control={control}
+              rules={{
+                required: {
+                  value: true,
+                  message: "Password is required",
+                },
+              }}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  style={[GlobalStyleSheet.formControl, isFocused2 && GlobalStyleSheet.activeInput, errors.password && GlobalStyleSheet.errorInput]}
+                  onFocus={() => {
+                    setisFocused2(true);
+                  }}
+                  onChangeText={(v) => {
+                    onChange(v);
+                    setPassword(v);
+                  }}
+                  value={value}
+                  onBlur={() => {
+                    setisFocused2(false);
+                    onBlur();
+                  }}
+                  secureTextEntry={handlePassword}
+                  placeholder="Type Password Here"
+                  placeholderTextColor={COLORS.label}
+                />
+              )}
+              name="password"
             />
+            {errors.password && <Text style={GlobalStyleSheet.errorInputText}>{errors.password?.message}</Text>}
           </View>
         </View>
         <View style={GlobalStyleSheet.inputGroup}>
@@ -96,19 +188,44 @@ const SignUp = (props) => {
                 <FeatherIcon name="eye-off" color={COLORS.secondary} size={22} />
               )}
             </TouchableOpacity>
-            <TextInput
-              style={[GlobalStyleSheet.formControl, isFocused3 && GlobalStyleSheet.activeInput]}
-              onFocus={() => setisFocused3(true)}
-              onBlur={() => setisFocused3(false)}
-              secureTextEntry={handlePassword2}
-              placeholder="Confirm Password"
-              placeholderTextColor={COLORS.label}
+            <Controller
+              control={control}
+              rules={{
+                required: {
+                  value: true,
+                  message: "Confirm Password is required",
+                },
+                validate: (value) => value === password || "The passwords do not match",
+              }}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  style={[
+                    GlobalStyleSheet.formControl,
+                    isFocused3 && GlobalStyleSheet.activeInput,
+                    errors.confirmPassword && GlobalStyleSheet.errorInput,
+                  ]}
+                  onFocus={() => {
+                    setisFocused3(true);
+                  }}
+                  onChangeText={onChange}
+                  value={value}
+                  onBlur={() => {
+                    setisFocused3(false);
+                    onBlur();
+                  }}
+                  secureTextEntry={handlePassword}
+                  placeholder="Confirm Password"
+                  placeholderTextColor={COLORS.label}
+                />
+              )}
+              name="confirmPassword"
             />
+            {errors.confirmPassword && <Text style={GlobalStyleSheet.errorInputText}>{errors.confirmPassword?.message}</Text>}
           </View>
         </View>
 
-        <CustomButton onPress={() => props.navigation.navigate("SignIn")} title="Register" />
-        <Text style={{ ...FONTS.font, marginTop: 15 }}>By tapping “Sign Up” you accept our terms and condition.</Text>
+        <CustomButton onPress={handleSubmit(onSubmit)} title="Register" />
+        <Text style={{ ...FONTS.font, marginTop: 15 }}>By tapping “Register” you accept our terms and condition.</Text>
         <View style={{ marginTop: 20 }}>
           <Text
             style={{
@@ -120,7 +237,7 @@ const SignUp = (props) => {
           >
             Already have an account?
           </Text>
-          <CustomButton onPress={() => props.navigation.navigate("SignIn")} outline title="Continue with email" />
+          <CustomButton onPress={() => props.navigation.navigate("SignIn")} outline title="Login with Phone Number" />
 
           {/* <View
             style={{
