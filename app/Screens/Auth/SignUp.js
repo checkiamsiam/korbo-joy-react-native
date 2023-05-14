@@ -55,13 +55,13 @@ const SignUp = (props) => {
                 message: "Phone Number is required",
               },
               pattern: {
-                value: /^[\+0-9]+$/,
+                value: /^[\+0-9-]+$/,
                 message: "Phone Number should contain only numbers",
               },
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                style={[GlobalStyleSheet.formControl, isFocused1 && GlobalStyleSheet.activeInput, errors.phoneNumber && GlobalStyleSheet.errorInput]}
+                style={[GlobalStyleSheet.formControl, isFocused1 && GlobalStyleSheet.activeInput, errors.number && GlobalStyleSheet.errorInput]}
                 onFocus={() => {
                   setisFocused1(true);
                 }}
@@ -73,11 +73,12 @@ const SignUp = (props) => {
                 }}
                 placeholder="Type Phone Number Here"
                 placeholderTextColor={COLORS.label}
+                keyboardType="numeric"
               />
             )}
-            name="phoneNumber"
+            name="number"
           />
-          {errors.phoneNumber && <Text style={GlobalStyleSheet.errorInputText}>{errors.phoneNumber?.message}</Text>}
+          {errors.number && <Text style={GlobalStyleSheet.errorInputText}>{errors.number?.message}</Text>}
         </View>
         <View style={GlobalStyleSheet.inputGroup}>
           <Text style={GlobalStyleSheet.label}>Name *</Text>

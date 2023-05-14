@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import CustomButton from "../../components/CustomButton";
@@ -9,6 +10,16 @@ const SignIn = (props) => {
   const [isFocused, setisFocused] = useState(false);
   const [isFocused2, setisFocused2] = useState(false);
   const [handlePassword, setHandlePassword] = useState(true);
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -33,17 +44,42 @@ const SignIn = (props) => {
         </View>
 
         <View style={GlobalStyleSheet.inputGroup}>
-          <Text style={GlobalStyleSheet.label}>Phone Number</Text>
-          <TextInput
-            style={[GlobalStyleSheet.formControl, isFocused && GlobalStyleSheet.activeInput]}
-            onFocus={() => setisFocused(true)}
-            onBlur={() => setisFocused(false)}
-            placeholder="Type Phone Number Here"
-            placeholderTextColor={COLORS.label}
+          <Text style={GlobalStyleSheet.label}>Phone Number *</Text>
+          <Controller
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "Phone Number is required",
+              },
+              pattern: {
+                value: /^[\+0-9-]+$/,
+                message: "Phone Number should contain only numbers",
+              },
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                style={[GlobalStyleSheet.formControl, isFocused && GlobalStyleSheet.activeInput, errors.number && GlobalStyleSheet.errorInput]}
+                onFocus={() => {
+                  setisFocused(true);
+                }}
+                onChangeText={onChange}
+                value={value}
+                onBlur={() => {
+                  setisFocused(false);
+                  onBlur();
+                }}
+                placeholder="Type Phone Number Here"
+                placeholderTextColor={COLORS.label}
+                keyboardType="numeric"
+              />
+            )}
+            name="number"
           />
+          {errors.number && <Text style={GlobalStyleSheet.errorInputText}>{errors.number?.message}</Text>}
         </View>
         <View style={GlobalStyleSheet.inputGroup}>
-          <Text style={GlobalStyleSheet.label}>Password</Text>
+          <Text style={GlobalStyleSheet.label}>Password *</Text>
           <View>
             <TouchableOpacity
               onPress={() => setHandlePassword(!handlePassword)}
@@ -63,18 +99,38 @@ const SignIn = (props) => {
                 <FeatherIcon name="eye-off" color={COLORS.secondary} size={22} />
               )}
             </TouchableOpacity>
-            <TextInput
-              style={[GlobalStyleSheet.formControl, isFocused2 && GlobalStyleSheet.activeInput]}
-              onFocus={() => setisFocused2(true)}
-              onBlur={() => setisFocused2(false)}
-              secureTextEntry={handlePassword}
-              placeholder="Type Password Here"
-              placeholderTextColor={COLORS.label}
+            <Controller
+              control={control}
+              rules={{
+                required: {
+                  value: true,
+                  message: "Password is required",
+                },
+              }}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  style={[GlobalStyleSheet.formControl, isFocused2 && GlobalStyleSheet.activeInput, errors.password && GlobalStyleSheet.errorInput]}
+                  onFocus={() => {
+                    setisFocused2(true);
+                  }}
+                  onChangeText={onChange}
+                  value={value}
+                  onBlur={() => {
+                    setisFocused2(false);
+                    onBlur();
+                  }}
+                  secureTextEntry={handlePassword}
+                  placeholder="Type Password Here"
+                  placeholderTextColor={COLORS.label}
+                />
+              )}
+              name="password"
             />
+            {errors.password && <Text style={GlobalStyleSheet.errorInputText}>{errors.password?.message}</Text>}
           </View>
         </View>
 
-        <CustomButton onPress={() => props.navigation.navigate("DrawerNavigation")} title="Login" />
+        <CustomButton onPress={handleSubmit(onSubmit)} title="Login" />
 
         {/* <View
           style={{
