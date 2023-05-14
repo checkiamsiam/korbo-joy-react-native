@@ -40,7 +40,7 @@ const AddDeliveryAddress = ({ navigation }) => {
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
               <Text style={GlobalStyleSheet.label}>Full Name</Text>
-              <TextInput value="ds"  editable={false} d style={GlobalStyleSheet.formControl} placeholder="Type your name" placeholderTextColor={COLORS.label} />
+              <TextInput   editable={false}  style={GlobalStyleSheet.formControl} placeholder="Type your name" placeholderTextColor={COLORS.label} />
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
               <Text style={GlobalStyleSheet.label}>Mobile No.</Text>
