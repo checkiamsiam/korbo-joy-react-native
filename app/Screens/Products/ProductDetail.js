@@ -1,20 +1,18 @@
-import { IMAGE_BASE } from "@env";
-import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import { Image, SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
-import Swiper from "react-native-swiper";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import { useGetProductDetailQuery } from "../../features/Product/productApi";
 import Header from "../../layout/Header";
+import ProductDetailSlider from "./ProductDetailSlider";
 
 // const productImage = [pic1, pic1, pic1];
 
 const ProductDetail = ({ navigation, route }) => {
   const { item } = route.params;
-  const {} = useGetProductDetailQuery(item.id, { refetchOnMountOrArgChange: true });
+  const { isLoading, isSuccess } = useGetProductDetailQuery(item.id, { refetchOnMountOrArgChange: true });
   const { productDetails } = useSelector((state) => state.product);
 
   console.log(productDetails);
@@ -47,47 +45,7 @@ const ProductDetail = ({ navigation, route }) => {
       <ScrollView contentContainerStyle={{ paddingBottom: 30 }}>
         <Header transparent={true} leftIcon={"back"} />
         <View>
-          <Swiper
-            style={{ height: SIZES.width }}
-            dotStyle={{
-              height: 10,
-              width: 10,
-              borderWidth: 2,
-              borderColor: COLORS.white,
-              borderRadius: 10,
-            }}
-            activeDotStyle={{
-              height: 10,
-              width: 10,
-              backgroundColor: COLORS.white,
-              borderRadius: 10,
-            }}
-          >
-            {JSON.parse(productDetails.img).map((data, index) => {
-              return (
-                <View key={index}>
-                  <Image
-                    source={{ uri: `${IMAGE_BASE}/${data}` }}
-                    style={{
-                      width: "100%",
-                      height: undefined,
-                      aspectRatio: 1 / 1,
-                    }}
-                  />
-                  <LinearGradient
-                    style={{
-                      position: "absolute",
-                      height: "100%",
-                      width: "100%",
-                      top: 0,
-                      left: 0,
-                    }}
-                    colors={["rgba(0,0,0,.3)", "rgba(0,0,0,0)", "rgba(0,0,0,0)"]}
-                  />
-                </View>
-              );
-            })}
-          </Swiper>
+          {productDetails.img && <ProductDetailSlider images={JSON.parse(productDetails.img)} />}
           {/* <TouchableOpacity
             onPress={() => handleLike()}
             activeOpacity={0.95}

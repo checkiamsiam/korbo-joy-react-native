@@ -1,7 +1,7 @@
 import ApiBase from "../app/ApiBase";
 import { setJustForYouPd } from "./justForYouSlice";
 
-export const justForYou = ApiBase.injectEndpoints({
+export const justForYouApi = ApiBase.injectEndpoints({
   endpoints: (builder) => ({
     getJustForYouPd: builder.query({
       query: (limit) => ({
@@ -20,4 +20,4 @@ export const justForYou = ApiBase.injectEndpoints({
   }),
 });
 
-export const { useGetJustForYouPdQuery } = justForYou;
+export const { useGetJustForYouPdQuery } = justForYouApi;

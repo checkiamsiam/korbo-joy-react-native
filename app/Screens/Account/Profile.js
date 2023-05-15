@@ -204,11 +204,11 @@ const Profile = ({ navigation }) => {
                 <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Edit Profile</Text>
                 <FeatherIcon size={20} color={COLORS.title} name="chevron-right" />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("Address")} style={styles.listItem}>
+              {/* <TouchableOpacity onPress={() => navigation.navigate("Address")} style={styles.listItem}>
                 <FeatherIcon style={{ marginRight: 12 }} color={COLORS.secondary} size={18} name="map-pin" />
                 <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Saved Addresses</Text>
                 <FeatherIcon size={20} color={COLORS.title} name="chevron-right" />
-              </TouchableOpacity>
+              </TouchableOpacity> */}
               {/* <TouchableOpacity
                 onPress={() => RBSheetLanguage.current.open()}
                 style={styles.listItem}
