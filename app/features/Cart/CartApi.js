@@ -9,6 +9,7 @@ export const cartApi = ApiBase.injectEndpoints({
         method: "POST",
         body,
       }),
+      invalidatesTags: ["cart"],
     }),
     getUserCart: builder.query({
       query: (id) => ({
@@ -24,6 +25,7 @@ export const cartApi = ApiBase.injectEndpoints({
           console.log(err);
         }
       },
+      providesTags: ["cart"],
     }),
   }),
 });
