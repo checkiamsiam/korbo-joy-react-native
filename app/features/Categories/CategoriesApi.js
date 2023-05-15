@@ -26,7 +26,6 @@ export const categoryAPI = ApiBase.injectEndpoints({
 
       async onQueryStarted(query, { queryFulfilled, dispatch }) {
         try {
-          dispatch(setSelectedCategoryProducts([]));
           dispatch(setLoadingScreen());
           const res = await queryFulfilled;
           dispatch(setSelectedCategoryProducts(res?.data[0].products));

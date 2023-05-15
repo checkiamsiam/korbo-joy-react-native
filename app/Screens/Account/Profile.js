@@ -5,7 +5,7 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Octicons from "react-native-vector-icons/Octicons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import UnitedStates from "../../assets/images/flags/UnitedStates.png";
 import german from "../../assets/images/flags/german.png";
 import india from "../../assets/images/flags/india.png";
@@ -13,6 +13,7 @@ import italian from "../../assets/images/flags/italian.png";
 import spanish from "../../assets/images/flags/spanish.png";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, IMAGES } from "../../constants/theme";
+import { logout } from "../../features/Auth/AuthSlice";
 import Header from "../../layout/Header";
 
 const languagetData = [
@@ -39,6 +40,7 @@ const languagetData = [
 ];
 
 const Profile = ({ navigation }) => {
+  const dispatch = useDispatch();
   const RBSheetLanguage = useRef();
   const { user } = useSelector((state) => state.auth);
 
@@ -242,7 +244,13 @@ const Profile = ({ navigation }) => {
                   name="chevron-right"
                 />
               </TouchableOpacity> */}
-              <TouchableOpacity onPress={() => navigation.navigate("Onboarding")} style={styles.listItem}>
+              <TouchableOpacity
+                onPress={() => {
+                  dispatch(logout());
+                  navigation.navigate("Welcome");
+                }}
+                style={styles.listItem}
+              >
                 <FeatherIcon style={{ marginRight: 12 }} color={COLORS.secondary} size={20} name="log-out" />
                 <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Log Out</Text>
                 <FeatherIcon size={20} color={COLORS.title} name="chevron-right" />

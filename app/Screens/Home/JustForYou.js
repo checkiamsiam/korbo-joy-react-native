@@ -30,7 +30,6 @@ const JustForYou = () => {
                   onPress={() =>
                     navigation.navigate("ProductDetail", {
                       item: item,
-                      category: "Fashion",
                     })
                   }
                   imgLength={true}
