@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  loading: false,
   activeSheet: "",
   data: {},
 };
@@ -13,11 +14,17 @@ const actionSheetSlice = createSlice({
       state.activeSheet = payload.activeSheet;
       state.data = payload.data;
     },
+    setLoadingScreen(state) {
+      state.loading = true;
+    },
+    removeLoadingScreen(state) {
+      state.loading = false;
+    },
   },
 });
 
 const actionSheetReducer = actionSheetSlice.reducer;
 
-export const { setActionSheet } = actionSheetSlice.actions;
+export const { setActionSheet, removeLoadingScreen, setLoadingScreen } = actionSheetSlice.actions;
 
 export default actionSheetReducer;

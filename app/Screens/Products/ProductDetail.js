@@ -1,47 +1,51 @@
+import { IMAGE_BASE } from "@env";
 import { LinearGradient } from "expo-linear-gradient";
-import React, { useState } from "react";
+import React from "react";
 import { Image, SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
-import { Snackbar } from "react-native-paper";
 import Swiper from "react-native-swiper";
-import Octicons from "react-native-vector-icons/Octicons";
-import pic1 from "../../assets/images/shop/detail/pic1.png";
+import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
+import { useGetProductDetailQuery } from "../../features/Product/productApi";
 import Header from "../../layout/Header";
 
-const productImage = [pic1, pic1, pic1];
+// const productImage = [pic1, pic1, pic1];
 
 const ProductDetail = ({ navigation, route }) => {
-  const { item, category } = route.params;
+  const { item } = route.params;
+  const {} = useGetProductDetailQuery(item.id, { refetchOnMountOrArgChange: true });
+  const { productDetails } = useSelector((state) => state.product);
 
-  const productColors = ["#A29698", "#80C6A9", "#8E84CA", "#E5907D"];
+  console.log(productDetails);
 
-  const [isLike, setIsLike] = useState(false);
-  const [isSnackbar, setIsSnackbar] = useState(false);
-  const [snackText, setSnackText] = useState("Loading...");
+  // const productColors = ["#A29698", "#80C6A9", "#8E84CA", "#E5907D"];
 
-  var ratingArry = [];
-  for (var i = 0; i < 4; i++) {
-    ratingArry.push(i);
-  }
+  // const [isLike, setIsLike] = useState(false);
+  // const [isSnackbar, setIsSnackbar] = useState(false);
+  // const [snackText, setSnackText] = useState("Loading...");
 
-  const [activeColor, setActiveColor] = useState(productColors[0]);
+  // var ratingArry = [];
+  // for (var i = 0; i < 4; i++) {
+  //   ratingArry.push(i);
+  // }
 
-  const handleLike = () => {
-    if (isLike) {
-      setSnackText("Item removed to Favourite.");
-    } else {
-      setSnackText("Item add to Favourite.");
-    }
-    setIsSnackbar(true);
-    setIsLike(!isLike);
-  };
+  // const [activeColor, setActiveColor] = useState(productColors[0]);
+
+  // const handleLike = () => {
+  //   if (isLike) {
+  //     setSnackText("Item removed to Favourite.");
+  //   } else {
+  //     setSnackText("Item add to Favourite.");
+  //   }
+  //   setIsSnackbar(true);
+  //   setIsLike(!isLike);
+  // };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
       <ScrollView contentContainerStyle={{ paddingBottom: 30 }}>
-        <Header transparent={true} leftIcon={"back"} rightIcon={"more"} />
+        <Header transparent={true} leftIcon={"back"} />
         <View>
           <Swiper
             style={{ height: SIZES.width }}
@@ -59,11 +63,11 @@ const ProductDetail = ({ navigation, route }) => {
               borderRadius: 10,
             }}
           >
-            {productImage.map((data, index) => {
+            {JSON.parse(productDetails.img).map((data, index) => {
               return (
                 <View key={index}>
                   <Image
-                    source={item.imagePath ? item.imagePath : { uri: item.image }}
+                    source={{ uri: `${IMAGE_BASE}/${data}` }}
                     style={{
                       width: "100%",
                       height: undefined,
@@ -121,13 +125,11 @@ const ProductDetail = ({ navigation, route }) => {
                 marginTop: 10,
               }}
             >
-              <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>{category}</Text>
+              <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>{productDetails?.category?.name}</Text>
             </View>
-            <Text style={{ ...FONTS.h6, marginBottom: 3 }}>{item.title}</Text>
-            <Text style={{ ...FONTS.font, color: COLORS.text }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            </Text>
-            <View
+            <Text style={{ ...FONTS.h6, marginBottom: 3 }}>{productDetails?.name}</Text>
+            {productDetails?.shortDescription && <Text style={{ ...FONTS.font, color: COLORS.text }}>{productDetails?.shortDescription}</Text>}
+            {/* <View
               style={{
                 flexDirection: "row",
                 marginTop: 20,
@@ -148,7 +150,7 @@ const ProductDetail = ({ navigation, route }) => {
                 <Text style={FONTS.font}>(256 Reviews)</Text>
               </View>
 
-              {/* <View
+              <View
                 style={{
                   flexDirection: "row",
                 }}
@@ -189,8 +191,8 @@ const ProductDetail = ({ navigation, route }) => {
                     </TouchableOpacity>
                   );
                 })}
-              </View> */}
-            </View>
+              </View>
+            </View> */}
           </View>
           <View
             style={{
@@ -201,33 +203,47 @@ const ProductDetail = ({ navigation, route }) => {
             }}
           >
             <Text style={{ ...FONTS.h6, marginBottom: 5 }}>Specifications</Text>
-            <View style={{ flexDirection: "row", marginBottom: 5 }}>
-              <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Brand</Text>
-              <Text style={FONTS.font}>Femall Clothing</Text>
-            </View>
-            <View style={{ flexDirection: "row", marginBottom: 5 }}>
-              <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Weight</Text>
-              <Text style={FONTS.font}>260gr</Text>
-            </View>
-            <View style={{ flexDirection: "row", marginBottom: 5 }}>
-              <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Condition</Text>
-              <Text style={FONTS.font}>NEW</Text>
-            </View>
-            <View style={{ flexDirection: "row", marginBottom: 5 }}>
-              <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Category</Text>
-              <Text style={{ ...FONTS.font, color: COLORS.primary }}>Sleep Suits</Text>
-            </View>
+            {productDetails?.categoryBrand?.name && (
+              <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Brand</Text>
+                <Text style={FONTS.font}>{productDetails?.categoryBrand?.name}</Text>
+              </View>
+            )}
+            {productDetails?.categorySub?.name && (
+              <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Sub Category</Text>
+                <Text style={FONTS.font}>{productDetails?.categorySub?.name}</Text>
+              </View>
+            )}
+            {productDetails?.status && (
+              <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Status</Text>
+                <Text style={FONTS.font}>{productDetails?.status}</Text>
+              </View>
+            )}
+            {productDetails?.productType && (
+              <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Product Type</Text>
+                <Text style={FONTS.font}>{productDetails?.productType}</Text>
+              </View>
+            )}
+            {productDetails?.qty && (
+              <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Available Quantity</Text>
+                <Text style={FONTS.font}>{productDetails?.qty}</Text>
+              </View>
+            )}
           </View>
-          <View
-            style={{
-              paddingTop: 12,
-            }}
-          >
-            <Text style={{ ...FONTS.h6, marginBottom: 2 }}>Description</Text>
-            <Text style={{ ...FONTS.font, color: COLORS.text }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            </Text>
-          </View>
+          {productDetails?.fullDescription && (
+            <View
+              style={{
+                paddingTop: 12,
+              }}
+            >
+              <Text style={{ ...FONTS.h6, marginBottom: 2 }}>Description</Text>
+              <Text style={{ ...FONTS.font, color: COLORS.text }}>{productDetails?.fullDescription}</Text>
+            </View>
+          )}
         </View>
       </ScrollView>
       <View
@@ -242,18 +258,18 @@ const ProductDetail = ({ navigation, route }) => {
         }}
       >
         <View style={{ flex: 1 }}>
-          <Text style={{ ...FONTS.h3, lineHeight: 30 }}>{item.price}</Text>
+          <Text style={{ ...FONTS.h3, lineHeight: 30 }}>{productDetails?.price} TK</Text>
           <View style={{ flexDirection: "row" }}>
             <Text
               style={{
                 ...FONTS.font,
                 textDecorationLine: "line-through",
-                marginRight: 8,
+                marginRight: productDetails?.salesPrice ? 8 : 0,
               }}
             >
-              {item.oldPrice}
+              {productDetails?.salesPrice} TK
             </Text>
-            <Text
+            {/* <Text
               style={{
                 ...FONTS.font,
                 color: COLORS.primary,
@@ -261,12 +277,12 @@ const ProductDetail = ({ navigation, route }) => {
               }}
             >
               20% OFF
-            </Text>
+            </Text> */}
           </View>
         </View>
         <CustomButton onPress={() => navigation.navigate("Cart")} title="ADD TO CART" />
       </View>
-      <Snackbar
+      {/* <Snackbar
         visible={isSnackbar}
         duration={3000}
         onDismiss={() => setIsSnackbar(false)}
@@ -278,7 +294,7 @@ const ProductDetail = ({ navigation, route }) => {
         }}
       >
         {snackText}
-      </Snackbar>
+      </Snackbar> */}
     </SafeAreaView>
   );
 };

@@ -100,13 +100,7 @@ const Cart = ({ navigation }) => {
             <CheckoutItem
               onPress={() =>
                 navigation.navigate("ProductDetail", {
-                  item: {
-                    imagePath: data.image,
-                    title: data.title,
-                    price: data.price,
-                    oldPrice: data.oldPrice,
-                  },
-                  category: "Fashion",
+                  item: data,
                 })
               }
               key={index}

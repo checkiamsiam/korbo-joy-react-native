@@ -22,7 +22,11 @@ const FlashSale = () => {
               }}
             >
               <ProductCardStyle1
-                onPress={() => navigation.navigate("Items", { type: "Fashion" })}
+                onPress={() =>
+                  navigation.navigate("ProductDetail", {
+                    item: data,
+                  })
+                }
                 image={JSON.parse(data.img)[0]}
                 title={data.name}
                 price={data.price}

@@ -1,18 +1,19 @@
 import { IMAGE_BASE } from "@env";
 import React from "react";
-import { Image, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
-import { useSelector } from "react-redux";
-import FashionData from "../../JSON/Fashion.json";
+import { Image, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView } from "react-native-virtualized-view";
+import { useDispatch, useSelector } from "react-redux";
 import { COLORS, FONTS } from "../../constants/theme";
 import { useGetCategoryProductQuery } from "../../features/Categories/CategoriesApi";
 import CategoryHeader from "./CategoryHeader";
 import Products from "./Products";
 
 const CategoryHome = ({ navigation, route }) => {
+  const dispatch = useDispatch();
   const { name, categoryId } = route.params;
-  const { allCategories, categoryWiseProducts } = useSelector((state) => state.categories);
+  const { allCategories } = useSelector((state) => state.categories);
   const thisCategory = allCategories.find((c) => c.id === categoryId);
-  const {} = useGetCategoryProductQuery(categoryId);
+  const {} = useGetCategoryProductQuery(categoryId, { refetchOnMountOrArgChange: true });
 
   return (
     <SafeAreaView
@@ -111,7 +112,7 @@ const CategoryHome = ({ navigation, route }) => {
             {name} Products
           </Text>
         </View>
-        <Products pageData={FashionData.items} />
+        <Products />
       </ScrollView>
     </SafeAreaView>
   );

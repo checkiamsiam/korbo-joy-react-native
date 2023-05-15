@@ -4,6 +4,7 @@ import authReducer from "../Auth/AuthSlice";
 import categoriesReducer from "../Categories/CategoriesSlice";
 import flashSaleReducer from "../FlashSale/FlashSaleSlice";
 import justForYouReducer from "../JustForYou/justForYouSlice";
+import productReducer from "../Product/productSlice";
 import sliderReducer from "../SliderFeature/SliderSlice";
 import ApiBase from "./ApiBase";
 
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   slider: sliderReducer,
   flashSale: flashSaleReducer,
   justForYou: justForYouReducer,
+  product: productReducer,
 });
 
 export default rootReducer;
