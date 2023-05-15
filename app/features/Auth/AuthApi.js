@@ -49,6 +49,7 @@ export const categoryAPI = ApiBase.injectEndpoints({
             name: decoded.name,
             number: decoded.number,
             token: token,
+            id: decoded.userId,
           };
           dispatch(setUser(userData));
           showMessage({

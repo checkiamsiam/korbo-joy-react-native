@@ -2,7 +2,7 @@ import { removeLoadingScreen, setLoadingScreen } from "../ActionSheets/ActionShe
 import ApiBase from "../app/ApiBase";
 import { setDetailsOfPD } from "./productSlice";
 
-export const justForYou = ApiBase.injectEndpoints({
+export const productApi = ApiBase.injectEndpoints({
   endpoints: (builder) => ({
     getProductDetail: builder.query({
       query: (id) => ({
@@ -23,4 +23,4 @@ export const justForYou = ApiBase.injectEndpoints({
   }),
 });
 
-export const { useGetProductDetailQuery } = justForYou;
+export const { useGetProductDetailQuery } = productApi;

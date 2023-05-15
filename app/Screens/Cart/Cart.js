@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
-import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 import pic1 from "../../assets/images/product/pic1.jpg";
 import pic2 from "../../assets/images/product/pic2.jpg";
 import pic3 from "../../assets/images/product/pic3.jpg";
@@ -8,6 +8,7 @@ import CheckoutItem from "../../components/CheckoutItem";
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, IMAGES } from "../../constants/theme";
+import { useGetUserCartQuery } from "../../features/Cart/CartApi";
 import Header from "../../layout/Header";
 
 const CheckoutData = [
@@ -38,6 +39,9 @@ const CheckoutData = [
 ];
 
 const Cart = ({ navigation }) => {
+  const { user } = useSelector((state) => state.auth);
+  const {data} = useGetUserCartQuery(user?.id);
+  console.log(data);
   return (
     <SafeAreaView
       style={{
@@ -46,7 +50,7 @@ const Cart = ({ navigation }) => {
         paddingTop: StatusBar.currentHeight,
       }}
     >
-      <Header backAction={() => navigation.navigate("Home")} title={"Cart"} leftIcon={"back"} rightIcon={"more"} />
+      <Header backAction={() => navigation.navigate("Home")} title={"Cart"} leftIcon={"back"} />
       <View
         style={{
           flexDirection: "row",
@@ -72,11 +76,12 @@ const Cart = ({ navigation }) => {
             ...FONTS.fontBold,
             color: COLORS.title,
             flex: 1,
+            textTransform: "capitalize",
           }}
         >
-          Deliver to Yatin
+          Deliver to {user?.name.split(" ")[0]}
         </Text>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -89,10 +94,10 @@ const Cart = ({ navigation }) => {
               color: COLORS.primary,
             }}
           >
-            Ram krishan, puram
+            City, State
           </Text>
           <FeatherIcon color={COLORS.primary} style={{ marginLeft: 2, top: 1 }} size={16} name="chevron-down" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       <View style={{ flex: 1 }}>
         <ScrollView>
