@@ -8,7 +8,7 @@ import { COLORS } from "../../constants/theme";
 import { useGetJustForYouPdQuery } from "../../features/JustForYou/justForYouApi";
 
 const JustForYou = () => {
-  const [limit, setLimit] = useState(2);
+  const [limit, setLimit] = useState(8);
   const { isLoading } = useGetJustForYouPdQuery(limit);
   const navigation = useNavigation();
   const { products } = useSelector((state) => state.justForYou);

@@ -1,4 +1,5 @@
 import { IMAGE_BASE } from "@env";
+import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
@@ -6,6 +7,10 @@ import FeatherIcon from "react-native-vector-icons/Feather";
 import { COLORS, FONTS } from "../constants/theme";
 
 const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews, status, imgLength, onPress, imageSrc, isLike, handleItemLike }) => {
+  const navigation = useNavigation();
+  const handleAddToCart = () => {
+    navigation.navigate("Cart");
+  };
   return (
     <TouchableOpacity
       activeOpacity={0.9}
@@ -62,7 +67,7 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
             </View>
           ))}
         <TouchableOpacity
-          onPress={() => console.log("pressed cart")}
+          onPress={handleAddToCart}
           style={{
             height: 40,
             width: 40,
@@ -94,16 +99,18 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
         >
           {title}
         </Text>
-        <Text numberOfLines={1} style={{ ...FONTS.fontXs, marginBottom: 3 }}>
-          {desc}
-        </Text>
+        {desc && (
+          <Text numberOfLines={1} style={{ ...FONTS.fontXs, marginBottom: 3 }}>
+            {desc}
+          </Text>
+        )}
         <View
           style={{
             marginTop: 4,
             flexDirection: "row",
           }}
         >
-          <Text style={{ ...FONTS.h6 }}>{price}</Text>
+          <Text style={{ ...FONTS.h6 }}>{price} TK</Text>
           <Text
             style={{
               ...FONTS.fontSm,
@@ -112,7 +119,7 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
               marginTop: 2,
             }}
           >
-            {oldPrice}
+            {oldPrice} TK
           </Text>
         </View>
         {/* <View
