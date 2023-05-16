@@ -1,21 +1,23 @@
+import { IMAGE_BASE } from "@env";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useDispatch } from "react-redux";
 import { COLORS, FONTS } from "../constants/theme";
-import { quantityDecrement, quantityIncrement, removeFromCart } from "../features/Cart/CartSlice";
+import { useDeleteFromCartMutation } from "../features/Cart/CartApi";
+import { quantityDecrement, quantityIncrement } from "../features/Cart/CartSlice";
 
-const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress, productId }) => {
+const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, id }) => {
   const dispatch = useDispatch();
+  const [deleteFromCart, {}] = useDeleteFromCartMutation();
 
-  const remove = (id) => {
-    dispatch(removeFromCart(id));
+  const remove = (query) => {
+    deleteFromCart(query);
   };
 
   return (
     <TouchableOpacity
       activeOpacity={0.9}
-      onPress={onPress}
       style={{
         flexDirection: "row",
         paddingHorizontal: 15,
@@ -32,7 +34,7 @@ const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress, 
           borderRadius: 8,
           marginRight: 12,
         }}
-        source={image}
+        source={{ uri: `${IMAGE_BASE}/${image}` }}
       />
       <View style={{ flex: 1, paddingVertical: 7 }}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
@@ -47,7 +49,7 @@ const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress, 
           >
             {title}
           </Text>
-          <TouchableOpacity onPress={() => remove(productId)}>
+          <TouchableOpacity onPress={() => remove(id)}>
             <FeatherIcon size={14} color={COLORS.danger} name="trash-2" />
           </TouchableOpacity>
         </View>
@@ -69,15 +71,6 @@ const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress, 
             }}
           >
             <Text style={{ ...FONTS.h6 }}>{price}TK</Text>
-            <Text
-              style={{
-                ...FONTS.fontSm,
-                textDecorationLine: "line-through",
-                marginLeft: 8,
-              }}
-            >
-              {oldPrice} TK
-            </Text>
           </View>
           <View
             style={{
@@ -85,8 +78,8 @@ const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress, 
               alignItems: "center",
             }}
           >
-            <TouchableOpacity 
-              onPress={() => dispatch(quantityDecrement(productId))}
+            <TouchableOpacity
+              onPress={() => dispatch(quantityDecrement(id))}
               style={{
                 height: 25,
                 width: 25,
@@ -111,7 +104,7 @@ const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress, 
               {quantity}
             </Text>
             <TouchableOpacity
-              onPress={() => dispatch(quantityIncrement(productId))}
+              onPress={() => dispatch(quantityIncrement(id))}
               style={{
                 height: 25,
                 width: 25,

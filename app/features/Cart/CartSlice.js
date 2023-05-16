@@ -13,14 +13,14 @@ const cartSlice = createSlice({
       state.cart = payload;
     },
     removeFromCart(state, { payload }) {
-      state.cart = state.cart.filter((item) => item.productId !== payload);
+      state.cart = state.cart.filter((item) => item.id !== payload);
     },
     quantityIncrement(state, { payload }) {
-      const index = state.cart.findIndex((item) => item.productId === payload);
+      const index = state.cart.findIndex((item) => item.id === payload);
       state.cart[index].qty += 1;
     },
     quantityDecrement(state, { payload }) {
-      const index = state.cart.findIndex((item) => item.productId === payload);
+      const index = state.cart.findIndex((item) => item.id === payload);
       if (state.cart[index].qty > 1) {
         state.cart[index].qty -= 1;
       } else {

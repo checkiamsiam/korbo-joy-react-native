@@ -1,14 +1,20 @@
 import React from "react";
-import { Image, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import { Image, SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, IMAGES } from "../../constants/theme";
 import Header from "../../layout/Header";
+import calculateSum from "../../utils/calculateSum";
 import CheckoutItems from "./CheckoutItems";
 
 const Cart = ({ navigation }) => {
   const { user } = useSelector((state) => state.auth);
+  const { cart } = useSelector((state) => state.cart);
+
+  const totalPrice = calculateSum(cart, "totalSalesPrice");
+  const totalCharge = calculateSum(cart, "charge");
+  const totalBill = totalCharge + totalPrice;
 
   return (
     <SafeAreaView
@@ -127,25 +133,7 @@ const Cart = ({ navigation }) => {
                   color: COLORS.title,
                 }}
               >
-                $158.2
-              </Text>
-            </View>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginBottom: 8,
-              }}
-            >
-              <Text style={{ ...FONTS.font }}>Tax : </Text>
-              <Text
-                style={{
-                  ...FONTS.font,
-                  ...FONTS.fontBold,
-                  color: COLORS.title,
-                }}
-              >
-                0.5%
+                {totalPrice} TK
               </Text>
             </View>
             <View
@@ -163,7 +151,7 @@ const Cart = ({ navigation }) => {
                   color: COLORS.title,
                 }}
               >
-                0.5%
+                {totalCharge} TK
               </Text>
             </View>
             <View
@@ -180,7 +168,7 @@ const Cart = ({ navigation }) => {
               }}
             >
               <Text style={{ ...FONTS.font }}>Total : </Text>
-              <Text style={{ ...FONTS.h4, color: COLORS.primary }}>$215.5</Text>
+              <Text style={{ ...FONTS.h4, color: COLORS.primary }}>{totalBill} TK</Text>
             </View>
           </View>
         </ScrollView>
@@ -195,8 +183,8 @@ const Cart = ({ navigation }) => {
         }}
       >
         <View style={{ flex: 1 }}>
-          <Text style={{ ...FONTS.h4 }}>$215.5</Text>
-          <TouchableOpacity
+          <Text style={{ ...FONTS.h4 }}>{totalBill} TK</Text>
+          {/* <TouchableOpacity
             style={{
               marginTop: -4,
             }}
@@ -210,7 +198,7 @@ const Cart = ({ navigation }) => {
             >
               View price details
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         <View style={{ flex: 1 }}>
           <CustomButton btnSm onPress={() => navigation.navigate("AddDeliveryAddress")} title="Checkout" />

@@ -12,19 +12,13 @@ const CheckoutItems = () => {
     <View>
       {cart.map((item, index) => (
         <CheckoutItem
-          onPress={() =>
-            navigation.navigate("ProductDetail", {
-              item: item,
-            })
-          }
           key={index}
-          productId={item.productId}
-          image={pic3}
-          title={"Peter England Causual"}
-          type={"Printed Longline Pure Cotteon T-shirt"}
+          id={item.id}
+          image={JSON.parse(item.img)[0]}
+          title={item.name}
+          type={item.status}
           quantity={item.qty}
           price={item.salePrice}
-          oldPrice={item.buyPrice}
         />
       ))}
     </View>
