@@ -49,7 +49,26 @@ export const cartApi = ApiBase.injectEndpoints({
       },
       invalidatesTags: ["cart"],
     }),
+    updateCartProduct: builder.mutation({
+      query: (body) => ({
+        url: `/api/ev1/shoppingCartQtyUpdate`,
+        method: "PUT",
+        body,
+      }),
+      async onQueryStarted(query, { queryFulfilled, dispatch, getState }) {
+        try {
+          dispatch(removeFromCart(query));
+        } catch (err) {
+          console.log(err);
+          showMessage({
+            message: "There is an server side error!",
+            type: "danger",
+          });
+        }
+      },
+      invalidatesTags: ["cart"],
+    }),
   }),
 });
 
-export const { useAddToCartMutation, useGetUserCartQuery, useDeleteFromCartMutation } = cartApi;
+export const { useAddToCartMutation, useGetUserCartQuery, useDeleteFromCartMutation, useUpdateCartProductMutation } = cartApi;

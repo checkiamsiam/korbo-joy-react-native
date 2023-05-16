@@ -1,6 +1,6 @@
 import ApiBase from "../app/ApiBase";
 
-export const cartApi = ApiBase.injectEndpoints({
+export const orderApi = ApiBase.injectEndpoints({
   endpoints: (builder) => ({
     placeOrder: builder.mutation({
       query: (body) => ({
@@ -13,4 +13,4 @@ export const cartApi = ApiBase.injectEndpoints({
   }),
 });
 
-export const { usePlaceOrderMutation } = cartApi;
+export const { usePlaceOrderMutation } = orderApi;

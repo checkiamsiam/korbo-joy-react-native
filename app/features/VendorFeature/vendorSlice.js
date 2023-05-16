@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  products: [],
+  vendors: [],
 };
 
-const flashSaleSlice = createSlice({
-  name: "flashSale",
+const vendorSlice = createSlice({
+  name: "vendors",
   initialState,
   reducers: {
-    setFlashSaleProducts(state, { payload }) {
-      state.products = payload;
+    setVendors(state, { payload }) {
+      state.vendors = payload;
     },
   },
 });
 
-const flashSaleReducer = flashSaleSlice.reducer;
+const vendorReducer = vendorSlice.reducer;
 
-export const { setFlashSaleProducts } = flashSaleSlice.actions;
+export const { setVendors } = vendorSlice.actions;
 
-export default flashSaleReducer;
+export default vendorReducer;

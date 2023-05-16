@@ -4,15 +4,26 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useDispatch } from "react-redux";
 import { COLORS, FONTS } from "../constants/theme";
-import { useDeleteFromCartMutation } from "../features/Cart/CartApi";
+import { useDeleteFromCartMutation, useUpdateCartProductMutation } from "../features/Cart/CartApi";
 import { quantityDecrement, quantityIncrement } from "../features/Cart/CartSlice";
 
 const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, id }) => {
   const dispatch = useDispatch();
   const [deleteFromCart, {}] = useDeleteFromCartMutation();
+  const [update, {}] = useUpdateCartProductMutation();
 
   const remove = (query) => {
     deleteFromCart(query);
+  };
+
+  const increment = () => {
+    dispatch(quantityIncrement(id));
+    update({ id: id, qty: quantity + 1, salesPrice: price });
+  };
+
+  const decrement = () => {
+    dispatch(quantityDecrement(id));
+    update({ id: id, qty: quantity - 1, salesPrice: price });
   };
 
   return (
@@ -79,7 +90,7 @@ const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, id }) => 
             }}
           >
             <TouchableOpacity
-              onPress={() => dispatch(quantityDecrement(id))}
+              onPress={decrement}
               style={{
                 height: 25,
                 width: 25,
@@ -104,7 +115,7 @@ const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, id }) => 
               {quantity}
             </Text>
             <TouchableOpacity
-              onPress={() => dispatch(quantityIncrement(id))}
+              onPress={increment}
               style={{
                 height: 25,
                 width: 25,

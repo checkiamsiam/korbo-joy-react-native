@@ -18,17 +18,23 @@ const cartSlice = createSlice({
     quantityIncrement(state, { payload }) {
       const index = state.cart.findIndex((item) => item.id === payload);
       state.cart[index].qty += 1;
+      state.cart[index].totalSalesPrice = state.cart[index].totalSalesPrice + state.cart[index].salePrice;
     },
     quantityDecrement(state, { payload }) {
       const index = state.cart.findIndex((item) => item.id === payload);
       if (state.cart[index].qty > 1) {
         state.cart[index].qty -= 1;
+        state.cart[index].totalSalesPrice = state.cart[index].totalSalesPrice - state.cart[index].salePrice;
       } else {
         showMessage({
           message: "Quantity can't be less than 1",
           type: "danger",
         });
       }
+    },
+    updateCartProduct(state, { payload }) {
+      const index = state.cart.findIndex((item) => item.id === payload.id);
+      state.cart[index] = payload;
     },
     clearCart: (state) => {
       state.cart = [];
