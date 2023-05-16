@@ -30,7 +30,6 @@ const VendorCard = ({ image, title, category, imageUrl, onPress }) => {
           paddingVertical: 10,
         }}
       >
-        <Text style={{ ...FONTS.fontXs, ...FONTS.fontBold }}>{category}</Text>
         <Text style={{ ...FONTS.fontSm, ...FONTS.fontBold, color: COLORS.title }}>{title}</Text>
       </View>
     </TouchableOpacity>

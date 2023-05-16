@@ -1,11 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { ScrollView, View } from "react-native";
+import { useSelector } from "react-redux";
 import VendorCard from "../../components/VendorCard";
-import { ProductData } from "./DummyData";
 
 const OurVendors = () => {
   const navigation = useNavigation();
+  const { vendors } = useSelector((state) => state.vendor);
   return (
     <View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -15,7 +16,7 @@ const OurVendors = () => {
             paddingHorizontal: 10,
           }}
         >
-          {ProductData.map((data, index) => (
+          {vendors.map((data, index) => (
             <View key={index} style={{ flex: 1, paddingHorizontal: 5 }}>
               <VendorCard
                 onPress={() => navigation.navigate("Items", { type: data.type })}

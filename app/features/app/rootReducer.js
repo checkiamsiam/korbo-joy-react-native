@@ -8,6 +8,7 @@ import justForYouReducer from "../JustForYou/justForYouSlice";
 import orderReducer from "../Order/OrderSlice";
 import productReducer from "../Product/productSlice";
 import sliderReducer from "../SliderFeature/SliderSlice";
+import vendorReducer from "../VendorFeature/vendorSlice";
 import ApiBase from "./ApiBase";
 
 const rootReducer = combineReducers({
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   categories: categoriesReducer,
   slider: sliderReducer,
   flashSale: flashSaleReducer,
+  vendor: vendorReducer,
   justForYou: justForYouReducer,
   product: productReducer,
   cart: cartReducer,
