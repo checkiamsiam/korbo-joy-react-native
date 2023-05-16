@@ -1,47 +1,16 @@
 import React from "react";
 import { Image, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import { useSelector } from "react-redux";
-import pic1 from "../../assets/images/product/pic1.jpg";
-import pic2 from "../../assets/images/product/pic2.jpg";
-import pic3 from "../../assets/images/product/pic3.jpg";
-import CheckoutItem from "../../components/CheckoutItem";
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, IMAGES } from "../../constants/theme";
 import { useGetUserCartQuery } from "../../features/Cart/CartApi";
 import Header from "../../layout/Header";
-
-const CheckoutData = [
-  {
-    image: pic1,
-    title: "Peter England Causual",
-    type: "Printed Longline Pure Cotteon T-shirt",
-    quantity: 1,
-    price: "$158.2",
-    oldPrice: "$170",
-  },
-  {
-    image: pic2,
-    title: "Peter England Causual",
-    type: "Printed Longline Pure Cotteon T-shirt",
-    quantity: 1,
-    price: "$158.2",
-    oldPrice: "$170",
-  },
-  {
-    image: pic3,
-    title: "Peter England Causual",
-    type: "Printed Longline Pure Cotteon T-shirt",
-    quantity: 1,
-    price: "$158.2",
-    oldPrice: "$170",
-  },
-];
+import CheckoutItems from "./CheckoutItems";
 
 const Cart = ({ navigation }) => {
   const { user } = useSelector((state) => state.auth);
-  const {data} = useGetUserCartQuery(user?.id);
-  console.log(data);
+  const { data , isLoading , isSuccess } = useGetUserCartQuery(user?.id);
   return (
     <SafeAreaView
       style={{
@@ -101,22 +70,7 @@ const Cart = ({ navigation }) => {
       </View>
       <View style={{ flex: 1 }}>
         <ScrollView>
-          {CheckoutData.map((data, index) => (
-            <CheckoutItem
-              onPress={() =>
-                navigation.navigate("ProductDetail", {
-                  item: data,
-                })
-              }
-              key={index}
-              image={data.image}
-              title={data.title}
-              type={data.type}
-              quantity={data.quantity}
-              price={data.price}
-              oldPrice={data.oldPrice}
-            />
-          ))}
+          {!isLoading && isSuccess && <CheckoutItems data={data?.data} />}
           <View style={GlobalStyleSheet.container}>
             {/* <Text
               style={{ ...FONTS.fontSm, ...FONTS.fontBold, marginBottom: 6 }}

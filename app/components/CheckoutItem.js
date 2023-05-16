@@ -57,7 +57,7 @@ const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress }
               flex: 1,
             }}
           >
-            <Text style={{ ...FONTS.h6 }}>{price}</Text>
+            <Text style={{ ...FONTS.h6 }}>{price}TK</Text>
             <Text
               style={{
                 ...FONTS.fontSm,
@@ -65,7 +65,7 @@ const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress }
                 marginLeft: 8,
               }}
             >
-              {oldPrice}
+              {oldPrice} TK
             </Text>
           </View>
           <View
