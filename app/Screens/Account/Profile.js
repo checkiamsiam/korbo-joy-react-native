@@ -14,6 +14,7 @@ import spanish from "../../assets/images/flags/spanish.png";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, IMAGES } from "../../constants/theme";
 import { logout } from "../../features/Auth/AuthSlice";
+import { clearCart } from "../../features/Cart/CartSlice";
 import Header from "../../layout/Header";
 
 const languagetData = [
@@ -247,6 +248,7 @@ const Profile = ({ navigation }) => {
               <TouchableOpacity
                 onPress={() => {
                   dispatch(logout());
+                  dispatch(clearCart());
                   navigation.navigate("Welcome");
                 }}
                 style={styles.listItem}

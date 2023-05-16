@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { ScrollView, View } from "react-native";
-import ProductCardStyle2 from "../../components/ProductCardStyle2";
+import VendorCard from "../../components/VendorCard";
 import { ProductData } from "./DummyData";
 
 const OurVendors = () => {
@@ -17,7 +17,7 @@ const OurVendors = () => {
         >
           {ProductData.map((data, index) => (
             <View key={index} style={{ flex: 1, paddingHorizontal: 5 }}>
-              <ProductCardStyle2
+              <VendorCard
                 onPress={() => navigation.navigate("Items", { type: data.type })}
                 image={data.image}
                 category={data.category}

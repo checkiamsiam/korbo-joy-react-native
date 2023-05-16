@@ -1,18 +1,15 @@
 import { showMessage } from "react-native-flash-message";
 import ApiBase from "../app/ApiBase";
-import { setFlashSaleProducts } from "./FlashSaleSlice";
 
-export const flashSaleApi = ApiBase.injectEndpoints({
+export const vendorsApi = ApiBase.injectEndpoints({
   endpoints: (builder) => ({
-    getFlashSalePd: builder.query({
+    getVendors: builder.query({
       query: () => ({
         url: `/api/ev1/getFlashSalesProduct`,
         method: "GET",
       }),
       async onQueryStarted(query, { queryFulfilled, dispatch }) {
         try {
-          const res = await queryFulfilled;
-          dispatch(setFlashSaleProducts(res.data));
         } catch (err) {
           console.log(err);
           showMessage({
@@ -25,4 +22,4 @@ export const flashSaleApi = ApiBase.injectEndpoints({
   }),
 });
 
-export const { useGetFlashSalePdQuery } = flashSaleApi;
+export const { useGetVendorsQuery } = vendorsApi;

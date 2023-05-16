@@ -1,12 +1,32 @@
 import React, { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { SafeAreaView, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
+import { setDeliveryDetails } from "../../features/Order/OrderSlice";
 
 const AddDeliveryAddress = ({ navigation }) => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
+  const [isFocused, setisFocused] = useState(false);
+  const [isFocused1, setisFocused1] = useState(false);
+  const [isFocused2, setisFocused2] = useState(false);
+  const [isFocused3, setisFocused3] = useState(false);
   const [defaultAddress, setAddress] = useState("Home");
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const deliveryAdress = { ...data, addressType: defaultAddress, userId: user.id };
+    dispatch(setDeliveryDetails(deliveryAdress));
+    navigation.navigate("Payment");
+  };
 
   return (
     <SafeAreaView
@@ -39,12 +59,73 @@ const AddDeliveryAddress = ({ navigation }) => {
               </Text>
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
-              <Text style={GlobalStyleSheet.label}>Full Name</Text>
-              <TextInput   editable={false}  style={GlobalStyleSheet.formControl} placeholder="Type your name" placeholderTextColor={COLORS.label} />
+              <Text style={GlobalStyleSheet.label}>Full Name *</Text>
+              <Controller
+                control={control}
+                rules={{
+                  required: {
+                    value: true,
+                    message: "Name is required",
+                  },
+                  minLength: {
+                    value: 3,
+                    message: "Name is to short",
+                  },
+                }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <TextInput
+                    style={[GlobalStyleSheet.formControl, isFocused && GlobalStyleSheet.activeInput, errors.name && GlobalStyleSheet.errorInput]}
+                    onFocus={() => {
+                      setisFocused(true);
+                    }}
+                    onChangeText={onChange}
+                    value={value}
+                    onBlur={() => {
+                      setisFocused(false);
+                      onBlur();
+                    }}
+                    placeholder="Type Your Name Here"
+                    placeholderTextColor={COLORS.label}
+                  />
+                )}
+                name="name"
+              />
+              {errors.name && <Text style={GlobalStyleSheet.errorInputText}>{errors.name?.message}</Text>}
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
-              <Text style={GlobalStyleSheet.label}>Mobile No.</Text>
-              <TextInput style={GlobalStyleSheet.formControl} placeholder="Type your mobile no." placeholderTextColor={COLORS.label} />
+              <Text style={GlobalStyleSheet.label}>Mobile Number *</Text>
+              <Controller
+                control={control}
+                rules={{
+                  required: {
+                    value: true,
+                    message: "Phone Number is required",
+                  },
+                  pattern: {
+                    value: /^[\+0-9-]+$/,
+                    message: "Phone Number should contain only numbers",
+                  },
+                }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <TextInput
+                    style={[GlobalStyleSheet.formControl, isFocused1 && GlobalStyleSheet.activeInput, errors.number && GlobalStyleSheet.errorInput]}
+                    onFocus={() => {
+                      setisFocused1(true);
+                    }}
+                    onChangeText={onChange}
+                    value={value}
+                    onBlur={() => {
+                      setisFocused1(false);
+                      onBlur();
+                    }}
+                    placeholder="Type Number Here"
+                    placeholderTextColor={COLORS.label}
+                    keyboardType="numeric"
+                  />
+                )}
+                name="number"
+              />
+              {errors.number && <Text style={GlobalStyleSheet.errorInputText}>{errors.number?.message}</Text>}
             </View>
             <View
               style={{
@@ -65,12 +146,62 @@ const AddDeliveryAddress = ({ navigation }) => {
               </Text>
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
-              <Text style={GlobalStyleSheet.label}>Address</Text>
-              <TextInput style={GlobalStyleSheet.formControl} placeholder="Address" placeholderTextColor={COLORS.label} />
+              <Text style={GlobalStyleSheet.label}>Adress *</Text>
+              <Controller
+                control={control}
+                rules={{
+                  required: {
+                    value: true,
+                    message: "Adress in required",
+                  },
+                }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <TextInput
+                    style={[GlobalStyleSheet.formControl, isFocused2 && GlobalStyleSheet.activeInput, errors.adress && GlobalStyleSheet.errorInput]}
+                    onFocus={() => {
+                      setisFocused2(true);
+                    }}
+                    onChangeText={onChange}
+                    value={value}
+                    onBlur={() => {
+                      setisFocused2(false);
+                      onBlur();
+                    }}
+                    placeholder="Type Adress Specification"
+                    placeholderTextColor={COLORS.label}
+                  />
+                )}
+                name="adress"
+              />
+              {errors.adress && <Text style={GlobalStyleSheet.errorInputText}>{errors.adress?.message}</Text>}
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
-              <Text style={GlobalStyleSheet.label}>Locality/Town</Text>
-              <TextInput style={GlobalStyleSheet.formControl} placeholder="Locality/Town" placeholderTextColor={COLORS.label} />
+              <Text style={GlobalStyleSheet.label}>Locality/Town *</Text>
+              <Controller
+                control={control}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <TextInput
+                    style={[
+                      GlobalStyleSheet.formControl,
+                      isFocused3 && GlobalStyleSheet.activeInput,
+                      errors.localTown && GlobalStyleSheet.errorInput,
+                    ]}
+                    onFocus={() => {
+                      setisFocused3(true);
+                    }}
+                    onChangeText={onChange}
+                    value={value}
+                    onBlur={() => {
+                      setisFocused3(false);
+                      onBlur();
+                    }}
+                    placeholder="Locality/Town"
+                    placeholderTextColor={COLORS.label}
+                  />
+                )}
+                name="localTown"
+              />
+              {errors.localTown && <Text style={GlobalStyleSheet.errorInputText}>{errors.localTown?.message}</Text>}
             </View>
             {/* <View style={[GlobalStyleSheet.row]}>
               <View style={[GlobalStyleSheet.col50]}>
@@ -153,7 +284,7 @@ const AddDeliveryAddress = ({ navigation }) => {
         </ScrollView>
       </View>
       <View style={GlobalStyleSheet.container}>
-        <CustomButton onPress={() => navigation.navigate("Payment")} title={"Save Address"} />
+        <CustomButton onPress={handleSubmit(onSubmit)} title={"Save Address"} />
       </View>
     </SafeAreaView>
   );

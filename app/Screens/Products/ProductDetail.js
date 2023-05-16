@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
+import { useAddToCartMutation } from "../../features/Cart/CartApi";
 import { useGetProductDetailQuery } from "../../features/Product/productApi";
 import Header from "../../layout/Header";
 import ProductDetailSlider from "./ProductDetailSlider";
@@ -15,7 +16,17 @@ const ProductDetail = ({ navigation, route }) => {
   const { isLoading, isSuccess } = useGetProductDetailQuery(item.id, { refetchOnMountOrArgChange: true });
   const { productDetails } = useSelector((state) => state.product);
 
-  console.log(productDetails);
+  const { user } = useSelector((state) => state.auth);
+  const [addToCart, {}] = useAddToCartMutation();
+  const handleAddToCart = async () => {
+    await addToCart({
+      id: productDetails.id,
+      userId: user.id,
+      orderType: "userOrder",
+      userType: "user",
+    });
+    navigation.navigate("Cart");
+  };
 
   // const productColors = ["#A29698", "#80C6A9", "#8E84CA", "#E5907D"];
 
@@ -45,7 +56,7 @@ const ProductDetail = ({ navigation, route }) => {
       <ScrollView contentContainerStyle={{ paddingBottom: 30 }}>
         <Header transparent={true} leftIcon={"back"} />
         <View>
-          {productDetails.img && <ProductDetailSlider images={JSON.parse(productDetails.img)} />}
+          {productDetails?.img && <ProductDetailSlider images={JSON.parse(productDetails.img)} />}
           {/* <TouchableOpacity
             onPress={() => handleLike()}
             activeOpacity={0.95}
@@ -238,7 +249,7 @@ const ProductDetail = ({ navigation, route }) => {
             </Text> */}
           </View>
         </View>
-        <CustomButton onPress={() => navigation.navigate("Cart")} title="ADD TO CART" />
+        <CustomButton onPress={handleAddToCart} title="ADD TO CART" />
       </View>
       {/* <Snackbar
         visible={isSnackbar}

@@ -34,11 +34,11 @@ const CategoryHeader = () => {
         {name}
       </Text>
       <IconButton icon={() => <FeatherIcon color={COLORS.title} size={20} name="search" />} size={25} onPress={() => navigation.navigate("Search")} />
-      <IconButton
+      {/* <IconButton
         icon={() => <FeatherIcon color={COLORS.title} size={20} name="heart" />}
         size={25}
         onPress={() => navigation.navigate("Wishlist")}
-      />
+      /> */}
       <IconButton
         onPress={() => navigation.navigate("Cart")}
         icon={() => (
