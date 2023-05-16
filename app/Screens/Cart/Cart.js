@@ -4,13 +4,12 @@ import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, IMAGES } from "../../constants/theme";
-import { useGetUserCartQuery } from "../../features/Cart/CartApi";
 import Header from "../../layout/Header";
 import CheckoutItems from "./CheckoutItems";
 
 const Cart = ({ navigation }) => {
   const { user } = useSelector((state) => state.auth);
-  const { data , isLoading , isSuccess } = useGetUserCartQuery(user?.id);
+
   return (
     <SafeAreaView
       style={{
@@ -70,7 +69,7 @@ const Cart = ({ navigation }) => {
       </View>
       <View style={{ flex: 1 }}>
         <ScrollView>
-          {!isLoading && isSuccess && <CheckoutItems data={data?.data} />}
+          <CheckoutItems />
           <View style={GlobalStyleSheet.container}>
             {/* <Text
               style={{ ...FONTS.fontSm, ...FONTS.fontBold, marginBottom: 6 }}

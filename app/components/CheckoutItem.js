@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { useDispatch } from "react-redux";
 import { COLORS, FONTS } from "../constants/theme";
+import { quantityDecrement, quantityIncrement, removeFromCart } from "../features/Cart/CartSlice";
 
-const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress }) => {
-  const [itemQuantity, setItemQuantity] = useState(1);
+const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress, productId }) => {
+  const dispatch = useDispatch();
+
+  const remove = (id) => {
+    dispatch(removeFromCart(id));
+  };
 
   return (
     <TouchableOpacity
@@ -29,17 +35,22 @@ const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress }
         source={image}
       />
       <View style={{ flex: 1, paddingVertical: 7 }}>
-        <Text
-          numberOfLines={1}
-          style={{
-            ...FONTS.font,
-            ...FONTS.fontBold,
-            color: COLORS.title,
-            marginBottom: 4,
-          }}
-        >
-          {title}
-        </Text>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <Text
+            numberOfLines={1}
+            style={{
+              ...FONTS.font,
+              ...FONTS.fontBold,
+              color: COLORS.title,
+              marginBottom: 4,
+            }}
+          >
+            {title}
+          </Text>
+          <TouchableOpacity onPress={() => remove(productId)}>
+            <FeatherIcon size={14} color={COLORS.danger} name="trash-2" />
+          </TouchableOpacity>
+        </View>
         <Text numberOfLines={1} style={{ ...FONTS.fontXs, color: "#BCBCBC" }}>
           {type}
         </Text>
@@ -74,8 +85,8 @@ const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress }
               alignItems: "center",
             }}
           >
-            <TouchableOpacity
-              onPress={() => itemQuantity > 1 && setItemQuantity(itemQuantity - 1)}
+            <TouchableOpacity 
+              onPress={() => dispatch(quantityDecrement(productId))}
               style={{
                 height: 25,
                 width: 25,
@@ -97,10 +108,10 @@ const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, onPress }
                 textAlign: "center",
               }}
             >
-              {itemQuantity}
+              {quantity}
             </Text>
             <TouchableOpacity
-              onPress={() => setItemQuantity(itemQuantity + 1)}
+              onPress={() => dispatch(quantityIncrement(productId))}
               style={{
                 height: 25,
                 width: 25,

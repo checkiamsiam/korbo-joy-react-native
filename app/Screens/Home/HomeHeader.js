@@ -3,10 +3,12 @@ import React from "react";
 import { Text, View } from "react-native";
 import { IconButton } from "react-native-paper";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 import { COLORS, FONTS } from "../../constants/theme";
 
 const HomeHeader = () => {
   const navigation = useNavigation();
+  const { cart } = useSelector((state) => state.cart);
   return (
     <View
       style={{
@@ -59,21 +61,23 @@ const HomeHeader = () => {
         icon={() => (
           <View>
             <FeatherIcon color={COLORS.title} size={20} name="shopping-cart" />
-            <View
-              style={{
-                height: 14,
-                width: 14,
-                borderRadius: 14,
-                backgroundColor: COLORS.primary,
-                alignItems: "center",
-                justifyContent: "center",
-                position: "absolute",
-                top: -4,
-                right: -6,
-              }}
-            >
-              <Text style={{ ...FONTS.fontXs, fontSize: 10, color: COLORS.white }}>2</Text>
-            </View>
+            {cart.length > 0 && (
+              <View
+                style={{
+                  height: 14,
+                  width: 14,
+                  borderRadius: 14,
+                  backgroundColor: COLORS.primary,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  position: "absolute",
+                  top: -4,
+                  right: -6,
+                }}
+              >
+                <Text style={{ ...FONTS.fontXs, fontSize: 10, color: COLORS.white }}>{cart.length}</Text>
+              </View>
+            )}
           </View>
         )}
         size={25}

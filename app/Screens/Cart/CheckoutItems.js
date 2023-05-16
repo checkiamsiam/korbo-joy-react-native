@@ -1,44 +1,16 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View } from "react-native";
-import pic1 from "../../assets/images/product/pic1.jpg";
-import pic2 from "../../assets/images/product/pic2.jpg";
+import { useSelector } from "react-redux";
 import pic3 from "../../assets/images/product/pic3.jpg";
 import CheckoutItem from "../../components/CheckoutItem";
 
-const CheckoutData = [
-  {
-    image: pic1,
-    title: "Peter England Causual",
-    type: "Printed Longline Pure Cotteon T-shirt",
-    quantity: 1,
-    price: "$158.2",
-    oldPrice: "$170",
-  },
-  {
-    image: pic2,
-    title: "Peter England Causual",
-    type: "Printed Longline Pure Cotteon T-shirt",
-    quantity: 1,
-    price: "$158.2",
-    oldPrice: "$170",
-  },
-  {
-    image: pic3,
-    title: "Peter England Causual",
-    type: "Printed Longline Pure Cotteon T-shirt",
-    quantity: 1,
-    price: "$158.2",
-    oldPrice: "$170",
-  },
-];
-
-const CheckoutItems = ({ data }) => {
+const CheckoutItems = () => {
+  const { cart } = useSelector((state) => state.cart);
   const navigation = useNavigation();
-  console.log(data);
   return (
     <View>
-      {data.map((item, index) => (
+      {cart.map((item, index) => (
         <CheckoutItem
           onPress={() =>
             navigation.navigate("ProductDetail", {
@@ -46,6 +18,7 @@ const CheckoutItems = ({ data }) => {
             })
           }
           key={index}
+          productId={item.productId}
           image={pic3}
           title={"Peter England Causual"}
           type={"Printed Longline Pure Cotteon T-shirt"}

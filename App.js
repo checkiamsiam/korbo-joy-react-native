@@ -19,7 +19,7 @@ const App = () => {
           <SafeAreaProvider>
             <StatusBar hidden={false} translucent={true} />
             <Routes />
-            <FlashMessage position="top" />
+            <FlashMessage style={{ paddingTop: 30 }} position="top" />
             <ActionSheets />
             <Loading />
           </SafeAreaProvider>

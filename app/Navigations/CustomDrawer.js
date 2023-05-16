@@ -4,6 +4,7 @@ import FeatherIcon from "react-native-vector-icons/Feather";
 import { useDispatch, useSelector } from "react-redux";
 import { COLORS, FONTS, IMAGES } from "../constants/theme";
 import { logout } from "../features/Auth/AuthSlice";
+import { clearCart } from "../features/Cart/CartSlice";
 
 const CustomDrawer = ({ navigation }) => {
   const { user, token } = useSelector((state) => state.auth);
@@ -84,7 +85,7 @@ const CustomDrawer = ({ navigation }) => {
             source={IMAGES.user}
           />
           <View style={{ flex: 1 }}>
-            <Text style={{ ...FONTS.h6, color: COLORS.title, top: 2 , textTransform: "capitalize" }}>{user.name ? user.name : "Guest"}</Text>
+            <Text style={{ ...FONTS.h6, color: COLORS.title, top: 2, textTransform: "capitalize" }}>{user.name ? user.name : "Guest"}</Text>
             <Text style={{ ...FONTS.font, color: "rgba(0,0,0,.6)" }}>{user.number ? user.number : "+880XXXXXXXXXX"}</Text>
           </View>
         </View>
@@ -103,6 +104,7 @@ const CustomDrawer = ({ navigation }) => {
                   onPress={() => {
                     if (data.name === "Logout") {
                       dispatch(logout());
+                      dispatch(clearCart());
                       navigation.navigate("Welcome");
                     } else {
                       data.navigate === "Cart" || data.navigate === "Account"

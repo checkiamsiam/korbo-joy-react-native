@@ -1,0 +1,43 @@
+import { createSlice } from "@reduxjs/toolkit";
+import { showMessage } from "react-native-flash-message";
+
+const initialState = {
+  cart: [],
+};
+
+const cartSlice = createSlice({
+  name: "cart",
+  initialState,
+  reducers: {
+    setCart(state, { payload }) {
+      state.cart = payload;
+    },
+    removeFromCart(state, { payload }) {
+      state.cart = state.cart.filter((item) => item.productId !== payload);
+    },
+    quantityIncrement(state, { payload }) {
+      const index = state.cart.findIndex((item) => item.productId === payload);
+      state.cart[index].qty += 1;
+    },
+    quantityDecrement(state, { payload }) {
+      const index = state.cart.findIndex((item) => item.productId === payload);
+      if (state.cart[index].qty > 1) {
+        state.cart[index].qty -= 1;
+      } else {
+        showMessage({
+          message: "Quantity can't be less than 1",
+          type: "danger",
+        });
+      }
+    },
+    clearCart: (state) => {
+      state.cart = [];
+    },
+  },
+});
+
+const cartReducer = cartSlice.reducer;
+
+export const { setCart, clearCart, removeFromCart, quantityDecrement, quantityIncrement } = cartSlice.actions;
+
+export default cartReducer;

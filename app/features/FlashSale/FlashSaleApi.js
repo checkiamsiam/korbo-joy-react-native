@@ -1,3 +1,4 @@
+import { showMessage } from "react-native-flash-message";
 import ApiBase from "../app/ApiBase";
 import { setFlashSaleProducts } from "./FlashSaleSlice";
 
@@ -14,6 +15,10 @@ export const flashSaleApi = ApiBase.injectEndpoints({
           dispatch(setFlashSaleProducts(res.data));
         } catch (err) {
           console.log(err);
+          showMessage({
+            message: "There is an server side error!",
+            type: "danger",
+          });
         }
       },
     }),

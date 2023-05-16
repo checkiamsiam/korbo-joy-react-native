@@ -1,5 +1,6 @@
-import { removeLoadingScreen, setLoadingScreen } from "../ActionSheets/ActionSheetSlice";
+import { showMessage } from "react-native-flash-message";
 import ApiBase from "../app/ApiBase";
+import { setCart } from "./CartSlice";
 
 export const cartApi = ApiBase.injectEndpoints({
   endpoints: (builder) => ({
@@ -18,11 +19,14 @@ export const cartApi = ApiBase.injectEndpoints({
       }),
       async onQueryStarted(query, { queryFulfilled, dispatch, getState }) {
         try {
-          dispatch(setLoadingScreen());
-          await queryFulfilled;
-          dispatch(removeLoadingScreen());
+          const res = await queryFulfilled;
+          dispatch(setCart(res.data.data));
         } catch (err) {
           console.log(err);
+          showMessage({
+            message: "There is an server side error!",
+            type: "danger",
+          });
         }
       },
       providesTags: ["cart"],

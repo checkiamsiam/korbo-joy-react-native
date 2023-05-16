@@ -1,6 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import actionSheetReducer from "../ActionSheets/ActionSheetSlice";
 import authReducer from "../Auth/AuthSlice";
+import cartReducer from "../Cart/CartSlice";
 import categoriesReducer from "../Categories/CategoriesSlice";
 import flashSaleReducer from "../FlashSale/FlashSaleSlice";
 import justForYouReducer from "../JustForYou/justForYouSlice";
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   flashSale: flashSaleReducer,
   justForYou: justForYouReducer,
   product: productReducer,
+  cart: cartReducer,
 });
 
 export default rootReducer;

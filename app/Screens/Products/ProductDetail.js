@@ -15,8 +15,6 @@ const ProductDetail = ({ navigation, route }) => {
   const { isLoading, isSuccess } = useGetProductDetailQuery(item.id, { refetchOnMountOrArgChange: true });
   const { productDetails } = useSelector((state) => state.product);
 
-  console.log(productDetails);
-
   // const productColors = ["#A29698", "#80C6A9", "#8E84CA", "#E5907D"];
 
   // const [isLike, setIsLike] = useState(false);
@@ -42,11 +40,13 @@ const ProductDetail = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 30 }}>
-        <Header transparent={true} leftIcon={"back"} />
+      {!isLoading && isSuccess && (
         <View>
-          {productDetails.img && <ProductDetailSlider images={JSON.parse(productDetails.img)} />}
-          {/* <TouchableOpacity
+          <ScrollView contentContainerStyle={{ paddingBottom: 30 }}>
+            <Header transparent={true} leftIcon={"back"} />
+            <View>
+              {productDetails?.img && <ProductDetailSlider images={JSON.parse(productDetails.img)} />}
+              {/* <TouchableOpacity
             onPress={() => handleLike()}
             activeOpacity={0.95}
             style={{
@@ -63,31 +63,31 @@ const ProductDetail = ({ navigation, route }) => {
           >
             {isLike ? <FontAwesome name="heart" color={COLORS.primary} size={22} /> : <FontAwesome name="heart-o" color={COLORS.primary} size={22} />}
           </TouchableOpacity> */}
-        </View>
-        <View style={GlobalStyleSheet.container}>
-          <View
-            style={{
-              alignItems: "flex-start",
-              borderBottomWidth: 1,
-              borderColor: COLORS.borderColor,
-              paddingBottom: 12,
-            }}
-          >
-            <View
-              style={{
-                backgroundColor: COLORS.primaryLight,
-                paddingHorizontal: 14,
-                paddingVertical: 6,
-                borderRadius: SIZES.radius,
-                marginBottom: 14,
-                marginTop: 10,
-              }}
-            >
-              <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>{productDetails?.category?.name}</Text>
             </View>
-            <Text style={{ ...FONTS.h6, marginBottom: 3 }}>{productDetails?.name}</Text>
-            {productDetails?.shortDescription && <Text style={{ ...FONTS.font, color: COLORS.text }}>{productDetails?.shortDescription}</Text>}
-            {/* <View
+            <View style={GlobalStyleSheet.container}>
+              <View
+                style={{
+                  alignItems: "flex-start",
+                  borderBottomWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  paddingBottom: 12,
+                }}
+              >
+                <View
+                  style={{
+                    backgroundColor: COLORS.primaryLight,
+                    paddingHorizontal: 14,
+                    paddingVertical: 6,
+                    borderRadius: SIZES.radius,
+                    marginBottom: 14,
+                    marginTop: 10,
+                  }}
+                >
+                  <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>{productDetails?.category?.name}</Text>
+                </View>
+                <Text style={{ ...FONTS.h6, marginBottom: 3 }}>{productDetails?.name}</Text>
+                {productDetails?.shortDescription && <Text style={{ ...FONTS.font, color: COLORS.text }}>{productDetails?.shortDescription}</Text>}
+                {/* <View
               style={{
                 flexDirection: "row",
                 marginTop: 20,
@@ -151,83 +151,83 @@ const ProductDetail = ({ navigation, route }) => {
                 })}
               </View>
             </View> */}
-          </View>
+              </View>
+              <View
+                style={{
+                  paddingTop: 15,
+                  borderBottomWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  paddingBottom: 12,
+                }}
+              >
+                <Text style={{ ...FONTS.h6, marginBottom: 5 }}>Specifications</Text>
+                {productDetails?.categoryBrand?.name && (
+                  <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                    <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Brand</Text>
+                    <Text style={FONTS.font}>{productDetails?.categoryBrand?.name}</Text>
+                  </View>
+                )}
+                {productDetails?.categorySub?.name && (
+                  <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                    <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Sub Category</Text>
+                    <Text style={FONTS.font}>{productDetails?.categorySub?.name}</Text>
+                  </View>
+                )}
+                {productDetails?.status && (
+                  <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                    <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Status</Text>
+                    <Text style={FONTS.font}>{productDetails?.status}</Text>
+                  </View>
+                )}
+                {productDetails?.productType && (
+                  <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                    <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Product Type</Text>
+                    <Text style={FONTS.font}>{productDetails?.productType}</Text>
+                  </View>
+                )}
+                {productDetails?.qty && (
+                  <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                    <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Available Quantity</Text>
+                    <Text style={FONTS.font}>{productDetails?.qty}</Text>
+                  </View>
+                )}
+              </View>
+              {productDetails?.fullDescription && (
+                <View
+                  style={{
+                    paddingTop: 12,
+                  }}
+                >
+                  <Text style={{ ...FONTS.h6, marginBottom: 2 }}>Description</Text>
+                  <Text style={{ ...FONTS.font, color: COLORS.text }}>{productDetails?.fullDescription}</Text>
+                </View>
+              )}
+            </View>
+          </ScrollView>
           <View
             style={{
-              paddingTop: 15,
-              borderBottomWidth: 1,
-              borderColor: COLORS.borderColor,
-              paddingBottom: 12,
+              flexDirection: "row",
+              alignItems: "center",
+              paddingHorizontal: 15,
+              paddingVertical: 12,
+              borderTopWidth: 1,
+              borderTopColor: COLORS.borderColor,
+              backgroundColor: COLORS.backgroundColor,
             }}
           >
-            <Text style={{ ...FONTS.h6, marginBottom: 5 }}>Specifications</Text>
-            {productDetails?.categoryBrand?.name && (
-              <View style={{ flexDirection: "row", marginBottom: 5 }}>
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Brand</Text>
-                <Text style={FONTS.font}>{productDetails?.categoryBrand?.name}</Text>
-              </View>
-            )}
-            {productDetails?.categorySub?.name && (
-              <View style={{ flexDirection: "row", marginBottom: 5 }}>
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Sub Category</Text>
-                <Text style={FONTS.font}>{productDetails?.categorySub?.name}</Text>
-              </View>
-            )}
-            {productDetails?.status && (
-              <View style={{ flexDirection: "row", marginBottom: 5 }}>
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Status</Text>
-                <Text style={FONTS.font}>{productDetails?.status}</Text>
-              </View>
-            )}
-            {productDetails?.productType && (
-              <View style={{ flexDirection: "row", marginBottom: 5 }}>
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Product Type</Text>
-                <Text style={FONTS.font}>{productDetails?.productType}</Text>
-              </View>
-            )}
-            {productDetails?.qty && (
-              <View style={{ flexDirection: "row", marginBottom: 5 }}>
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Available Quantity</Text>
-                <Text style={FONTS.font}>{productDetails?.qty}</Text>
-              </View>
-            )}
-          </View>
-          {productDetails?.fullDescription && (
-            <View
-              style={{
-                paddingTop: 12,
-              }}
-            >
-              <Text style={{ ...FONTS.h6, marginBottom: 2 }}>Description</Text>
-              <Text style={{ ...FONTS.font, color: COLORS.text }}>{productDetails?.fullDescription}</Text>
-            </View>
-          )}
-        </View>
-      </ScrollView>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          paddingHorizontal: 15,
-          paddingVertical: 12,
-          borderTopWidth: 1,
-          borderTopColor: COLORS.borderColor,
-          backgroundColor: COLORS.backgroundColor,
-        }}
-      >
-        <View style={{ flex: 1 }}>
-          <Text style={{ ...FONTS.h3, lineHeight: 30 }}>{productDetails?.price} TK</Text>
-          <View style={{ flexDirection: "row" }}>
-            <Text
-              style={{
-                ...FONTS.font,
-                textDecorationLine: "line-through",
-                marginRight: productDetails?.salesPrice ? 8 : 0,
-              }}
-            >
-              {productDetails?.salesPrice} TK
-            </Text>
-            {/* <Text
+            <View style={{ flex: 1 }}>
+              <Text style={{ ...FONTS.h3, lineHeight: 30 }}>{productDetails?.price} TK</Text>
+              <View style={{ flexDirection: "row" }}>
+                <Text
+                  style={{
+                    ...FONTS.font,
+                    textDecorationLine: "line-through",
+                    marginRight: productDetails?.salesPrice ? 8 : 0,
+                  }}
+                >
+                  {productDetails?.salesPrice} TK
+                </Text>
+                {/* <Text
               style={{
                 ...FONTS.font,
                 color: COLORS.primary,
@@ -236,11 +236,11 @@ const ProductDetail = ({ navigation, route }) => {
             >
               20% OFF
             </Text> */}
+              </View>
+            </View>
+            <CustomButton onPress={() => navigation.navigate("Cart")} title="ADD TO CART" />
           </View>
-        </View>
-        <CustomButton onPress={() => navigation.navigate("Cart")} title="ADD TO CART" />
-      </View>
-      {/* <Snackbar
+          {/* <Snackbar
         visible={isSnackbar}
         duration={3000}
         onDismiss={() => setIsSnackbar(false)}
@@ -253,6 +253,8 @@ const ProductDetail = ({ navigation, route }) => {
       >
         {snackText}
       </Snackbar> */}
+        </View>
+      )}
     </SafeAreaView>
   );
 };

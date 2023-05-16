@@ -1,3 +1,4 @@
+import { showMessage } from "react-native-flash-message";
 import { removeLoadingScreen, setLoadingScreen } from "../ActionSheets/ActionSheetSlice";
 import ApiBase from "../app/ApiBase";
 import { setCategories, setSelectedCategoryProducts } from "./CategoriesSlice";
@@ -31,7 +32,12 @@ export const categoryAPI = ApiBase.injectEndpoints({
           dispatch(setSelectedCategoryProducts(res?.data[0].products));
           dispatch(removeLoadingScreen());
         } catch (err) {
+          dispatch(removeLoadingScreen());
           console.log(err);
+          showMessage({
+            message: "There is an server side error!",
+            type: "danger",
+          });
         }
       },
     }),
