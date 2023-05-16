@@ -8,16 +8,25 @@ import Header from "../../layout/Header";
 //import Button from '../../../components/Button/Button';
 //import CustomInput from '../../../components/Input/CustomInput';
 import { StatusBar } from "react-native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import cash from "../../assets/images/icons/cash.png";
 import phonepe from "../../assets/images/icons/phonepe.png";
 import CustomButton from "../../components/CustomButton";
 import { setActionSheet } from "../../features/ActionSheets/ActionSheetSlice";
+import { usePlaceOrderMutation } from "../../features/Order/OrderApi";
+import calculateSum from "../../utils/calculateSum";
 import { actionSheetRef } from "../../utils/globalRef";
 
 const Payment = (props) => {
   const dispatch = useDispatch();
   const [paymentOption, setPaymentOption] = useState("");
+  const { cart } = useSelector((state) => state.cart);
+  const { deliveryDetails } = useSelector((state) => state.order);
+  const [orderNow] = usePlaceOrderMutation();
+
+  const totalPrice = calculateSum(cart, "totalSalesPrice");
+  const totalCharge = calculateSum(cart, "charge");
+  const totalBill = totalCharge + totalPrice;
 
   const [payActive, setPayActive] = useState("");
 
@@ -36,24 +45,25 @@ const Payment = (props) => {
     },
   ];
 
-  const paymentDone = () => {
-    props.navigation.navigate("Home");
+  const placeOrder = async () => {
+    const res = await orderNow(deliveryDetails);
     dispatch(
       setActionSheet({
         activeSheet: "success",
         data: {
-          title: "Payment Successful",
-          subTitle: "Your payment has been successfully completed. Your Order Id is #7777777",
+          title: "Order Successful",
+          subTitle: `Your Order has been Placed. Your Order Invoice is  #${res?.data?.item?.invoiceNumber}`,
         },
       })
     );
+    props.navigation.navigate("Home");
     actionSheetRef.current.open();
   };
 
   return (
     <>
       <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
-        <Header titleLeft leftIcon={"back"} title={"Payment"} />
+        <Header titleLeft leftIcon={"back"} title={"Order & Payment"} />
 
         <View
           style={{
@@ -468,20 +478,16 @@ const Payment = (props) => {
                     color: COLORS.title,
                   }}
                 >
-                  Price Details(1 item)
+                  Price Details({cart.length} item)
                 </Text>
               </View>
               <View style={styles.detailList}>
-                <Text style={{ ...FONTS.font, color: COLORS.text }}>Total MRP</Text>
-                <Text style={{ ...FONTS.font, color: COLORS.text }}>1599</Text>
+                <Text style={{ ...FONTS.font, color: COLORS.text }}>Total Price</Text>
+                <Text style={{ ...FONTS.font, color: COLORS.text }}>{totalPrice} TK</Text>
               </View>
               <View style={styles.detailList}>
-                <Text style={{ ...FONTS.font, color: COLORS.text }}>Discount on MRP</Text>
-                <Text style={{ ...FONTS.font, color: COLORS.success }}>-640</Text>
-              </View>
-              <View style={styles.detailList}>
-                <Text style={{ ...FONTS.font, color: COLORS.text }}>Coupon Discount</Text>
-                <Text style={{ ...FONTS.font, color: COLORS.success }}>-200</Text>
+                <Text style={{ ...FONTS.font, color: COLORS.text }}>Delivery Charge</Text>
+                <Text style={{ ...FONTS.font, color: COLORS.success }}>{totalCharge} TK</Text>
               </View>
               <View
                 style={{
@@ -509,7 +515,7 @@ const Payment = (props) => {
                     color: COLORS.title,
                   }}
                 >
-                  759
+                  {totalBill} TK
                 </Text>
               </View>
             </View>
@@ -530,8 +536,8 @@ const Payment = (props) => {
               }}
             >
               <View style={{ width: 120 }}>
-                <Text style={{ ...FONTS.h5, color: COLORS.title }}>$759</Text>
-                <TouchableOpacity>
+                <Text style={{ ...FONTS.h5, color: COLORS.title }}>{totalBill} TK</Text>
+                {/* <TouchableOpacity>
                   <Text
                     style={{
                       ...FONTS.font,
@@ -541,10 +547,10 @@ const Payment = (props) => {
                   >
                     View Details
                   </Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
               </View>
               <View style={{ flex: 1 }}>
-                <CustomButton onPress={paymentDone} title={"Pay now"} color={COLORS.primary} />
+                <CustomButton onPress={placeOrder} title={"Place Order"} color={COLORS.primary} />
               </View>
             </View>
           </View>

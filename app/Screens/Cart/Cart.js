@@ -173,7 +173,7 @@ const Cart = ({ navigation }) => {
           </View>
         </ScrollView>
       </View>
-      <View
+      {cart.length > 0 && <View
         style={{
           flexDirection: "row",
           paddingHorizontal: 15,
@@ -203,7 +203,7 @@ const Cart = ({ navigation }) => {
         <View style={{ flex: 1 }}>
           <CustomButton btnSm onPress={() => navigation.navigate("AddDeliveryAddress")} title="Checkout" />
         </View>
-      </View>
+      </View>}
     </SafeAreaView>
   );
 };
