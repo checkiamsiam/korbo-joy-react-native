@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { COLORS, IMAGES } from "../constants/theme";
 
-const OfflineScreen = ({ onRetry }) => {
+const OfflineScreen = () => {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -18,9 +18,6 @@ const OfflineScreen = ({ onRetry }) => {
       <View style={styles.container}>
         <FeatherIcon name="wifi-off" size={80} color={COLORS.primary} />
         <Text style={styles.text}>You are offline</Text>
-        <TouchableOpacity style={styles.button} onPress={onRetry}>
-          <Text style={styles.buttonText}>Retry</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
