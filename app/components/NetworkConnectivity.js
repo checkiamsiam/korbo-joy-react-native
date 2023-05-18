@@ -6,9 +6,22 @@ import OfflineScreen from "../Screens/OfflineScreen";
 const NetworkConnectivity = ({ children }) => {
   const [isOnline, setIsOnline] = useState(true);
 
+  const checkInternetConnectivity = async () => {
+    try {
+      const response = await fetch("https://8.8.8.8", { method: "HEAD" });
+      setIsOnline(response.ok);
+    } catch (error) {
+      setIsOnline(false);
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = NetInfo.addEventListener((state) => {
-      setIsOnline(state.isConnected);
+      if (state.isConnected) {
+        checkInternetConnectivity();
+      } else {
+        setIsOnline(false);
+      }
     });
 
     return () => {
