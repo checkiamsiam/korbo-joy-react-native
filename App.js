@@ -9,6 +9,7 @@ import Routes from "./app/Navigations/Route";
 import ActionSheets from "./app/components/ActionSheets";
 import FontProvider from "./app/components/FontsProvider";
 import Loading from "./app/components/Loading";
+import NetworkConnectivity from "./app/components/NetworkConnectivity";
 import { COLORS } from "./app/constants/theme";
 import { persistor, store } from "./app/features/app/store";
 
@@ -18,11 +19,13 @@ const App = () => {
       <PersistGate loading={null} persistor={persistor}>
         <FontProvider>
           <SafeAreaProvider>
-            <StatusBar translucent backgroundColor={COLORS.primaryLight} barStyle="dark-content" />
-            <Routes />
-            <FlashMessage style={{ paddingTop: 30 }} position="top" />
-            <ActionSheets />
-            <Loading />
+            <NetworkConnectivity>
+              <StatusBar translucent backgroundColor={COLORS.primaryLight} barStyle="dark-content" />
+              <Routes />
+              <FlashMessage style={{ paddingTop: 30 }} position="top" />
+              <ActionSheets />
+              <Loading />
+            </NetworkConnectivity>
           </SafeAreaProvider>
         </FontProvider>
       </PersistGate>
