@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.korbojoy.app",
@@ -23,7 +21,7 @@
       "package": "com.korbojoy.app",
       "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./app/assets/images/logo.png",
+        "foregroundImage": "./app/assets/images/adap-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
