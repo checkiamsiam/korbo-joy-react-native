@@ -19,13 +19,13 @@ const App = () => {
       <PersistGate loading={null} persistor={persistor}>
         <FontProvider>
           <SafeAreaProvider>
+            <StatusBar translucent backgroundColor={COLORS.primaryLight} barStyle="dark-content" />
             <NetworkConnectivity>
-              <StatusBar translucent backgroundColor={COLORS.primaryLight} barStyle="dark-content" />
               <Routes />
-              <FlashMessage style={{ paddingTop: 30 }} position="top" />
-              <ActionSheets />
-              <Loading />
             </NetworkConnectivity>
+            <FlashMessage style={{ paddingTop: 30 }} position="top" />
+            <ActionSheets />
+            <Loading />
           </SafeAreaProvider>
         </FontProvider>
       </PersistGate>
