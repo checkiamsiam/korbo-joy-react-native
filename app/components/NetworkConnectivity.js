@@ -17,7 +17,7 @@ const NetworkConnectivity = ({ children }) => {
   }, [isOnline]);
 
   if (!isOnline) {
-    return <OfflineScreen onRetry={() => setIsOnline(true)} />;
+    return <OfflineScreen />;
   }
   return children;
 };
