@@ -19,7 +19,7 @@ export const store = configureStore({
     gtm({
       serializableCheck: false,
     }).concat(ApiBase.middleware),
-  devTools: true,
+  devTools: false,
 });
 
 export const persistor = persistStore(store);
