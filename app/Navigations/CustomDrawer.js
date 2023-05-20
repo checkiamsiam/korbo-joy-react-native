@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import { Image, Platform, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useDispatch, useSelector } from "react-redux";
 import { COLORS, FONTS, IMAGES } from "../constants/theme";
@@ -64,7 +64,9 @@ const CustomDrawer = ({ navigation }) => {
 
   return (
     <>
-      <View style={{ flex: 1, backgroundColor: COLORS.white, paddingTop: StatusBar.currentHeight }}>
+      <View
+        style={{ flex: 1, backgroundColor: COLORS.white, paddingTop: Platform.OS === "ios" ? StatusBar.currentHeight * 2 : StatusBar.currentHeight }}
+      >
         <View
           style={{
             flexDirection: "row",
@@ -150,8 +152,8 @@ const CustomDrawer = ({ navigation }) => {
             marginTop: 10,
           }}
         >
-          <Text style={{ ...FONTS.fontLg, color: COLORS.title, marginBottom: 6 }}>Korbo Joy Store</Text>
-          <Text style={{ ...FONTS.font, color: "rgba(0,0,0,.5)" }}>App Version 1.0</Text>
+          <Image source={require("../assets/images/logo-full.png")} />
+          <Text style={{ ...FONTS.font, color: "rgba(0,0,0,.5)", marginTop: 3 }}>App Version 1.0</Text>
         </View>
       </View>
     </>

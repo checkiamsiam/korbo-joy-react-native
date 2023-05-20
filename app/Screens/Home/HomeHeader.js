@@ -40,7 +40,6 @@ const HomeHeader = () => {
           size={25}
           onPress={() => navigation.openDrawer()}
         />
-        <Image source={require("../../assets/images/logo.png")} style={{ height: 30, width: 30 }} />
       </View>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <IconButton
