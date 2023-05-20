@@ -1,6 +1,6 @@
+import { CheckBox } from "@rneui/themed";
 import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
-import { CheckBox } from "react-native-elements";
 import { List } from "react-native-paper";
 import CustomButton from "../../components/CustomButton";
 import { COLORS, FONTS } from "../../constants/theme";
