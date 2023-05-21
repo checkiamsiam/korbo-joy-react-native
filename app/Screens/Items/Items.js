@@ -366,7 +366,7 @@ const Items = ({ navigation, route }) => {
           paddingTop: StatusBar.currentHeight,
         }}
       >
-        <Header titleLeft leftIcon={"back"} title={type} />
+        <Header titleLeft leftIcon={"back"} title={type} rightIcon2="search" />
         <View>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <View
