@@ -29,9 +29,7 @@ const MainHome = ({ navigation }) => {
         <HomeBanner />
         <SectionHeader title="Our Vendors" />
         <OurVendors />
-
         <SectionHeader title="Flash Sale" action={true} actionTitle="View all" actionFunc={() => navigation.navigate("Items", { type: "Fashion" })} />
-
         <FlashSale />
         <SectionHeader title="Just For You" />
         <JustForYou />

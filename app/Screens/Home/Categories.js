@@ -4,9 +4,9 @@ import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useSelector } from "react-redux";
+import CategoriesSkeleton from "../../components/skeletons/CategoriesSkeleton";
 import { COLORS, FONTS } from "../../constants/theme";
 import { useGetCategoriesQuery } from "../../features/Categories/CategoriesApi";
-import CategoriesSkeleton from "./skeletons/CategoriesSkeleton";
 const Categories = () => {
   const { isLoading: categoriesLoading } = useGetCategoriesQuery();
   const navigation = useNavigation();

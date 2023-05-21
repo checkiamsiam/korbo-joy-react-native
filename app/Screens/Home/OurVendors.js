@@ -3,7 +3,7 @@ import React from "react";
 import { ScrollView, View } from "react-native";
 import { useSelector } from "react-redux";
 import VendorCard from "../../components/VendorCard";
-import VendorsSkeleton from "./skeletons/VendorsSkeleton";
+import VendorsSkeleton from "../../components/skeletons/VendorsSkeleton";
 
 const OurVendors = () => {
   const navigation = useNavigation();
