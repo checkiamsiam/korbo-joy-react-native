@@ -1,10 +1,10 @@
-import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { COLORS, FONTS, IMAGES } from '../constants/theme';
-import { IconButton } from '@react-native-material/core';
+import { IconButton } from "@react-native-material/core";
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import { useNavigation } from '@react-navigation/native';
+import { COLORS, FONTS, IMAGES } from "../constants/theme";
 
 const Header = (props) => {
   const navigation = useNavigation();
@@ -14,8 +14,8 @@ const Header = (props) => {
       {props.main ? (
         <View
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
+            flexDirection: "row",
+            alignItems: "center",
             paddingHorizontal: 15,
             paddingVertical: 10,
           }}
@@ -25,14 +25,12 @@ const Header = (props) => {
             style={{
               height: 50,
               width: 50,
-              justifyContent: 'center',
+              justifyContent: "center",
             }}
           >
-            <FeatherIcon name="menu" color={'#B9BCD3'} size={26} />
+            <FeatherIcon name="menu" color={"#B9BCD3"} size={26} />
           </TouchableOpacity>
-          <Text style={{ ...FONTS.h4, flex: 1, textAlign: 'center' }}>
-            {props.title}
-          </Text>
+          <Text style={{ ...FONTS.h4, flex: 1, textAlign: "center" }}>{props.title}</Text>
           <TouchableOpacity>
             <Image
               style={{
@@ -49,14 +47,14 @@ const Header = (props) => {
           style={[
             {
               height: props.productId ? 60 : 50,
-              flexDirection: 'row',
-              alignItems: 'center',
+              flexDirection: "row",
+              alignItems: "center",
               paddingHorizontal: 10,
               borderBottomWidth: 1,
               borderColor: COLORS.borderColor,
             },
             props.transparent && {
-              position: 'absolute',
+              position: "absolute",
               zIndex: 2,
               left: 0,
               right: 0,
@@ -67,15 +65,11 @@ const Header = (props) => {
             },
           ]}
         >
-          {props.leftIcon === 'back' && (
+          {props.leftIcon === "back" && (
             <IconButton
-              onPress={() =>
-                props.backAction ? props.backAction() : navigation.goBack()
-              }
-              color={props.transparent ? '#fff' : '#4E4E4E'}
-              icon={(props) => (
-                <MaterialIcons name="arrow-back-ios" {...props} />
-              )}
+              onPress={() => (props.backAction ? props.backAction() : navigation.goBack())}
+              color={props.transparent ? "#fff" : "#4E4E4E"}
+              icon={(props) => <MaterialIcons name="arrow-back-ios" {...props} />}
             />
           )}
           <View style={{ flex: 1 }}>
@@ -83,47 +77,36 @@ const Header = (props) => {
               style={{
                 ...FONTS.h6,
                 top: 1,
-                textAlign: props.titleLeft ? 'left' : 'center',
+                textAlign: props.titleLeft ? "left" : "center",
               }}
             >
               {props.title}
             </Text>
-            {props.productId && (
-              <Text style={{ ...FONTS.font, textAlign: 'center' }}>
-                {props.productId}
-              </Text>
-            )}
+            {props.productId && <Text style={{ ...FONTS.font, textAlign: "center" }}>{props.productId}</Text>}
           </View>
-          {props.rightIcon2 === 'search' && (
-            <IconButton
-              onPress={() => navigation.navigate('Search')}
-              color={'#4E4E4E'}
-              icon={(props) => <FeatherIcon name="search" {...props} />}
-            />
+          {props.rightIcon2 === "search" && (
+            <IconButton onPress={() => navigation.navigate("Search")} color={"#4E4E4E"} icon={(props) => <FeatherIcon name="search" {...props} />} />
           )}
-          {props.rightIcon === 'more' && (
-            <IconButton
-              color={props.transparent ? '#fff' : '#4E4E4E'}
-              icon={(props) => <MaterialIcons name="more-vert" {...props} />}
-            />
+          {props.rightIcon === "more" && (
+            <IconButton color={props.transparent ? "#fff" : "#4E4E4E"} icon={(props) => <MaterialIcons name="more-vert" {...props} />} />
           )}
-          {props.rightIcon === 'grid' && (
+          {props.rightIcon === "grid" && (
             <View
               style={{
-                flexDirection: 'row',
+                flexDirection: "row",
                 marginLeft: -40,
               }}
             >
               <IconButton
-                onPress={() => props.setItemView('list')}
+                onPress={() => props.setItemView("list")}
                 style={{ borderRadius: 0 }}
-                color={props.itemView === 'list' ? COLORS.primary : '#4E4E4E'}
+                color={props.itemView === "list" ? COLORS.primary : "#4E4E4E"}
                 icon={(props) => <FeatherIcon name="list" {...props} />}
               />
               <IconButton
-                onPress={() => props.setItemView('grid')}
+                onPress={() => props.setItemView("grid")}
                 style={{ borderRadius: 0 }}
-                color={props.itemView === 'grid' ? COLORS.primary : '#4E4E4E'}
+                color={props.itemView === "grid" ? COLORS.primary : "#4E4E4E"}
                 icon={(props) => <FeatherIcon name="grid" {...props} />}
               />
             </View>
