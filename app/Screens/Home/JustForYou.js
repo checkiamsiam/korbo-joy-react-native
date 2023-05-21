@@ -4,6 +4,7 @@ import { FlatList, View } from "react-native";
 import { ActivityIndicator } from "react-native-paper";
 import { useSelector } from "react-redux";
 import ProductItem from "../../components/ProductItem";
+import ProductsListSkeleton from "../../components/skeletons/ProductsListSkeleton";
 import { COLORS } from "../../constants/theme";
 import { useGetJustForYouPdQuery } from "../../features/JustForYou/justForYouApi";
 
@@ -17,38 +18,42 @@ const JustForYou = () => {
   };
   return (
     <View>
-      <View style={{ flexDirection: "row", flexWrap: "wrap", paddingHorizontal: 5 }}>
-        {products.length > 0 && (
-          <FlatList
-            data={products}
-            onEndReached={handleEndReach}
-            numColumns={2}
-            keyExtractor={(item, i) => i}
-            renderItem={({ item }) => (
-              <View style={{ width: "50%", paddingHorizontal: 5 }}>
-                <ProductItem
-                  onPress={() =>
-                    navigation.navigate("ProductDetail", {
-                      item: item,
-                    })
-                  }
-                  imgLength={true}
-                  id={item.id}
-                  imageSrc={JSON.parse(item.img)[0]}
-                  title={item.name}
-                  desc={item?.desc}
-                  status={item.status}
-                  price={item.price}
-                  oldPrice={item.salesPrice}
-                  rating={item?.rating}
-                  reviews={item?.reviews}
-                  isLike={item?.isLike}
-                />
-              </View>
-            )}
-          />
-        )}
-      </View>
+      {!isLoading ? (
+        <View style={{ paddingHorizontal: 10 }}>
+          {products.length > 0 && (
+            <FlatList
+              data={products}
+              onEndReached={handleEndReach}
+              numColumns={2}
+              keyExtractor={(item, i) => i}
+              renderItem={({ item }) => (
+                <View style={{ width: "50%", paddingHorizontal: 5 }}>
+                  <ProductItem
+                    onPress={() =>
+                      navigation.navigate("ProductDetail", {
+                        item: item,
+                      })
+                    }
+                    imgLength={true}
+                    id={item.id}
+                    imageSrc={JSON.parse(item.img)[0]}
+                    title={item.name}
+                    desc={item?.desc}
+                    status={item.status}
+                    price={item.price}
+                    oldPrice={item.salesPrice}
+                    rating={item?.rating}
+                    reviews={item?.reviews}
+                    isLike={item?.isLike}
+                  />
+                </View>
+              )}
+            />
+          )}
+        </View>
+      ) : (
+        <ProductsListSkeleton />
+      )}
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center", paddingVertical: 25 }}>
         <ActivityIndicator animating={true} color={COLORS.primary} />
       </View>

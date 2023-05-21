@@ -12,6 +12,10 @@ const cartSlice = createSlice({
     setCart(state, { payload }) {
       state.cart = payload;
     },
+    addToCart(state, { payload }) {
+      state.cart = payload;
+    },
+
     removeFromCart(state, { payload }) {
       state.cart = state.cart.filter((item) => item.id !== payload);
     },

@@ -3,6 +3,7 @@ import React from "react";
 import { Image, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import { ScrollView } from "react-native-virtualized-view";
 import { useDispatch, useSelector } from "react-redux";
+import ProductsListSkeleton from "../../components/skeletons/ProductsListSkeleton";
 import { COLORS, FONTS } from "../../constants/theme";
 import { useGetCategoryProductQuery } from "../../features/Categories/CategoriesApi";
 import CategoryHeader from "./CategoryHeader";
@@ -13,7 +14,7 @@ const CategoryHome = ({ navigation, route }) => {
   const { name, categoryId } = route.params;
   const { allCategories } = useSelector((state) => state.categories);
   const thisCategory = allCategories.find((c) => c.id === categoryId);
-  const {} = useGetCategoryProductQuery(categoryId, { refetchOnMountOrArgChange: true });
+  const { isLoading } = useGetCategoryProductQuery(categoryId, { refetchOnMountOrArgChange: true });
 
   return (
     <SafeAreaView
@@ -112,7 +113,7 @@ const CategoryHome = ({ navigation, route }) => {
             {name} Products
           </Text>
         </View>
-        <Products />
+        {!isLoading ? <Products /> : <ProductsListSkeleton />}
       </ScrollView>
     </SafeAreaView>
   );
