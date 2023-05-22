@@ -12,6 +12,7 @@ import CustomButton from "../../components/CustomButton";
 import ProductsListSkeleton from "../../components/skeletons/ProductsListSkeleton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
+import { useGetVendorProductsQuery } from "../../features/VendorFeature/vendorApi";
 import Header from "../../layout/Header";
 import ItemProductView from "./ItemProductView";
 
@@ -80,8 +81,10 @@ const Items = ({ navigation, route }) => {
   const sheetRef = useRef();
 
   const { type, key } = route.params;
+  const { isLoading } = useGetVendorProductsQuery(key?.id, { refetchOnMountOrArgChange: true, skip: type !== "Vendors" });
   const { products: flashSaleProducts } = useSelector((state) => state.flashSale);
-  const Products = type === "Flash Sale" ? flashSaleProducts : flashSaleProducts;
+  const { vendorsWiseProducts } = useSelector((state) => state.vendor);
+  const Products = type === "Flash Sale" ? flashSaleProducts : type === "Vendors" ? vendorsWiseProducts : flashSaleProducts;
 
   const [itemData, setItemData] = useState(Products);
 
@@ -313,7 +316,7 @@ const Items = ({ navigation, route }) => {
             </View>
           </ScrollView>
         </View>
-        <ScrollView>{Products ? <ItemProductView data={Products} /> : <ProductsListSkeleton />}</ScrollView>
+        <ScrollView>{!isLoading ? <ItemProductView data={Products} /> : <ProductsListSkeleton />}</ScrollView>
         <Snackbar
           visible={isSnackbar}
           duration={3000}

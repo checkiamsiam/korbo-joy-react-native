@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   vendors: [],
+  vendorsWiseProducts: [],
 };
 
 const vendorSlice = createSlice({
@@ -11,11 +12,14 @@ const vendorSlice = createSlice({
     setVendors(state, { payload }) {
       state.vendors = payload;
     },
+    setVendorsWiseProducts(state, { payload }) {
+      state.vendorsWiseProducts = payload;
+    },
   },
 });
 
 const vendorReducer = vendorSlice.reducer;
 
-export const { setVendors } = vendorSlice.actions;
+export const { setVendors, setVendorsWiseProducts } = vendorSlice.actions;
 
 export default vendorReducer;
