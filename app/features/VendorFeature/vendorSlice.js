@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ProductData } from "../../Screens/Home/DummyData";
 
 const initialState = {
-  vendors: ProductData,
+  vendors: [],
 };
 
 const vendorSlice = createSlice({

@@ -79,7 +79,7 @@ const brandFilterData = [
 const Items = ({ navigation, route }) => {
   const sheetRef = useRef();
 
-  const { type } = route.params;
+  const { type, key } = route.params;
   const { products: flashSaleProducts } = useSelector((state) => state.flashSale);
   const Products = type === "Flash Sale" ? flashSaleProducts : flashSaleProducts;
 
@@ -262,7 +262,7 @@ const Items = ({ navigation, route }) => {
           paddingTop: StatusBar.currentHeight,
         }}
       >
-        <Header titleLeft leftIcon={"back"} title={type} rightIcon2="search" />
+        <Header titleLeft leftIcon={"back"} title={key?.title} rightIcon2="search" />
         <View>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <View
