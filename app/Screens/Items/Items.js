@@ -1,15 +1,16 @@
 import { CheckBox } from "@rneui/themed";
 import React, { useRef, useState } from "react";
-import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Ripple from "react-native-material-ripple";
 import { List, RadioButton, Snackbar } from "react-native-paper";
 import RBSheet from "react-native-raw-bottom-sheet";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Octicons from "react-native-vector-icons/Octicons";
+import { ScrollView } from "react-native-virtualized-view";
+import { useSelector } from "react-redux";
 import AppliancesData from "../../JSON/Appliances.json";
 import BooksToysData from "../../JSON/BooksToys.json";
 import ElectronicsData from "../../JSON/Electronics.json";
-import FashionData from "../../JSON/Fashion.json";
 import FurnitureData from "../../JSON/Furniture.json";
 import GroceryData from "../../JSON/Grocery.json";
 import MobilesData from "../../JSON/Mobiles.json";
@@ -22,10 +23,11 @@ import pic6 from "../../assets/images/product/pic6.jpg";
 import pic7 from "../../assets/images/product/pic7.jpg";
 import pic8 from "../../assets/images/product/pic8.jpg";
 import CustomButton from "../../components/CustomButton";
-import ProductItem from "../../components/ProductItem";
+import ProductsListSkeleton from "../../components/skeletons/ProductsListSkeleton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import Header from "../../layout/Header";
+import ItemProductView from "./ItemProductView";
 
 const ProductData = [
   {
@@ -169,7 +171,7 @@ const Items = ({ navigation, route }) => {
   const sheetRef = useRef();
 
   const { type } = route.params;
-
+  const { products: flashSaleProducts } = useSelector((state) => state.flashSale);
   const Products =
     type === "Mobiles"
       ? MobilesData.items
@@ -183,8 +185,8 @@ const Items = ({ navigation, route }) => {
       ? AppliancesData.items
       : type === "Books,Toys"
       ? BooksToysData.items
-      : type === "Fashion"
-      ? FashionData.items
+      : type === "Flash Sale"
+      ? flashSaleProducts
       : ProductData;
 
   const [itemData, setItemData] = useState(Products);
@@ -230,6 +232,8 @@ const Items = ({ navigation, route }) => {
     setDiscountFilter(Discount);
     setFilterData(sheetType === "brand" ? Brand : sheetType === "discount" ? Discount : []);
   };
+
+  console.log(type);
 
   return (
     <>
@@ -417,46 +421,7 @@ const Items = ({ navigation, route }) => {
             </View>
           </ScrollView>
         </View>
-        <ScrollView>
-          <View
-            style={{
-              paddingTop: 5,
-            }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                flexWrap: "wrap",
-                paddingHorizontal: 5,
-              }}
-            >
-              {itemData.map((data, index) => (
-                <View key={index} style={{ width: "50%", paddingHorizontal: 5 }}>
-                  <ProductItem
-                    onPress={() =>
-                      navigation.navigate("ProductDetail", {
-                        item: data,
-                        category: type,
-                      })
-                    }
-                    imgLength={type === "Fashion"}
-                    id={data.id}
-                    imageSrc={data.image}
-                    title={data.title}
-                    desc={data.desc}
-                    status={data.status}
-                    price={data.price}
-                    oldPrice={data.oldPrice}
-                    rating={data.rating}
-                    reviews={data.reviews}
-                    isLike={data.isLike}
-                    handleItemLike={handleItemLike}
-                  />
-                </View>
-              ))}
-            </View>
-          </View>
-        </ScrollView>
+        <ScrollView>{Products ? <ItemProductView data={Products} /> : <ProductsListSkeleton />}</ScrollView>
         <Snackbar
           visible={isSnackbar}
           duration={3000}
