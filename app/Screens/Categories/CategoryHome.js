@@ -48,7 +48,7 @@ const CategoryHome = ({ navigation, route }) => {
                     }}
                   >
                     <TouchableOpacity
-                      onPress={() => navigation.navigate("Items", { type: name })}
+                      onPress={() => navigation.navigate("Items", { type: d2.name })}
                       style={{
                         alignItems: "center",
                         marginBottom: 18,

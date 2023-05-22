@@ -8,103 +8,12 @@ import FeatherIcon from "react-native-vector-icons/Feather";
 import Octicons from "react-native-vector-icons/Octicons";
 import { ScrollView } from "react-native-virtualized-view";
 import { useSelector } from "react-redux";
-import AppliancesData from "../../JSON/Appliances.json";
-import BooksToysData from "../../JSON/BooksToys.json";
-import ElectronicsData from "../../JSON/Electronics.json";
-import FurnitureData from "../../JSON/Furniture.json";
-import GroceryData from "../../JSON/Grocery.json";
-import MobilesData from "../../JSON/Mobiles.json";
-import pic1 from "../../assets/images/product/pic1.jpg";
-import pic2 from "../../assets/images/product/pic2.jpg";
-import pic3 from "../../assets/images/product/pic3.jpg";
-import pic4 from "../../assets/images/product/pic4.jpg";
-import pic5 from "../../assets/images/product/pic5.jpg";
-import pic6 from "../../assets/images/product/pic6.jpg";
-import pic7 from "../../assets/images/product/pic7.jpg";
-import pic8 from "../../assets/images/product/pic8.jpg";
 import CustomButton from "../../components/CustomButton";
 import ProductsListSkeleton from "../../components/skeletons/ProductsListSkeleton";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import Header from "../../layout/Header";
 import ItemProductView from "./ItemProductView";
-
-const ProductData = [
-  {
-    image: pic1,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-  },
-  {
-    image: pic2,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-  },
-  {
-    image: pic3,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-    status: "Trending",
-  },
-  {
-    image: pic4,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-  },
-  {
-    image: pic5,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-  },
-  {
-    image: pic6,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-    status: "Sale",
-  },
-  {
-    image: pic7,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-  },
-  {
-    image: pic8,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-  },
-];
 
 const discountFilterData = [
   {
@@ -172,22 +81,7 @@ const Items = ({ navigation, route }) => {
 
   const { type } = route.params;
   const { products: flashSaleProducts } = useSelector((state) => state.flashSale);
-  const Products =
-    type === "Mobiles"
-      ? MobilesData.items
-      : type === "Electronics"
-      ? ElectronicsData.items
-      : type === "Furniture"
-      ? FurnitureData.items
-      : type === "Grocery"
-      ? GroceryData.items
-      : type === "Appliances"
-      ? AppliancesData.items
-      : type === "Books,Toys"
-      ? BooksToysData.items
-      : type === "Flash Sale"
-      ? flashSaleProducts
-      : ProductData;
+  const Products = type === "Flash Sale" ? flashSaleProducts : flashSaleProducts;
 
   const [itemData, setItemData] = useState(Products);
 
@@ -232,8 +126,6 @@ const Items = ({ navigation, route }) => {
     setDiscountFilter(Discount);
     setFilterData(sheetType === "brand" ? Brand : sheetType === "discount" ? Discount : []);
   };
-
-  console.log(type);
 
   return (
     <>
