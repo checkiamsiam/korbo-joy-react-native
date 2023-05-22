@@ -13,7 +13,7 @@ import ProductDetailSlider from "./ProductDetailSlider";
 
 const ProductDetail = ({ navigation, route }) => {
   const { item } = route.params;
-  const { isLoading, isSuccess } = useGetProductDetailQuery(item.id, { refetchOnMountOrArgChange: true });
+  const {} = useGetProductDetailQuery(item.id, { refetchOnMountOrArgChange: true });
   const { productDetails } = useSelector((state) => state.product);
 
   const { user } = useSelector((state) => state.auth);
