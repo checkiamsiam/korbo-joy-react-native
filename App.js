@@ -14,6 +14,7 @@ import { COLORS } from "./app/constants/theme";
 import { persistor, store } from "./app/features/app/store";
 
 const App = () => {
+  console.log("debuging");
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { clearCart } from "../Cart/CartSlice";
 
 const initialState = {
   user: {

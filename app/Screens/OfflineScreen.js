@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { COLORS, IMAGES } from "../constants/theme";
 
