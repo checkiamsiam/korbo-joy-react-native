@@ -1,8 +1,8 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { COLORS, FONTS } from "../../constants/theme";
-import { useNavigation } from "@react-navigation/native";
 
 const SectionHeader = ({ title, action, actionTitle, actionFunc }) => {
   const navigation = useNavigation();
@@ -28,7 +28,7 @@ const SectionHeader = ({ title, action, actionTitle, actionFunc }) => {
       </Text>
       {action && (
         <TouchableOpacity
-          onPress={() => navigation.navigate("Items", { type: "Fashion" })}
+          onPress={actionFunc ? actionFunc : () => navigation.navigate("Items", { type: "Fashion" })}
           style={{
             flexDirection: "row",
             alignItems: "center",
