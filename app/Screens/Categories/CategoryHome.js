@@ -121,7 +121,7 @@ const CategoryHome = ({ navigation, route }) => {
             {name} Products
           </Text>
         </View>
-        {!isLoading && isSuccess ? <Products products={data[0].products} /> : <ProductsListSkeleton />}
+        {!isLoading && isSuccess ? <Products products={data.products} /> : <ProductsListSkeleton />}
       </ScrollView>
     </SafeAreaView>
   );

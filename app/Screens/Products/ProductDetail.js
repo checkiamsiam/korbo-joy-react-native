@@ -1,3 +1,4 @@
+import { Skeleton } from "@rneui/themed";
 import React from "react";
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import { useSelector } from "react-redux";
@@ -13,8 +14,7 @@ import ProductDetailSlider from "./ProductDetailSlider";
 
 const ProductDetail = ({ navigation, route }) => {
   const { item } = route.params;
-  const {} = useGetProductDetailQuery(item.id, { refetchOnMountOrArgChange: true });
-  const { productDetails } = useSelector((state) => state.product);
+  const { isLoading, isSuccess, data: productDetails } = useGetProductDetailQuery(item.id, { refetchOnMountOrArgChange: true });
 
   const { user } = useSelector((state) => state.auth);
   const [addToCart, {}] = useAddToCartMutation();
@@ -56,7 +56,11 @@ const ProductDetail = ({ navigation, route }) => {
       <ScrollView contentContainerStyle={{ paddingBottom: 30 }}>
         <Header transparent={true} leftIcon={"back"} />
         <View>
-          {productDetails?.img && <ProductDetailSlider images={JSON.parse(productDetails.img)} />}
+          {!isLoading && isSuccess ? (
+            <ProductDetailSlider images={JSON.parse(productDetails.img)} />
+          ) : (
+            <Skeleton width={SIZES.width} height={SIZES.width} />
+          )}
           {/* <TouchableOpacity
             onPress={() => handleLike()}
             activeOpacity={0.95}
@@ -84,20 +88,41 @@ const ProductDetail = ({ navigation, route }) => {
               paddingBottom: 12,
             }}
           >
-            <View
-              style={{
-                backgroundColor: COLORS.primaryLight,
-                paddingHorizontal: 14,
-                paddingVertical: 6,
-                borderRadius: SIZES.radius,
-                marginBottom: 14,
-                marginTop: 10,
-              }}
-            >
-              <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>{productDetails?.category?.name}</Text>
-            </View>
-            <Text style={{ ...FONTS.h6, marginBottom: 3 }}>{productDetails?.name}</Text>
-            {productDetails?.shortDescription && <Text style={{ ...FONTS.font, color: COLORS.text }}>{productDetails?.shortDescription}</Text>}
+            {!isLoading && isSuccess ? (
+              <View
+                style={{
+                  backgroundColor: COLORS.primaryLight,
+                  paddingHorizontal: 14,
+                  paddingVertical: 6,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 14,
+                  marginTop: 10,
+                }}
+              >
+                <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>{productDetails?.category?.name}</Text>
+              </View>
+            ) : (
+              <Skeleton
+                width={90}
+                height={25}
+                style={{
+                  borderRadius: SIZES.radius,
+                  marginBottom: 14,
+                  marginTop: 10,
+                }}
+              />
+            )}
+
+            {!isLoading && isSuccess ? (
+              <Text style={{ ...FONTS.h6, marginBottom: 3 }}>{productDetails?.name}</Text>
+            ) : (
+              <Skeleton width={200} height={25} style={{ borderRadius: SIZES.radius, marginBottom: 10 }} />
+            )}
+            {!isLoading && isSuccess ? (
+              productDetails?.shortDescription && <Text style={{ ...FONTS.font, color: COLORS.text }}>{productDetails?.shortDescription}</Text>
+            ) : (
+              <Skeleton width={SIZES.width - 28} height={50} style={{ borderRadius: SIZES.radius, marginBottom: 3 }} />
+            )}
             {/* <View
               style={{
                 flexDirection: "row",
@@ -163,46 +188,77 @@ const ProductDetail = ({ navigation, route }) => {
               </View>
             </View> */}
           </View>
-          <View
-            style={{
-              paddingTop: 15,
-              borderBottomWidth: 1,
-              borderColor: COLORS.borderColor,
-              paddingBottom: 12,
-            }}
-          >
-            <Text style={{ ...FONTS.h6, marginBottom: 5 }}>Specifications</Text>
-            {productDetails?.categoryBrand?.name && (
-              <View style={{ flexDirection: "row", marginBottom: 5 }}>
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Brand</Text>
-                <Text style={FONTS.font}>{productDetails?.categoryBrand?.name}</Text>
+
+          {!isLoading && isSuccess ? (
+            <View
+              style={{
+                paddingTop: 15,
+                borderBottomWidth: 1,
+                borderColor: COLORS.borderColor,
+                paddingBottom: 12,
+              }}
+            >
+              <Text style={{ ...FONTS.h6, marginBottom: 5 }}>Specifications</Text>
+              {productDetails?.categoryBrand?.name && (
+                <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                  <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Brand</Text>
+                  <Text style={FONTS.font}>{productDetails?.categoryBrand?.name}</Text>
+                </View>
+              )}
+              {productDetails?.categorySub?.name && (
+                <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                  <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Sub Category</Text>
+                  <Text style={FONTS.font}>{productDetails?.categorySub?.name}</Text>
+                </View>
+              )}
+              {productDetails?.status && (
+                <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                  <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Status</Text>
+                  <Text style={FONTS.font}>{productDetails?.status}</Text>
+                </View>
+              )}
+              {productDetails?.productType && (
+                <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                  <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Product Type</Text>
+                  <Text style={FONTS.font}>{productDetails?.productType}</Text>
+                </View>
+              )}
+              {productDetails?.qty && (
+                <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                  <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Available Quantity</Text>
+                  <Text style={FONTS.font}>{productDetails?.qty}</Text>
+                </View>
+              )}
+            </View>
+          ) : (
+            <View
+              style={{
+                paddingTop: 15,
+                borderBottomWidth: 1,
+                borderColor: COLORS.borderColor,
+                paddingBottom: 12,
+              }}
+            >
+              <Skeleton width={120} height={20} style={{ borderRadius: SIZES.radius, marginBottom: 5 }} />
+              <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 5 }}>
+                <Skeleton width={100} height={18} style={{ borderRadius: SIZES.radius, marginBottom: 5 }} />
+                <Skeleton width={100} height={18} style={{ borderRadius: SIZES.radius, marginBottom: 5 }} />
               </View>
-            )}
-            {productDetails?.categorySub?.name && (
-              <View style={{ flexDirection: "row", marginBottom: 5 }}>
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Sub Category</Text>
-                <Text style={FONTS.font}>{productDetails?.categorySub?.name}</Text>
+
+              <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 5 }}>
+                <Skeleton width={100} height={18} style={{ borderRadius: SIZES.radius, marginBottom: 5 }} />
+                <Skeleton width={100} height={18} style={{ borderRadius: SIZES.radius, marginBottom: 5 }} />
               </View>
-            )}
-            {productDetails?.status && (
-              <View style={{ flexDirection: "row", marginBottom: 5 }}>
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Status</Text>
-                <Text style={FONTS.font}>{productDetails?.status}</Text>
+              <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 5 }}>
+                <Skeleton width={100} height={18} style={{ borderRadius: SIZES.radius, marginBottom: 5 }} />
+                <Skeleton width={100} height={18} style={{ borderRadius: SIZES.radius, marginBottom: 5 }} />
               </View>
-            )}
-            {productDetails?.productType && (
-              <View style={{ flexDirection: "row", marginBottom: 5 }}>
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Product Type</Text>
-                <Text style={FONTS.font}>{productDetails?.productType}</Text>
+              <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 5 }}>
+                <Skeleton width={100} height={18} style={{ borderRadius: SIZES.radius, marginBottom: 5 }} />
+                <Skeleton width={100} height={18} style={{ borderRadius: SIZES.radius, marginBottom: 5 }} />
               </View>
-            )}
-            {productDetails?.qty && (
-              <View style={{ flexDirection: "row", marginBottom: 5 }}>
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Available Quantity</Text>
-                <Text style={FONTS.font}>{productDetails?.qty}</Text>
-              </View>
-            )}
-          </View>
+            </View>
+          )}
           {productDetails?.fullDescription && (
             <View
               style={{
@@ -226,30 +282,35 @@ const ProductDetail = ({ navigation, route }) => {
           backgroundColor: COLORS.backgroundColor,
         }}
       >
-        <View style={{ flex: 1 }}>
-          <Text style={{ ...FONTS.h3, lineHeight: 30 }}>{productDetails?.price} TK</Text>
-          <View style={{ flexDirection: "row" }}>
-            <Text
-              style={{
-                ...FONTS.font,
-                textDecorationLine: "line-through",
-                marginRight: productDetails?.salesPrice ? 8 : 0,
-              }}
-            >
-              {productDetails?.salesPrice} TK
-            </Text>
-            {/* <Text
-              style={{
-                ...FONTS.font,
-                color: COLORS.primary,
-                ...FONTS.fontBold,
-              }}
-            >
-              20% OFF
-            </Text> */}
+        {!isLoading && isSuccess ? (
+          <View style={{ flex: 1 }}>
+            <Text style={{ ...FONTS.h3, lineHeight: 30 }}>{productDetails?.price} TK</Text>
+            <View style={{ flexDirection: "row" }}>
+              <Text
+                style={{
+                  ...FONTS.font,
+                  textDecorationLine: "line-through",
+                  marginRight: productDetails?.salesPrice ? 8 : 0,
+                }}
+              >
+                {productDetails?.salesPrice} TK
+              </Text>
+            </View>
           </View>
-        </View>
-        <CustomButton onPress={handleAddToCart} title="ADD TO CART" />
+        ) : (
+          <View style={{ flex: 1 }}>
+            <Skeleton width={100} height={25} style={{ borderRadius: SIZES.radius, marginBottom: 6 }} />
+            <View style={{ flexDirection: "row" }}>
+              <Skeleton width={70} height={20} style={{ borderRadius: SIZES.radius }} />
+            </View>
+          </View>
+        )}
+
+        {!isLoading && isSuccess ? (
+          <CustomButton onPress={handleAddToCart} title="ADD TO CART" />
+        ) : (
+          <Skeleton width={140} height={50} style={{ borderRadius: SIZES.radius, marginBottom: 6 }} />
+        )}
       </View>
       {/* <Snackbar
         visible={isSnackbar}

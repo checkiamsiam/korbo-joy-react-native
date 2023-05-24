@@ -22,6 +22,7 @@ export const categoryAPI = ApiBase.injectEndpoints({
         url: `/api/ev1/categoryAllProduct/${id}`,
         method: "GET",
       }),
+      transformResponse: (res) => res[0],
     }),
   }),
 });
