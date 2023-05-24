@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   homeCategories: [],
   allCategories: [],
-  categoryWiseProducts: [],
 };
 
 const categoriesSlice = createSlice({
@@ -16,14 +15,11 @@ const categoriesSlice = createSlice({
       homeCategories.push({ name: "More" });
       state.homeCategories = homeCategories;
     },
-    setSelectedCategoryProducts(state, { payload }) {
-      state.categoryWiseProducts = payload;
-    },
   },
 });
 
 const categoriesReducer = categoriesSlice.reducer;
 
-export const { setCategories,  setSelectedCategoryProducts } = categoriesSlice.actions;
+export const { setCategories } = categoriesSlice.actions;
 
 export default categoriesReducer;
