@@ -2,21 +2,19 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { FlatList, Text, View } from "react-native";
 import { ActivityIndicator } from "react-native-paper";
-import { useSelector } from "react-redux";
 import ProductItem from "../../components/ProductItem";
 import { COLORS } from "../../constants/theme";
 
-const Products = () => {
+const Products = ({ products: pData }) => {
   const [limit, setLimit] = useState(8);
   const navigation = useNavigation();
-  const { categoryWiseProducts } = useSelector((state) => state.categories);
-  const products = categoryWiseProducts.slice(0, limit);
+  const products = pData?.slice(0, limit);
   const handleEndReach = () => {
     setLimit((state) => state + 4);
   };
   return (
     <View>
-      {categoryWiseProducts.length > 0 ? (
+      {pData?.length > 0 ? (
         <View>
           <View style={{ flexDirection: "row", flexWrap: "wrap", paddingHorizontal: 5 }}>
             <FlatList
@@ -48,7 +46,7 @@ const Products = () => {
               )}
             />
           </View>
-          {categoryWiseProducts.length >= limit && (
+          {pData.length >= limit && (
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center", paddingVertical: 25 }}>
               <ActivityIndicator animating={true} color={COLORS.primary} />
             </View>

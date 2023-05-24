@@ -1,7 +1,5 @@
-import { showMessage } from "react-native-flash-message";
-import { removeLoadingScreen, setLoadingScreen } from "../ActionSheets/ActionSheetSlice";
 import ApiBase from "../app/ApiBase";
-import { setCategories, setSelectedCategoryProducts } from "./CategoriesSlice";
+import { setCategories } from "./CategoriesSlice";
 
 export const categoryAPI = ApiBase.injectEndpoints({
   endpoints: (builder) => ({
@@ -24,22 +22,6 @@ export const categoryAPI = ApiBase.injectEndpoints({
         url: `/api/ev1/categoryAllProduct/${id}`,
         method: "GET",
       }),
-
-      async onQueryStarted(query, { queryFulfilled, dispatch }) {
-        try {
-          dispatch(setLoadingScreen());
-          const res = await queryFulfilled;
-          dispatch(setSelectedCategoryProducts(res?.data[0].products));
-          dispatch(removeLoadingScreen());
-        } catch (err) {
-          dispatch(removeLoadingScreen());
-          console.log(err);
-          showMessage({
-            message: "There is an server side error!",
-            type: "danger",
-          });
-        }
-      },
     }),
   }),
 });
