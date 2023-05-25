@@ -2,6 +2,7 @@ import React from "react";
 import { Image, Platform, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useDispatch, useSelector } from "react-redux";
+import DarkModeToggler from "../components/DarkModeToggler";
 import { COLORS, FONTS, IMAGES } from "../constants/theme";
 import { logout } from "../features/Auth/AuthSlice";
 import { clearCart } from "../features/Cart/CartSlice";
@@ -65,7 +66,11 @@ const CustomDrawer = ({ navigation }) => {
   return (
     <>
       <View
-        style={{ flex: 1, backgroundColor: COLORS.white, paddingTop: Platform.OS === "ios" ? StatusBar.currentHeight * 2 : StatusBar.currentHeight }}
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: Platform.OS === "ios" ? StatusBar.currentHeight * 2 : StatusBar.currentHeight,
+        }}
       >
         <View
           style={{
@@ -125,7 +130,7 @@ const CustomDrawer = ({ navigation }) => {
                   }}
                 >
                   <View style={{ marginRight: 15 }}>
-                    <FeatherIcon name={data.icon} color={"rgba(0,0,0,.3)"} size={20} />
+                    <FeatherIcon name={data.icon} color={COLORS.primary} size={20} />
                   </View>
                   <Text
                     style={{
@@ -152,8 +157,29 @@ const CustomDrawer = ({ navigation }) => {
             marginTop: 10,
           }}
         >
+          <View
+            style={{
+              paddingVertical: 14,
+              borderTopWidth: 1,
+              borderTopColor: COLORS.borderColor,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Text
+              style={{
+                ...FONTS.fontLg,
+                color: COLORS.title,
+                ...FONTS.fontBold,
+              }}
+            >
+              Dark Mode
+            </Text>
+            <DarkModeToggler />
+          </View>
           <Image source={require("../assets/images/logo-full.png")} />
-          <Text style={{ ...FONTS.font, color: "rgba(0,0,0,.5)", marginTop: 3 }}>App Version 1.0</Text>
+          <Text style={{ ...FONTS.font, color: COLORS.text, marginTop: 3 }}>App Version 1.0</Text>
         </View>
       </View>
     </>

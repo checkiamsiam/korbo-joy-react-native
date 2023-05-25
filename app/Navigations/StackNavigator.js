@@ -53,35 +53,35 @@ const StackNavigator = () => {
         <StackComponent.Screen name={"Search"} component={Search} />
         {/* <StackComponent.Screen name={"Splash"} component={Splash} /> */}
         {/* <StackComponent.Screen name={"Onboarding"} component={Onboarding} /> */}
-        {/* <StackComponent.Screen name={"DeliveryTracking"} component={DeliveryTracking} />
-        <StackComponent.Screen name={"Wishlist"} component={Wishlist} />
-        <StackComponent.Screen name={"Coupons"} component={Coupons} />
-        <StackComponent.Screen name={"Components"} component={Components} />
-        <StackComponent.Screen name={"Accordion"} component={AccordionScreen} />
-        <StackComponent.Screen name={"ActionSheet"} component={ActionSheet} />
-        <StackComponent.Screen name={"ActionModals"} component={ActionModals} />
-        <StackComponent.Screen name={"Buttons"} component={Buttons} />
-        <StackComponent.Screen name={"Charts"} component={Charts} />
-        <StackComponent.Screen name={"Chips"} component={Chips} />
-        <StackComponent.Screen name={"CollapseElements"} component={CollapseElements} />
-        <StackComponent.Screen name={"DividerElements"} component={DividerElements} />
-        <StackComponent.Screen name={"FileUploads"} component={FileUploads} />
-        <StackComponent.Screen name={"Inputs"} component={Inputs} />
-        <StackComponent.Screen name={"Headers"} component={Headers} />
-        <StackComponent.Screen name={"Footers"} component={Footers} />
-        <StackComponent.Screen name={"TabStyle1"} component={TabStyle1} />
-        <StackComponent.Screen name={"TabStyle2"} component={TabStyle2} />
-        <StackComponent.Screen name={"TabStyle3"} component={TabStyle3} />
-        <StackComponent.Screen name={"TabStyle4"} component={TabStyle4} />
-        <StackComponent.Screen name={"lists"} component={ListScreen} />
-        <StackComponent.Screen name={"Paginations"} component={Paginations} />
-        <StackComponent.Screen name={"Pricings"} component={Pricings} />
-        <StackComponent.Screen name={"Snackbars"} component={Snackbars} />
-        <StackComponent.Screen name={"Socials"} component={Socials} />
-        <StackComponent.Screen name={"Swipeable"} component={SwipeableScreen} />
-        <StackComponent.Screen name={"Tabs"} component={Tabs} />
-        <StackComponent.Screen name={"Tables"} component={Tables} />
-        <StackComponent.Screen name={"Toggles"} component={Toggles} /> */}
+        {/* <StackComponent.Screen name={"DeliveryTracking"} component={DeliveryTracking} /> */}
+        {/* <StackComponent.Screen name={"Wishlist"} component={Wishlist} /> */}
+        {/* <StackComponent.Screen name={"Coupons"} component={Coupons} /> */}
+        {/* <StackComponent.Screen name={"Components"} component={Components} /> */}
+        {/* <StackComponent.Screen name={"Accordion"} component={AccordionScreen} /> */}
+        {/* <StackComponent.Screen name={"ActionSheet"} component={ActionSheet} /> */}
+        {/* <StackComponent.Screen name={"ActionModals"} component={ActionModals} /> */}
+        {/* <StackComponent.Screen name={"Buttons"} component={Buttons} /> */}
+        {/* <StackComponent.Screen name={"Charts"} component={Charts} /> */}
+        {/* <StackComponent.Screen name={"Chips"} component={Chips} /> */}
+        {/* <StackComponent.Screen name={"CollapseElements"} component={CollapseElements} /> */}
+        {/* <StackComponent.Screen name={"DividerElements"} component={DividerElements} /> */}
+        {/* <StackComponent.Screen name={"FileUploads"} component={FileUploads} /> */}
+        {/* <StackComponent.Screen name={"Inputs"} component={Inputs} /> */}
+        {/* <StackComponent.Screen name={"Headers"} component={Headers} /> */}
+        {/* <StackComponent.Screen name={"Footers"} component={Footers} /> */}
+        {/* <StackComponent.Screen name={"TabStyle1"} component={TabStyle1} /> */}
+        {/* <StackComponent.Screen name={"TabStyle2"} component={TabStyle2} /> */}
+        {/* <StackComponent.Screen name={"TabStyle3"} component={TabStyle3} /> */}
+        {/* <StackComponent.Screen name={"TabStyle4"} component={TabStyle4} /> */}
+        {/* <StackComponent.Screen name={"lists"} component={ListScreen} /> */}
+        {/* <StackComponent.Screen name={"Paginations"} component={Paginations} /> */}
+        {/* <StackComponent.Screen name={"Pricings"} component={Pricings} /> */}
+        {/* <StackComponent.Screen name={"Snackbars"} component={Snackbars} /> */}
+        {/* <StackComponent.Screen name={"Socials"} component={Socials} /> */}
+        {/* <StackComponent.Screen name={"Swipeable"} component={SwipeableScreen} /> */}
+        {/* <StackComponent.Screen name={"Tabs"} component={Tabs} /> */}
+        {/* <StackComponent.Screen name={"Tables"} component={Tables} /> */}
+        {/* <StackComponent.Screen name={"Toggles"} component={Toggles} /> */}
       </StackComponent.Navigator>
     </>
   );

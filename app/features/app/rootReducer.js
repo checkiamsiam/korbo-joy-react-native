@@ -8,6 +8,7 @@ import justForYouReducer from "../JustForYou/justForYouSlice";
 import orderReducer from "../Order/OrderSlice";
 import productReducer from "../Product/productSlice";
 import sliderReducer from "../SliderFeature/SliderSlice";
+import themeReducer from "../Theme/themeSlice";
 import vendorReducer from "../VendorFeature/vendorSlice";
 import ApiBase from "./ApiBase";
 
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   product: productReducer,
   cart: cartReducer,
   order: orderReducer,
+  theme: themeReducer,
 });
 
 export default rootReducer;

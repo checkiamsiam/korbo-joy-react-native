@@ -8,7 +8,7 @@ const persistConfig = {
   key: "korbo-joy",
   version: 1,
   storage: AsyncStorage,
-  whitelist: ["auth"],
+  whitelist: ["auth", "theme"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
