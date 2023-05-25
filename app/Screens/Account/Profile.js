@@ -201,7 +201,7 @@ const Profile = ({ navigation }) => {
             <Text style={{ ...FONTS.h6, marginBottom: 5 }}>Account Settings</Text>
             <View>
               <TouchableOpacity onPress={() => navigation.navigate("EditProfile")} style={styles.listItem}>
-                <FeatherIcon style={{ marginRight: 12 }} color={COLORS.secondary} size={20} name="user" />
+                <FeatherIcon style={{ marginRight: 12 }} color={COLORS.primary} size={20} name="user" />
                 <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Edit Profile</Text>
                 <FeatherIcon size={20} color={COLORS.title} name="chevron-right" />
               </TouchableOpacity>
@@ -253,7 +253,7 @@ const Profile = ({ navigation }) => {
                 }}
                 style={styles.listItem}
               >
-                <FeatherIcon style={{ marginRight: 12 }} color={COLORS.secondary} size={20} name="log-out" />
+                <FeatherIcon style={{ marginRight: 12 }} color={COLORS.primary} size={20} name="log-out" />
                 <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Log Out</Text>
                 <FeatherIcon size={20} color={COLORS.title} name="chevron-right" />
               </TouchableOpacity>
@@ -267,7 +267,7 @@ const Profile = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   profileBtn: {
-    backgroundColor: "#F9F9F9",
+    backgroundColor: COLORS.backgroundColor,
     borderWidth: 1,
     borderColor: COLORS.borderColor,
     paddingHorizontal: 15,

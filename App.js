@@ -1,5 +1,4 @@
 import React from "react";
-import { StatusBar } from "react-native";
 import FlashMessage from "react-native-flash-message";
 import "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -7,10 +6,10 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import Routes from "./app/Navigations/Route";
 import ActionSheets from "./app/components/ActionSheets";
+import CustomStatusBar from "./app/components/CustomStatusBar";
 import FontProvider from "./app/components/FontsProvider";
 import Loading from "./app/components/Loading";
 import NetworkConnectivity from "./app/components/NetworkConnectivity";
-import { COLORS } from "./app/constants/theme";
 import { persistor, store } from "./app/features/app/store";
 
 const App = () => {
@@ -19,7 +18,7 @@ const App = () => {
       <PersistGate loading={null} persistor={persistor}>
         <FontProvider>
           <SafeAreaProvider>
-            <StatusBar translucent backgroundColor={COLORS.primaryLight} barStyle="dark-content" />
+            <CustomStatusBar />
             <NetworkConnectivity>
               <Routes />
             </NetworkConnectivity>

@@ -70,7 +70,7 @@ const CustomBottomNavigation = ({ state, descriptors, navigation }) => {
         height: 60,
         borderTopWidth: 1,
         borderColor: COLORS.borderColor,
-        backgroundColor: COLORS.white,
+        backgroundColor: COLORS.backgroundColor,
         flexDirection: "row",
         paddingTop: 4,
       }}

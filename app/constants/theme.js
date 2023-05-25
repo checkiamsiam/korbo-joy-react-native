@@ -1,23 +1,44 @@
 import { Dimensions } from "react-native";
-const { width, height } = Dimensions.get('screen');
+const { width, height } = Dimensions.get("screen");
 
-export const COLORS = {
-  primary: '#FE4487',
-  primaryLight: '#FFE8F0',
-  secondary: '#612657',
-  success: '#18BF29',
-  danger: '#E12344',
-  warning: '#ffb02c',
-  dark: '#2f2f2f',
-  light: '#E6E6E6',
-  info: '#2B39B9',
-  white: '#fff',
-  text: '#6A6A6A',
-  title: '#000000',
-  label: '#8A8A8A',
-  input: '#F9F9F9',
-  borderColor: '#E3E3E3',
-  backgroundColor: '#fff',
+export const LIGHT_COLOR = {
+  primary: "#FE4487",
+  primaryLight: "#FFE8F0",
+  secondary: "#612657",
+  success: "#18BF29",
+  danger: "#E12344",
+  warning: "#ffb02c",
+  dark: "#2f2f2f",
+  light: "#E6E6E6",
+  info: "#2B39B9",
+  white: "#fff",
+  text: "#6A6A6A",
+  title: "#000000",
+  label: "#8A8A8A",
+  input: "#F9F9F9",
+  borderColor: "#E3E3E3",
+  backgroundColor: "#fff",
+};
+
+export const COLORS = LIGHT_COLOR;
+
+export const DARK_COLOR = {
+  primary: "#FE4487",
+  primaryLight: "#FFE8F0",
+  secondary: "#612657",
+  success: "#18BF29",
+  danger: "#E12344",
+  warning: "#ffb02c",
+  dark: "#2f2f2f",
+  light: "#E6E6E6",
+  info: "#2B39B9",
+  white: "#fff",
+  text: "#fff",
+  title: "#fff",
+  label: "#8A8A8A",
+  input: "#F9F9F9",
+  borderColor: "#E3E3E3",
+  backgroundColor: "#1A1A1A",
 };
 
 export const SIZES = {
@@ -48,75 +69,135 @@ export const SIZES = {
   height,
 };
 
-export const FONTS = {
+export const DARK_FONTS = {
   fontLg: {
     fontSize: SIZES.fontLg,
-    color: COLORS.text,
+    color: DARK_COLOR.text,
     lineHeight: 20,
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: "OpenSans-Regular",
   },
   font: {
     fontSize: SIZES.font,
-    color: COLORS.text,
+    color: DARK_COLOR.text,
     lineHeight: 20,
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: "OpenSans-Regular",
   },
   fontSm: {
     fontSize: SIZES.fontSm,
-    color: COLORS.text,
+    color: DARK_COLOR.text,
     lineHeight: 18,
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: "OpenSans-Regular",
   },
   fontXs: {
     fontSize: SIZES.fontXs,
-    color: COLORS.text,
+    color: DARK_COLOR.text,
     lineHeight: 14,
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: "OpenSans-Regular",
   },
   h1: {
     fontSize: SIZES.h1,
-    color: COLORS.title,
-    fontFamily: 'Poppins-SemiBold',
+    color: DARK_COLOR.title,
+    fontFamily: "Poppins-SemiBold",
   },
   h2: {
     fontSize: SIZES.h2,
-    color: COLORS.title,
-    fontFamily: 'Poppins-SemiBold',
+    color: DARK_COLOR.title,
+    fontFamily: "Poppins-SemiBold",
   },
   h3: {
     fontSize: SIZES.h3,
-    color: COLORS.title,
-    fontFamily: 'Poppins-SemiBold',
+    color: DARK_COLOR.title,
+    fontFamily: "Poppins-SemiBold",
   },
   h4: {
     fontSize: SIZES.h4,
-    color: COLORS.title,
-    fontFamily: 'Poppins-SemiBold',
+    color: DARK_COLOR.title,
+    fontFamily: "Poppins-SemiBold",
   },
   h5: {
     fontSize: SIZES.h5,
-    color: COLORS.title,
-    fontFamily: 'Poppins-SemiBold',
+    color: DARK_COLOR.title,
+    fontFamily: "Poppins-SemiBold",
   },
   h6: {
     fontSize: SIZES.h6,
-    color: COLORS.title,
-    fontFamily: 'Poppins-SemiBold',
+    color: DARK_COLOR.title,
+    fontFamily: "Poppins-SemiBold",
   },
-  fontBold: { fontFamily: 'OpenSans-SemiBold' },
-  fontMedium: { fontFamily: 'OpenSans-Medium' },
+  fontBold: { fontFamily: "OpenSans-SemiBold" },
+  fontMedium: { fontFamily: "OpenSans-Medium" },
 };
 
+export const LIGHT_FONTS = {
+  fontLg: {
+    fontSize: SIZES.fontLg,
+    color: LIGHT_COLOR.text,
+    lineHeight: 20,
+    fontFamily: "OpenSans-Regular",
+  },
+  font: {
+    fontSize: SIZES.font,
+    color: LIGHT_COLOR.text,
+    lineHeight: 20,
+    fontFamily: "OpenSans-Regular",
+  },
+  fontSm: {
+    fontSize: SIZES.fontSm,
+    color: LIGHT_COLOR.text,
+    lineHeight: 18,
+    fontFamily: "OpenSans-Regular",
+  },
+  fontXs: {
+    fontSize: SIZES.fontXs,
+    color: LIGHT_COLOR.text,
+    lineHeight: 14,
+    fontFamily: "OpenSans-Regular",
+  },
+  h1: {
+    fontSize: SIZES.h1,
+    color: LIGHT_COLOR.title,
+    fontFamily: "Poppins-SemiBold",
+  },
+  h2: {
+    fontSize: SIZES.h2,
+    color: LIGHT_COLOR.title,
+    fontFamily: "Poppins-SemiBold",
+  },
+  h3: {
+    fontSize: SIZES.h3,
+    color: LIGHT_COLOR.title,
+    fontFamily: "Poppins-SemiBold",
+  },
+  h4: {
+    fontSize: SIZES.h4,
+    color: LIGHT_COLOR.title,
+    fontFamily: "Poppins-SemiBold",
+  },
+  h5: {
+    fontSize: SIZES.h5,
+    color: LIGHT_COLOR.title,
+    fontFamily: "Poppins-SemiBold",
+  },
+  h6: {
+    fontSize: SIZES.h6,
+    color: LIGHT_COLOR.title,
+    fontFamily: "Poppins-SemiBold",
+  },
+  fontBold: { fontFamily: "OpenSans-SemiBold" },
+  fontMedium: { fontFamily: "OpenSans-Medium" },
+};
+
+export const FONTS = LIGHT_FONTS;
 export const IMAGES = {
-  bg1: require('../assets/images/background/bg1.png'),
-  logo: require('../assets/images/logo.png'),
-  logoWhite: require('../assets/images/logo-white.png'),
-  logoTextWhite: require('../assets/images/logo-text-white.png'),
-  obPic1: require('../assets/images/onboarding/pic1.png'),
-  obPic2: require('../assets/images/onboarding/pic2.png'),
-  obPic3: require('../assets/images/onboarding/pic3.png'),
-  google: require('../assets/images/icons/google.png'),
-  user: require('../assets/images/user.png'),
+  bg1: require("../assets/images/background/bg1.png"),
+  logo: require("../assets/images/logo.png"),
+  logoWhite: require("../assets/images/logo-white.png"),
+  logoTextWhite: require("../assets/images/logo-text-white.png"),
+  obPic1: require("../assets/images/onboarding/pic1.png"),
+  obPic2: require("../assets/images/onboarding/pic2.png"),
+  obPic3: require("../assets/images/onboarding/pic3.png"),
+  google: require("../assets/images/icons/google.png"),
+  user: require("../assets/images/user.png"),
 };
 
 export const ICONS = {
@@ -131,7 +212,3 @@ export const ICONS = {
   email:
     '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 6L12 13L2 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
 };
-
-const appTheme = { COLORS, SIZES, FONTS, IMAGES };
-
-export default appTheme;
