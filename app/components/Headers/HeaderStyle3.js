@@ -1,20 +1,22 @@
-import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import FeatherIcon from 'react-native-vector-icons/Feather';
-import { COLORS, FONTS, IMAGES, SIZES } from '../../constants/theme';
+import React from "react";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
+import { IMAGES } from "../../constants/theme";
 
 const HeaderStyle3 = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <>
       <View
         style={{
           height: 70,
-          flexDirection: 'row',
-          alignItems: 'center',
+          flexDirection: "row",
+          alignItems: "center",
           paddingHorizontal: 15,
         }}
       >
-        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
           <Image
             source={IMAGES.user}
             style={{
@@ -35,11 +37,7 @@ const HeaderStyle3 = () => {
             >
               Hello, John
             </Text>
-            <Text
-              style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.title }}
-            >
-              Thursday, 10 Sep
-            </Text>
+            <Text style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.title }}>Thursday, 10 Sep</Text>
           </View>
         </View>
         <TouchableOpacity
@@ -50,13 +48,13 @@ const HeaderStyle3 = () => {
             backgroundColor: COLORS.white,
             borderRadius: SIZES.radius,
             borderColor: COLORS.borderColor,
-            alignItems: 'center',
-            justifyContent: 'center',
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <View
             style={{
-              position: 'absolute',
+              position: "absolute",
               zIndex: 1,
               height: 10,
               width: 10,

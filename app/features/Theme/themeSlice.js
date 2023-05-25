@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { GlobalStyleSheetDark, GlobalStyleSheetLight } from "../../constants/StyleSheet";
 import { DARK_COLOR, DARK_FONTS, LIGHT_COLOR, LIGHT_FONTS, SIZES } from "../../constants/theme";
 
 const initialState = {
@@ -6,6 +7,7 @@ const initialState = {
   FONTS: LIGHT_FONTS,
   COLORS: LIGHT_COLOR,
   SIZES: SIZES,
+  GlobalStyleSheet: GlobalStyleSheetLight,
 };
 
 const themeSlice = createSlice({
@@ -16,6 +18,7 @@ const themeSlice = createSlice({
       state.mode = state.mode === "light" ? "dark" : "light";
       state.FONTS = state.mode === "light" ? LIGHT_FONTS : DARK_FONTS;
       state.COLORS = state.mode === "light" ? LIGHT_COLOR : DARK_COLOR;
+      state.GlobalStyleSheet = state.mode === "light" ? GlobalStyleSheetLight : GlobalStyleSheetDark;
     },
   },
 });

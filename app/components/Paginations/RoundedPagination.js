@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { COLORS, FONTS } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const RoundedPagination = () => {
   const [active, setActive] = useState(2);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
 
   return (
     <>

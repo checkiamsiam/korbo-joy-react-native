@@ -4,12 +4,12 @@ import { Image, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from "re
 import { ScrollView } from "react-native-virtualized-view";
 import { useDispatch, useSelector } from "react-redux";
 import ProductsListSkeleton from "../../components/skeletons/ProductsListSkeleton";
-import { COLORS, FONTS } from "../../constants/theme";
 import { useGetCategoryProductQuery } from "../../features/Categories/CategoriesApi";
 import CategoryHeader from "./CategoryHeader";
 import Products from "./Products";
 
 const CategoryHome = ({ navigation, route }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const { name, categoryId } = route.params;
   const { allCategories } = useSelector((state) => state.categories);

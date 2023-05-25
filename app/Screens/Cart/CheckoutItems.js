@@ -5,6 +5,7 @@ import CheckoutItem from "../../components/CheckoutItem";
 
 const CheckoutItems = () => {
   const { cart } = useSelector((state) => state.cart);
+  const { COLORS } = useSelector((state) => state.theme);
   return (
     <View>
       {cart.length > 0 ? (
@@ -22,7 +23,7 @@ const CheckoutItems = () => {
           ))}
         </View>
       ) : (
-        <Text style={{ textAlign: "center", marginTop: 10 }}>Cart is Empty</Text>
+        <Text style={{ textAlign: "center", marginTop: 10, color: COLORS.text }}>Cart is Empty</Text>
       )}
     </View>
   );

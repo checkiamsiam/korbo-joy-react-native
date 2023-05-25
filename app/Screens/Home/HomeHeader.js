@@ -1,14 +1,14 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { IconButton } from "react-native-paper";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useSelector } from "react-redux";
-import { COLORS, FONTS } from "../../constants/theme";
 
 const HomeHeader = () => {
   const navigation = useNavigation();
   const { cart } = useSelector((state) => state.cart);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <View
       style={{

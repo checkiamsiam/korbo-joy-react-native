@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
-import { Animated, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
+import { Animated, SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
+import { useSelector } from "react-redux";
 import TabButtonStyle1 from "../../components/Tabs/TabButtonStyle1";
 import TabButtonStyle2 from "../../components/Tabs/TabButtonStyle2";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const Tabs = () => {
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector((state) => state.theme);
   const buttons = ["First", "Second", "Third"];
   const scrollX = useRef(new Animated.Value(0)).current;
   const onCLick = (i) => this.scrollViewHome.scrollTo({ x: i * SIZES.width - 60 });
@@ -61,21 +61,33 @@ const Tabs = () => {
                   onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], { useNativeDriver: false })}
                 >
                   {/* tab 1 */}
-                  <View style={[styles.tabBody]}>
+                  <View
+                    style={{
+                      width: SIZES.width - 60,
+                    }}
+                  >
                     <Text style={{ ...FONTS.font }}>
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
                       text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </Text>
                   </View>
                   {/* tab 2 */}
-                  <View style={[styles.tabBody]}>
+                  <View
+                    style={{
+                      width: SIZES.width - 60,
+                    }}
+                  >
                     <Text style={{ ...FONTS.font }}>
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
                       text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </Text>
                   </View>
                   {/* tab 3 */}
-                  <View style={[styles.tabBody]}>
+                  <View
+                    style={{
+                      width: SIZES.width - 60,
+                    }}
+                  >
                     <Text style={{ ...FONTS.font }}>
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
                       text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -121,21 +133,33 @@ const Tabs = () => {
                   onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX2 } } }], { useNativeDriver: false })}
                 >
                   {/* tab 1 */}
-                  <View style={[styles.tabBody]}>
+                  <View
+                    style={{
+                      width: SIZES.width - 60,
+                    }}
+                  >
                     <Text style={{ ...FONTS.font }}>
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
                       text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </Text>
                   </View>
                   {/* tab 2 */}
-                  <View style={[styles.tabBody]}>
+                  <View
+                    style={{
+                      width: SIZES.width - 60,
+                    }}
+                  >
                     <Text style={{ ...FONTS.font }}>
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
                       text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </Text>
                   </View>
                   {/* tab 3 */}
-                  <View style={[styles.tabBody]}>
+                  <View
+                    style={{
+                      width: SIZES.width - 60,
+                    }}
+                  >
                     <Text style={{ ...FONTS.font }}>
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
                       text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -150,11 +174,5 @@ const Tabs = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  tabBody: {
-    width: SIZES.width - 60,
-  },
-});
 
 export default Tabs;

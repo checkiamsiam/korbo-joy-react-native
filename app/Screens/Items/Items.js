@@ -1,6 +1,6 @@
 import { CheckBox } from "@rneui/themed";
 import React, { useRef, useState } from "react";
-import { SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import Ripple from "react-native-material-ripple";
 import { List, RadioButton, Snackbar } from "react-native-paper";
 import RBSheet from "react-native-raw-bottom-sheet";
@@ -10,8 +10,6 @@ import { ScrollView } from "react-native-virtualized-view";
 import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
 import ProductsListSkeleton from "../../components/skeletons/ProductsListSkeleton";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import { useGetVendorProductsQuery } from "../../features/VendorFeature/vendorApi";
 import Header from "../../layout/Header";
 import ItemProductView from "./ItemProductView";
@@ -59,25 +57,10 @@ const brandFilterData = [
     selected: true,
     title: "Levi's",
   },
-  {
-    selected: true,
-    title: "Puma",
-  },
-  {
-    selected: true,
-    title: "Wildcraft",
-  },
-  {
-    selected: true,
-    title: "Ndet",
-  },
-  {
-    selected: true,
-    title: "Woodland",
-  },
 ];
 
 const Items = ({ navigation, route }) => {
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector((state) => state.theme);
   const sheetRef = useRef();
 
   const { type, key } = route.params;
@@ -134,7 +117,7 @@ const Items = ({ navigation, route }) => {
     <>
       <RBSheet
         ref={sheetRef}
-        height={sheetType === "sort" ? 250 : sheetType === "discount" ? 310 : sheetType === "brand" ? 400 : 300}
+        height={sheetType === "sort" ? 250 : sheetType === "discount" ? 310 : sheetType === "brand" ? 330 : 300}
         closeOnDragDown={true}
         closeOnPressMask={true}
       >
@@ -146,52 +129,14 @@ const Items = ({ navigation, route }) => {
             }}
             value={sortVal}
           >
-            <RadioButton.Item color={COLORS.primary} uncheckedColor={COLORS.label} style={{ paddingVertical: 2 }} label="What's new" value="newest" />
-            <RadioButton.Item
-              color={COLORS.primary}
-              uncheckedColor={COLORS.label}
-              style={{ paddingVertical: 2 }}
-              label="Price - high to low"
-              value="price-hightolow"
-            />
-            <RadioButton.Item
-              color={COLORS.primary}
-              uncheckedColor={COLORS.label}
-              style={{ paddingVertical: 2 }}
-              label="Price - low to hight"
-              value="price-lowtohigh"
-            />
-            <RadioButton.Item
-              color={COLORS.primary}
-              uncheckedColor={COLORS.label}
-              style={{ paddingVertical: 2 }}
-              label="Popularity"
-              value="popularity"
-            />
-            <RadioButton.Item color={COLORS.primary} uncheckedColor={COLORS.label} style={{ paddingVertical: 2 }} label="Discount" value="discount" />
+            <RadioButton.Item color={COLORS.primary} style={{ paddingVertical: 2 }} label="What's new" value="newest" />
+            <RadioButton.Item color={COLORS.primary} style={{ paddingVertical: 2 }} label="Price - high to low" value="price-hightolow" />
+            <RadioButton.Item color={COLORS.primary} style={{ paddingVertical: 2 }} label="Price - low to hight" value="price-lowtohigh" />
+            <RadioButton.Item color={COLORS.primary} style={{ paddingVertical: 2 }} label="Popularity" value="popularity" />
+            <RadioButton.Item color={COLORS.primary} style={{ paddingVertical: 2 }} label="Discount" value="discount" />
           </RadioButton.Group>
         ) : (
           <>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                paddingHorizontal: 5,
-                marginTop: -10,
-                marginBottom: 5,
-              }}
-            >
-              <TouchableOpacity
-                onPress={() => sheetRef.current.close()}
-                style={{
-                  padding: 10,
-                  marginRight: 3,
-                }}
-              >
-                <FeatherIcon color={COLORS.title} size={24} name="x" />
-              </TouchableOpacity>
-              <Text style={{ ...FONTS.h6, top: 1 }}>Filters</Text>
-            </View>
             <View
               style={{
                 flexDirection: "row",
@@ -209,13 +154,7 @@ const Items = ({ navigation, route }) => {
                     style={{ paddingVertical: 2 }}
                     onPress={() => handleFilterSelected(data.title)}
                     left={() => (
-                      <CheckBox
-                        checked={data.selected}
-                        checkedColor={COLORS.primary}
-                        uncheckedColor={COLORS.text}
-                        containerStyle={{ marginLeft: 20 }}
-                        disabled={false}
-                      />
+                      <CheckBox checked={data.selected} checkedColor={COLORS.primary} containerStyle={{ marginLeft: 20 }} disabled={false} />
                     )}
                     title={() => (
                       <Text
@@ -223,7 +162,7 @@ const Items = ({ navigation, route }) => {
                           ...FONTS.font,
                           ...FONTS.fontMedium,
                           top: -1,
-                          color: COLORS.title,
+                          color: COLORS.dark,
                         }}
                       >
                         {data.title}
@@ -281,14 +220,37 @@ const Items = ({ navigation, route }) => {
                   setSheetType("sort");
                   sheetRef.current.open();
                 }}
-                style={styles.badge}
+                style={{
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.backgroundColor,
+                  paddingHorizontal: 15,
+                  paddingVertical: 6,
+                  borderRadius: 20,
+                  marginRight: 12,
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
               >
-                <Octicons size={16} style={{ marginRight: 6 }} name="sort-desc" />
+                <Octicons color={COLORS.primary} size={16} style={{ marginRight: 6 }} name="sort-desc" />
                 <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>Sort By</Text>
-                <FeatherIcon style={{ marginLeft: 2, marginRight: -6 }} size={18} name="chevron-down" />
+                <FeatherIcon color={COLORS.text} style={{ marginLeft: 2, marginRight: -6 }} size={18} name="chevron-down" />
               </Ripple>
-              <TouchableOpacity onPress={() => navigation.navigate("Filter")} style={styles.badge}>
-                <FeatherIcon style={{ marginRight: 8 }} size={15} name="filter" />
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Filter")}
+                style={{
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.backgroundColor,
+                  paddingHorizontal: 15,
+                  paddingVertical: 6,
+                  borderRadius: 20,
+                  marginRight: 12,
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <FeatherIcon color={COLORS.primary} style={{ marginRight: 8 }} size={15} name="filter" />
                 <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>Filter</Text>
               </TouchableOpacity>
               <Ripple
@@ -297,10 +259,20 @@ const Items = ({ navigation, route }) => {
                   setFilterData(brandFilter);
                   sheetRef.current.open();
                 }}
-                style={styles.badge}
+                style={{
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.backgroundColor,
+                  paddingHorizontal: 15,
+                  paddingVertical: 6,
+                  borderRadius: 20,
+                  marginRight: 12,
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
               >
                 <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>Brand</Text>
-                <FeatherIcon style={{ marginLeft: 2, marginRight: -6 }} size={18} name="chevron-down" />
+                <FeatherIcon color={COLORS.text} style={{ marginLeft: 2, marginRight: -6 }} size={18} name="chevron-down" />
               </Ripple>
               <Ripple
                 onPress={() => {
@@ -308,10 +280,20 @@ const Items = ({ navigation, route }) => {
                   setFilterData(discountFilter);
                   sheetRef.current.open();
                 }}
-                style={styles.badge}
+                style={{
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.backgroundColor,
+                  paddingHorizontal: 15,
+                  paddingVertical: 6,
+                  borderRadius: 20,
+                  marginRight: 12,
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
               >
                 <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>discount</Text>
-                <FeatherIcon style={{ marginLeft: 2, marginRight: -6 }} size={18} name="chevron-down" />
+                <FeatherIcon color={COLORS.text} style={{ marginLeft: 2, marginRight: -6 }} size={18} name="chevron-down" />
               </Ripple>
             </View>
           </ScrollView>
@@ -334,19 +316,5 @@ const Items = ({ navigation, route }) => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  badge: {
-    borderWidth: 1,
-    borderColor: COLORS.borderColor,
-    backgroundColor: "#f5f5f5",
-    paddingHorizontal: 15,
-    paddingVertical: 6,
-    borderRadius: 20,
-    marginRight: 12,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-});
 
 export default Items;

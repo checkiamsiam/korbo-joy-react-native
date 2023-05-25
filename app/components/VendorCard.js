@@ -1,8 +1,9 @@
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import { COLORS, FONTS } from "../constants/theme";
+import { useSelector } from "react-redux";
 
 const VendorCard = ({ image, title, category, imageUrl, onPress }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <TouchableOpacity
       activeOpacity={0.9}

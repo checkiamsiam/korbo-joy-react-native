@@ -1,41 +1,42 @@
-import React from 'react';
-import { COLORS, SIZES } from '../../constants/theme';
-import { PieChart } from 'react-native-chart-kit';
+import React from "react";
+import { PieChart } from "react-native-chart-kit";
+import { useSelector } from "react-redux";
 
 const BasicPieChart = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const data = [
     {
-      name: 'Seoul',
+      name: "Seoul",
       population: 21500000,
-      color: '#945fcb',
+      color: "#945fcb",
       legendFontColor: COLORS.text,
       legendFontSize: 12,
     },
     {
-      name: 'Toronto',
+      name: "Toronto",
       population: 2800000,
-      color: '#f74587',
+      color: "#f74587",
       legendFontColor: COLORS.text,
       legendFontSize: 12,
     },
     {
-      name: 'Beijing',
+      name: "Beijing",
       population: 5827612,
-      color: '#dedef5',
+      color: "#dedef5",
       legendFontColor: COLORS.text,
       legendFontSize: 12,
     },
     {
-      name: 'New York',
+      name: "New York",
       population: 8538000,
-      color: '#111111',
+      color: "#111111",
       legendFontColor: COLORS.text,
       legendFontSize: 12,
     },
     {
-      name: 'Moscow',
+      name: "Moscow",
       population: 11920000,
-      color: '#6c2da7',
+      color: "#6c2da7",
       legendFontColor: COLORS.text,
       legendFontSize: 12,
     },
@@ -48,12 +49,12 @@ const BasicPieChart = () => {
         width={SIZES.width - 60}
         height={200}
         chartConfig={{
-          color: () => '#5384d7',
+          color: () => "#5384d7",
           labelColor: () => COLORS.text,
         }}
-        accessor={'population'}
-        backgroundColor={'transparent'}
-        paddingLeft={'0'}
+        accessor={"population"}
+        backgroundColor={"transparent"}
+        paddingLeft={"0"}
         center={[10, 6]}
       />
     </>

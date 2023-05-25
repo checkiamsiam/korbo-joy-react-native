@@ -1,8 +1,8 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { COLORS, FONTS } from "../constants/theme";
+import { connect } from "react-redux";
 
-export default class StopWatch extends React.Component {
+class StopWatch extends React.Component {
   constructor() {
     super();
     this.state = { time: {}, seconds: 31000 };
@@ -58,6 +58,7 @@ export default class StopWatch extends React.Component {
   }
 
   render() {
+    const { COLORS, FONTS } = this.props;
     return (
       <View>
         <View
@@ -106,3 +107,11 @@ export default class StopWatch extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  COLORS: state.theme.COLORS,
+  FONTS: state.theme.FONTS,
+});
+
+// Connect the component to Redux store
+export default connect(mapStateToProps)(StopWatch);

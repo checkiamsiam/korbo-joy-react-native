@@ -1,7 +1,6 @@
 import React from "react";
 import RBSheet from "react-native-raw-bottom-sheet";
 import { useDispatch, useSelector } from "react-redux";
-import { COLORS } from "../constants/theme";
 import { setActionSheet } from "../features/ActionSheets/ActionSheetSlice";
 import { actionSheetRef } from "../utils/globalRef";
 import LoginSheet from "./ActionSheet/LoginSheet";
@@ -11,6 +10,7 @@ import SuccessSheet from "./ActionSheet/SuccessSheet";
 
 const ActionSheets = () => {
   const dispatch = useDispatch();
+  const { COLORS } = useSelector((state) => state.theme);
   const { activeSheet } = useSelector((state) => state.actionSheet);
   const handleClose = () => {
     dispatch(

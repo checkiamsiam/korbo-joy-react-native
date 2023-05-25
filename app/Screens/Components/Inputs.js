@@ -4,13 +4,15 @@ import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TextInput, Touch
 import { SvgXml } from "react-native-svg";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
+import { useSelector } from "react-redux";
 import CustomInput from "../../components/Input/CustomInput";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, ICONS, SIZES } from "../../constants/theme";
+import { ICONS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const Inputs = () => {
   const [passwordShow, setPasswordShow] = useState(true);
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const styles = createStyles(COLORS, SIZES, FONTS);
 
   const handndleShowPassword = () => {
     setPasswordShow(!passwordShow);
@@ -365,45 +367,47 @@ const Inputs = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  card: {
-    padding: 15,
-    borderRadius: SIZES.radius,
-    marginBottom: 15,
-    borderWidth: 1,
-    borderColor: COLORS.borderColor,
-    backgroundColor: COLORS.white,
-  },
-  inputStyle: {
-    ...FONTS.fontLg,
-    height: 50,
-    paddingLeft: 60,
-    borderWidth: 1,
-    color: COLORS.title,
-    borderColor: COLORS.borderColor,
-    borderRadius: SIZES.radius,
-  },
-  inputIcon: {
-    backgroundColor: COLORS.primaryLight,
-    height: 40,
-    width: 40,
-    borderRadius: 10,
-    position: "absolute",
-    left: 5,
-    top: 5,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  eyeIcon: {
-    position: "absolute",
-    height: 50,
-    width: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    right: 0,
-    zIndex: 1,
-    top: 0,
-  },
-});
+const createStyles = (COLORS, SIZES, FONTS) => {
+  return StyleSheet.create({
+    card: {
+      padding: 15,
+      borderRadius: SIZES.radius,
+      marginBottom: 15,
+      borderWidth: 1,
+      borderColor: COLORS.borderColor,
+      backgroundColor: COLORS.white,
+    },
+    inputStyle: {
+      ...FONTS.fontLg,
+      height: 50,
+      paddingLeft: 60,
+      borderWidth: 1,
+      color: COLORS.title,
+      borderColor: COLORS.borderColor,
+      borderRadius: SIZES.radius,
+    },
+    inputIcon: {
+      backgroundColor: COLORS.primaryLight,
+      height: 40,
+      width: 40,
+      borderRadius: 10,
+      position: "absolute",
+      left: 5,
+      top: 5,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    eyeIcon: {
+      position: "absolute",
+      height: 50,
+      width: 50,
+      alignItems: "center",
+      justifyContent: "center",
+      right: 0,
+      zIndex: 1,
+      top: 0,
+    },
+  });
+};
 
 export default Inputs;

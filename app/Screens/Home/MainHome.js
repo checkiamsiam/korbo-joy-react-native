@@ -2,7 +2,6 @@ import React from "react";
 import { SafeAreaView, StatusBar } from "react-native";
 import { ScrollView } from "react-native-virtualized-view";
 import { useSelector } from "react-redux";
-import { COLORS } from "../../constants/theme";
 import { useGetUserCartQuery } from "../../features/Cart/CartApi";
 import Categories from "./Categories";
 import FlashSale from "./FlashSale";
@@ -13,6 +12,7 @@ import OurVendors from "./OurVendors";
 import SectionHeader from "./SectionHeader";
 
 const MainHome = ({ navigation }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const { user, token } = useSelector((state) => state.auth);
   const {} = useGetUserCartQuery(user?.id, { skip: !token });
   return (

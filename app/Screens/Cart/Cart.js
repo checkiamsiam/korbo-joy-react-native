@@ -2,8 +2,7 @@ import React from "react";
 import { Image, SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, IMAGES } from "../../constants/theme";
+import { IMAGES } from "../../constants/theme";
 import Header from "../../layout/Header";
 import calculateSum from "../../utils/calculateSum";
 import CheckoutItems from "./CheckoutItems";
@@ -11,6 +10,7 @@ import CheckoutItems from "./CheckoutItems";
 const Cart = ({ navigation }) => {
   const { user } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
 
   const totalPrice = calculateSum(cart, "totalSalesPrice");
   const totalCharge = calculateSum(cart, "charge");
@@ -173,18 +173,19 @@ const Cart = ({ navigation }) => {
           </View>
         </ScrollView>
       </View>
-      {cart.length > 0 && <View
-        style={{
-          flexDirection: "row",
-          paddingHorizontal: 15,
-          paddingVertical: 10,
-          borderTopWidth: 1,
-          borderColor: COLORS.borderColor,
-        }}
-      >
-        <View style={{ flex: 1 }}>
-          <Text style={{ ...FONTS.h4 }}>{totalBill} TK</Text>
-          {/* <TouchableOpacity
+      {cart.length > 0 && (
+        <View
+          style={{
+            flexDirection: "row",
+            paddingHorizontal: 15,
+            paddingVertical: 10,
+            borderTopWidth: 1,
+            borderColor: COLORS.borderColor,
+          }}
+        >
+          <View style={{ flex: 1 }}>
+            <Text style={{ ...FONTS.h4 }}>{totalBill} TK</Text>
+            {/* <TouchableOpacity
             style={{
               marginTop: -4,
             }}
@@ -199,11 +200,12 @@ const Cart = ({ navigation }) => {
               View price details
             </Text>
           </TouchableOpacity> */}
+          </View>
+          <View style={{ flex: 1 }}>
+            <CustomButton btnSm onPress={() => navigation.navigate("AddDeliveryAddress")} title="Checkout" />
+          </View>
         </View>
-        <View style={{ flex: 1 }}>
-          <CustomButton btnSm onPress={() => navigation.navigate("AddDeliveryAddress")} title="Checkout" />
-        </View>
-      </View>}
+      )}
     </SafeAreaView>
   );
 };

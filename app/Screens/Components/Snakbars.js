@@ -2,12 +2,12 @@ import React from "react";
 import { SafeAreaView, ScrollView, StatusBar, View } from "react-native";
 import { showMessage } from "react-native-flash-message";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useSelector } from "react-redux";
 import ListStyle1 from "../../components/list/ListStyle1";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const Snackbars = () => {
+  const { COLORS, GlobalStyleSheet } = useSelector((state) => state.theme);
   const ShowSnackbarSuccess = () => {
     showMessage({
       message: "Confirmed",

@@ -11,8 +11,7 @@ import german from "../../assets/images/flags/german.png";
 import india from "../../assets/images/flags/india.png";
 import italian from "../../assets/images/flags/italian.png";
 import spanish from "../../assets/images/flags/spanish.png";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, IMAGES } from "../../constants/theme";
+import { IMAGES } from "../../constants/theme";
 import { logout } from "../../features/Auth/AuthSlice";
 import { clearCart } from "../../features/Cart/CartSlice";
 import Header from "../../layout/Header";
@@ -44,6 +43,8 @@ const Profile = ({ navigation }) => {
   const dispatch = useDispatch();
   const RBSheetLanguage = useRef();
   const { user } = useSelector((state) => state.auth);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const styles = createStyles(COLORS);
 
   return (
     <>
@@ -265,26 +266,28 @@ const Profile = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  profileBtn: {
-    backgroundColor: COLORS.backgroundColor,
-    borderWidth: 1,
-    borderColor: COLORS.borderColor,
-    paddingHorizontal: 15,
-    paddingBottom: 7,
-    paddingTop: 8,
-    borderRadius: 6,
-    marginBottom: 10,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  listItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: COLORS.borderColor,
-  },
-});
+const createStyles = (COLORS) => {
+  return StyleSheet.create({
+    profileBtn: {
+      backgroundColor: COLORS.backgroundColor,
+      borderWidth: 1,
+      borderColor: COLORS.borderColor,
+      paddingHorizontal: 15,
+      paddingBottom: 7,
+      paddingTop: 8,
+      borderRadius: 6,
+      marginBottom: 10,
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    listItem: {
+      flexDirection: "row",
+      alignItems: "center",
+      paddingVertical: 12,
+      borderBottomWidth: 1,
+      borderBottomColor: COLORS.borderColor,
+    },
+  });
+};
 
 export default Profile;

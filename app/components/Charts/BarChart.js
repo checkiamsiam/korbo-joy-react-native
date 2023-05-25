@@ -1,10 +1,11 @@
-import React from 'react';
-import { BarChart } from 'react-native-chart-kit';
-import { COLORS, SIZES } from '../../constants/theme';
+import React from "react";
+import { BarChart } from "react-native-chart-kit";
+import { useSelector } from "react-redux";
 
 const BasicBarChart = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
     datasets: [
       {
         data: [20, 45, 28, 80, 99, 43],
@@ -21,22 +22,22 @@ const BasicBarChart = (props) => {
         yAxisLabel="$"
         fromZero={true}
         chartConfig={{
-          backgroundColor: '#fff',
+          backgroundColor: "#fff",
           backgroundGradientFrom: COLORS.white,
           backgroundGradientTo: COLORS.white,
-          fillShadowGradientFrom: '#5384d7',
+          fillShadowGradientFrom: "#5384d7",
           fillShadowGradientFromOpacity: 0.35,
-          fillShadowGradientTo: '#5384d7',
+          fillShadowGradientTo: "#5384d7",
           decimalPlaces: 2, // optional, defaults to 2dp
-          color: () => '#5384d7',
+          color: () => "#5384d7",
           labelColor: () => COLORS.text,
           style: {
             borderRadius: 16,
           },
           propsForDots: {
-            r: '6',
-            strokeWidth: '2',
-            stroke: '#fff',
+            r: "6",
+            strokeWidth: "2",
+            stroke: "#fff",
           },
           propsForBackgroundLines: {
             stroke: COLORS.text,

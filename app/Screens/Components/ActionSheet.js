@@ -4,12 +4,11 @@ import Ripple from "react-native-material-ripple";
 import RBSheet from "react-native-raw-bottom-sheet";
 import { SvgXml } from "react-native-svg";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 import LoginSheet from "../../components/ActionSheet/LoginSheet";
 import OptionBar from "../../components/ActionSheet/OptionBar";
 import RegisterSheet from "../../components/ActionSheet/RegisterSheet";
 import SuccessSheet from "../../components/ActionSheet/SuccessSheet";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const option = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
@@ -53,6 +52,7 @@ const register = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://ww
 const ActionSheet = () => {
   const refRBSheet = useRef();
   const [activeSheet, setActiveSheet] = useState("");
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
 
   const ActionData = [
     {

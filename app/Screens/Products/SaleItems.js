@@ -2,11 +2,12 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { ScrollView, View } from "react-native";
 import { Snackbar } from "react-native-paper";
+import { useSelector } from "react-redux";
 import ItemList from "../../components/ItemList";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
 
 const SaleItems = (props) => {
   const navigation = useNavigation();
+  const { GlobalStyleSheet } = useSelector((state) => state.theme);
 
   const DATA = [
     {

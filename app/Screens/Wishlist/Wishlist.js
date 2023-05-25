@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { SafeAreaView, ScrollView, View } from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, View } from "react-native";
 import { Snackbar } from "react-native-paper";
+import { useSelector } from "react-redux";
 import ItemCard from "../../components/ItemCard";
-import { COLORS } from "../../constants/theme";
 import Header from "../../layout/Header";
-import { StatusBar } from "react-native";
 
 const WishlistData = [
   {
@@ -90,6 +89,7 @@ const WishlistData = [
 ];
 
 const Wishlist = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const [productsData, setProductsData] = useState(WishlistData);
   const [itemView, setItemView] = useState("grid");
   const [isSnackbar, setIsSnackbar] = useState(false);

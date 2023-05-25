@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StatusBar, Text, TextInput, View } from "react-native";
 import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const EditProfile = (props) => {
@@ -13,6 +11,7 @@ const EditProfile = (props) => {
   const [isFocused4, setisFocused4] = useState(false);
 
   const { user } = useSelector((state) => state.auth);
+  const { COLORS, GlobalStyleSheet } = useSelector((state) => state.theme);
 
   return (
     <SafeAreaView

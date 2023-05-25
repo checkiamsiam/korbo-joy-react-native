@@ -5,11 +5,11 @@ import { ActivityIndicator } from "react-native-paper";
 import { useSelector } from "react-redux";
 import ProductItem from "../../components/ProductItem";
 import ProductsListSkeleton from "../../components/skeletons/ProductsListSkeleton";
-import { COLORS } from "../../constants/theme";
 import { useGetJustForYouPdQuery } from "../../features/JustForYou/justForYouApi";
 
 const JustForYou = () => {
   const [limit, setLimit] = useState(8);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const { isLoading } = useGetJustForYouPdQuery(limit);
   const navigation = useNavigation();
   const { products } = useSelector((state) => state.justForYou);

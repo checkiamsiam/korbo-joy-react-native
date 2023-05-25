@@ -1,9 +1,10 @@
 import { useTheme } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Animated, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const TabButtonStyle2 = ({ buttons, onClick, scrollX }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const [btnContainerWidth, setWidth] = useState(0);
   const btnWidth = btnContainerWidth / buttons.length;
   const translateX = scrollX.interpolate({

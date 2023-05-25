@@ -1,15 +1,15 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
+import { useSelector } from "react-redux";
 import Button from "../../components/Button/Button";
 import ButtonLg from "../../components/Button/ButtonLg";
 import ButtonLight from "../../components/Button/ButtonLight";
 import ButtonOutline from "../../components/Button/ButtonOutline";
 import ButtonSm from "../../components/Button/ButtonSm";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const Buttons = () => {
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector((state) => state.theme);
   return (
     <>
       <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
@@ -27,7 +27,16 @@ const Buttons = () => {
                 shadowRadius: 5,
               }}
             >
-              <View style={styles.card}>
+              <View
+                style={{
+                  padding: 15,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 15,
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.white,
+                }}
+              >
                 <View style={{ marginBottom: 15 }}>
                   <Text
                     style={{
@@ -81,7 +90,16 @@ const Buttons = () => {
                 shadowRadius: 5,
               }}
             >
-              <View style={styles.card}>
+              <View
+                style={{
+                  padding: 15,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 15,
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.white,
+                }}
+              >
                 <View style={{ marginBottom: 15 }}>
                   <Text
                     style={{
@@ -135,7 +153,16 @@ const Buttons = () => {
                 shadowRadius: 5,
               }}
             >
-              <View style={styles.card}>
+              <View
+                style={{
+                  padding: 15,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 15,
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.white,
+                }}
+              >
                 <View style={{ marginBottom: 15 }}>
                   <Text
                     style={{
@@ -189,7 +216,16 @@ const Buttons = () => {
                 shadowRadius: 5,
               }}
             >
-              <View style={styles.card}>
+              <View
+                style={{
+                  padding: 15,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 15,
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.white,
+                }}
+              >
                 <View style={{ marginBottom: 15 }}>
                   <Text
                     style={{
@@ -237,7 +273,16 @@ const Buttons = () => {
                 shadowRadius: 5,
               }}
             >
-              <View style={styles.card}>
+              <View
+                style={{
+                  padding: 15,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 15,
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.white,
+                }}
+              >
                 <View style={{ marginBottom: 15 }}>
                   <Text
                     style={{
@@ -285,7 +330,16 @@ const Buttons = () => {
                 shadowRadius: 5,
               }}
             >
-              <View style={styles.card}>
+              <View
+                style={{
+                  padding: 15,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 15,
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.white,
+                }}
+              >
                 <View style={{ marginBottom: 15 }}>
                   <Text
                     style={{
@@ -318,16 +372,5 @@ const Buttons = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    padding: 15,
-    borderRadius: SIZES.radius,
-    marginBottom: 15,
-    borderWidth: 1,
-    borderColor: COLORS.borderColor,
-    backgroundColor: COLORS.white,
-  },
-});
 
 export default Buttons;

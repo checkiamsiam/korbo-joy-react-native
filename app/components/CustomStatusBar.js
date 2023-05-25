@@ -6,7 +6,12 @@ const CustomStatusBar = () => {
   const { mode } = useSelector((state) => state.theme);
   return (
     <>
-      <StatusBar translucent backgroundColor={mode === "dark" ? "#333333" : "#F5F5F5"} barStyle="dark-content" />
+      <StatusBar
+        translucent
+        animated
+        backgroundColor={mode === "dark" ? "#333333" : "#F5F5F5"}
+        barStyle={mode === "dark" ? "light-content" : "dark-content"}
+      />
     </>
   );
 };

@@ -2,12 +2,12 @@ import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
 import { useDispatch, useSelector } from "react-redux";
-import { COLORS, FONTS } from "../constants/theme";
 import { toggleTheme } from "../features/Theme/themeSlice";
 
 const DarkModeToggler = () => {
   const dispatch = useDispatch();
   const { mode } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
 
   const offset = useSharedValue(mode === "dark" ? 20 : 0);
   const toggleStyle = useAnimatedStyle(() => {

@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { Image, ImageBackground, Text, View } from "react-native";
-import { COLORS, FONTS, IMAGES } from "../../constants/theme";
+import { useSelector } from "react-redux";
+import { IMAGES } from "../../constants/theme";
 
 const Splash = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   useEffect(() => {
     setTimeout(() => {
       props.navigation.navigate("Home");

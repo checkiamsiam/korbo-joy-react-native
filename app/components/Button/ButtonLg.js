@@ -1,8 +1,9 @@
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
-import { COLORS, FONTS } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const ButtonLg = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <TouchableOpacity
       style={[

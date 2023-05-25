@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, IMAGES } from "../../constants/theme";
+import { IMAGES } from "../../constants/theme";
 import { useRegisterMutation } from "../../features/Auth/AuthApi";
 
 const SignUp = (props) => {
@@ -15,6 +15,7 @@ const SignUp = (props) => {
   const [password, setPassword] = useState("");
   const [handlePassword, setHandlePassword] = useState(true);
   const [handlePassword2, setHandlePassword2] = useState(true);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
   const {
     control,
     handleSubmit,

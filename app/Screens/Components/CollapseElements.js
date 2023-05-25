@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import Collapsible from "react-native-collapsible";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useSelector } from "react-redux";
 import Button from "../../components/Button/Button";
 import ListStyle1 from "../../components/list/ListStyle1";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const CollapseElements = () => {
@@ -13,6 +12,7 @@ const CollapseElements = () => {
   const [isCollapsed2, setIsCollapsed2] = useState(true);
   const [isCollapsed3, setIsCollapsed3] = useState(true);
   const [isCollapsed4, setIsCollapsed4] = useState(true);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
 
   return (
     <>

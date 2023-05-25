@@ -1,20 +1,17 @@
-import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
-import { COLORS, FONTS, SIZES } from '../../constants/theme';
+import React from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import { useSelector } from "react-redux";
 
 const ButtonLight = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
-    <View style={{ position: 'relative' }}>
+    <View style={{ position: "relative" }}>
       <View
         style={{
-          position: 'absolute',
-          height: '100%',
-          width: '100%',
-          borderRadius: props.btnSquare
-            ? 0
-            : props.btnRounded
-            ? 30
-            : SIZES.radius,
+          position: "absolute",
+          height: "100%",
+          width: "100%",
+          borderRadius: props.btnSquare ? 0 : props.btnRounded ? 30 : SIZES.radius,
           backgroundColor: props.color ? props.color : COLORS.primary,
           opacity: 0.2,
         }}
@@ -26,17 +23,11 @@ const ButtonLight = (props) => {
             ...props.style,
             paddingHorizontal: 15,
             paddingVertical: 12,
-            alignItems: 'center',
+            alignItems: "center",
           },
         ]}
       >
-        <Text
-          style={[
-            { ...FONTS.h6, color: props.color ? props.color : COLORS.primary },
-          ]}
-        >
-          {props.title}
-        </Text>
+        <Text style={[{ ...FONTS.h6, color: props.color ? props.color : COLORS.primary }]}>{props.title}</Text>
       </TouchableOpacity>
     </View>
   );

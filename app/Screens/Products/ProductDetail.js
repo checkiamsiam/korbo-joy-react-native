@@ -3,8 +3,6 @@ import React from "react";
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import { useAddToCartMutation } from "../../features/Cart/CartApi";
 import { useGetProductDetailQuery } from "../../features/Product/productApi";
 import Header from "../../layout/Header";
@@ -15,7 +13,7 @@ import ProductDetailSlider from "./ProductDetailSlider";
 const ProductDetail = ({ navigation, route }) => {
   const { item } = route.params;
   const { isLoading, isSuccess, data: productDetails } = useGetProductDetailQuery(item.id, { refetchOnMountOrArgChange: true });
-
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector((state) => state.theme);
   const { user } = useSelector((state) => state.auth);
   const [addToCart, {}] = useAddToCartMutation();
   const handleAddToCart = async () => {

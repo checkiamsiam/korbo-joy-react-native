@@ -1,9 +1,10 @@
 import { IMAGE_BASE } from "@env";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import { COLORS, FONTS } from "../constants/theme";
+import { useSelector } from "react-redux";
 
 const ProductCardStyle1 = ({ image, title, price, oldPrice, offer, onPress }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <TouchableOpacity
       onPress={onPress}

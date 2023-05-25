@@ -5,11 +5,11 @@ import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useSelector } from "react-redux";
-import { COLORS, FONTS } from "../constants/theme";
 import { useAddToCartMutation } from "../features/Cart/CartApi";
 
 const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews, status, imgLength, onPress, imageSrc, isLike, handleItemLike }) => {
   const { user } = useSelector((state) => state.auth);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const navigation = useNavigation();
   const [addToCart, {}] = useAddToCartMutation();
   const handleAddToCart = async () => {

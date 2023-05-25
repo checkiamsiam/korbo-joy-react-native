@@ -1,14 +1,12 @@
-import React from 'react';
-import { SafeAreaView, useWindowDimensions, View } from 'react-native';
-import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
-import SearchBar from '../../components/SearchBar';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import { COLORS, FONTS } from '../../constants/theme';
-import Header from '../../layout/Header';
-import BestItems from './BestItems';
-import PopularItems from './PopularItems';
-import SaleItems from './SaleItems';
-import { StatusBar } from 'react-native';
+import React from "react";
+import { SafeAreaView, StatusBar, useWindowDimensions, View } from "react-native";
+import { SceneMap, TabBar, TabView } from "react-native-tab-view";
+import { useSelector } from "react-redux";
+import SearchBar from "../../components/SearchBar";
+import Header from "../../layout/Header";
+import BestItems from "./BestItems";
+import PopularItems from "./PopularItems";
+import SaleItems from "./SaleItems";
 
 const renderScene = SceneMap({
   Popular: PopularItems,
@@ -19,27 +17,19 @@ const renderScene = SceneMap({
 const Products = (props) => {
   const layout = useWindowDimensions();
 
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'Popular', title: 'Popular' },
-    { key: 'BestProducts', title: 'Best Products' },
-    { key: 'FlashSale', title: 'Flash Sale' },
+    { key: "Popular", title: "Popular" },
+    { key: "BestProducts", title: "Best Products" },
+    { key: "FlashSale", title: "Flash Sale" },
   ]);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
-      <Header
-        leftIcon={'back'}
-        title={'Products'}
-        rightIcon={'more'}
-        borderNone
-      />
-      <View
-        style={[
-          GlobalStyleSheet.container,
-          { paddingTop: 5, paddingBottom: 10 },
-        ]}
-      >
+      <Header leftIcon={"back"} title={"Products"} rightIcon={"more"} borderNone />
+      <View style={[GlobalStyleSheet.container, { paddingTop: 5, paddingBottom: 10 }]}>
         <SearchBar />
       </View>
       <TabView
@@ -51,11 +41,11 @@ const Products = (props) => {
             labelStyle={{
               ...FONTS.fontLg,
               ...FONTS.fontBold,
-              textTransform: 'capitalize',
+              textTransform: "capitalize",
             }}
             scrollEnabled={true}
             style={{
-              backgroundColor: 'transparent',
+              backgroundColor: "transparent",
               elevation: 0,
               borderBottomWidth: 1,
               borderBottomColor: COLORS.borderColor,

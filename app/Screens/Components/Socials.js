@@ -1,13 +1,13 @@
 import React from "react";
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useSelector } from "react-redux";
 import SocialBtn from "../../components/Socials/SocialBtn";
 import SocialIcon from "../../components/Socials/SocialIcon";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const Socials = () => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
   return (
     <>
       <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>

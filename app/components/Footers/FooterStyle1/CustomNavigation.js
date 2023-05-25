@@ -1,13 +1,13 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
-import { COLORS, FONTS, SIZES } from "../../../constants/theme";
 
-import home from '../../../assets/images/icons/home.png';
-import market from '../../../assets/images/icons/clock.png';
-import exchange from '../../../assets/images/icons/exchange.png';
-import wallet from '../../../assets/images/icons/wallet.png';
-import profile from '../../../assets/images/icons/user.png';
+import { useSelector } from "react-redux";
+import market from "../../../assets/images/icons/clock.png";
+import exchange from "../../../assets/images/icons/exchange.png";
+import home from "../../../assets/images/icons/home.png";
+import profile from "../../../assets/images/icons/user.png";
+import wallet from "../../../assets/images/icons/wallet.png";
 
 const CustomNavigation = ({ state, navigation, descriptors }) => {
   const offset = useSharedValue(SIZES.width / 2.5);
@@ -16,6 +16,8 @@ const CustomNavigation = ({ state, navigation, descriptors }) => {
   const icon3 = useSharedValue(10);
   const icon4 = useSharedValue(0);
   const icon5 = useSharedValue(0);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
+  const styles = createStyle(FONTS);
 
   const tabShapeStyle = useAnimatedStyle(() => {
     return {
@@ -197,18 +199,19 @@ const CustomNavigation = ({ state, navigation, descriptors }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  tabLink: {
-    alignItems: "center",
-  },
-  tabItem: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  navText: {
-    ...FONTS.fontSm,
-  },
-});
-
+const createStyle = (FONTS) => {
+  return StyleSheet.create({
+    tabLink: {
+      alignItems: "center",
+    },
+    tabItem: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    navText: {
+      ...FONTS.fontSm,
+    },
+  });
+};
 export default CustomNavigation;

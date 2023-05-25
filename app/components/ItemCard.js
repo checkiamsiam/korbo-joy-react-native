@@ -3,11 +3,11 @@ import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { COLORS, FONTS, SIZES } from "../constants/theme";
+import { useSelector } from "react-redux";
 
 const ItemCard = (props) => {
   const { title, image, price, oldPrice, rating, category, handleLike, id, isLike, shopBtn, listView, imageSrc } = props;
-
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const navigation = useNavigation();
 
   return (

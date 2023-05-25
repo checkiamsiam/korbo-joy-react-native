@@ -4,10 +4,12 @@ import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import { COLORS, FONTS, IMAGES } from "../constants/theme";
+import { useSelector } from "react-redux";
+import { IMAGES } from "../constants/theme";
 
 const Header = (props) => {
   const navigation = useNavigation();
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
 
   return (
     <>
@@ -68,7 +70,7 @@ const Header = (props) => {
           {props.leftIcon === "back" && (
             <IconButton
               onPress={() => (props.backAction ? props.backAction() : navigation.goBack())}
-              color={props.transparent ? "#fff" : "#4E4E4E"}
+              color={COLORS.text}
               icon={(props) => <MaterialIcons name="arrow-back-ios" {...props} />}
             />
           )}
@@ -85,7 +87,7 @@ const Header = (props) => {
             {props.productId && <Text style={{ ...FONTS.font, textAlign: "center" }}>{props.productId}</Text>}
           </View>
           {props.rightIcon2 === "search" && (
-            <IconButton onPress={() => navigation.navigate("Search")} color={"#4E4E4E"} icon={(props) => <FeatherIcon name="search" {...props} />} />
+            <IconButton onPress={() => navigation.navigate("Search")} color={COLORS.text} icon={(props) => <FeatherIcon name="search" {...props} />} />
           )}
           {props.rightIcon === "more" && (
             <IconButton color={props.transparent ? "#fff" : "#4E4E4E"} icon={(props) => <MaterialIcons name="more-vert" {...props} />} />

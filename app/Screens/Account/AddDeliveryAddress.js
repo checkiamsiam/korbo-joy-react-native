@@ -3,12 +3,11 @@ import { Controller, useForm } from "react-hook-form";
 import { SafeAreaView, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
 import { setDeliveryDetails } from "../../features/Order/OrderSlice";
 import Header from "../../layout/Header";
 
 const AddDeliveryAddress = ({ navigation }) => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const [isFocused, setisFocused] = useState(false);

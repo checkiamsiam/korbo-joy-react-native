@@ -1,8 +1,9 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
-import { COLORS, FONTS } from "../constants/theme";
+import { useSelector } from "react-redux";
 
 const CartItem = ({ productId, image, title, price, quantity, size, status, desc }) => {
+  const { COLORS, FONTS } = useSelector((state) => state.theme);
   return (
     <View
       style={{

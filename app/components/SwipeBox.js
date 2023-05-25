@@ -1,24 +1,18 @@
-import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  Animated,
-  TouchableOpacity,
-} from 'react-native';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
-import { COLORS, FONTS } from '../constants/theme';
+import React, { Component } from "react";
+import { Animated, Dimensions, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import Swipeable from "react-native-gesture-handler/Swipeable";
+import { connect } from "react-redux";
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_WIDTH = Dimensions.get("window").width;
 
-export default class SwipeBox extends Component {
+class SwipeBox extends Component {
   leftSwipe = (progress, dragX) => {
     const scale = dragX.interpolate({
       inputRange: [0, 100],
       outputRange: [0, 1],
-      extrapolate: 'clamp',
+      extrapolate: "clamp",
     });
+    const { COLORS, FONTS } = this.props;
     return (
       <TouchableOpacity
         onPress={() => {
@@ -52,16 +46,11 @@ export default class SwipeBox extends Component {
   };
 
   render() {
+    const { COLORS, FONTS } = this.props;
     return (
-      <Swipeable
-        ref={this.updateRef}
-        friction={2}
-        renderLeftActions={this.leftSwipe}
-      >
+      <Swipeable ref={this.updateRef} friction={2} renderLeftActions={this.leftSwipe}>
         <View style={[styles.container, { backgroundColor: COLORS.white }]}>
-          <Text style={{ ...FONTS.font, color: COLORS.title, fontSize: 16 }}>
-            {this.props.data.title}
-          </Text>
+          <Text style={{ ...FONTS.font, color: COLORS.title, fontSize: 16 }}>{this.props.data.title}</Text>
         </View>
       </Swipeable>
     );
@@ -71,14 +60,22 @@ const styles = StyleSheet.create({
   container: {
     height: 60,
     width: SCREEN_WIDTH,
-    justifyContent: 'center',
+    justifyContent: "center",
     padding: 20,
   },
   deleteBox: {
-    backgroundColor: 'red',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "red",
+    justifyContent: "center",
+    alignItems: "center",
     width: 100,
     height: 60,
   },
 });
+
+const mapStateToProps = (state) => ({
+  COLORS: state.theme.COLORS,
+  FONTS: state.theme.FONTS,
+});
+
+// Connect the component to Redux store
+export default connect(mapStateToProps)(SwipeBox);

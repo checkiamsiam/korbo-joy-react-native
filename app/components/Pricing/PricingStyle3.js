@@ -1,10 +1,11 @@
 import React from "react";
 import { Text, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
+import { useSelector } from "react-redux";
 import Button from "../Button/Button";
 
 const PricingStyle3 = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const Data = [
     "Access to all basic features",
     "Basic reporting and analytics",
