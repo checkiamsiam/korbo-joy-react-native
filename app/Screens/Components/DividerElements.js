@@ -1,13 +1,13 @@
 import React from "react";
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 import Divider from "../../components/Dividers/Divider";
 import DividerIcon from "../../components/Dividers/DividerIcon";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const DividerElements = () => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
   return (
     <>
       <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>

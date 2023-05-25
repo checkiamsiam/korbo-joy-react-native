@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Collapsible from "react-native-collapsible";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 //import Button from '../../../components/Button/Button';
 //import CustomInput from '../../../components/Input/CustomInput';
@@ -18,6 +16,8 @@ import calculateSum from "../../utils/calculateSum";
 import { actionSheetRef } from "../../utils/globalRef";
 
 const Payment = (props) => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const styles = createStyles(COLORS, FONTS);
   const dispatch = useDispatch();
   const [paymentOption, setPaymentOption] = useState("");
   const { cart } = useSelector((state) => state.cart);
@@ -47,6 +47,7 @@ const Payment = (props) => {
 
   const placeOrder = async () => {
     const res = await orderNow(deliveryDetails);
+
     dispatch(
       setActionSheet({
         activeSheet: "success",
@@ -68,7 +69,7 @@ const Payment = (props) => {
         <View
           style={{
             flex: 1,
-            backgroundColor: COLORS.white,
+            backgroundColor: COLORS.backgroundColor,
           }}
         >
           <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -108,7 +109,7 @@ const Payment = (props) => {
                 paddingTop: 15,
               }}
             >
-              <Text style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.text }}>Payment Options</Text>
+              <Text style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.dark }}>Payment Options</Text>
             </View>
 
             <View style={{ borderBottomWidth: 1, borderColor: COLORS.borderColor }}>
@@ -487,7 +488,7 @@ const Payment = (props) => {
               </View>
               <View style={styles.detailList}>
                 <Text style={{ ...FONTS.font, color: COLORS.text }}>Delivery Charge</Text>
-                <Text style={{ ...FONTS.font, color: COLORS.success }}>{totalCharge} TK</Text>
+                <Text style={{ ...FONTS.font, color: COLORS.warning }}>{totalCharge} TK</Text>
               </View>
               <View
                 style={{
@@ -560,78 +561,79 @@ const Payment = (props) => {
   );
 };
 
-const styles = StyleSheet.create({
-  stepItem: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  stepIcon: {
-    height: 30,
-    width: 30,
-    borderRadius: 35,
-    marginRight: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    borderWidth: 1,
-    borderColor: COLORS.primary2,
-  },
-  list: {
-    paddingHorizontal: 15,
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 18,
-  },
-  listImg: {
-    height: 20,
-    width: 20,
-    resizeMode: "contain",
-    marginRight: 12,
-  },
-  listTitle: {
-    ...FONTS.font,
-    ...FONTS.fontBold,
-    flex: 1,
-  },
-  detailList: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingVertical: 2,
-  },
-  payList: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 15,
-    paddingVertical: 15,
-    borderBottomWidth: 1,
-  },
-  listRadio: {
-    height: 15,
-    width: 15,
-    borderRadius: 10,
-    borderWidth: 1,
-    marginRight: 15,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  listRadioCircle: {
-    height: 8,
-    width: 8,
-    borderRadius: 8,
-    backgroundColor: COLORS.primary,
-  },
-  payImg: {
-    height: 35,
-    width: 35,
-    borderRadius: 35,
-  },
-  payMedia: {
-    borderWidth: 1,
-    padding: 5,
-    borderRadius: 40,
-    marginRight: 15,
-  },
-});
-
+const createStyles = (COLORS, FONTS) => {
+  return StyleSheet.create({
+    stepItem: {
+      flex: 1,
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    stepIcon: {
+      height: 30,
+      width: 30,
+      borderRadius: 35,
+      marginRight: 10,
+      alignItems: "center",
+      justifyContent: "center",
+      borderWidth: 1,
+      borderColor: COLORS.primary2,
+    },
+    list: {
+      paddingHorizontal: 15,
+      flexDirection: "row",
+      alignItems: "center",
+      paddingVertical: 18,
+    },
+    listImg: {
+      height: 20,
+      width: 20,
+      resizeMode: "contain",
+      marginRight: 12,
+    },
+    listTitle: {
+      ...FONTS.font,
+      ...FONTS.fontBold,
+      flex: 1,
+    },
+    detailList: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      paddingVertical: 2,
+    },
+    payList: {
+      flexDirection: "row",
+      alignItems: "center",
+      paddingHorizontal: 15,
+      paddingVertical: 15,
+      borderBottomWidth: 1,
+    },
+    listRadio: {
+      height: 15,
+      width: 15,
+      borderRadius: 10,
+      borderWidth: 1,
+      marginRight: 15,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    listRadioCircle: {
+      height: 8,
+      width: 8,
+      borderRadius: 8,
+      backgroundColor: COLORS.primary,
+    },
+    payImg: {
+      height: 35,
+      width: 35,
+      borderRadius: 35,
+    },
+    payMedia: {
+      borderWidth: 1,
+      padding: 5,
+      borderRadius: 40,
+      marginRight: 15,
+    },
+  });
+};
 export default Payment;

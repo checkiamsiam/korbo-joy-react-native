@@ -2,10 +2,11 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { COLORS, FONTS } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const SectionHeader = ({ title, action, actionTitle, actionFunc }) => {
   const navigation = useNavigation();
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <View
       style={{

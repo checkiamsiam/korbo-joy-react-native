@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { FlatList, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 import ItemCard from "../../components/ItemCard";
 import ShopItem from "../../components/ShopItem";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const TopCollection = [
@@ -94,6 +93,7 @@ const TrendingData = [
 ];
 
 const Home = (props) => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
   const [productsData, setProductsData] = useState(TrendingData);
   const [productsData2, setProductsData2] = useState(TopCollection);
 
@@ -118,7 +118,7 @@ const Home = (props) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor , paddingTop: StatusBar.currentHeight }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
       <Header main={true} title={"Home"} />
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
         <View style={GlobalStyleSheet.container}>

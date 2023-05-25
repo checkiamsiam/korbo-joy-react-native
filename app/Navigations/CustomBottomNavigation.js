@@ -2,13 +2,14 @@ import { useFocusEffect } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+import { useSelector } from "react-redux";
 import cart from "../assets/images/icons/cart.png";
 import category from "../assets/images/icons/category.png";
 import home from "../assets/images/icons/home.png";
 import user from "../assets/images/icons/user.png";
-import { COLORS, FONTS, SIZES } from "../constants/theme";
 
 const CustomBottomNavigation = ({ state, descriptors, navigation }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const offset = useSharedValue(0);
 
   const tabShapeStyle = useAnimatedStyle(() => {
@@ -61,7 +62,7 @@ const CustomBottomNavigation = ({ state, descriptors, navigation }) => {
         }
       };
       activeTabInCallBack();
-    }, [offset, state.index])
+    }, [offset, state.index, SIZES])
   );
 
   return (

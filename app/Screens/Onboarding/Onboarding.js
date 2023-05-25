@@ -1,8 +1,9 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
 import Swiper from "react-native-swiper";
+import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
-import { COLORS, FONTS, IMAGES, SIZES } from "../../constants/theme";
+import { IMAGES } from "../../constants/theme";
 
 const SwiperData = [
   {
@@ -23,6 +24,7 @@ const SwiperData = [
 ];
 
 const Onboarding = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.white }}>
       <Swiper

@@ -1,13 +1,13 @@
 import React from "react";
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
+import { useSelector } from "react-redux";
 import BasicBarChart from "../../components/Charts/BarChart";
 import BasicLineChart from "../../components/Charts/LineChart";
 import BasicPieChart from "../../components/Charts/PieChart";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const Charts = () => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
   return (
     <>
       <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>

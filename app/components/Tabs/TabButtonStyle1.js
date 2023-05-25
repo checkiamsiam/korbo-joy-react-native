@@ -1,14 +1,9 @@
 import React, { useState } from "react";
-import {
-  Animated,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
+import { Animated, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useSelector } from "react-redux";
 
 const TabButtonStyle1 = ({ buttons, onClick, scrollX }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const [btnContainerWidth, setWidth] = useState(0);
   const btnWidth = btnContainerWidth / buttons.length;
   const translateX = scrollX.interpolate({
@@ -27,19 +22,11 @@ const TabButtonStyle1 = ({ buttons, onClick, scrollX }) => {
         borderBottomWidth: 1,
         borderColor: COLORS.borderColor,
       }}
-      onLayout={(e) => setWidth(e.nativeEvent.layout.width)}>
-
+      onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
+    >
       {buttons.map((btn, i) => (
-        <TouchableOpacity
-          key={btn}
-          style={styles.btn}
-          onPress={() => onClick(i)}
-        >
-          <Text
-            style={{ ...FONTS.font, ...FONTS.fontMedium, color: COLORS.text }}
-          >
-            {btn}
-          </Text>
+        <TouchableOpacity key={btn} style={styles.btn} onPress={() => onClick(i)}>
+          <Text style={{ ...FONTS.font, ...FONTS.fontMedium, color: COLORS.text }}>{btn}</Text>
         </TouchableOpacity>
       ))}
       <Animated.View

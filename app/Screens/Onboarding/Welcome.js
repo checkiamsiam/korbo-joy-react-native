@@ -2,9 +2,9 @@ import React from "react";
 import { Image, ScrollView, Text, View } from "react-native";
 import Swiper from "react-native-swiper";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, IMAGES } from "../../constants/theme";
+import { IMAGES } from "../../constants/theme";
 
 const SwiperData = [
   {
@@ -22,6 +22,7 @@ const SwiperData = [
 ];
 
 const Welcome = (props) => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <View style={{ flex: 1, backgroundColor: COLORS.secondary }}>

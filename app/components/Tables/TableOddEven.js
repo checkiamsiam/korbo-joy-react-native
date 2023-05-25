@@ -1,9 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const TableOddEven = () => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const styles = createStyles(COLORS, FONTS);
   const TableData = [
     {
       name: "John Doe",
@@ -102,24 +103,26 @@ const TableOddEven = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  theadItem: {
-    flex: 1,
-    alignSelf: "stretch",
-    paddingHorizontal: 10,
-    paddingVertical: 12,
-    ...FONTS.font,
-    color: COLORS.text,
-  },
-  tbodyItem: {
-    flex: 1,
-    alignSelf: "stretch",
-    paddingHorizontal: 10,
-    paddingVertical: 12,
-    ...FONTS.font,
-    ...FONTS.fontBold,
-    color: COLORS.title,
-  },
-});
+const createStyles = (COLORS, FONTS) => {
+  return StyleSheet.create({
+    theadItem: {
+      flex: 1,
+      alignSelf: "stretch",
+      paddingHorizontal: 10,
+      paddingVertical: 12,
+      ...FONTS.font,
+      color: COLORS.text,
+    },
+    tbodyItem: {
+      flex: 1,
+      alignSelf: "stretch",
+      paddingHorizontal: 10,
+      paddingVertical: 12,
+      ...FONTS.font,
+      ...FONTS.fontBold,
+      color: COLORS.title,
+    },
+  });
+};
 
 export default TableOddEven;

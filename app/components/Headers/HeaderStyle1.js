@@ -1,19 +1,20 @@
-import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
-import FeatherIcon from 'react-native-vector-icons/Feather';
-import { COLORS, FONTS } from '../../constants/theme';
+import React from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 
 const HeaderStyle1 = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <>
       <View
         style={{
           height: 50,
           backgroundColor: COLORS.white,
-          flexDirection: 'row',
-          alignItems: 'center',
+          flexDirection: "row",
+          alignItems: "center",
           paddingHorizontal: 5,
-          shadowColor: 'rgba(0,0,0,.6)',
+          shadowColor: "rgba(0,0,0,.6)",
           shadowOffset: {
             width: 0,
             height: 4,
@@ -28,21 +29,19 @@ const HeaderStyle1 = (props) => {
           style={{
             height: 50,
             width: 50,
-            alignItems: 'center',
-            justifyContent: 'center',
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <FeatherIcon color={COLORS.title} name="menu" size={18} />
         </TouchableOpacity>
-        <Text style={{ ...FONTS.h6, color: COLORS.title, flex: 1 }}>
-          {props.title}
-        </Text>
+        <Text style={{ ...FONTS.h6, color: COLORS.title, flex: 1 }}>{props.title}</Text>
         <TouchableOpacity
           style={{
             height: 50,
             width: 50,
-            alignItems: 'center',
-            justifyContent: 'center',
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <FeatherIcon color={COLORS.title} name="search" size={20} />
@@ -51,8 +50,8 @@ const HeaderStyle1 = (props) => {
           style={{
             height: 50,
             width: 50,
-            alignItems: 'center',
-            justifyContent: 'center',
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <View
@@ -60,13 +59,13 @@ const HeaderStyle1 = (props) => {
               height: 18,
               width: 18,
               borderRadius: 20,
-              position: 'absolute',
+              position: "absolute",
               top: 7,
               right: 10,
               zIndex: 1,
               backgroundColor: COLORS.warning,
-              alignItems: 'center',
-              justifyContent: 'center',
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             <Text

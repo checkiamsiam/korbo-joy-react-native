@@ -3,10 +3,11 @@ import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Octicons from "react-native-vector-icons/Octicons";
-import { COLORS, FONTS, SIZES } from "../constants/theme";
+import { useSelector } from "react-redux";
 
 const ItemList = ({ id, title, price, oldPrice, offer, rating, review, image, handleLike, isLike }) => {
   const navigation = useNavigation();
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
 
   // var ratingArry = [];
   // for(var i = 0; i < rating; i++){

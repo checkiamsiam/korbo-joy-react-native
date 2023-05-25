@@ -1,13 +1,13 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
+import { useSelector } from "react-redux";
 import AccordionHighlight from "../../components/Accordion/AccordionHighlight";
 import AccordionSeprator from "../../components/Accordion/AccordionSeprator";
 import ClassicAccordion from "../../components/Accordion/ClassicAccordion";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const AccordionScreen = () => {
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector((state) => state.theme);
   return (
     <>
       <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
@@ -26,7 +26,16 @@ const AccordionScreen = () => {
                 elevation: 5,
               }}
             >
-              <View style={styles.card}>
+              <View
+                style={{
+                  padding: 15,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 15,
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.white,
+                }}
+              >
                 <View style={{ marginBottom: 15 }}>
                   <Text
                     style={{
@@ -57,7 +66,16 @@ const AccordionScreen = () => {
                 borderRadius: 10,
               }}
             >
-              <View style={styles.card}>
+              <View
+                style={{
+                  padding: 15,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 15,
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.white,
+                }}
+              >
                 <View style={{ marginBottom: 20 }}>
                   <Text
                     style={{
@@ -88,7 +106,16 @@ const AccordionScreen = () => {
                 elevation: 5,
               }}
             >
-              <View style={styles.card}>
+              <View
+                style={{
+                  padding: 15,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 15,
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.white,
+                }}
+              >
                 <View style={{ marginBottom: 20 }}>
                   <Text
                     style={{
@@ -111,16 +138,5 @@ const AccordionScreen = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    padding: 15,
-    borderRadius: SIZES.radius,
-    marginBottom: 15,
-    borderWidth: 1,
-    borderColor: COLORS.borderColor,
-    backgroundColor: COLORS.white,
-  },
-});
 
 export default AccordionScreen;

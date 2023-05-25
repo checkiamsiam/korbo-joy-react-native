@@ -1,18 +1,19 @@
-import React from 'react';
-import { Image, Text, View } from 'react-native';
-import FeatherIcon from 'react-native-vector-icons/Feather';
-import { COLORS, FONTS } from '../../constants/theme';
-import Button from '../Button/Button';
+import React from "react";
+import { Image, Text, View } from "react-native";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import Button from "../Button/Button";
 
-import ThumbUp from '../../assets/images/icons/thumbs-up.png';
+import { useSelector } from "react-redux";
+import ThumbUp from "../../assets/images/icons/thumbs-up.png";
 
 const PricingStyle2 = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const Data = [
-    'Access to all basic features',
-    'Basic reporting and analytics',
-    'Up to 10 individual users',
-    '20 GB individual data each user',
-    'Basic chat and emails support',
+    "Access to all basic features",
+    "Basic reporting and analytics",
+    "Up to 10 individual users",
+    "20 GB individual data each user",
+    "Basic chat and emails support",
   ];
 
   return (
@@ -21,15 +22,15 @@ const PricingStyle2 = () => {
         style={{
           padding: 30,
           paddingTop: 60,
-          position: 'relative',
+          position: "relative",
           marginTop: 50,
           borderRadius: 0,
           backgroundColor: COLORS.white,
           borderWidth: 1,
           borderColor: COLORS.borderColor,
           maxWidth: 320,
-          width: '100%',
-          shadowColor: 'rgba(0,0,0,.6)',
+          width: "100%",
+          shadowColor: "rgba(0,0,0,.6)",
           shadowOffset: {
             width: 0,
             height: 4,
@@ -42,7 +43,7 @@ const PricingStyle2 = () => {
       >
         <View
           style={{
-            alignItems: 'center',
+            alignItems: "center",
           }}
         >
           <View
@@ -50,13 +51,13 @@ const PricingStyle2 = () => {
               height: 80,
               width: 80,
               borderRadius: 40,
-              alignItems: 'center',
-              justifyContent: 'center',
+              alignItems: "center",
+              justifyContent: "center",
               backgroundColor: COLORS.white,
-              position: 'absolute',
+              position: "absolute",
               top: -100,
 
-              shadowColor: 'rgba(0,0,0,.6)',
+              shadowColor: "rgba(0,0,0,.6)",
               shadowOffset: {
                 width: 0,
                 height: 4,
@@ -76,20 +77,16 @@ const PricingStyle2 = () => {
             />
           </View>
         </View>
-        <View style={{ alignItems: 'center', marginBottom: 25 }}>
-          <Text style={{ ...FONTS.h4, color: COLORS.title, marginBottom: 5 }}>
-            Free
-          </Text>
+        <View style={{ alignItems: "center", marginBottom: 25 }}>
+          <Text style={{ ...FONTS.h4, color: COLORS.title, marginBottom: 5 }}>Free</Text>
           <View
             style={{
-              flexDirection: 'row',
-              alignItems: 'flex-end',
+              flexDirection: "row",
+              alignItems: "flex-end",
               marginBottom: 5,
             }}
           >
-            <Text style={{ ...FONTS.h2, lineHeight: 35, color: COLORS.title }}>
-              $0
-            </Text>
+            <Text style={{ ...FONTS.h2, lineHeight: 35, color: COLORS.title }}>$0</Text>
             <Text
               style={{
                 ...FONTS.font,
@@ -106,14 +103,14 @@ const PricingStyle2 = () => {
           <Text
             style={{
               ...FONTS.font,
-              textAlign: 'center',
+              textAlign: "center",
               color: COLORS.text,
               marginBottom: 20,
             }}
           >
             All the basics for bussinesses that are just getting started
           </Text>
-          <Button color={COLORS.secondary} btnSquare title={'Get started'} />
+          <Button color={COLORS.secondary} btnSquare title={"Get started"} />
         </View>
         <View
           style={{
@@ -127,20 +124,13 @@ const PricingStyle2 = () => {
               <View
                 key={index}
                 style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
+                  flexDirection: "row",
+                  alignItems: "center",
                   paddingVertical: 5,
                 }}
               >
-                <FeatherIcon
-                  style={{ marginRight: 8 }}
-                  color={COLORS.secondary}
-                  name="check"
-                  size={18}
-                />
-                <Text style={{ ...FONTS.font, color: COLORS.text }}>
-                  {data}
-                </Text>
+                <FeatherIcon style={{ marginRight: 8 }} color={COLORS.secondary} name="check" size={18} />
+                <Text style={{ ...FONTS.font, color: COLORS.text }}>{data}</Text>
               </View>
             );
           })}

@@ -4,14 +4,14 @@ import { Image, PermissionsAndroid, SafeAreaView, ScrollView, StatusBar, Text, T
 import { launchImageLibrary } from "react-native-image-picker";
 import uuid from "react-native-uuid";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 import Button from "../../components/Button/Button";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const FileUploads = (props) => {
   const { colors } = useTheme();
   const [imageData, setImageData] = useState([]);
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector((state) => state.theme);
 
   const UploadFile = async (type) => {
     try {

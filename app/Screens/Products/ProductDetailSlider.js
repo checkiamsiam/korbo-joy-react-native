@@ -3,9 +3,10 @@ import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Image, View } from "react-native";
 import Swiper from "react-native-swiper";
-import { COLORS, SIZES } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const ProductDetailSlider = ({ images }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <Swiper
       style={{ height: SIZES.width }}

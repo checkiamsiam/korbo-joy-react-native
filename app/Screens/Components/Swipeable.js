@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { LayoutAnimation, SafeAreaView, ScrollView, StatusBar, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { useSelector } from "react-redux";
 import SwipeBox from "../../components/SwipeBox";
-import { COLORS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const SwipeData = [
@@ -49,6 +49,7 @@ const SwipeData = [
 ];
 const SwipeableScreen = () => {
   const [lists, setLists] = useState(SwipeData);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
 
   const deleteItem = (index) => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);

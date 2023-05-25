@@ -2,10 +2,11 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { FlatList, Text, View } from "react-native";
 import { ActivityIndicator } from "react-native-paper";
+import { useSelector } from "react-redux";
 import ProductItem from "../../components/ProductItem";
-import { COLORS } from "../../constants/theme";
 
 const Products = ({ products: pData }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const [limit, setLimit] = useState(8);
   const navigation = useNavigation();
   const products = pData?.slice(0, limit);

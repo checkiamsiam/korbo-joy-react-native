@@ -3,12 +3,13 @@ import { Image, Platform, StatusBar, Text, TouchableOpacity, View } from "react-
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useDispatch, useSelector } from "react-redux";
 import DarkModeToggler from "../components/DarkModeToggler";
-import { COLORS, FONTS, IMAGES } from "../constants/theme";
+import { IMAGES } from "../constants/theme";
 import { logout } from "../features/Auth/AuthSlice";
 import { clearCart } from "../features/Cart/CartSlice";
 
 const CustomDrawer = ({ navigation }) => {
   const { user, token } = useSelector((state) => state.auth);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const navItem = [
     {
@@ -93,7 +94,7 @@ const CustomDrawer = ({ navigation }) => {
           />
           <View style={{ flex: 1 }}>
             <Text style={{ ...FONTS.h6, color: COLORS.title, top: 2, textTransform: "capitalize" }}>{user.name ? user.name : "Guest"}</Text>
-            <Text style={{ ...FONTS.font, color: "rgba(0,0,0,.6)" }}>{user.number ? user.number : "+880XXXXXXXXXX"}</Text>
+            <Text style={{ ...FONTS.font, color: COLORS.title }}>{user.number ? user.number : "+880XXXXXXXXXX"}</Text>
           </View>
         </View>
 

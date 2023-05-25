@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, StatusBar, useWindowDimensions } from "react-native";
 import { SceneMap, TabBar, TabView } from "react-native-tab-view";
-import { COLORS, FONTS } from "../../constants/theme";
+import { useSelector } from "react-redux";
 import Header from "../../layout/Header";
 import AllCart from "./AllCart";
 import Canceled from "./Canceled";
@@ -16,6 +16,7 @@ const renderScene = SceneMap({
 });
 
 const Orders = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const layout = useWindowDimensions();
 
   const [index, setIndex] = React.useState(0);

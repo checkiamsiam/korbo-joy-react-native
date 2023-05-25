@@ -1,14 +1,14 @@
 import React from "react";
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
+import { useSelector } from "react-redux";
 import ToggleStyle1 from "../../components/Toggles/ToggleStyle1";
 import ToggleStyle2 from "../../components/Toggles/ToggleStyle2";
 import ToggleStyle3 from "../../components/Toggles/ToggleStyle3";
 import ToggleStyle4 from "../../components/Toggles/ToggleStyle4";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const Toggles = () => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
   return (
     <>
       <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>

@@ -1,18 +1,19 @@
-import React from 'react';
-import Ripple from 'react-native-material-ripple';
-import FeatherIcon from 'react-native-vector-icons/Feather';
-import { Text, View } from 'react-native';
-import { COLORS, FONTS, SIZES } from '../../constants/theme';
+import React from "react";
+import { Text, View } from "react-native";
+import Ripple from "react-native-material-ripple";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 
 const ListStyle2 = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <>
       <Ripple
         onPress={() => props.onPress && props.onPress()}
         style={[
           {
-            flexDirection: 'row',
-            alignItems: 'center',
+            flexDirection: "row",
+            alignItems: "center",
             paddingHorizontal: 15,
             paddingVertical: 20,
             borderBottomWidth: 1,
@@ -28,22 +29,14 @@ const ListStyle2 = (props) => {
             borderColor: COLORS.borderColor,
             borderRadius: SIZES.radius,
             marginRight: 12,
-            alignItems: 'center',
-            justifyContent: 'center',
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           {props.icon}
         </View>
         <View style={{ flex: 1, paddingRight: 10 }}>
-          <Text
-            style={[
-              FONTS.font,
-              FONTS.fontMedium,
-              { color: COLORS.title, fontSize: 15, marginBottom: 7 },
-            ]}
-          >
-            {props.title}
-          </Text>
+          <Text style={[FONTS.font, FONTS.fontMedium, { color: COLORS.title, fontSize: 15, marginBottom: 7 }]}>{props.title}</Text>
           <Text
             numberOfLines={1}
             style={[
@@ -59,7 +52,7 @@ const ListStyle2 = (props) => {
             {props.desc}
           </Text>
         </View>
-        <FeatherIcon color={COLORS.text} name={'chevron-right'} size={22} />
+        <FeatherIcon color={COLORS.text} name={"chevron-right"} size={22} />
       </Ripple>
     </>
   );

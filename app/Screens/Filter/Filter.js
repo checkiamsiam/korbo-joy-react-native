@@ -2,8 +2,8 @@ import { CheckBox } from "@rneui/themed";
 import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import { List } from "react-native-paper";
+import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
-import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const FilterOptionData = [
@@ -421,6 +421,7 @@ const availabilityFilterData = [
 ];
 
 const Filter = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const [activeFilter, setActiveFilter] = useState("Price");
   const [genderFilter, setGenderFilter] = useState(genderFilterData);
   const [discountFilter, setDiscountFilter] = useState(discountFilterData);
@@ -665,7 +666,7 @@ const Filter = () => {
                     style={{
                       ...FONTS.font,
                       ...FONTS.fontMedium,
-                      color: COLORS.title,
+                      color: COLORS.dark,
                     }}
                   >
                     {data}
@@ -689,8 +690,7 @@ const Filter = () => {
                   <CheckBox
                     checked={data.selected}
                     checkedColor={COLORS.primary}
-                    uncheckedColor={COLORS.text}
-                    containerStyle={{ marginLeft: 20 }}
+                    containerStyle={{ marginLeft: 20, backgroundColor: "transparent" }}
                     disabled={false}
                   />
                 )}

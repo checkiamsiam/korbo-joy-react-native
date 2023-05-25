@@ -20,8 +20,6 @@ export const LIGHT_COLOR = {
   backgroundColor: "#fff",
 };
 
-export const COLORS = LIGHT_COLOR;
-
 export const DARK_COLOR = {
   primary: "#FE4487",
   primaryLight: "#FFE8F0",
@@ -35,7 +33,7 @@ export const DARK_COLOR = {
   white: "#fff",
   text: "#fff",
   title: "#fff",
-  label: "#8A8A8A",
+  label: "#fff",
   input: "#F9F9F9",
   borderColor: "#E3E3E3",
   backgroundColor: "#1A1A1A",
@@ -46,25 +44,17 @@ export const SIZES = {
   font: 14,
   fontSm: 13,
   fontXs: 12,
-
-  //radius
   radius_sm: 8,
   radius: 12,
   radius_md: 18,
-
-  //space
   padding: 15,
   margin: 15,
-
-  //Font Sizes
   h1: 40,
   h2: 28,
   h3: 24,
   h4: 20,
   h5: 18,
   h6: 16,
-
-  //App dimensions
   width,
   height,
 };
@@ -187,7 +177,6 @@ export const LIGHT_FONTS = {
   fontMedium: { fontFamily: "OpenSans-Medium" },
 };
 
-export const FONTS = LIGHT_FONTS;
 export const IMAGES = {
   bg1: require("../assets/images/background/bg1.png"),
   logo: require("../assets/images/logo.png"),

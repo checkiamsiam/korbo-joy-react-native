@@ -1,16 +1,17 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import FeatherIcon from 'react-native-vector-icons/Feather';
-import { COLORS, FONTS, SIZES } from '../../constants/theme';
-import Button from '../Button/Button';
+import React from "react";
+import { Text, View } from "react-native";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
+import Button from "../Button/Button";
 
 const PricingStyle1 = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const Data = [
-    'Access to all basic features',
-    'Basic reporting and analytics',
-    'Up to 10 individual users',
-    '20 GB individual data each user',
-    'Basic chat and emails support',
+    "Access to all basic features",
+    "Basic reporting and analytics",
+    "Up to 10 individual users",
+    "20 GB individual data each user",
+    "Basic chat and emails support",
   ];
 
   return (
@@ -23,10 +24,10 @@ const PricingStyle1 = () => {
           borderColor: COLORS.primary,
           backgroundColor: COLORS.white,
           maxWidth: 320,
-          width: '100%',
+          width: "100%",
         }}
       >
-        <View style={{ alignItems: 'center', marginBottom: 20 }}>
+        <View style={{ alignItems: "center", marginBottom: 20 }}>
           <Text style={{ ...FONTS.h3, color: COLORS.title }}>$10/Month</Text>
           <Text
             style={{
@@ -38,9 +39,7 @@ const PricingStyle1 = () => {
           >
             Basic plan
           </Text>
-          <Text style={{ ...FONTS.font, color: COLORS.text }}>
-            Billed annually
-          </Text>
+          <Text style={{ ...FONTS.font, color: COLORS.text }}>Billed annually</Text>
         </View>
         <View style={{ marginBottom: 25 }}>
           {Data.map((data, index) => {
@@ -48,25 +47,18 @@ const PricingStyle1 = () => {
               <View
                 key={index}
                 style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
+                  flexDirection: "row",
+                  alignItems: "center",
                   paddingVertical: 5,
                 }}
               >
-                <FeatherIcon
-                  style={{ marginRight: 8 }}
-                  color={COLORS.primary}
-                  name="check-circle"
-                  size={18}
-                />
-                <Text style={{ ...FONTS.font, color: COLORS.text }}>
-                  {data}
-                </Text>
+                <FeatherIcon style={{ marginRight: 8 }} color={COLORS.primary} name="check-circle" size={18} />
+                <Text style={{ ...FONTS.font, color: COLORS.text }}>{data}</Text>
               </View>
             );
           })}
         </View>
-        <Button title={'Get started'} />
+        <Button title={"Get started"} />
       </View>
     </>
   );

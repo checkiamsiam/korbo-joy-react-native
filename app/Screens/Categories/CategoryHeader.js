@@ -3,10 +3,11 @@ import React from "react";
 import { Text, View } from "react-native";
 import { IconButton } from "react-native-paper";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { COLORS, FONTS } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const CategoryHeader = () => {
   const navigation = useNavigation();
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const {
     params: { name },
   } = useRoute();

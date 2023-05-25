@@ -2,10 +2,10 @@ import React from "react";
 import { Text, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useSelector } from "react-redux";
-import { COLORS, FONTS } from "../../constants/theme";
 
 const SuccessSheet = () => {
   const { data } = useSelector((state) => state.actionSheet);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <>
       <View

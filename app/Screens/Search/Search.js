@@ -3,7 +3,7 @@ import { SafeAreaView, ScrollView, StatusBar, Text, TextInput, TouchableOpacity,
 import { IconButton } from "react-native-paper";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import { COLORS, FONTS } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const SearchData = [
   {
@@ -39,6 +39,7 @@ const SearchData = [
 ];
 
 const Search = ({ navigation }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <SafeAreaView
       style={{
