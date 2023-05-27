@@ -40,7 +40,7 @@ const SignUp = (props) => {
         style={{
           ...GlobalStyleSheet.container,
           flex: 1,
-          backgroundColor: COLORS.white,
+          backgroundColor: COLORS.backgroundColor,
         }}
       >
         <View
@@ -82,7 +82,7 @@ const SignUp = (props) => {
                   onBlur();
                 }}
                 placeholder="Type Phone Number Here"
-                placeholderTextColor={COLORS.label}
+                placeholderTextColor={COLORS.dark}
                 keyboardType="numeric"
               />
             )}
@@ -117,7 +117,7 @@ const SignUp = (props) => {
                   onBlur();
                 }}
                 placeholder="Type Your Name Here"
-                placeholderTextColor={COLORS.label}
+                placeholderTextColor={COLORS.dark}
               />
             )}
             name="name"
@@ -170,7 +170,7 @@ const SignUp = (props) => {
                   }}
                   secureTextEntry={handlePassword}
                   placeholder="Type Password Here"
-                  placeholderTextColor={COLORS.label}
+                  placeholderTextColor={COLORS.dark}
                 />
               )}
               name="password"
@@ -226,7 +226,7 @@ const SignUp = (props) => {
                   }}
                   secureTextEntry={handlePassword}
                   placeholder="Confirm Password"
-                  placeholderTextColor={COLORS.label}
+                  placeholderTextColor={COLORS.dark}
                 />
               )}
               name="confirmPassword"
