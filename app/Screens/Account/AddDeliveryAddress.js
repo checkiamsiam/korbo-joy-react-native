@@ -84,7 +84,7 @@ const AddDeliveryAddress = ({ navigation }) => {
                       onBlur();
                     }}
                     placeholder="Type Your Name Here"
-                    placeholderTextColor={COLORS.label}
+                    placeholderTextColor={COLORS.dark}
                   />
                 )}
                 name="name"
@@ -118,7 +118,7 @@ const AddDeliveryAddress = ({ navigation }) => {
                       onBlur();
                     }}
                     placeholder="Type Number Here"
-                    placeholderTextColor={COLORS.label}
+                    placeholderTextColor={COLORS.dark}
                     keyboardType="numeric"
                   />
                 )}
@@ -167,7 +167,7 @@ const AddDeliveryAddress = ({ navigation }) => {
                       onBlur();
                     }}
                     placeholder="Type Adress Specification"
-                    placeholderTextColor={COLORS.label}
+                    placeholderTextColor={COLORS.dark}
                   />
                 )}
                 name="adress"
@@ -195,7 +195,7 @@ const AddDeliveryAddress = ({ navigation }) => {
                       onBlur();
                     }}
                     placeholder="Locality/Town"
-                    placeholderTextColor={COLORS.label}
+                    placeholderTextColor={COLORS.dark}
                   />
                 )}
                 name="localTown"

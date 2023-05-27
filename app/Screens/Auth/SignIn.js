@@ -35,7 +35,7 @@ const SignIn = (props) => {
         style={{
           ...GlobalStyleSheet.container,
           flex: 1,
-          backgroundColor: COLORS.white,
+          backgroundColor: COLORS.backgroundColor,
         }}
       >
         <View
@@ -78,7 +78,7 @@ const SignIn = (props) => {
                   onBlur();
                 }}
                 placeholder="Type Phone Number Here"
-                placeholderTextColor={COLORS.label}
+                placeholderTextColor={COLORS.dark}
                 keyboardType="numeric"
               />
             )}
@@ -129,7 +129,7 @@ const SignIn = (props) => {
                   }}
                   secureTextEntry={handlePassword}
                   placeholder="Type Password Here"
-                  placeholderTextColor={COLORS.label}
+                  placeholderTextColor={COLORS.dark}
                 />
               )}
               name="password"
