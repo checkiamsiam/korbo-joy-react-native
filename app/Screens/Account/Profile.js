@@ -1,6 +1,7 @@
 import { IconButton } from "@react-native-material/core";
-import React, { useRef } from "react";
-import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import * as ImagePicker from "expo-image-picker";
+import React, { useRef, useState } from "react";
+import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -44,6 +45,22 @@ const Profile = ({ navigation }) => {
   const RBSheetLanguage = useRef();
   const { user } = useSelector((state) => state.auth);
   const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const [image, setImage] = useState(null);
+
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [65, 65],
+      quality: 1,
+    });
+
+    if (!result?.canceled) {
+      setImage(result.assets[0].uri);
+      // server side upload
+    }
+  };
   const styles = createStyles(COLORS);
 
   return (
@@ -120,15 +137,21 @@ const Profile = ({ navigation }) => {
                 marginBottom: 20,
               }}
             >
-              <Image
-                style={{
-                  height: 65,
-                  width: 65,
-                  borderRadius: 65,
-                  marginRight: 15,
-                }}
-                source={IMAGES.user}
-              />
+              <TouchableHighlight onPress={pickImage} style={{ height: 65, width: 65, borderRadius: 65, marginRight: 15 }}>
+                <View>
+                  <Image
+                    style={{
+                      height: 65,
+                      width: 65,
+                      borderRadius: 65,
+                    }}
+                    source={image ? { uri: image } : IMAGES.user}
+                  />
+                  <View style={{ flex: 1, height: 65, width: 65, borderRadius: 65, position: "absolute", backgroundColor: "rgba(51, 51, 51, 0.6)" }}>
+                    <Ionicons name="md-image" size={20} color="white" style={{ position: "absolute", top: 23, left: 23 }} />
+                  </View>
+                </View>
+              </TouchableHighlight>
               <View
                 style={{
                   flex: 1,
