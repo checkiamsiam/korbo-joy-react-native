@@ -34,7 +34,6 @@ const EditProfile = (props) => {
                 onFocus={() => setisFocused(true)}
                 onBlur={() => setisFocused(false)}
                 placeholder="Type Mobile number"
-                placeholderTextColor={COLORS.label}
               />
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
@@ -45,7 +44,6 @@ const EditProfile = (props) => {
                 onFocus={() => setisFocused2(true)}
                 onBlur={() => setisFocused2(false)}
                 placeholder="Type your name"
-                placeholderTextColor={COLORS.label}
               />
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
@@ -55,7 +53,6 @@ const EditProfile = (props) => {
                 onFocus={() => setisFocused3(true)}
                 onBlur={() => setisFocused3(false)}
                 placeholder="Type your email"
-                placeholderTextColor={COLORS.label}
               />
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
@@ -65,7 +62,6 @@ const EditProfile = (props) => {
                 onFocus={() => setisFocused4(true)}
                 onBlur={() => setisFocused4(false)}
                 placeholder="Type your location"
-                placeholderTextColor={COLORS.label}
               />
             </View>
           </View>

@@ -21,7 +21,7 @@ const SignUp = (props) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [signup] = useRegisterMutation();
+  const [signup, { isLoading }] = useRegisterMutation();
 
   const onSubmit = async (data) => {
     const body = {
@@ -235,7 +235,7 @@ const SignUp = (props) => {
           </View>
         </View>
 
-        <CustomButton onPress={handleSubmit(onSubmit)} title="Register" />
+        <CustomButton disabled={isLoading} onPress={handleSubmit(onSubmit)} title="Register" />
         <Text style={{ ...FONTS.font, marginTop: 15 }}>By tapping “Register” you accept our terms and condition.</Text>
         <View style={{ marginTop: 20 }}>
           <Text

@@ -18,7 +18,7 @@ const SignIn = (props) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [login] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
 
   const onSubmit = async (data) => {
     const body = {
@@ -138,7 +138,7 @@ const SignIn = (props) => {
           </View>
         </View>
 
-        <CustomButton onPress={handleSubmit(onSubmit)} title="Login" />
+        <CustomButton disabled={isLoading} onPress={handleSubmit(onSubmit)} title="Login" />
 
         {/* <View
           style={{
