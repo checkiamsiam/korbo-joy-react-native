@@ -54,7 +54,7 @@ const Products = ({ products: pData }) => {
           )}
         </View>
       ) : (
-        <Text style={{ textAlign: "center" }}>No Product Found</Text>
+        <Text style={{ textAlign: "center" , color: COLORS.text }}>No Product Found</Text>
       )}
     </View>
   );

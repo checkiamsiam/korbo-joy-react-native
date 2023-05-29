@@ -32,7 +32,7 @@ const ActionSheets = () => {
       customStyles={{
         wrapper: {},
         container: {
-          backgroundColor: COLORS.white,
+          backgroundColor: COLORS.backgroundColor,
           borderTopLeftRadius: 15,
           borderTopRightRadius: 15,
         },
