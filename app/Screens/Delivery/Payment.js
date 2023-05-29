@@ -22,7 +22,7 @@ const Payment = (props) => {
   const [paymentOption, setPaymentOption] = useState("");
   const { cart } = useSelector((state) => state.cart);
   const { deliveryDetails } = useSelector((state) => state.order);
-  const [orderNow] = usePlaceOrderMutation();
+  const [orderNow , {isLoading}] = usePlaceOrderMutation();
 
   const totalPrice = calculateSum(cart, "totalSalesPrice");
   const totalCharge = calculateSum(cart, "charge");
@@ -103,19 +103,19 @@ const Payment = (props) => {
             </View> */}
             <View
               style={{
-                backgroundColor: "#eee",
+                backgroundColor: COLORS.backgroundColor,
                 paddingHorizontal: 15,
                 paddingBottom: 10,
                 paddingTop: 15,
               }}
             >
-              <Text style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.dark }}>Payment Options</Text>
+              <Text style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.text }}>Payment Options</Text>
             </View>
 
             <View style={{ borderBottomWidth: 1, borderColor: COLORS.borderColor }}>
               <TouchableOpacity onPress={() => setPaymentOption(paymentOption === "Cash" ? "" : "Cash")} style={[styles.list]}>
                 <Image style={[styles.listImg, { tintColor: COLORS.title }]} source={cash} />
-                <Text style={[styles.listTitle, { color: COLORS.title }]}>Cash On Delivery(Cash/UPI)</Text>
+                <Text style={[styles.listTitle, { color: COLORS.title }]}>Cash On Delivery(Cash/Bkash/Nagad)</Text>
                 <FeatherIcon color={COLORS.title} name={"chevron-down"} size={22} />
               </TouchableOpacity>
               <Collapsible collapsed={paymentOption === "Cash" ? false : true} />
@@ -551,7 +551,7 @@ const Payment = (props) => {
                 </TouchableOpacity> */}
               </View>
               <View style={{ flex: 1 }}>
-                <CustomButton onPress={placeOrder} title={"Place Order"} color={COLORS.primary} />
+                <CustomButton disabled={isLoading} onPress={placeOrder} title={"Place Order"} color={COLORS.primary} />
               </View>
             </View>
           </View>
