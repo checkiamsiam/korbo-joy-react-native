@@ -14,21 +14,36 @@ const EditProfile = (props) => {
 
   const { user } = useSelector((state) => state.auth);
 
+  const defaultValues = {
+    number: user?.number,
+    name: user?.name,
+    email: user?.email,
+    presentAddress: user?.presentAddress,
+  };
+
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    defaultValues: {
-      number: user?.number,
-      name: user?.name,
-      email: user?.email,
-      presentAddress: user?.presentAddress,
-    },
+    defaultValues,
   });
 
   const onSubmit = async (data) => {
-    console.log(data);
+    let body = {};
+    //sanitize changes from previous data
+    for (const key in data) {
+      if (data[key] !== defaultValues[key]) {
+        body[key] = data[key];
+      }
+    }
+    //handle update
+    if (Object.keys(body).length === 0) {
+      props.navigation.navigate("Profile");
+    } else {
+      //update user data
+      console.log("updating");
+    }
   };
 
   return (
