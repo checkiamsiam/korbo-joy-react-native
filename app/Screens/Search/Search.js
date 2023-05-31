@@ -40,6 +40,13 @@ const SearchData = [
 
 const Search = ({ navigation }) => {
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
+  const [search, setSearch] = React.useState("");
+  const handleSearch = () => {
+    if (search.length > 0) {
+      //do search functionality here
+      console.log(search);
+    }
+  };
   return (
     <SafeAreaView
       style={{
@@ -55,16 +62,18 @@ const Search = ({ navigation }) => {
           borderBottomColor: COLORS.borderColor,
         }}
       >
-        <IconButton onPress={() => {}} size={24} icon={() => <FeatherIcon color={COLORS.text} name="search" size={22} />} />
+        <IconButton onPress={handleSearch} size={24} icon={() => <FeatherIcon color={COLORS.text} name="search" size={22} />} />
         <TextInput
           style={{
             ...FONTS.font,
             flex: 1,
             color: COLORS.title,
           }}
+          onChange={(event) => setSearch(event.nativeEvent.text)}
           autoFocus={true}
           placeholder="Search here..."
           placeholderTextColor={COLORS.text}
+          onBlur={handleSearch}
         />
       </View>
       <ScrollView
