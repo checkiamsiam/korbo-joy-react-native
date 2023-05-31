@@ -1,12 +1,12 @@
-import { IMAGE_BASE } from "@env";
 import React from "react";
-import { Image, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView, StatusBar, Text, View } from "react-native";
 import { ScrollView } from "react-native-virtualized-view";
 import { useDispatch, useSelector } from "react-redux";
 import ProductsListSkeleton from "../../components/skeletons/ProductsListSkeleton";
 import { useGetCategoryProductQuery } from "../../features/Categories/CategoriesApi";
 import CategoryHeader from "./CategoryHeader";
 import Products from "./Products";
+import SubCategoriesSection from "./SubCategories";
 
 const CategoryHome = ({ navigation, route }) => {
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
@@ -26,80 +26,8 @@ const CategoryHome = ({ navigation, route }) => {
     >
       <CategoryHeader />
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
-        <View>
-          {thisCategory && (
-            <View
-              style={{
-                flexDirection: "row",
-                flexWrap: "wrap",
-                marginTop: 20,
-                borderBottomWidth: 1,
-                borderBottomColor: COLORS.borderColor,
-                paddingBottom: 5,
-              }}
-            >
-              {thisCategory?.categorySubs.map((d2, i2) => {
-                return (
-                  <View
-                    key={i2}
-                    style={{
-                      width: "25%",
-                      alignItems: "center",
-                    }}
-                  >
-                    <TouchableOpacity
-                      onPress={() =>
-                        navigation.navigate("Items", {
-                          type: "Sub Category",
-                          key: {
-                            title: d2.name,
-                            id: d2.id,
-                          },
-                        })
-                      }
-                      style={{
-                        alignItems: "center",
-                        marginBottom: 18,
-                      }}
-                    >
-                      <View
-                        style={{
-                          height: 60,
-                          width: 60,
-                          borderRadius: 60,
-                          backgroundColor: "#FFF1F6",
-                          borderWidth: 1,
-                          borderColor: "#FFD9E7",
-                          marginBottom: 6,
-                          overflow: "hidden",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <Image
-                          style={{
-                            width: "100%",
-                            height: 60,
-                          }}
-                          source={{ uri: `${IMAGE_BASE}/${d2.mobileicon}` }}
-                        />
-                      </View>
-                      <Text
-                        style={{
-                          ...FONTS.fontXs,
-                          ...FONTS.fontBold,
-                          color: COLORS.title,
-                          textAlign: "center",
-                        }}
-                      >
-                        {d2.name}
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-                );
-              })}
-            </View>
-          )}
+        <View style={{ marginTop: 20 }}>
+          <SubCategoriesSection SubCategories={thisCategory?.categorySubs} />
         </View>
         <View
           style={{

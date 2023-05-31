@@ -131,6 +131,7 @@ const CustomBottomNavigation = ({ state, descriptors, navigation }) => {
               style={{
                 alignItems: "center",
                 paddingVertical: 9,
+                transform: [{ scale: isFocused ? 1.1 : 1 }],
               }}
             >
               <Image
