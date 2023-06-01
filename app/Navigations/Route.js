@@ -2,6 +2,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import SnackbarHandle from "../components/SnackbarHandle";
 import { logout } from "../features/Auth/AuthSlice";
 import { clearCart } from "../features/Cart/CartSlice";
 import verifyToken from "../utils/verifyToken";
@@ -25,6 +26,7 @@ const Routes = () => {
   return (
     <NavigationContainer>
       <StackNavigator />
+      <SnackbarHandle />
     </NavigationContainer>
   );
 };

@@ -1,17 +1,15 @@
 import React from "react";
+import { Text, View } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import { useDispatch, useSelector } from "react-redux";
-import { setActionSheet } from "../features/ActionSheets/ActionSheetSlice";
+import { setActionSheet } from "../features/Action/ActionSheetSlice";
 import { actionSheetRef } from "../utils/globalRef";
-import LoginSheet from "./ActionSheet/LoginSheet";
-import OptionBar from "./ActionSheet/OptionBar";
-import RegisterSheet from "./ActionSheet/RegisterSheet";
-import SuccessSheet from "./ActionSheet/SuccessSheet";
 
 const ActionSheets = () => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
-  const { COLORS } = useSelector((state) => state.theme);
-  const { activeSheet } = useSelector((state) => state.actionSheet);
+  const { activeSheet, data } = useSelector((state) => state.actionSheet);
   const handleClose = () => {
     dispatch(
       setActionSheet({
@@ -25,14 +23,12 @@ const ActionSheets = () => {
       ref={actionSheetRef}
       closeOnDragDown={true}
       onClose={handleClose}
-      height={
-        activeSheet === "option" ? 270 : activeSheet === "success" ? 220 : activeSheet === "login" ? 360 : activeSheet === "register" ? 430 : 230
-      }
+      height={activeSheet === "success" ? 220 : 230}
       openDuration={100}
       customStyles={{
         wrapper: {},
         container: {
-          backgroundColor: COLORS.backgroundColor,
+          backgroundColor: COLORS.white,
           borderTopLeftRadius: 15,
           borderTopRightRadius: 15,
         },
@@ -45,16 +41,20 @@ const ActionSheets = () => {
         },
       }}
     >
-      {activeSheet === "option" ? (
-        <OptionBar />
-      ) : activeSheet === "success" ? (
-        <SuccessSheet />
-      ) : activeSheet === "login" ? (
-        <LoginSheet />
-      ) : activeSheet === "register" ? (
-        <RegisterSheet />
-      ) : (
-        <SuccessSheet />
+      {activeSheet === "success" && (
+        <>
+          <View
+            style={{
+              alignItems: "center",
+              paddingHorizontal: 35,
+              paddingVertical: 20,
+            }}
+          >
+            <Ionicons name="checkmark-circle" style={{ marginBottom: 8 }} color={COLORS.success} size={60} />
+            <Text style={{ ...FONTS.h5, color: COLORS.title }}>{data.title}</Text>
+            <Text style={{ ...FONTS.font, color: COLORS.text, textAlign: "center" }}>{data.subTitle}</Text>
+          </View>
+        </>
       )}
     </RBSheet>
   );

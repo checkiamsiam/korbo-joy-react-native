@@ -1,5 +1,6 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import actionSheetReducer from "../ActionSheets/ActionSheetSlice";
+import actionSheetReducer from "../Action/ActionSheetSlice";
+import snackbarReducer from "../Action/SnackbarSlice";
 import authReducer from "../Auth/AuthSlice";
 import cartReducer from "../Cart/CartSlice";
 import categoriesReducer from "../Categories/CategoriesSlice";
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   [ApiBase.reducerPath]: ApiBase.reducer,
   auth: authReducer,
   actionSheet: actionSheetReducer,
+  snackbar: snackbarReducer,
   categories: categoriesReducer,
   slider: sliderReducer,
   flashSale: flashSaleReducer,

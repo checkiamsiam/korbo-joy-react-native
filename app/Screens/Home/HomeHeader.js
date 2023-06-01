@@ -1,3 +1,4 @@
+import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Text, View } from "react-native";
@@ -34,7 +35,7 @@ const HomeHeader = () => {
                 borderRadius: 8,
               }}
             >
-              <FeatherIcon color={COLORS.title} size={18} name="menu" />
+              <AntDesign name="menu-fold" size={17} color={COLORS.title} />
             </View>
           )}
           size={25}

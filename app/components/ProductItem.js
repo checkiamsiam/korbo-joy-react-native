@@ -1,25 +1,34 @@
 import { IMAGE_BASE } from "@env";
-import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { showSnack } from "../features/Action/SnackbarSlice";
 import { useAddToCartMutation } from "../features/Cart/CartApi";
 
 const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews, status, imgLength, onPress, imageSrc, isLike, handleItemLike }) => {
-  const { user } = useSelector((state) => state.auth);
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
-  const navigation = useNavigation();
-  const [addToCart, {}] = useAddToCartMutation();
+  const { user } = useSelector((state) => state.auth);
+  const { cart } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const [addToCart, { isLoading }] = useAddToCartMutation();
   const handleAddToCart = async () => {
-    await addToCart({
-      id: id,
-      userId: user.id,
-      orderType: "userOrder",
-      userType: "user",
-    });
-    navigation.navigate("Cart");
+    if (!isLoading) {
+      await addToCart({
+        id: id,
+        userId: user.id,
+        orderType: "userOrder",
+        userType: "user",
+      });
+      dispatch(
+        showSnack({
+          text: `Product added to cart successfully!  +1x`,
+          actionLabel: "View",
+          navigateTo: "Cart",
+        })
+      );
+    }
   };
   return (
     <TouchableOpacity
