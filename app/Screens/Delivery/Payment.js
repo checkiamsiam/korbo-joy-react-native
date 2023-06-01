@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import cash from "../../assets/images/icons/cash.png";
 import phonepe from "../../assets/images/icons/phonepe.png";
 import CustomButton from "../../components/CustomButton";
-import { setActionSheet } from "../../features/ActionSheets/ActionSheetSlice";
+import { setActionSheet } from "../../features/Action/ActionSheetSlice";
 import { usePlaceOrderMutation } from "../../features/Order/OrderApi";
 import calculateSum from "../../utils/calculateSum";
 import { actionSheetRef } from "../../utils/globalRef";

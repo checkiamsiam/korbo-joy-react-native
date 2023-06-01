@@ -5,6 +5,13 @@ import { useSelector } from "react-redux";
 
 const SearchBar = (props) => {
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
+  const [search, setSearch] = React.useState("");
+  const handleSearch = () => {
+    if (search.length > 0) {
+      //do search functionality here
+      console.log(search);
+    }
+  };
   return (
     <>
       <View
@@ -22,10 +29,13 @@ const SearchBar = (props) => {
             paddingVertical: 10,
             color: COLORS.title,
           }}
+          onChange={(event) => setSearch(event.nativeEvent.text)}
           placeholder="Search here.."
           placeholderTextColor={COLORS.text}
+          onSubmitEditing={handleSearch}
         />
         <TouchableOpacity
+          onPress={handleSearch}
           style={{
             height: 50,
             width: 50,

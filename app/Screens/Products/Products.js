@@ -4,25 +4,22 @@ import { SceneMap, TabBar, TabView } from "react-native-tab-view";
 import { useSelector } from "react-redux";
 import SearchBar from "../../components/SearchBar";
 import Header from "../../layout/Header";
-import BestItems from "./BestItems";
-import PopularItems from "./PopularItems";
-import SaleItems from "./SaleItems";
+import FlashSaleItems from "./FlashSaleItems";
 
 const renderScene = SceneMap({
-  Popular: PopularItems,
-  BestProducts: BestItems,
-  FlashSale: SaleItems,
+  Regular: FlashSaleItems,
+  BestOffer: FlashSaleItems,
+  FlashSale: FlashSaleItems,
 });
 
 const Products = (props) => {
   const layout = useWindowDimensions();
-
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector((state) => state.theme);
 
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: "Popular", title: "Popular" },
-    { key: "BestProducts", title: "Best Products" },
+    { key: "Regular", title: "Regular" },
+    { key: "BestOffer", title: "Best Offer" },
     { key: "FlashSale", title: "Flash Sale" },
   ]);
 
