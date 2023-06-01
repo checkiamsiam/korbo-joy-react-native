@@ -73,7 +73,7 @@ const Search = ({ navigation }) => {
           autoFocus={true}
           placeholder="Search here..."
           placeholderTextColor={COLORS.text}
-          onBlur={handleSearch}
+          onSubmitEditing={handleSearch}
         />
       </View>
       <ScrollView
