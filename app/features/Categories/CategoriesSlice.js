@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  homeCategories: [],
   allCategories: [],
 };
 
@@ -11,9 +10,6 @@ const categoriesSlice = createSlice({
   reducers: {
     setCategories(state, { payload }) {
       state.allCategories = payload;
-      const homeCategories = payload.slice(0, 7);
-      homeCategories.push({ name: "More" });
-      state.homeCategories = homeCategories;
     },
   },
 });
@@ -21,5 +17,11 @@ const categoriesSlice = createSlice({
 const categoriesReducer = categoriesSlice.reducer;
 
 export const { setCategories } = categoriesSlice.actions;
+
+export const selectHomeCategories = (state) => {
+  const homeCategories = state.categories.allCategories.slice(0, 7);
+  homeCategories.push({ name: "More" });
+  return homeCategories;
+};
 
 export default categoriesReducer;

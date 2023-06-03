@@ -5,11 +5,14 @@ import { Text, View } from "react-native";
 import { IconButton } from "react-native-paper";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useSelector } from "react-redux";
+import { useGetUserCartQuery } from "../../features/Cart/CartApi";
 
 const HomeHeader = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
+  const { user, token } = useSelector((state) => state.auth);
   const navigation = useNavigation();
   const { cart } = useSelector((state) => state.cart);
-  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
+  const {} = useGetUserCartQuery(user?.id, { skip: !token });
   return (
     <View
       style={{

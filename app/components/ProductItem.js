@@ -1,6 +1,6 @@
 import { IMAGE_BASE } from "@env";
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
+import React, { memo } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,25 +9,30 @@ import { useAddToCartMutation } from "../features/Cart/CartApi";
 
 const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews, status, imgLength, onPress, imageSrc, isLike, handleItemLike }) => {
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
-  const { user } = useSelector((state) => state.auth);
+  const { user, token } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [addToCart, { isLoading }] = useAddToCartMutation();
   const handleAddToCart = async () => {
-    if (!isLoading) {
-      await addToCart({
-        id: id,
-        userId: user.id,
-        orderType: "userOrder",
-        userType: "user",
-      });
-      dispatch(
-        showSnack({
-          text: `Product added to cart successfully!  +1x`,
-          actionLabel: "View",
-          navigateTo: "Cart",
-        })
-      );
+    if (!token) {
+      dispatch(showSnack({ text: "Please login to add product to cart!", actionLabel: "Login", navigateTo: "SignIn" }));
+      return;
+    } else {
+      if (!isLoading) {
+        await addToCart({
+          id: id,
+          userId: user.id,
+          orderType: "userOrder",
+          userType: "user",
+        });
+        dispatch(
+          showSnack({
+            text: `Product added to cart successfully!  +1x`,
+            actionLabel: "View",
+            navigateTo: "Cart",
+          })
+        );
+      }
     }
   };
   return (
@@ -157,4 +162,4 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
   );
 };
 
-export default ProductItem;
+export default memo(ProductItem);
