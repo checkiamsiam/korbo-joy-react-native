@@ -8,9 +8,11 @@ import ProductsListSkeleton from "../../components/skeletons/ProductsListSkeleto
 import { useGetJustForYouPdQuery } from "../../features/JustForYou/justForYouApi";
 
 const JustForYou = () => {
+  const { COLORS } = useSelector((state) => state.theme);
   const [limit, setLimit] = useState(8);
-  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
-  const { isLoading } = useGetJustForYouPdQuery(limit);
+  const { isLoading } = useGetJustForYouPdQuery(limit, {
+    pollingInterval: 60000,
+  });
   const navigation = useNavigation();
   const { products } = useSelector((state) => state.justForYou);
   const handleEndReach = () => {

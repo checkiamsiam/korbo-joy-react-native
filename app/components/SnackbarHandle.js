@@ -16,10 +16,7 @@ const SnackbarHandle = () => {
         onDismiss={() => dispatch(hideSnack())}
         action={{
           label: actionLabel,
-          onPress: () =>
-            navigation.navigate("BottomNavigation", {
-              screen: navigateTo,
-            }),
+          onPress: () => navigation.navigate(navigateTo),
         }}
       >
         {text}

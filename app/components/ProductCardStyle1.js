@@ -1,5 +1,5 @@
 import { IMAGE_BASE } from "@env";
-import React from "react";
+import React, { memo } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useSelector } from "react-redux";
 
@@ -88,4 +88,4 @@ const ProductCardStyle1 = ({ image, title, price, oldPrice, offer, onPress }) =>
   );
 };
 
-export default ProductCardStyle1;
+export default memo(ProductCardStyle1);

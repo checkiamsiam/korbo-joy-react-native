@@ -8,8 +8,10 @@ import { useSelector } from "react-redux";
 import { useGetSliderQuery } from "../../features/SliderFeature/SliderApi";
 
 const HomeBanner = () => {
-  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
-  const { isLoading: sliderLoading } = useGetSliderQuery();
+  const { COLORS } = useSelector((state) => state.theme);
+  const { isLoading: sliderLoading } = useGetSliderQuery(null, {
+    pollingInterval: 60000,
+  });
   const { sliders } = useSelector((state) => state.slider);
   return (
     <View

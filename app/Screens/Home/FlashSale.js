@@ -7,7 +7,9 @@ import FlashSaleSkeleton from "../../components/skeletons/FlashSaleSkeleton";
 import { useGetFlashSalePdQuery } from "../../features/FlashSale/FlashSaleApi";
 
 const FlashSale = () => {
-  const { isLoading } = useGetFlashSalePdQuery();
+  const { isLoading } = useGetFlashSalePdQuery(null, {
+    pollingInterval: 60000,
+  });
   const navigation = useNavigation();
   const { products } = useSelector((state) => state.flashSale);
   return (

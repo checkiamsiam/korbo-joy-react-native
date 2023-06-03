@@ -6,19 +6,23 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useSelector } from "react-redux";
 import CategoriesSkeleton from "../../components/skeletons/CategoriesSkeleton";
 import { useGetCategoriesQuery } from "../../features/Categories/CategoriesApi";
+import { selectHomeCategories } from "../../features/Categories/CategoriesSlice";
 const Categories = () => {
-  const { isLoading: categoriesLoading } = useGetCategoriesQuery();
-  const navigation = useNavigation();
-  const { homeCategories } = useSelector((state) => state.categories);
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
+  const { isLoading: categoriesLoading } = useGetCategoriesQuery(null, {
+    pollingInterval: 60000,
+  });
+
+  const navigation = useNavigation();
+  const homeCategories = useSelector(selectHomeCategories);
+
   return (
-    <View>
+    <View style={{marginTop: 20}}>
       {!categoriesLoading ? (
         <View
           style={{
             flexDirection: "row",
             flexWrap: "wrap",
-            marginTop: 20,
           }}
         >
           {homeCategories.map((data, index) => {
@@ -38,7 +42,6 @@ const Categories = () => {
                           name: data.name,
                           categoryId: data.id,
                         });
-                    //navigation.navigate('Featured')
                   }}
                   style={{
                     alignItems: "center",
