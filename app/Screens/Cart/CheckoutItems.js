@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import CheckoutItem from "../../components/CheckoutItem";
@@ -29,4 +29,4 @@ const CheckoutItems = () => {
   );
 };
 
-export default CheckoutItems;
+export default memo(CheckoutItems);
