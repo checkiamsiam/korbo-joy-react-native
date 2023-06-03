@@ -11,7 +11,7 @@ const HomeHeader = () => {
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const { user, token } = useSelector((state) => state.auth);
   const navigation = useNavigation();
-  const { cart } = useSelector((state) => state.cart);
+  const totalProductInCard = useSelector((state) => state.cart.cart.length);
   const {} = useGetUserCartQuery(user?.id, { skip: !token });
   return (
     <View
@@ -61,7 +61,7 @@ const HomeHeader = () => {
           icon={() => (
             <View>
               <FeatherIcon color={COLORS.title} size={20} name="shopping-cart" />
-              {cart.length > 0 && (
+              {totalProductInCard > 0 && (
                 <View
                   style={{
                     height: 14,
@@ -75,7 +75,7 @@ const HomeHeader = () => {
                     right: -6,
                   }}
                 >
-                  <Text style={{ ...FONTS.fontXs, fontSize: 10, color: COLORS.white }}>{cart.length}</Text>
+                  <Text style={{ ...FONTS.fontXs, fontSize: 10, color: COLORS.white }}>{totalProductInCard}</Text>
                 </View>
               )}
             </View>
