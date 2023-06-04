@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, Platform, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  Platform,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useDispatch, useSelector } from "react-redux";
 import DarkModeToggler from "../components/DarkModeToggler";
@@ -70,7 +77,10 @@ const CustomDrawer = ({ navigation }) => {
         style={{
           flex: 1,
           backgroundColor: COLORS.backgroundColor,
-          paddingTop: Platform.OS === "ios" ? StatusBar.currentHeight * 2 : StatusBar.currentHeight,
+          paddingTop:
+            Platform.OS === "ios"
+              ? StatusBar.currentHeight * 2
+              : StatusBar.currentHeight,
         }}
       >
         <View
@@ -93,8 +103,19 @@ const CustomDrawer = ({ navigation }) => {
             source={IMAGES.user}
           />
           <View style={{ flex: 1 }}>
-            <Text style={{ ...FONTS.h6, color: COLORS.title, top: 2, textTransform: "capitalize" }}>{user.name ? user.name : "Guest"}</Text>
-            <Text style={{ ...FONTS.font, color: COLORS.title }}>{user.number ? user.number : "+880XXXXXXXXXX"}</Text>
+            <Text
+              style={{
+                ...FONTS.h6,
+                color: COLORS.title,
+                top: 2,
+                textTransform: "capitalize",
+              }}
+            >
+              {user.name ? user.name : "Guest"}
+            </Text>
+            <Text style={{ ...FONTS.font, color: COLORS.title }}>
+              {user.number ? user.number : "+880XXXXXXXXXX"}
+            </Text>
           </View>
         </View>
 
@@ -131,7 +152,11 @@ const CustomDrawer = ({ navigation }) => {
                   }}
                 >
                   <View style={{ marginRight: 15 }}>
-                    <FeatherIcon name={data.icon} color={COLORS.primary} size={20} />
+                    <FeatherIcon
+                      name={data.icon}
+                      color={COLORS.primary}
+                      size={20}
+                    />
                   </View>
                   <Text
                     style={{
@@ -144,7 +169,11 @@ const CustomDrawer = ({ navigation }) => {
                   >
                     {data.name}
                   </Text>
-                  <FeatherIcon size={16} color={COLORS.text} name="chevron-right" />
+                  <FeatherIcon
+                    size={16}
+                    color={COLORS.text}
+                    name="chevron-right"
+                  />
                 </TouchableOpacity>
               </View>
             );
@@ -180,7 +209,9 @@ const CustomDrawer = ({ navigation }) => {
             <DarkModeToggler />
           </View>
           <Image source={require("../assets/images/logo-full.png")} />
-          <Text style={{ ...FONTS.font, color: COLORS.text, marginTop: 3 }}>App Version 1.0</Text>
+          <Text style={{ ...FONTS.font, color: COLORS.text, marginTop: 3 }}>
+            App Version 1.0
+          </Text>
         </View>
       </View>
     </>

@@ -3,7 +3,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 
 const TableOddEven = () => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   const styles = createStyles(COLORS, FONTS);
   const TableData = [
     {
@@ -49,7 +51,9 @@ const TableOddEven = () => {
               flexDirection: "row",
             }}
           >
-            <Text style={{ ...styles.theadItem, flex: 0.6, paddingLeft: 15 }}>Name</Text>
+            <Text style={{ ...styles.theadItem, flex: 0.6, paddingLeft: 15 }}>
+              Name
+            </Text>
             <Text style={{ ...styles.theadItem }}>Email</Text>
             <Text
               style={{
@@ -77,8 +81,21 @@ const TableOddEven = () => {
                   },
                 ]}
               >
-                <Text style={[{ ...styles.tbodyItem, flex: 0.6, paddingLeft: 15 }, index % 2 === 0 && { color: COLORS.title }]}>{data.name}</Text>
-                <Text numberOfLines={1} style={[{ ...styles.tbodyItem }, index % 2 === 0 && { color: COLORS.title }]}>
+                <Text
+                  style={[
+                    { ...styles.tbodyItem, flex: 0.6, paddingLeft: 15 },
+                    index % 2 === 0 && { color: COLORS.title },
+                  ]}
+                >
+                  {data.name}
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={[
+                    { ...styles.tbodyItem },
+                    index % 2 === 0 && { color: COLORS.title },
+                  ]}
+                >
                   {data.email}
                 </Text>
                 <Text

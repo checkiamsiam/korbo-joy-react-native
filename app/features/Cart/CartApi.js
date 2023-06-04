@@ -71,4 +71,9 @@ export const cartApi = ApiBase.injectEndpoints({
   }),
 });
 
-export const { useAddToCartMutation, useGetUserCartQuery, useDeleteFromCartMutation, useUpdateCartProductMutation } = cartApi;
+export const {
+  useAddToCartMutation,
+  useGetUserCartQuery,
+  useDeleteFromCartMutation,
+  useUpdateCartProductMutation,
+} = cartApi;

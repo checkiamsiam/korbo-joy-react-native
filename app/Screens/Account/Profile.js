@@ -1,7 +1,17 @@
 import { IconButton } from "@react-native-material/core";
 import * as ImagePicker from "expo-image-picker";
 import React, { useRef, useState } from "react";
-import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -44,7 +54,9 @@ const Profile = ({ navigation }) => {
   const dispatch = useDispatch();
   const RBSheetLanguage = useRef();
   const { user } = useSelector((state) => state.auth);
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   const [image, setImage] = useState(null);
 
   const pickImage = async () => {
@@ -92,7 +104,9 @@ const Profile = ({ navigation }) => {
         >
           <Text style={{ ...FONTS.h5, color: COLORS.title }}>Language</Text>
         </View>
-        <ScrollView contentContainerStyle={{ paddingBottom: 20, paddingHorizontal: 15 }}>
+        <ScrollView
+          contentContainerStyle={{ paddingBottom: 20, paddingHorizontal: 15 }}
+        >
           {languagetData.map((data, index) => (
             <TouchableOpacity
               onPress={() => RBSheetLanguage.current.close()}
@@ -113,7 +127,9 @@ const Profile = ({ navigation }) => {
                 }}
                 source={data.flag}
               />
-              <Text style={{ ...FONTS.fontLg, color: COLORS.title, flex: 1 }}>{data.name}</Text>
+              <Text style={{ ...FONTS.fontLg, color: COLORS.title, flex: 1 }}>
+                {data.name}
+              </Text>
               <FeatherIcon name="chevron-right" color={COLORS.text} size={24} />
             </TouchableOpacity>
           ))}
@@ -137,7 +153,15 @@ const Profile = ({ navigation }) => {
                 marginBottom: 20,
               }}
             >
-              <TouchableHighlight onPress={pickImage} style={{ height: 65, width: 65, borderRadius: 65, marginRight: 15 }}>
+              <TouchableHighlight
+                onPress={pickImage}
+                style={{
+                  height: 65,
+                  width: 65,
+                  borderRadius: 65,
+                  marginRight: 15,
+                }}
+              >
                 <View>
                   <Image
                     style={{
@@ -147,8 +171,22 @@ const Profile = ({ navigation }) => {
                     }}
                     source={image ? { uri: image } : IMAGES.user}
                   />
-                  <View style={{ flex: 1, height: 65, width: 65, borderRadius: 65, position: "absolute", backgroundColor: "rgba(51, 51, 51, 0.6)" }}>
-                    <Ionicons name="md-image" size={20} color="white" style={{ position: "absolute", top: 23, left: 23 }} />
+                  <View
+                    style={{
+                      flex: 1,
+                      height: 65,
+                      width: 65,
+                      borderRadius: 65,
+                      position: "absolute",
+                      backgroundColor: "rgba(51, 51, 51, 0.6)",
+                    }}
+                  >
+                    <Ionicons
+                      name="md-image"
+                      size={20}
+                      color="white"
+                      style={{ position: "absolute", top: 23, left: 23 }}
+                    />
                   </View>
                 </View>
               </TouchableHighlight>
@@ -157,8 +195,12 @@ const Profile = ({ navigation }) => {
                   flex: 1,
                 }}
               >
-                <Text style={{ ...FONTS.h6, textTransform: "capitalize" }}>{user.name ? user.name : "Guest"}</Text>
-                <Text style={{ ...FONTS.font }}>{user.number ? user.number : "+880XXXXXXXXXX"}</Text>
+                <Text style={{ ...FONTS.h6, textTransform: "capitalize" }}>
+                  {user.name ? user.name : "Guest"}
+                </Text>
+                <Text style={{ ...FONTS.font }}>
+                  {user.number ? user.number : "+880XXXXXXXXXX"}
+                </Text>
               </View>
               <IconButton
                 onPress={() => navigation.navigate("EditProfile")}
@@ -174,8 +216,16 @@ const Profile = ({ navigation }) => {
               }}
             >
               <View style={{ width: "50%", paddingHorizontal: 5 }}>
-                <TouchableOpacity onPress={() => navigation.navigate("Orders")} style={styles.profileBtn}>
-                  <Ionicons style={{ marginRight: 10, top: -1 }} color={COLORS.text} size={20} name={"cube-outline"} />
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("Orders")}
+                  style={styles.profileBtn}
+                >
+                  <Ionicons
+                    style={{ marginRight: 10, top: -1 }}
+                    color={COLORS.text}
+                    size={20}
+                    name={"cube-outline"}
+                  />
                   <Text style={{ ...FONTS.h6 }}>Orders</Text>
                 </TouchableOpacity>
               </View>
@@ -209,7 +259,12 @@ const Profile = ({ navigation }) => {
               </View> */}
               <View style={{ width: "50%", paddingHorizontal: 5 }}>
                 <TouchableOpacity style={styles.profileBtn}>
-                  <FeatherIcon style={{ marginRight: 10, top: -1 }} color={COLORS.text} size={20} name={"headphones"} />
+                  <FeatherIcon
+                    style={{ marginRight: 10, top: -1 }}
+                    color={COLORS.text}
+                    size={20}
+                    name={"headphones"}
+                  />
                   <Text style={{ ...FONTS.h6 }}>Help Center</Text>
                 </TouchableOpacity>
               </View>
@@ -222,12 +277,28 @@ const Profile = ({ navigation }) => {
               borderColor: COLORS.borderColor,
             }}
           >
-            <Text style={{ ...FONTS.h6, marginBottom: 5 }}>Account Settings</Text>
+            <Text style={{ ...FONTS.h6, marginBottom: 5 }}>
+              Account Settings
+            </Text>
             <View>
-              <TouchableOpacity onPress={() => navigation.navigate("EditProfile")} style={styles.listItem}>
-                <FeatherIcon style={{ marginRight: 12 }} color={COLORS.primary} size={20} name="user" />
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Edit Profile</Text>
-                <FeatherIcon size={20} color={COLORS.title} name="chevron-right" />
+              <TouchableOpacity
+                onPress={() => navigation.navigate("EditProfile")}
+                style={styles.listItem}
+              >
+                <FeatherIcon
+                  style={{ marginRight: 12 }}
+                  color={COLORS.primary}
+                  size={20}
+                  name="user"
+                />
+                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>
+                  Edit Profile
+                </Text>
+                <FeatherIcon
+                  size={20}
+                  color={COLORS.title}
+                  name="chevron-right"
+                />
               </TouchableOpacity>
               {/* <TouchableOpacity onPress={() => navigation.navigate("Address")} style={styles.listItem}>
                 <FeatherIcon style={{ marginRight: 12 }} color={COLORS.secondary} size={18} name="map-pin" />
@@ -277,9 +348,20 @@ const Profile = ({ navigation }) => {
                 }}
                 style={styles.listItem}
               >
-                <FeatherIcon style={{ marginRight: 12 }} color={COLORS.primary} size={20} name="log-out" />
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Log Out</Text>
-                <FeatherIcon size={20} color={COLORS.title} name="chevron-right" />
+                <FeatherIcon
+                  style={{ marginRight: 12 }}
+                  color={COLORS.primary}
+                  size={20}
+                  name="log-out"
+                />
+                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>
+                  Log Out
+                </Text>
+                <FeatherIcon
+                  size={20}
+                  color={COLORS.title}
+                  name="chevron-right"
+                />
               </TouchableOpacity>
             </View>
           </View>

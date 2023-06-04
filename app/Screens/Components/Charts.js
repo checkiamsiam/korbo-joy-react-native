@@ -7,10 +7,18 @@ import BasicPieChart from "../../components/Charts/PieChart";
 import Header from "../../layout/Header";
 
 const Charts = () => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header titleLeft title={"Charts"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>

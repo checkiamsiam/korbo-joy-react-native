@@ -22,7 +22,9 @@ const SwiperData = [
 ];
 
 const Welcome = (props) => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <View style={{ flex: 1, backgroundColor: COLORS.secondary }}>
@@ -72,7 +74,10 @@ const Welcome = (props) => {
           >
             {SwiperData.map((data, index) => {
               return (
-                <View style={{ paddingHorizontal: 30, paddingBottom: 70 }} key={index}>
+                <View
+                  style={{ paddingHorizontal: 30, paddingBottom: 70 }}
+                  key={index}
+                >
                   <Text
                     style={{
                       ...FONTS.h3,
@@ -84,7 +89,14 @@ const Welcome = (props) => {
                   >
                     {data.title}
                   </Text>
-                  <Text style={[FONTS.font, { textAlign: "center", color: "rgba(255,255,255,.7)" }]}>{data.desc}</Text>
+                  <Text
+                    style={[
+                      FONTS.font,
+                      { textAlign: "center", color: "rgba(255,255,255,.7)" },
+                    ]}
+                  >
+                    {data.desc}
+                  </Text>
                 </View>
               );
             })}

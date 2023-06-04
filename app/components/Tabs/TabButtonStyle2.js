@@ -1,6 +1,12 @@
 import { useTheme } from "@react-navigation/native";
 import React, { useState } from "react";
-import { Animated, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Animated,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { useSelector } from "react-redux";
 
 const TabButtonStyle2 = ({ buttons, onClick, scrollX }) => {
@@ -19,13 +25,29 @@ const TabButtonStyle2 = ({ buttons, onClick, scrollX }) => {
 
   return (
     <>
-      <View style={{ ...styles.btnContainer }} onLayout={(e) => setWidth(e.nativeEvent.layout.width)}>
+      <View
+        style={{ ...styles.btnContainer }}
+        onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
+      >
         {buttons.map((btn, i) => (
-          <TouchableOpacity key={btn} style={styles.btn} onPress={() => onClick(i)}>
-            <Text style={{ ...FONTS.font, ...FONTS.fontMedium, color: colors.text }}>{btn}</Text>
+          <TouchableOpacity
+            key={btn}
+            style={styles.btn}
+            onPress={() => onClick(i)}
+          >
+            <Text
+              style={{ ...FONTS.font, ...FONTS.fontMedium, color: colors.text }}
+            >
+              {btn}
+            </Text>
           </TouchableOpacity>
         ))}
-        <Animated.View style={[styles.animatedBtnContainer, { width: btnWidth, transform: [{ translateX }] }]}>
+        <Animated.View
+          style={[
+            styles.animatedBtnContainer,
+            { width: btnWidth, transform: [{ translateX }] },
+          ]}
+        >
           {buttons.map((btn) => (
             <Animated.View
               key={btn}
@@ -37,7 +59,15 @@ const TabButtonStyle2 = ({ buttons, onClick, scrollX }) => {
                 },
               ]}
             >
-              <Text style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.white }}>{btn}</Text>
+              <Text
+                style={{
+                  ...FONTS.font,
+                  ...FONTS.fontBold,
+                  color: COLORS.white,
+                }}
+              >
+                {btn}
+              </Text>
               <View
                 style={{
                   height: 45,

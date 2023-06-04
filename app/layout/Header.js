@@ -32,7 +32,9 @@ const Header = (props) => {
           >
             <FeatherIcon name="menu" color={"#B9BCD3"} size={26} />
           </TouchableOpacity>
-          <Text style={{ ...FONTS.h4, flex: 1, textAlign: "center" }}>{props.title}</Text>
+          <Text style={{ ...FONTS.h4, flex: 1, textAlign: "center" }}>
+            {props.title}
+          </Text>
           <TouchableOpacity>
             <Image
               style={{
@@ -69,9 +71,13 @@ const Header = (props) => {
         >
           {props.leftIcon === "back" && (
             <IconButton
-              onPress={() => (props.backAction ? props.backAction() : navigation.goBack())}
+              onPress={() =>
+                props.backAction ? props.backAction() : navigation.goBack()
+              }
               color={COLORS.text}
-              icon={(props) => <MaterialIcons name="arrow-back-ios" {...props} />}
+              icon={(props) => (
+                <MaterialIcons name="arrow-back-ios" {...props} />
+              )}
             />
           )}
           <View style={{ flex: 1 }}>
@@ -84,13 +90,24 @@ const Header = (props) => {
             >
               {props.title}
             </Text>
-            {props.productId && <Text style={{ ...FONTS.font, textAlign: "center" }}>{props.productId}</Text>}
+            {props.productId && (
+              <Text style={{ ...FONTS.font, textAlign: "center" }}>
+                {props.productId}
+              </Text>
+            )}
           </View>
           {props.rightIcon2 === "search" && (
-            <IconButton onPress={() => navigation.navigate("Search")} color={COLORS.text} icon={(props) => <FeatherIcon name="search" {...props} />} />
+            <IconButton
+              onPress={() => navigation.navigate("Search")}
+              color={COLORS.text}
+              icon={(props) => <FeatherIcon name="search" {...props} />}
+            />
           )}
           {props.rightIcon === "more" && (
-            <IconButton color={props.transparent ? "#fff" : "#4E4E4E"} icon={(props) => <MaterialIcons name="more-vert" {...props} />} />
+            <IconButton
+              color={props.transparent ? "#fff" : "#4E4E4E"}
+              icon={(props) => <MaterialIcons name="more-vert" {...props} />}
+            />
           )}
           {props.rightIcon === "grid" && (
             <View

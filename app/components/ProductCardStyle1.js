@@ -3,7 +3,14 @@ import React, { memo } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useSelector } from "react-redux";
 
-const ProductCardStyle1 = ({ image, title, price, oldPrice, offer, onPress }) => {
+const ProductCardStyle1 = ({
+  image,
+  title,
+  price,
+  oldPrice,
+  offer,
+  onPress,
+}) => {
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <TouchableOpacity

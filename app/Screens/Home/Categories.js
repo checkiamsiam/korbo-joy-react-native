@@ -17,7 +17,7 @@ const Categories = () => {
   const homeCategories = useSelector(selectHomeCategories);
 
   return (
-    <View style={{marginTop: 20}}>
+    <View style={{ marginTop: 20 }}>
       {!categoriesLoading ? (
         <View
           style={{
@@ -63,7 +63,11 @@ const Categories = () => {
                     }}
                   >
                     {data.name === "More" ? (
-                      <MaterialIcons color={COLORS.primary} size={40} name="more-horiz" />
+                      <MaterialIcons
+                        color={COLORS.primary}
+                        size={40}
+                        name="more-horiz"
+                      />
                     ) : (
                       <Image
                         style={{

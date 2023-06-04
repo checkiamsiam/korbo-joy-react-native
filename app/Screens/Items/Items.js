@@ -1,6 +1,12 @@
 import { CheckBox } from "@rneui/themed";
 import React, { useRef, useState } from "react";
-import { SafeAreaView, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import {
+  SafeAreaView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Ripple from "react-native-material-ripple";
 import { List, RadioButton, Snackbar } from "react-native-paper";
 import RBSheet from "react-native-raw-bottom-sheet";
@@ -60,14 +66,26 @@ const brandFilterData = [
 ];
 
 const Items = ({ navigation, route }) => {
-  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   const sheetRef = useRef();
 
   const { type, key } = route.params;
-  const { isLoading } = useGetVendorProductsQuery(key?.id, { refetchOnMountOrArgChange: true, skip: type !== "Vendors" });
-  const { products: flashSaleProducts } = useSelector((state) => state.flashSale);
+  const { isLoading } = useGetVendorProductsQuery(key?.id, {
+    refetchOnMountOrArgChange: true,
+    skip: type !== "Vendors",
+  });
+  const { products: flashSaleProducts } = useSelector(
+    (state) => state.flashSale
+  );
   const { vendorsWiseProducts } = useSelector((state) => state.vendor);
-  const Products = type === "Flash Sale" ? flashSaleProducts : type === "Vendors" ? vendorsWiseProducts : flashSaleProducts;
+  const Products =
+    type === "Flash Sale"
+      ? flashSaleProducts
+      : type === "Vendors"
+      ? vendorsWiseProducts
+      : flashSaleProducts;
 
   const [itemData, setItemData] = useState(Products);
 
@@ -110,14 +128,24 @@ const Items = ({ navigation, route }) => {
     });
     setBrandFilter(Brand);
     setDiscountFilter(Discount);
-    setFilterData(sheetType === "brand" ? Brand : sheetType === "discount" ? Discount : []);
+    setFilterData(
+      sheetType === "brand" ? Brand : sheetType === "discount" ? Discount : []
+    );
   };
 
   return (
     <>
       <RBSheet
         ref={sheetRef}
-        height={sheetType === "sort" ? 250 : sheetType === "discount" ? 310 : sheetType === "brand" ? 330 : 300}
+        height={
+          sheetType === "sort"
+            ? 250
+            : sheetType === "discount"
+            ? 310
+            : sheetType === "brand"
+            ? 330
+            : 300
+        }
         closeOnDragDown={true}
         closeOnPressMask={true}
       >
@@ -129,11 +157,36 @@ const Items = ({ navigation, route }) => {
             }}
             value={sortVal}
           >
-            <RadioButton.Item color={COLORS.primary} style={{ paddingVertical: 2 }} label="What's new" value="newest" />
-            <RadioButton.Item color={COLORS.primary} style={{ paddingVertical: 2 }} label="Price - high to low" value="price-hightolow" />
-            <RadioButton.Item color={COLORS.primary} style={{ paddingVertical: 2 }} label="Price - low to hight" value="price-lowtohigh" />
-            <RadioButton.Item color={COLORS.primary} style={{ paddingVertical: 2 }} label="Popularity" value="popularity" />
-            <RadioButton.Item color={COLORS.primary} style={{ paddingVertical: 2 }} label="Discount" value="discount" />
+            <RadioButton.Item
+              color={COLORS.primary}
+              style={{ paddingVertical: 2 }}
+              label="What's new"
+              value="newest"
+            />
+            <RadioButton.Item
+              color={COLORS.primary}
+              style={{ paddingVertical: 2 }}
+              label="Price - high to low"
+              value="price-hightolow"
+            />
+            <RadioButton.Item
+              color={COLORS.primary}
+              style={{ paddingVertical: 2 }}
+              label="Price - low to hight"
+              value="price-lowtohigh"
+            />
+            <RadioButton.Item
+              color={COLORS.primary}
+              style={{ paddingVertical: 2 }}
+              label="Popularity"
+              value="popularity"
+            />
+            <RadioButton.Item
+              color={COLORS.primary}
+              style={{ paddingVertical: 2 }}
+              label="Discount"
+              value="discount"
+            />
           </RadioButton.Group>
         ) : (
           <>
@@ -154,7 +207,12 @@ const Items = ({ navigation, route }) => {
                     style={{ paddingVertical: 2 }}
                     onPress={() => handleFilterSelected(data.title)}
                     left={() => (
-                      <CheckBox checked={data.selected} checkedColor={COLORS.primary} containerStyle={{ marginLeft: 20 }} disabled={false} />
+                      <CheckBox
+                        checked={data.selected}
+                        checkedColor={COLORS.primary}
+                        containerStyle={{ marginLeft: 20 }}
+                        disabled={false}
+                      />
                     )}
                     title={() => (
                       <Text
@@ -185,7 +243,9 @@ const Items = ({ navigation, route }) => {
                       borderRadius: SIZES.radius,
                     }}
                   >
-                    <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>Clear</Text>
+                    <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>
+                      Clear
+                    </Text>
                   </TouchableOpacity>
                 </View>
                 <View style={GlobalStyleSheet.col50}>
@@ -204,7 +264,12 @@ const Items = ({ navigation, route }) => {
           paddingTop: StatusBar.currentHeight,
         }}
       >
-        <Header titleLeft leftIcon={"back"} title={key?.title} rightIcon2="search" />
+        <Header
+          titleLeft
+          leftIcon={"back"}
+          title={key?.title}
+          rightIcon2="search"
+        />
         <View>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <View
@@ -232,9 +297,21 @@ const Items = ({ navigation, route }) => {
                   alignItems: "center",
                 }}
               >
-                <Octicons color={COLORS.primary} size={16} style={{ marginRight: 6 }} name="sort-desc" />
-                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>Sort By</Text>
-                <FeatherIcon color={COLORS.text} style={{ marginLeft: 2, marginRight: -6 }} size={18} name="chevron-down" />
+                <Octicons
+                  color={COLORS.primary}
+                  size={16}
+                  style={{ marginRight: 6 }}
+                  name="sort-desc"
+                />
+                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>
+                  Sort By
+                </Text>
+                <FeatherIcon
+                  color={COLORS.text}
+                  style={{ marginLeft: 2, marginRight: -6 }}
+                  size={18}
+                  name="chevron-down"
+                />
               </Ripple>
               <TouchableOpacity
                 onPress={() => navigation.navigate("Filter")}
@@ -250,8 +327,15 @@ const Items = ({ navigation, route }) => {
                   alignItems: "center",
                 }}
               >
-                <FeatherIcon color={COLORS.primary} style={{ marginRight: 8 }} size={15} name="filter" />
-                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>Filter</Text>
+                <FeatherIcon
+                  color={COLORS.primary}
+                  style={{ marginRight: 8 }}
+                  size={15}
+                  name="filter"
+                />
+                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>
+                  Filter
+                </Text>
               </TouchableOpacity>
               <Ripple
                 onPress={() => {
@@ -271,8 +355,15 @@ const Items = ({ navigation, route }) => {
                   alignItems: "center",
                 }}
               >
-                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>Brand</Text>
-                <FeatherIcon color={COLORS.text} style={{ marginLeft: 2, marginRight: -6 }} size={18} name="chevron-down" />
+                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>
+                  Brand
+                </Text>
+                <FeatherIcon
+                  color={COLORS.text}
+                  style={{ marginLeft: 2, marginRight: -6 }}
+                  size={18}
+                  name="chevron-down"
+                />
               </Ripple>
               <Ripple
                 onPress={() => {
@@ -292,13 +383,26 @@ const Items = ({ navigation, route }) => {
                   alignItems: "center",
                 }}
               >
-                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>discount</Text>
-                <FeatherIcon color={COLORS.text} style={{ marginLeft: 2, marginRight: -6 }} size={18} name="chevron-down" />
+                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>
+                  discount
+                </Text>
+                <FeatherIcon
+                  color={COLORS.text}
+                  style={{ marginLeft: 2, marginRight: -6 }}
+                  size={18}
+                  name="chevron-down"
+                />
               </Ripple>
             </View>
           </ScrollView>
         </View>
-        <ScrollView>{!isLoading ? <ItemProductView data={Products} /> : <ProductsListSkeleton />}</ScrollView>
+        <ScrollView>
+          {!isLoading ? (
+            <ItemProductView data={Products} />
+          ) : (
+            <ProductsListSkeleton />
+          )}
+        </ScrollView>
         <Snackbar
           visible={isSnackbar}
           duration={3000}

@@ -35,7 +35,11 @@ const FeaturedCard = ({ image, title }) => {
         }}
       >
         <Text style={{ ...FONTS.h3, color: COLORS.white }}>{title}</Text>
-        <Text style={{ ...FONTS.fontLg, color: COLORS.white, marginBottom: 20 }}>Collections</Text>
+        <Text
+          style={{ ...FONTS.fontLg, color: COLORS.white, marginBottom: 20 }}
+        >
+          Collections
+        </Text>
         <TouchableOpacity
           onPress={() => navigation.navigate("Items", { type: "Fashion" })}
           style={{
@@ -45,7 +49,11 @@ const FeaturedCard = ({ image, title }) => {
             paddingVertical: 10,
           }}
         >
-          <Text style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.white }}>SHOP NOW</Text>
+          <Text
+            style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.white }}
+          >
+            SHOP NOW
+          </Text>
         </TouchableOpacity>
       </View>
     </TouchableOpacity>

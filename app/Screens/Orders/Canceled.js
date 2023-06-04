@@ -1,18 +1,18 @@
-import React from 'react';
-import { ScrollView } from 'react-native';
-import CartItem from '../../components/CartItem';
-import pic2 from '../../assets/images/shop/pic2.png';
+import React from "react";
+import { ScrollView } from "react-native";
+import CartItem from "../../components/CartItem";
+import pic2 from "../../assets/images/shop/pic2.png";
 
 const CartData = [
   {
-    productId: '#125125671',
+    productId: "#125125671",
     image: pic2,
-    title: 'Brown Women Shirts by Coklat Cloth',
-    quantity: '2x',
-    size: 'LONG Size',
-    price: '$158.2',
-    status: 'canceled',
-    desc: 'Reach on payment due date',
+    title: "Brown Women Shirts by Coklat Cloth",
+    quantity: "2x",
+    size: "LONG Size",
+    price: "$158.2",
+    status: "canceled",
+    desc: "Reach on payment due date",
   },
 ];
 

@@ -66,7 +66,9 @@ class StopWatch extends React.Component {
             flexDirection: "row",
           }}
         >
-          <Text style={{ ...FONTS.h6, color: COLORS.white, marginRight: 2 }}>{this.state.time.h}</Text>
+          <Text style={{ ...FONTS.h6, color: COLORS.white, marginRight: 2 }}>
+            {this.state.time.h}
+          </Text>
           <Text
             style={{
               ...FONTS.font,
@@ -78,7 +80,9 @@ class StopWatch extends React.Component {
           >
             hrs
           </Text>
-          <Text style={{ ...FONTS.h6, color: COLORS.white, marginRight: 2 }}>{this.state.time.m}</Text>
+          <Text style={{ ...FONTS.h6, color: COLORS.white, marginRight: 2 }}>
+            {this.state.time.m}
+          </Text>
           <Text
             style={{
               ...FONTS.font,
@@ -90,7 +94,9 @@ class StopWatch extends React.Component {
           >
             mins
           </Text>
-          <Text style={{ ...FONTS.h6, color: COLORS.white, marginRight: 2 }}>{this.state.time.s}</Text>
+          <Text style={{ ...FONTS.h6, color: COLORS.white, marginRight: 2 }}>
+            {this.state.time.s}
+          </Text>
           <Text
             style={{
               ...FONTS.font,

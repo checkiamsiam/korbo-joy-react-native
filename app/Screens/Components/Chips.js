@@ -7,10 +7,18 @@ import { IMAGES } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const Chips = () => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header titleLeft title={"Chips"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
@@ -42,16 +50,28 @@ const Chips = () => {
                   <Chip
                     style={{ marginRight: 8 }}
                     color={COLORS.success}
-                    icon={<FeatherIcon name="check" size={18} color={COLORS.white} />}
+                    icon={
+                      <FeatherIcon
+                        name="check"
+                        size={18}
+                        color={COLORS.white}
+                      />
+                    }
                     title={"All good"}
                   />
                   <Chip
                     style={{ marginRight: 8 }}
                     color={COLORS.danger}
-                    icon={<FeatherIcon name="x" size={18} color={COLORS.white} />}
+                    icon={
+                      <FeatherIcon name="x" size={18} color={COLORS.white} />
+                    }
                     title={"Error"}
                   />
-                  <Chip style={{ marginRight: 8 }} image={IMAGES.user} title={"Profile"} />
+                  <Chip
+                    style={{ marginRight: 8 }}
+                    image={IMAGES.user}
+                    title={"Profile"}
+                  />
                 </View>
               </View>
             </View>
@@ -85,17 +105,31 @@ const Chips = () => {
                     darkMode
                     style={{ marginRight: 8 }}
                     color={COLORS.success}
-                    icon={<FeatherIcon name="check" dark size={18} color={COLORS.white} />}
+                    icon={
+                      <FeatherIcon
+                        name="check"
+                        dark
+                        size={18}
+                        color={COLORS.white}
+                      />
+                    }
                     title={"All good"}
                   />
                   <Chip
                     darkMode
                     style={{ marginRight: 8 }}
                     color={COLORS.danger}
-                    icon={<FeatherIcon name="x" size={18} color={COLORS.white} />}
+                    icon={
+                      <FeatherIcon name="x" size={18} color={COLORS.white} />
+                    }
                     title={"Error"}
                   />
-                  <Chip darkMode style={{ marginRight: 8 }} image={IMAGES.user} title={"Profile"} />
+                  <Chip
+                    darkMode
+                    style={{ marginRight: 8 }}
+                    image={IMAGES.user}
+                    title={"Profile"}
+                  />
                 </View>
               </View>
             </View>
@@ -125,9 +159,41 @@ const Chips = () => {
                   </Text>
                 </View>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
-                  <Chip style={{ marginRight: 8 }} chipLarge icon={<FeatherIcon name="settings" size={16} color={COLORS.white} />} title={"Large"} />
-                  <Chip style={{ marginRight: 8 }} icon={<FeatherIcon name="settings" size={16} color={COLORS.white} />} title={"Default"} />
-                  <Chip style={{ marginRight: 8 }} chipSmall icon={<FeatherIcon name="settings" size={16} color={COLORS.white} />} title={"Small"} />
+                  <Chip
+                    style={{ marginRight: 8 }}
+                    chipLarge
+                    icon={
+                      <FeatherIcon
+                        name="settings"
+                        size={16}
+                        color={COLORS.white}
+                      />
+                    }
+                    title={"Large"}
+                  />
+                  <Chip
+                    style={{ marginRight: 8 }}
+                    icon={
+                      <FeatherIcon
+                        name="settings"
+                        size={16}
+                        color={COLORS.white}
+                      />
+                    }
+                    title={"Default"}
+                  />
+                  <Chip
+                    style={{ marginRight: 8 }}
+                    chipSmall
+                    icon={
+                      <FeatherIcon
+                        name="settings"
+                        size={16}
+                        color={COLORS.white}
+                      />
+                    }
+                    title={"Small"}
+                  />
                 </View>
               </View>
             </View>

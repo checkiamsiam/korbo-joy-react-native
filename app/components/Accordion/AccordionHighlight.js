@@ -15,17 +15,20 @@ const AccordionHighlight = () => {
     {
       icon: "heart",
       title: "Accordion Header One",
-      content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      content:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     },
     {
       icon: "star",
       title: "Accordion Header Two",
-      content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      content:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     },
     {
       icon: "bookmark",
       title: "Accordion Header Three",
-      content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      content:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     },
   ];
 
@@ -41,16 +44,35 @@ const AccordionHighlight = () => {
           backgroundColor: isActive ? COLORS.primary : COLORS.primaryLight,
         }}
       >
-        <FontAwesome style={{ marginRight: 10 }} name={item.icon} size={15} color={isActive ? COLORS.white : COLORS.title} />
-        <Text style={[FONTS.font, FONTS.fontMedium, { color: isActive ? COLORS.white : COLORS.title, flex: 1 }]}>{item.title}</Text>
-        <FontAwesome name={isActive ? "angle-up" : "angle-down"} size={20} color={isActive ? COLORS.white : COLORS.title} />
+        <FontAwesome
+          style={{ marginRight: 10 }}
+          name={item.icon}
+          size={15}
+          color={isActive ? COLORS.white : COLORS.title}
+        />
+        <Text
+          style={[
+            FONTS.font,
+            FONTS.fontMedium,
+            { color: isActive ? COLORS.white : COLORS.title, flex: 1 },
+          ]}
+        >
+          {item.title}
+        </Text>
+        <FontAwesome
+          name={isActive ? "angle-up" : "angle-down"}
+          size={20}
+          color={isActive ? COLORS.white : COLORS.title}
+        />
       </View>
     );
   };
   const AccordionBody = (item, _, isActive) => {
     return (
       <View style={{ marginBottom: 15, marginTop: 10, paddingHorizontal: 15 }}>
-        <Text style={[FONTS.fontSm, { color: COLORS.text }]}>{item.content}</Text>
+        <Text style={[FONTS.fontSm, { color: COLORS.text }]}>
+          {item.content}
+        </Text>
       </View>
     );
   };

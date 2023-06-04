@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Collapsible from "react-native-collapsible";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Header from "../../layout/Header";
@@ -16,13 +24,15 @@ import calculateSum from "../../utils/calculateSum";
 import { actionSheetRef } from "../../utils/globalRef";
 
 const Payment = (props) => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   const styles = createStyles(COLORS, FONTS);
   const dispatch = useDispatch();
   const [paymentOption, setPaymentOption] = useState("");
   const { cart } = useSelector((state) => state.cart);
   const { deliveryDetails } = useSelector((state) => state.order);
-  const [orderNow , {isLoading}] = usePlaceOrderMutation();
+  const [orderNow, { isLoading }] = usePlaceOrderMutation();
 
   const totalPrice = calculateSum(cart, "totalSalesPrice");
   const totalCharge = calculateSum(cart, "charge");
@@ -63,7 +73,13 @@ const Payment = (props) => {
 
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header titleLeft leftIcon={"back"} title={"Order & Payment"} />
 
         <View
@@ -109,16 +125,38 @@ const Payment = (props) => {
                 paddingTop: 15,
               }}
             >
-              <Text style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.text }}>Payment Options</Text>
+              <Text
+                style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.text }}
+              >
+                Payment Options
+              </Text>
             </View>
 
-            <View style={{ borderBottomWidth: 1, borderColor: COLORS.borderColor }}>
-              <TouchableOpacity onPress={() => setPaymentOption(paymentOption === "Cash" ? "" : "Cash")} style={[styles.list]}>
-                <Image style={[styles.listImg, { tintColor: COLORS.title }]} source={cash} />
-                <Text style={[styles.listTitle, { color: COLORS.title }]}>Cash On Delivery(Cash/Bkash/Nagad)</Text>
-                <FeatherIcon color={COLORS.title} name={"chevron-down"} size={22} />
+            <View
+              style={{ borderBottomWidth: 1, borderColor: COLORS.borderColor }}
+            >
+              <TouchableOpacity
+                onPress={() =>
+                  setPaymentOption(paymentOption === "Cash" ? "" : "Cash")
+                }
+                style={[styles.list]}
+              >
+                <Image
+                  style={[styles.listImg, { tintColor: COLORS.title }]}
+                  source={cash}
+                />
+                <Text style={[styles.listTitle, { color: COLORS.title }]}>
+                  Cash On Delivery(Cash/Bkash/Nagad)
+                </Text>
+                <FeatherIcon
+                  color={COLORS.title}
+                  name={"chevron-down"}
+                  size={22}
+                />
               </TouchableOpacity>
-              <Collapsible collapsed={paymentOption === "Cash" ? false : true} />
+              <Collapsible
+                collapsed={paymentOption === "Cash" ? false : true}
+              />
             </View>
 
             {/* <View style={{ borderBottomWidth: 1, borderColor: COLORS.borderColor }}>
@@ -483,12 +521,20 @@ const Payment = (props) => {
                 </Text>
               </View>
               <View style={styles.detailList}>
-                <Text style={{ ...FONTS.font, color: COLORS.text }}>Total Price</Text>
-                <Text style={{ ...FONTS.font, color: COLORS.text }}>{totalPrice} TK</Text>
+                <Text style={{ ...FONTS.font, color: COLORS.text }}>
+                  Total Price
+                </Text>
+                <Text style={{ ...FONTS.font, color: COLORS.text }}>
+                  {totalPrice} TK
+                </Text>
               </View>
               <View style={styles.detailList}>
-                <Text style={{ ...FONTS.font, color: COLORS.text }}>Delivery Charge</Text>
-                <Text style={{ ...FONTS.font, color: COLORS.warning }}>{totalCharge} TK</Text>
+                <Text style={{ ...FONTS.font, color: COLORS.text }}>
+                  Delivery Charge
+                </Text>
+                <Text style={{ ...FONTS.font, color: COLORS.warning }}>
+                  {totalCharge} TK
+                </Text>
               </View>
               <View
                 style={{
@@ -537,7 +583,9 @@ const Payment = (props) => {
               }}
             >
               <View style={{ width: 120 }}>
-                <Text style={{ ...FONTS.h5, color: COLORS.title }}>{totalBill} TK</Text>
+                <Text style={{ ...FONTS.h5, color: COLORS.title }}>
+                  {totalBill} TK
+                </Text>
                 {/* <TouchableOpacity>
                   <Text
                     style={{
@@ -551,7 +599,12 @@ const Payment = (props) => {
                 </TouchableOpacity> */}
               </View>
               <View style={{ flex: 1 }}>
-                <CustomButton disabled={isLoading} onPress={placeOrder} title={"Place Order"} color={COLORS.primary} />
+                <CustomButton
+                  disabled={isLoading}
+                  onPress={placeOrder}
+                  title={"Place Order"}
+                  color={COLORS.primary}
+                />
               </View>
             </View>
           </View>

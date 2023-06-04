@@ -48,7 +48,14 @@ const DefaultPagination = (props) => {
                 },
               ]}
             >
-              <Text style={[{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.text }, data === active && { color: COLORS.white }]}>{data}</Text>
+              <Text
+                style={[
+                  { ...FONTS.font, ...FONTS.fontBold, color: COLORS.text },
+                  data === active && { color: COLORS.white },
+                ]}
+              >
+                {data}
+              </Text>
             </TouchableOpacity>
           );
         })}

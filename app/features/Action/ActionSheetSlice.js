@@ -25,6 +25,7 @@ const actionSheetSlice = createSlice({
 
 const actionSheetReducer = actionSheetSlice.reducer;
 
-export const { setActionSheet, removeLoadingScreen, setLoadingScreen } = actionSheetSlice.actions;
+export const { setActionSheet, removeLoadingScreen, setLoadingScreen } =
+  actionSheetSlice.actions;
 
 export default actionSheetReducer;

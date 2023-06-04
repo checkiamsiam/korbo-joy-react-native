@@ -9,7 +9,9 @@ const ProductsListSkeleton = () => {
         numColumns={2}
         keyExtractor={(item, i) => i}
         renderItem={({ item }) => (
-          <View style={{ width: "50%", paddingHorizontal: 5, paddingVertical: 5 }}>
+          <View
+            style={{ width: "50%", paddingHorizontal: 5, paddingVertical: 5 }}
+          >
             <Skeleton width={175} height={290} />
           </View>
         )}

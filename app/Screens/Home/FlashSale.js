@@ -15,7 +15,11 @@ const FlashSale = () => {
   return (
     <View>
       {!isLoading ? (
-        <ScrollView contentContainerStyle={{ paddingLeft: 15 }} horizontal showsHorizontalScrollIndicator={false}>
+        <ScrollView
+          contentContainerStyle={{ paddingLeft: 15 }}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        >
           {products.slice(0, 4).map((data, index) => {
             return (
               <View

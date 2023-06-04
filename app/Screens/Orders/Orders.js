@@ -35,7 +35,13 @@ const Orders = () => {
         paddingTop: StatusBar.currentHeight,
       }}
     >
-      <Header titleLeft leftIcon={"back"} title={"Orders"} rightIcon={"more"} rightIcon2={"search"} />
+      <Header
+        titleLeft
+        leftIcon={"back"}
+        title={"Orders"}
+        rightIcon={"more"}
+        rightIcon2={"search"}
+      />
       <TabView
         renderTabBar={(props) => (
           <TabBar

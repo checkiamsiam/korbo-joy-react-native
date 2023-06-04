@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { SafeAreaView, ScrollView, StatusBar, Text, TextInput, View } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
 import Header from "../../layout/Header";
 
 const EditProfile = (props) => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   const [isFocused, setisFocused] = useState(false);
   const [isFocused2, setisFocused2] = useState(false);
   const [isFocused3, setisFocused3] = useState(false);
@@ -74,7 +83,11 @@ const EditProfile = (props) => {
                 }}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    style={[GlobalStyleSheet.formControl, isFocused && GlobalStyleSheet.activeInput, errors.number && GlobalStyleSheet.errorInput]}
+                    style={[
+                      GlobalStyleSheet.formControl,
+                      isFocused && GlobalStyleSheet.activeInput,
+                      errors.number && GlobalStyleSheet.errorInput,
+                    ]}
                     onFocus={() => {
                       setisFocused(true);
                     }}
@@ -91,7 +104,11 @@ const EditProfile = (props) => {
                 )}
                 name="number"
               />
-              {errors.number && <Text style={GlobalStyleSheet.errorInputText}>{errors.number?.message}</Text>}
+              {errors.number && (
+                <Text style={GlobalStyleSheet.errorInputText}>
+                  {errors.number?.message}
+                </Text>
+              )}
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
               <Text style={GlobalStyleSheet.label}>Name</Text>
@@ -109,7 +126,11 @@ const EditProfile = (props) => {
                 }}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    style={[GlobalStyleSheet.formControl, isFocused2 && GlobalStyleSheet.activeInput, errors.name && GlobalStyleSheet.errorInput]}
+                    style={[
+                      GlobalStyleSheet.formControl,
+                      isFocused2 && GlobalStyleSheet.activeInput,
+                      errors.name && GlobalStyleSheet.errorInput,
+                    ]}
                     onFocus={() => {
                       setisFocused2(true);
                     }}
@@ -124,7 +145,11 @@ const EditProfile = (props) => {
                 )}
                 name="name"
               />
-              {errors.name && <Text style={GlobalStyleSheet.errorInputText}>{errors.name?.message}</Text>}
+              {errors.name && (
+                <Text style={GlobalStyleSheet.errorInputText}>
+                  {errors.name?.message}
+                </Text>
+              )}
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
               <Text style={GlobalStyleSheet.label}>Email</Text>
@@ -138,7 +163,11 @@ const EditProfile = (props) => {
                 }}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    style={[GlobalStyleSheet.formControl, isFocused3 && GlobalStyleSheet.activeInput, errors.email && GlobalStyleSheet.errorInput]}
+                    style={[
+                      GlobalStyleSheet.formControl,
+                      isFocused3 && GlobalStyleSheet.activeInput,
+                      errors.email && GlobalStyleSheet.errorInput,
+                    ]}
                     onFocus={() => {
                       setisFocused3(true);
                     }}
@@ -153,7 +182,11 @@ const EditProfile = (props) => {
                 )}
                 name="email"
               />
-              {errors.email && <Text style={GlobalStyleSheet.errorInputText}>{errors.email?.message}</Text>}
+              {errors.email && (
+                <Text style={GlobalStyleSheet.errorInputText}>
+                  {errors.email?.message}
+                </Text>
+              )}
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
               <Text style={GlobalStyleSheet.label}>Present Adress</Text>
@@ -180,7 +213,11 @@ const EditProfile = (props) => {
                 )}
                 name="presentAddress"
               />
-              {errors.presentAddress && <Text style={GlobalStyleSheet.errorInputText}>{errors.presentAddress?.message}</Text>}
+              {errors.presentAddress && (
+                <Text style={GlobalStyleSheet.errorInputText}>
+                  {errors.presentAddress?.message}
+                </Text>
+              )}
             </View>
           </View>
         </ScrollView>

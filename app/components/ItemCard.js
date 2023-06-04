@@ -6,7 +6,20 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useSelector } from "react-redux";
 
 const ItemCard = (props) => {
-  const { title, image, price, oldPrice, rating, category, handleLike, id, isLike, shopBtn, listView, imageSrc } = props;
+  const {
+    title,
+    image,
+    price,
+    oldPrice,
+    rating,
+    category,
+    handleLike,
+    id,
+    isLike,
+    shopBtn,
+    listView,
+    imageSrc,
+  } = props;
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const navigation = useNavigation();
 
@@ -62,7 +75,11 @@ const ItemCard = (props) => {
             }}
             onPress={() => handleLike(id)}
           >
-            {isLike ? <FontAwesome name="heart" color={COLORS.primary} size={20} /> : <FontAwesome name="heart-o" color={COLORS.white} size={20} />}
+            {isLike ? (
+              <FontAwesome name="heart" color={COLORS.primary} size={20} />
+            ) : (
+              <FontAwesome name="heart-o" color={COLORS.white} size={20} />
+            )}
           </TouchableOpacity>
           <Image
             style={[
@@ -167,7 +184,11 @@ const ItemCard = (props) => {
             )}
             {shopBtn !== false && (
               <TouchableOpacity style={{ top: -4 }}>
-                <Feather name="shopping-cart" color={COLORS.primary} size={24} />
+                <Feather
+                  name="shopping-cart"
+                  color={COLORS.primary}
+                  size={24}
+                />
               </TouchableOpacity>
             )}
           </View>

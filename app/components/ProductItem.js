@@ -7,7 +7,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { showSnack } from "../features/Action/SnackbarSlice";
 import { useAddToCartMutation } from "../features/Cart/CartApi";
 
-const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews, status, imgLength, onPress, imageSrc, isLike, handleItemLike }) => {
+const ProductItem = ({
+  id,
+  image,
+  title,
+  desc,
+  price,
+  oldPrice,
+  rating,
+  reviews,
+  status,
+  imgLength,
+  onPress,
+  imageSrc,
+  isLike,
+  handleItemLike,
+}) => {
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const { user, token } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
@@ -15,7 +30,13 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
   const [addToCart, { isLoading }] = useAddToCartMutation();
   const handleAddToCart = async () => {
     if (!token) {
-      dispatch(showSnack({ text: "Please login to add product to cart!", actionLabel: "Login", navigateTo: "SignIn" }));
+      dispatch(
+        showSnack({
+          text: "Please login to add product to cart!",
+          actionLabel: "Login",
+          navigateTo: "SignIn",
+        })
+      );
       return;
     } else {
       if (!isLoading) {
@@ -79,7 +100,8 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
                 position: "absolute",
                 left: 0,
                 top: 15,
-                backgroundColor: status === "Offer" ? COLORS.primary : COLORS.secondary,
+                backgroundColor:
+                  status === "Offer" ? COLORS.primary : COLORS.secondary,
                 paddingHorizontal: 10,
                 paddingVertical: 3,
                 borderTopRightRadius: 10,
@@ -87,7 +109,9 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
                 alignItems: "center",
               }}
             >
-              <Text style={{ ...FONTS.fontXs, color: COLORS.white }}>{status}</Text>
+              <Text style={{ ...FONTS.fontXs, color: COLORS.white }}>
+                {status}
+              </Text>
             </View>
           ))}
         <TouchableOpacity
@@ -103,7 +127,11 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
             justifyContent: "center",
           }}
         >
-          <FeatherIcon color={COLORS.primaryLight} size={24} name="shopping-cart" />
+          <FeatherIcon
+            color={COLORS.primaryLight}
+            size={24}
+            name="shopping-cart"
+          />
         </TouchableOpacity>
       </View>
       <View

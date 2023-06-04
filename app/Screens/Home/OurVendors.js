@@ -24,7 +24,12 @@ const OurVendors = () => {
             {vendors.map((data, index) => (
               <View key={index} style={{ flex: 1, paddingHorizontal: 5 }}>
                 <VendorCard
-                  onPress={() => navigation.navigate("Items", { type: "Vendors", key: { title: data.name, id: data.id } })}
+                  onPress={() =>
+                    navigation.navigate("Items", {
+                      type: "Vendors",
+                      key: { title: data.name, id: data.id },
+                    })
+                  }
                   imageUrl={`${IMAGE_BASE}/${data?.img}`}
                   title={data.name}
                 />

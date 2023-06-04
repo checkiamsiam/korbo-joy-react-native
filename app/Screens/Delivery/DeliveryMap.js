@@ -1,13 +1,13 @@
-import React from 'react';
-import { View } from 'react-native';
-import MapView from 'react-native-maps';
+import React from "react";
+import { View } from "react-native";
+import MapView from "react-native-maps";
 
 const DeliveryMap = (props) => {
   return (
     <View style={{ height: 200 }}>
       <MapView
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 0,
           left: 0,
           right: 0,

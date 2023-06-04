@@ -22,7 +22,13 @@ const VendorsScreen = ({ navigation }) => {
         paddingTop: StatusBar.currentHeight,
       }}
     >
-      <Header backAction={() => navigation.navigate("Home")} titleLeft title={"All Vendors"} rightIcon2={"search"} leftIcon={"back"} />
+      <Header
+        backAction={() => navigation.navigate("Home")}
+        titleLeft
+        title={"All Vendors"}
+        rightIcon2={"search"}
+        leftIcon={"back"}
+      />
       <ScrollView>
         <View
           style={{
@@ -40,7 +46,12 @@ const VendorsScreen = ({ navigation }) => {
               renderItem={({ item }) => (
                 <View style={{ padding: 10 }}>
                   <VendorCard
-                    onPress={() => navigation.navigate("Items", { type: "Vendors", key: { title: item.name, id: item.id } })}
+                    onPress={() =>
+                      navigation.navigate("Items", {
+                        type: "Vendors",
+                        key: { title: item.name, id: item.id },
+                      })
+                    }
                     imageUrl={`${IMAGE_BASE}/${item?.img}`}
                     title={item.name}
                   />

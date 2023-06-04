@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { FlatList, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useSelector } from "react-redux";
 import ItemCard from "../../components/ItemCard";
@@ -93,7 +101,9 @@ const TrendingData = [
 ];
 
 const Home = (props) => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   const [productsData, setProductsData] = useState(TrendingData);
   const [productsData2, setProductsData2] = useState(TopCollection);
 
@@ -118,7 +128,13 @@ const Home = (props) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
+      }}
+    >
       <Header main={true} title={"Home"} />
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
         <View style={GlobalStyleSheet.container}>
@@ -129,7 +145,9 @@ const Home = (props) => {
             }}
           >
             <View style={{ flex: 1 }}>
-              <Text style={{ ...FONTS.h4, color: COLORS.secondary }}>Top Collections</Text>
+              <Text style={{ ...FONTS.h4, color: COLORS.secondary }}>
+                Top Collections
+              </Text>
               <Text style={{ ...FONTS.font }}>Based trending products</Text>
             </View>
             <TouchableOpacity
@@ -150,7 +168,9 @@ const Home = (props) => {
           showsHorizontalScrollIndicator={false}
           data={productsData2}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <ShopItem item={item} handleLike={handleLike2} />}
+          renderItem={({ item }) => (
+            <ShopItem item={item} handleLike={handleLike2} />
+          )}
         />
 
         <View
@@ -160,7 +180,9 @@ const Home = (props) => {
             alignItems: "center",
           }}
         >
-          <Text style={{ ...FONTS.h4, flex: 1, color: COLORS.secondary }}>On Trending</Text>
+          <Text style={{ ...FONTS.h4, flex: 1, color: COLORS.secondary }}>
+            On Trending
+          </Text>
           <TouchableOpacity>
             <Text
               style={{

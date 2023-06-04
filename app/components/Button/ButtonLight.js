@@ -11,7 +11,11 @@ const ButtonLight = (props) => {
           position: "absolute",
           height: "100%",
           width: "100%",
-          borderRadius: props.btnSquare ? 0 : props.btnRounded ? 30 : SIZES.radius,
+          borderRadius: props.btnSquare
+            ? 0
+            : props.btnRounded
+            ? 30
+            : SIZES.radius,
           backgroundColor: props.color ? props.color : COLORS.primary,
           opacity: 0.2,
         }}
@@ -27,7 +31,13 @@ const ButtonLight = (props) => {
           },
         ]}
       >
-        <Text style={[{ ...FONTS.h6, color: props.color ? props.color : COLORS.primary }]}>{props.title}</Text>
+        <Text
+          style={[
+            { ...FONTS.h6, color: props.color ? props.color : COLORS.primary },
+          ]}
+        >
+          {props.title}
+        </Text>
       </TouchableOpacity>
     </View>
   );

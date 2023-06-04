@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  View,
+} from "react-native";
 import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
 import { IMAGES } from "../../constants/theme";
@@ -10,7 +17,9 @@ import CheckoutItems from "./CheckoutItems";
 const Cart = ({ navigation }) => {
   const { user } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
 
   const totalPrice = calculateSum(cart, "totalSalesPrice");
   const totalCharge = calculateSum(cart, "charge");
@@ -24,7 +33,11 @@ const Cart = ({ navigation }) => {
         paddingTop: StatusBar.currentHeight,
       }}
     >
-      <Header backAction={() => navigation.navigate("Home")} title={"Cart"} leftIcon={"back"} />
+      <Header
+        backAction={() => navigation.navigate("Home")}
+        title={"Cart"}
+        leftIcon={"back"}
+      />
       <View
         style={{
           flexDirection: "row",
@@ -168,7 +181,9 @@ const Cart = ({ navigation }) => {
               }}
             >
               <Text style={{ ...FONTS.font }}>Total : </Text>
-              <Text style={{ ...FONTS.h4, color: COLORS.primary }}>{totalBill} TK</Text>
+              <Text style={{ ...FONTS.h4, color: COLORS.primary }}>
+                {totalBill} TK
+              </Text>
             </View>
           </View>
         </ScrollView>
@@ -202,7 +217,11 @@ const Cart = ({ navigation }) => {
           </TouchableOpacity> */}
           </View>
           <View style={{ flex: 1 }}>
-            <CustomButton btnSm onPress={() => navigation.navigate("AddDeliveryAddress")} title="Checkout" />
+            <CustomButton
+              btnSm
+              onPress={() => navigation.navigate("AddDeliveryAddress")}
+              title="Checkout"
+            />
           </View>
         </View>
       )}

@@ -19,10 +19,18 @@ const SuccessModal = () => {
           maxWidth: 340,
         }}
       >
-        <Ionicons name="checkmark-circle" style={{ marginBottom: 8 }} color={COLORS.success} size={60} />
+        <Ionicons
+          name="checkmark-circle"
+          style={{ marginBottom: 8 }}
+          color={COLORS.success}
+          size={60}
+        />
         <Text style={{ ...FONTS.h5, color: COLORS.title }}>Success</Text>
-        <Text style={{ ...FONTS.font, color: COLORS.text, textAlign: "center" }}>
-          You can continue with your previous actions. Easy to attach these to success calls.
+        <Text
+          style={{ ...FONTS.font, color: COLORS.text, textAlign: "center" }}
+        >
+          You can continue with your previous actions. Easy to attach these to
+          success calls.
         </Text>
       </View>
     </>

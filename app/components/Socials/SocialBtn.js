@@ -38,7 +38,9 @@ const SocialBtn = (props) => {
       >
         {props.icon}
       </View>
-      <Text style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.white }}>{props.text}</Text>
+      <Text style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.white }}>
+        {props.text}
+      </Text>
     </TouchableOpacity>
   );
 };

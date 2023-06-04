@@ -1,6 +1,15 @@
 import MultiSlider from "@ptomasroos/react-native-multi-slider";
 import React, { useState } from "react";
-import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SvgXml } from "react-native-svg";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
@@ -11,7 +20,9 @@ import Header from "../../layout/Header";
 
 const Inputs = () => {
   const [passwordShow, setPasswordShow] = useState(true);
-  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   const styles = createStyles(COLORS, SIZES, FONTS);
 
   const handndleShowPassword = () => {
@@ -20,7 +31,13 @@ const Inputs = () => {
 
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header titleLeft title={"Inputs"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
@@ -53,19 +70,32 @@ const Inputs = () => {
                   <View style={styles.inputIcon}>
                     <SvgXml stroke={COLORS.primary} xml={ICONS.user} />
                   </View>
-                  <TextInput style={styles.inputStyle} placeholder="Username" placeholderTextColor={COLORS.text} />
+                  <TextInput
+                    style={styles.inputStyle}
+                    placeholder="Username"
+                    placeholderTextColor={COLORS.text}
+                  />
                 </View>
                 <View style={{ marginBottom: 15 }}>
                   <View style={styles.inputIcon}>
                     <SvgXml stroke={COLORS.primary} xml={ICONS.email} />
                   </View>
-                  <TextInput style={styles.inputStyle} placeholder="Email" placeholderTextColor={COLORS.text} />
+                  <TextInput
+                    style={styles.inputStyle}
+                    placeholder="Email"
+                    placeholderTextColor={COLORS.text}
+                  />
                 </View>
                 <View style={{ marginBottom: 15 }}>
                   <View style={styles.inputIcon}>
                     <SvgXml fill={COLORS.primary} xml={ICONS.lock} />
                   </View>
-                  <TextInput secureTextEntry={passwordShow} style={styles.inputStyle} placeholder="Password" placeholderTextColor={COLORS.text} />
+                  <TextInput
+                    secureTextEntry={passwordShow}
+                    style={styles.inputStyle}
+                    placeholder="Password"
+                    placeholderTextColor={COLORS.text}
+                  />
                   <TouchableOpacity
                     accessible={true}
                     accessibilityLabel="Password"
@@ -73,7 +103,9 @@ const Inputs = () => {
                     onPress={() => handndleShowPassword()}
                     style={styles.eyeIcon}
                   >
-                    <SvgXml xml={passwordShow ? ICONS.eyeClose : ICONS.eyeOpen} />
+                    <SvgXml
+                      xml={passwordShow ? ICONS.eyeClose : ICONS.eyeOpen}
+                    />
                   </TouchableOpacity>
                 </View>
               </View>
@@ -105,7 +137,14 @@ const Inputs = () => {
                 </View>
                 <View style={{ marginBottom: 15 }}>
                   <CustomInput
-                    icon={<FontAwesome style={{ opacity: 0.6 }} name={"user"} size={20} color={COLORS.text} />}
+                    icon={
+                      <FontAwesome
+                        style={{ opacity: 0.6 }}
+                        name={"user"}
+                        size={20}
+                        color={COLORS.text}
+                      />
+                    }
                     value={""}
                     placeholder="Enter Username"
                     onChangeText={(value) => console.log(value)}
@@ -113,7 +152,14 @@ const Inputs = () => {
                 </View>
                 <View style={{ marginBottom: 15 }}>
                   <CustomInput
-                    icon={<MaterialIcon style={{ opacity: 0.6 }} name={"email"} size={20} color={COLORS.text} />}
+                    icon={
+                      <MaterialIcon
+                        style={{ opacity: 0.6 }}
+                        name={"email"}
+                        size={20}
+                        color={COLORS.text}
+                      />
+                    }
                     value={""}
                     placeholder="Enter Email"
                     onChangeText={(value) => console.log(value)}
@@ -122,7 +168,14 @@ const Inputs = () => {
                 <View style={{ marginBottom: 15 }}>
                   <CustomInput
                     type={"password"}
-                    icon={<FontAwesome style={{ opacity: 0.6 }} name={"lock"} size={20} color={COLORS.text} />}
+                    icon={
+                      <FontAwesome
+                        style={{ opacity: 0.6 }}
+                        name={"lock"}
+                        size={20}
+                        color={COLORS.text}
+                      />
+                    }
                     value={""}
                     placeholder="Password"
                     onChangeText={(value) => console.log(value)}
@@ -158,7 +211,14 @@ const Inputs = () => {
                 <View style={{ marginBottom: 15 }}>
                   <CustomInput
                     inputLg
-                    icon={<FontAwesome style={{ opacity: 0.6 }} name={"user"} size={20} color={COLORS.textLight} />}
+                    icon={
+                      <FontAwesome
+                        style={{ opacity: 0.6 }}
+                        name={"user"}
+                        size={20}
+                        color={COLORS.textLight}
+                      />
+                    }
                     value={""}
                     placeholder="Enter Username"
                     onChangeText={(value) => console.log(value)}
@@ -166,7 +226,14 @@ const Inputs = () => {
                 </View>
                 <View style={{ marginBottom: 15 }}>
                   <CustomInput
-                    icon={<FontAwesome style={{ opacity: 0.6 }} name={"user"} size={20} color={COLORS.textLight} />}
+                    icon={
+                      <FontAwesome
+                        style={{ opacity: 0.6 }}
+                        name={"user"}
+                        size={20}
+                        color={COLORS.textLight}
+                      />
+                    }
                     value={""}
                     placeholder="Enter Username"
                     onChangeText={(value) => console.log(value)}
@@ -175,7 +242,14 @@ const Inputs = () => {
                 <View style={{ marginBottom: 15 }}>
                   <CustomInput
                     inputSm
-                    icon={<FontAwesome style={{ opacity: 0.6 }} name={"user"} size={20} color={COLORS.textLight} />}
+                    icon={
+                      <FontAwesome
+                        style={{ opacity: 0.6 }}
+                        name={"user"}
+                        size={20}
+                        color={COLORS.textLight}
+                      />
+                    }
                     value={""}
                     placeholder="Enter Username"
                     onChangeText={(value) => console.log(value)}
@@ -211,7 +285,14 @@ const Inputs = () => {
                 <View style={{ marginBottom: 15 }}>
                   <CustomInput
                     inputRounded
-                    icon={<FontAwesome style={{ opacity: 0.6 }} name={"user"} size={20} color={COLORS.textLight} />}
+                    icon={
+                      <FontAwesome
+                        style={{ opacity: 0.6 }}
+                        name={"user"}
+                        size={20}
+                        color={COLORS.textLight}
+                      />
+                    }
                     value={""}
                     placeholder="Enter Username"
                     onChangeText={(value) => console.log(value)}
@@ -220,7 +301,14 @@ const Inputs = () => {
                 <View style={{ marginBottom: 15 }}>
                   <CustomInput
                     inputRounded
-                    icon={<MaterialIcon style={{ opacity: 0.6 }} name={"email"} size={20} color={COLORS.textLight} />}
+                    icon={
+                      <MaterialIcon
+                        style={{ opacity: 0.6 }}
+                        name={"email"}
+                        size={20}
+                        color={COLORS.textLight}
+                      />
+                    }
                     value={""}
                     placeholder="Enter Email"
                     onChangeText={(value) => console.log(value)}
@@ -230,7 +318,14 @@ const Inputs = () => {
                   <CustomInput
                     inputRounded
                     type={"password"}
-                    icon={<FontAwesome style={{ opacity: 0.6 }} name={"lock"} size={20} color={COLORS.textLight} />}
+                    icon={
+                      <FontAwesome
+                        style={{ opacity: 0.6 }}
+                        name={"lock"}
+                        size={20}
+                        color={COLORS.textLight}
+                      />
+                    }
                     value={""}
                     placeholder="Password"
                     onChangeText={(value) => console.log(value)}
@@ -266,7 +361,14 @@ const Inputs = () => {
                 <View style={{ marginBottom: 15 }}>
                   <CustomInput
                     inputBorder
-                    icon={<FontAwesome style={{ opacity: 0.6 }} name={"user"} size={20} color={COLORS.textLight} />}
+                    icon={
+                      <FontAwesome
+                        style={{ opacity: 0.6 }}
+                        name={"user"}
+                        size={20}
+                        color={COLORS.textLight}
+                      />
+                    }
                     value={""}
                     placeholder="Enter Username"
                     onChangeText={(value) => console.log(value)}
@@ -275,7 +377,14 @@ const Inputs = () => {
                 <View style={{ marginBottom: 15 }}>
                   <CustomInput
                     inputBorder
-                    icon={<MaterialIcon style={{ opacity: 0.6 }} name={"email"} size={20} color={COLORS.textLight} />}
+                    icon={
+                      <MaterialIcon
+                        style={{ opacity: 0.6 }}
+                        name={"email"}
+                        size={20}
+                        color={COLORS.textLight}
+                      />
+                    }
                     value={""}
                     placeholder="Enter Email"
                     onChangeText={(value) => console.log(value)}
@@ -285,7 +394,14 @@ const Inputs = () => {
                   <CustomInput
                     inputBorder
                     type={"password"}
-                    icon={<FontAwesome style={{ opacity: 0.6 }} name={"lock"} size={20} color={COLORS.textLight} />}
+                    icon={
+                      <FontAwesome
+                        style={{ opacity: 0.6 }}
+                        name={"lock"}
+                        size={20}
+                        color={COLORS.textLight}
+                      />
+                    }
                     value={""}
                     placeholder="Password"
                     onChangeText={(value) => console.log(value)}
@@ -331,11 +447,21 @@ const Inputs = () => {
                           width: "100%",
                         }}
                       >
-                        <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>0%</Text>
-                        <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>25%</Text>
-                        <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>50%</Text>
-                        <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>75%</Text>
-                        <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>100%</Text>
+                        <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
+                          0%
+                        </Text>
+                        <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
+                          25%
+                        </Text>
+                        <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
+                          50%
+                        </Text>
+                        <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
+                          75%
+                        </Text>
+                        <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
+                          100%
+                        </Text>
                       </View>
                     )}
                     trackStyle={{

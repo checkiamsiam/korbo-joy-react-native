@@ -7,7 +7,9 @@ import Button from "../Button/Button";
 import CustomInput from "../Input/CustomInput";
 
 const RegisterSheet = () => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <>
       <View
@@ -23,7 +25,14 @@ const RegisterSheet = () => {
       <View style={GlobalStyleSheet.container}>
         <View style={{ marginBottom: 15 }}>
           <CustomInput
-            icon={<FontAwesome style={{ opacity: 0.6 }} name={"user"} size={20} color={COLORS.text} />}
+            icon={
+              <FontAwesome
+                style={{ opacity: 0.6 }}
+                name={"user"}
+                size={20}
+                color={COLORS.text}
+              />
+            }
             value={""}
             placeholder={"Name"}
             onChangeText={(value) => console.log(value)}
@@ -31,7 +40,14 @@ const RegisterSheet = () => {
         </View>
         <View style={{ marginBottom: 15 }}>
           <CustomInput
-            icon={<MaterialIcon style={{ opacity: 0.6 }} name={"email"} size={20} color={COLORS.text} />}
+            icon={
+              <MaterialIcon
+                style={{ opacity: 0.6 }}
+                name={"email"}
+                size={20}
+                color={COLORS.text}
+              />
+            }
             value={""}
             placeholder={"Emai"}
             onChangeText={(value) => console.log(value)}
@@ -39,7 +55,14 @@ const RegisterSheet = () => {
         </View>
         <View style={{ marginBottom: 15 }}>
           <CustomInput
-            icon={<FontAwesome style={{ opacity: 0.6 }} name={"lock"} size={20} color={COLORS.text} />}
+            icon={
+              <FontAwesome
+                style={{ opacity: 0.6 }}
+                name={"lock"}
+                size={20}
+                color={COLORS.text}
+              />
+            }
             value={""}
             placeholder={"Password"}
             onChangeText={(value) => console.log(value)}
@@ -54,10 +77,14 @@ const RegisterSheet = () => {
           }}
         >
           <TouchableOpacity>
-            <Text style={{ ...FONTS.font, color: COLORS.primary }}>Forgot Password?</Text>
+            <Text style={{ ...FONTS.font, color: COLORS.primary }}>
+              Forgot Password?
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text style={{ ...FONTS.font, color: COLORS.primary }}>Create Account</Text>
+            <Text style={{ ...FONTS.font, color: COLORS.primary }}>
+              Create Account
+            </Text>
           </TouchableOpacity>
         </View>
         <Button title={"Register"} />

@@ -8,7 +8,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { showSnack } from "../features/Action/SnackbarSlice";
 import { useAddToCartMutation } from "../features/Cart/CartApi";
 
-const ItemList = ({ id, title, price, oldPrice, offer, rating, review, image, handleLike, isLike }) => {
+const ItemList = ({
+  id,
+  title,
+  price,
+  oldPrice,
+  offer,
+  rating,
+  review,
+  image,
+  handleLike,
+  isLike,
+}) => {
   const navigation = useNavigation();
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const { user } = useSelector((state) => state.auth);
@@ -117,8 +128,17 @@ const ItemList = ({ id, title, price, oldPrice, offer, rating, review, image, ha
             {/* {ratingArry.map((data, index) => {
               return <Octicons key={index} size={15} style={{ marginRight: 5 }} color={"#FFA800"} name="star-fill" />;
             })} */}
-            <Text style={{ ...FONTS.font, color: COLORS.title, ...FONTS.fontBold }}>{rating}</Text>
-            <Octicons size={14} style={{ marginRight: 5, marginLeft: 3 }} color={"#FFA800"} name="star-fill" />
+            <Text
+              style={{ ...FONTS.font, color: COLORS.title, ...FONTS.fontBold }}
+            >
+              {rating}
+            </Text>
+            <Octicons
+              size={14}
+              style={{ marginRight: 5, marginLeft: 3 }}
+              color={"#FFA800"}
+              name="star-fill"
+            />
           </View>
           <Text>({review || 20} Reviews)</Text>
         </View>
@@ -131,7 +151,9 @@ const ItemList = ({ id, title, price, oldPrice, offer, rating, review, image, ha
           }}
         >
           <Text style={[FONTS.h5, { marginRight: 6 }]}>{price} TK</Text>
-          <Text style={[FONTS.fontXs, { textDecorationLine: "line-through" }]}>{oldPrice} TK</Text>
+          <Text style={[FONTS.fontXs, { textDecorationLine: "line-through" }]}>
+            {oldPrice} TK
+          </Text>
           <Text
             style={[
               FONTS.font,

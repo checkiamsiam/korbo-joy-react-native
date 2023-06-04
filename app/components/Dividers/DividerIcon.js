@@ -18,7 +18,9 @@ const DividerIcon = (props) => {
             ...props.style,
           }}
         />
-        {props.icon && <View style={{ paddingHorizontal: 10 }}>{props.icon}</View>}
+        {props.icon && (
+          <View style={{ paddingHorizontal: 10 }}>{props.icon}</View>
+        )}
         <View
           style={{
             borderBottomWidth: 1,

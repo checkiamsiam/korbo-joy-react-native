@@ -1,5 +1,13 @@
 import React from "react";
-import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useSelector } from "react-redux";
 import pic1 from "../../assets/images/product/pic1.jpg";
@@ -20,11 +28,24 @@ const CheckoutData = [
 ];
 
 const DeliveryTracking = () => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   const styles = createStyles(COLORS);
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
-      <Header leftIcon={"back"} title={"Tracking Orders"} rightIcon={"more"} productId={"#04451255"} />
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
+      }}
+    >
+      <Header
+        leftIcon={"back"}
+        title={"Tracking Orders"}
+        rightIcon={"more"}
+        productId={"#04451255"}
+      />
       <ScrollView contentContainerStyle={{ paddingTop: 10 }}>
         {CheckoutData.map((data, index) => (
           <CheckoutItem
@@ -45,8 +66,12 @@ const DeliveryTracking = () => {
           <View>
             <View style={styles.delCircle} />
             <View style={styles.delInfo}>
-              <Text style={{ ...FONTS.h6, color: COLORS.primary }}>On Delivery</Text>
-              <Text style={{ ...FONTS.fontXs, marginBottom: 15 }}>Monday June 20th, 2020 12:25 AM</Text>
+              <Text style={{ ...FONTS.h6, color: COLORS.primary }}>
+                On Delivery
+              </Text>
+              <Text style={{ ...FONTS.fontXs, marginBottom: 15 }}>
+                Monday June 20th, 2020 12:25 AM
+              </Text>
               <View
                 style={{
                   flexDirection: "row",
@@ -73,25 +98,42 @@ const DeliveryTracking = () => {
                   >
                     Thomas Djono
                   </Text>
-                  <Text style={{ ...FONTS.fontXs, color: COLORS.title }}>ID 02123141</Text>
+                  <Text style={{ ...FONTS.fontXs, color: COLORS.title }}>
+                    ID 02123141
+                  </Text>
                 </View>
-                <FeatherIcon color={COLORS.success} size={24} name="phone-call" />
+                <FeatherIcon
+                  color={COLORS.success}
+                  size={24}
+                  name="phone-call"
+                />
               </View>
             </View>
           </View>
           <View>
             <View style={styles.delCircle} />
             <View style={styles.delInfo}>
-              <Text style={{ ...FONTS.h6, color: COLORS.primary }}>North Gateway</Text>
-              <Text style={{ ...FONTS.fontXs, marginBottom: 15 }}>Monday June 20th, 2020 12:25 AM</Text>
-              <Text style={{ ...FONTS.font, color: COLORS.title }}>Your order has been arrived at North Gateway, please wait next info</Text>
+              <Text style={{ ...FONTS.h6, color: COLORS.primary }}>
+                North Gateway
+              </Text>
+              <Text style={{ ...FONTS.fontXs, marginBottom: 15 }}>
+                Monday June 20th, 2020 12:25 AM
+              </Text>
+              <Text style={{ ...FONTS.font, color: COLORS.title }}>
+                Your order has been arrived at North Gateway, please wait next
+                info
+              </Text>
             </View>
           </View>
           <View>
             <View style={styles.delCircle} />
             <View style={[styles.delInfo, { borderColor: "transparent" }]}>
-              <Text style={{ ...FONTS.h6, color: COLORS.primary }}>Order Created</Text>
-              <Text style={{ ...FONTS.fontXs, marginBottom: 15 }}>Monday June 20th, 2020 12:25 AM</Text>
+              <Text style={{ ...FONTS.h6, color: COLORS.primary }}>
+                Order Created
+              </Text>
+              <Text style={{ ...FONTS.fontXs, marginBottom: 15 }}>
+                Monday June 20th, 2020 12:25 AM
+              </Text>
             </View>
           </View>
         </View>

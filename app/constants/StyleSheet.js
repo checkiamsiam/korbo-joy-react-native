@@ -1,4 +1,10 @@
-import { DARK_COLOR, DARK_FONTS, LIGHT_COLOR, LIGHT_FONTS, SIZES } from "./theme";
+import {
+  DARK_COLOR,
+  DARK_FONTS,
+  LIGHT_COLOR,
+  LIGHT_FONTS,
+  SIZES,
+} from "./theme";
 
 export const GlobalStyleSheetLight = {
   container: {

@@ -59,10 +59,18 @@ const ShopItem = ({ item, handleLike }) => {
         }}
       >
         <Text style={{ ...FONTS.h5, marginBottom: 6 }}>{item.title}</Text>
-        <Text style={{ ...FONTS.fontXs, color: COLORS.primary }}>{item.category}</Text>
-        <View style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}>
+        <Text style={{ ...FONTS.fontXs, color: COLORS.primary }}>
+          {item.category}
+        </Text>
+        <View
+          style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}
+        >
           <View style={{ flexDirection: "row", flex: 1 }}>
-            <Text style={{ ...FONTS.h5, color: COLORS.secondary, marginRight: 10 }}>{item.price}</Text>
+            <Text
+              style={{ ...FONTS.h5, color: COLORS.secondary, marginRight: 10 }}
+            >
+              {item.price}
+            </Text>
             <Text style={{ ...FONTS.font, top: 3 }}>{item.oldPrice}</Text>
           </View>
           <View

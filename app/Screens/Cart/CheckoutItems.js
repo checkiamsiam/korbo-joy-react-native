@@ -23,7 +23,11 @@ const CheckoutItems = () => {
           ))}
         </View>
       ) : (
-        <Text style={{ textAlign: "center", marginTop: 10, color: COLORS.text }}>Cart is Empty</Text>
+        <Text
+          style={{ textAlign: "center", marginTop: 10, color: COLORS.text }}
+        >
+          Cart is Empty
+        </Text>
       )}
     </View>
   );

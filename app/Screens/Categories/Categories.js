@@ -1,6 +1,14 @@
 import { IMAGE_BASE } from "@env";
 import React from "react";
-import { Image, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { useSelector } from "react-redux";
 import pic1 from "../../assets/images/featured/pic1.png";
 import pic2 from "../../assets/images/featured/pic2.png";
@@ -38,7 +46,13 @@ const Categories = ({ navigation }) => {
         paddingTop: StatusBar.currentHeight,
       }}
     >
-      <Header backAction={() => navigation.navigate("Home")} titleLeft title={"All Categories"} rightIcon2={"search"} leftIcon={"back"} />
+      <Header
+        backAction={() => navigation.navigate("Home")}
+        titleLeft
+        title={"All Categories"}
+        rightIcon2={"search"}
+        leftIcon={"back"}
+      />
       <ScrollView>
         <View
           style={{
@@ -58,7 +72,12 @@ const Categories = ({ navigation }) => {
                 }}
               >
                 <TouchableOpacity
-                  onPress={() => navigation.navigate("CategoryHome", { name: data.name, categoryId: data.id })}
+                  onPress={() =>
+                    navigation.navigate("CategoryHome", {
+                      name: data.name,
+                      categoryId: data.id,
+                    })
+                  }
                   style={{
                     alignItems: "center",
                     marginBottom: 18,

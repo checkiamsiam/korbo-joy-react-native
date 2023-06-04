@@ -15,9 +15,18 @@ const SuccessSheet = () => {
           paddingVertical: 20,
         }}
       >
-        <Ionicons name="checkmark-circle" style={{ marginBottom: 8 }} color={COLORS.success} size={60} />
+        <Ionicons
+          name="checkmark-circle"
+          style={{ marginBottom: 8 }}
+          color={COLORS.success}
+          size={60}
+        />
         <Text style={{ ...FONTS.h5, color: COLORS.title }}>{data.title}</Text>
-        <Text style={{ ...FONTS.font, color: COLORS.text, textAlign: "center" }}>{data.subTitle}</Text>
+        <Text
+          style={{ ...FONTS.font, color: COLORS.text, textAlign: "center" }}
+        >
+          {data.subTitle}
+        </Text>
       </View>
     </>
   );

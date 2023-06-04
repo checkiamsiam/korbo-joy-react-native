@@ -168,9 +168,17 @@ const Components = (props) => {
 
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.white,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header leftIcon={"back"} titleLeft title={"Components"} />
-        <ScrollView contentContainerStyle={{ paddingBottom: 10, paddingTop: 5 }}>
+        <ScrollView
+          contentContainerStyle={{ paddingBottom: 10, paddingTop: 5 }}
+        >
           {ComponentData.map((data, index) => {
             return (
               <Ripple
@@ -205,7 +213,15 @@ const Components = (props) => {
                   <SvgXml xml={data.icon} />
                 </View>
                 <View style={{ flex: 1, paddingRight: 10 }}>
-                  <Text style={[FONTS.font, FONTS.fontBold, { color: COLORS.title, fontSize: 15, marginBottom: 7 }]}>{data.title}</Text>
+                  <Text
+                    style={[
+                      FONTS.font,
+                      FONTS.fontBold,
+                      { color: COLORS.title, fontSize: 15, marginBottom: 7 },
+                    ]}
+                  >
+                    {data.title}
+                  </Text>
                   <Text
                     numberOfLines={1}
                     style={[
@@ -221,7 +237,11 @@ const Components = (props) => {
                     {data.desc}
                   </Text>
                 </View>
-                <FeatherIcon color={COLORS.text} name={"chevron-right"} size={22} />
+                <FeatherIcon
+                  color={COLORS.text}
+                  name={"chevron-right"}
+                  size={22}
+                />
               </Ripple>
             );
           })}

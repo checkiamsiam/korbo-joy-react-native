@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
@@ -11,7 +18,9 @@ const SignIn = (props) => {
   const [isFocused, setisFocused] = useState(false);
   const [isFocused2, setisFocused2] = useState(false);
   const [handlePassword, setHandlePassword] = useState(true);
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
 
   const {
     control,
@@ -44,11 +53,17 @@ const SignIn = (props) => {
             paddingVertical: 30,
           }}
         >
-          <Image style={{ height: 70, resizeMode: "contain" }} source={IMAGES.logo} />
+          <Image
+            style={{ height: 70, resizeMode: "contain" }}
+            source={IMAGES.logo}
+          />
         </View>
         <View style={{ marginBottom: 20 }}>
           <Text style={{ ...FONTS.h3 }}>Welcome back!</Text>
-          <Text style={{ ...FONTS.font }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </Text>
+          <Text style={{ ...FONTS.font }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor{" "}
+          </Text>
         </View>
 
         <View style={GlobalStyleSheet.inputGroup}>
@@ -67,7 +82,11 @@ const SignIn = (props) => {
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                style={[GlobalStyleSheet.formControl, isFocused && GlobalStyleSheet.activeInput, errors.number && GlobalStyleSheet.errorInput]}
+                style={[
+                  GlobalStyleSheet.formControl,
+                  isFocused && GlobalStyleSheet.activeInput,
+                  errors.number && GlobalStyleSheet.errorInput,
+                ]}
                 onFocus={() => {
                   setisFocused(true);
                 }}
@@ -84,7 +103,11 @@ const SignIn = (props) => {
             )}
             name="number"
           />
-          {errors.number && <Text style={GlobalStyleSheet.errorInputText}>{errors.number?.message}</Text>}
+          {errors.number && (
+            <Text style={GlobalStyleSheet.errorInputText}>
+              {errors.number?.message}
+            </Text>
+          )}
         </View>
         <View style={GlobalStyleSheet.inputGroup}>
           <Text style={GlobalStyleSheet.label}>Password *</Text>
@@ -104,7 +127,11 @@ const SignIn = (props) => {
               {handlePassword ? (
                 <FeatherIcon name="eye" color={COLORS.secondary} size={22} />
               ) : (
-                <FeatherIcon name="eye-off" color={COLORS.secondary} size={22} />
+                <FeatherIcon
+                  name="eye-off"
+                  color={COLORS.secondary}
+                  size={22}
+                />
               )}
             </TouchableOpacity>
             <Controller
@@ -117,7 +144,11 @@ const SignIn = (props) => {
               }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <TextInput
-                  style={[GlobalStyleSheet.formControl, isFocused2 && GlobalStyleSheet.activeInput, errors.password && GlobalStyleSheet.errorInput]}
+                  style={[
+                    GlobalStyleSheet.formControl,
+                    isFocused2 && GlobalStyleSheet.activeInput,
+                    errors.password && GlobalStyleSheet.errorInput,
+                  ]}
                   onFocus={() => {
                     setisFocused2(true);
                   }}
@@ -134,11 +165,19 @@ const SignIn = (props) => {
               )}
               name="password"
             />
-            {errors.password && <Text style={GlobalStyleSheet.errorInputText}>{errors.password?.message}</Text>}
+            {errors.password && (
+              <Text style={GlobalStyleSheet.errorInputText}>
+                {errors.password?.message}
+              </Text>
+            )}
           </View>
         </View>
 
-        <CustomButton disabled={isLoading} onPress={handleSubmit(onSubmit)} title="Login" />
+        <CustomButton
+          disabled={isLoading}
+          onPress={handleSubmit(onSubmit)}
+          title="Login"
+        />
 
         {/* <View
           style={{
@@ -165,7 +204,11 @@ const SignIn = (props) => {
           >
             Don’t have an account?
           </Text>
-          <CustomButton onPress={() => props.navigation.navigate("SignUp")} outline title="Register now" />
+          <CustomButton
+            onPress={() => props.navigation.navigate("SignUp")}
+            outline
+            title="Register now"
+          />
         </View>
       </View>
     </ScrollView>

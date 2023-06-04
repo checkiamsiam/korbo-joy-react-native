@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Modal, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import {
+  Modal,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Ripple from "react-native-material-ripple";
 import { SvgXml } from "react-native-svg";
 import FeatherIcon from "react-native-vector-icons/Feather";
@@ -51,7 +59,9 @@ const register = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://ww
 const ActionModals = () => {
   const [activeSheet, setActiveSheet] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
 
   const ActionData = [
     {
@@ -111,7 +121,13 @@ const ActionModals = () => {
         </View>
       </Modal>
 
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.background,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header titleLeft title={"Action Modals"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
@@ -161,7 +177,11 @@ const ActionModals = () => {
                       >
                         {data.title}
                       </Text>
-                      <FeatherIcon color={COLORS.text} name={"chevron-right"} size={22} />
+                      <FeatherIcon
+                        color={COLORS.text}
+                        name={"chevron-right"}
+                        size={22}
+                      />
                     </Ripple>
                   );
                 })}

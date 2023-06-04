@@ -35,7 +35,9 @@ const HeaderStyle1 = (props) => {
         >
           <FeatherIcon color={COLORS.title} name="menu" size={18} />
         </TouchableOpacity>
-        <Text style={{ ...FONTS.h6, color: COLORS.title, flex: 1 }}>{props.title}</Text>
+        <Text style={{ ...FONTS.h6, color: COLORS.title, flex: 1 }}>
+          {props.title}
+        </Text>
         <TouchableOpacity
           style={{
             height: 50,

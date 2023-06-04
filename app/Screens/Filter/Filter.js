@@ -427,7 +427,9 @@ const Filter = () => {
   const [discountFilter, setDiscountFilter] = useState(discountFilterData);
   const [sizeFilter, setSizeFilter] = useState(sizeFilterData);
   const [priceFilter, setPriceFilter] = useState(priceFilterData);
-  const [customerRatingFilter, setCustomerRatingFilter] = useState(customerRatingFilterData);
+  const [customerRatingFilter, setCustomerRatingFilter] = useState(
+    customerRatingFilterData
+  );
   const [typeFilter, setTypeFilter] = useState(typeFilterData);
   const [occasionFilter, setOccasionFilter] = useState(occasionFilterData);
   const [brandFilter, setBrandFilter] = useState(brandFilterData);
@@ -436,9 +438,12 @@ const Filter = () => {
   const [fabricFilter, setFabricFilter] = useState(fabricFilterData);
   const [offersFilter, setOffersFilter] = useState(offersFilterData);
   const [themeFilter, setThemeFilter] = useState(themeFilterData);
-  const [reversibleFilter, setReversibleFilter] = useState(reversibleFilterData);
+  const [reversibleFilter, setReversibleFilter] =
+    useState(reversibleFilterData);
   const [patternFilter, setPatternFilter] = useState(patternFilterData);
-  const [availabilityFilter, setAvailabilityFilter] = useState(availabilityFilterData);
+  const [availabilityFilter, setAvailabilityFilter] = useState(
+    availabilityFilterData
+  );
   const [filterData, setFilterData] = useState(priceFilter);
 
   const handleFilterOption = (val) => {
@@ -690,7 +695,10 @@ const Filter = () => {
                   <CheckBox
                     checked={data.selected}
                     checkedColor={COLORS.primary}
-                    containerStyle={{ marginLeft: 20, backgroundColor: "transparent" }}
+                    containerStyle={{
+                      marginLeft: 20,
+                      backgroundColor: "transparent",
+                    }}
                     disabled={false}
                   />
                 )}

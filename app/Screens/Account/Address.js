@@ -1,10 +1,19 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { useSelector } from "react-redux";
 import Header from "../../layout/Header";
 
 const Address = ({ navigation }) => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <SafeAreaView
       style={{
@@ -22,10 +31,22 @@ const Address = ({ navigation }) => {
             paddingVertical: 8,
           }}
         >
-          <Text style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.primary }}>+Add New Address</Text>
+          <Text
+            style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.primary }}
+          >
+            +Add New Address
+          </Text>
         </TouchableOpacity>
         <View style={GlobalStyleSheet.container}>
-          <Text style={[FONTS.font, FONTS.fontBold, { color: COLORS.title, marginBottom: 10 }]}>Default Address</Text>
+          <Text
+            style={[
+              FONTS.font,
+              FONTS.fontBold,
+              { color: COLORS.title, marginBottom: 10 },
+            ]}
+          >
+            Default Address
+          </Text>
 
           <View
             style={{
@@ -61,7 +82,9 @@ const Address = ({ navigation }) => {
                   borderRadius: 15,
                 }}
               >
-                <Text style={{ ...FONTS.fontXs, ...FONTS.fontBold }}>OFFICE</Text>
+                <Text style={{ ...FONTS.fontXs, ...FONTS.fontBold }}>
+                  OFFICE
+                </Text>
               </View>
             </View>
             <Text style={FONTS.font}>
@@ -88,7 +111,9 @@ const Address = ({ navigation }) => {
                   borderColor: COLORS.borderColor,
                 }}
               >
-                <Text style={{ ...FONTS.h6, color: COLORS.secondary }}>Edit</Text>
+                <Text style={{ ...FONTS.h6, color: COLORS.secondary }}>
+                  Edit
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={{
@@ -97,7 +122,9 @@ const Address = ({ navigation }) => {
                   alignItems: "center",
                 }}
               >
-                <Text style={{ ...FONTS.h6, color: COLORS.secondary }}>Remove</Text>
+                <Text style={{ ...FONTS.h6, color: COLORS.secondary }}>
+                  Remove
+                </Text>
               </TouchableOpacity>
             </View>
           </View>

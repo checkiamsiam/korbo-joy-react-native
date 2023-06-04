@@ -29,13 +29,21 @@ const SectionHeader = ({ title, action, actionTitle, actionFunc }) => {
       </Text>
       {action && (
         <TouchableOpacity
-          onPress={actionFunc ? actionFunc : () => navigation.navigate("Items", { type: "Fashion" })}
+          onPress={
+            actionFunc
+              ? actionFunc
+              : () => navigation.navigate("Items", { type: "Fashion" })
+          }
           style={{
             flexDirection: "row",
             alignItems: "center",
           }}
         >
-          <Text style={{ ...FONTS.fontSm, color: COLORS.title, marginRight: 2 }}>{actionTitle}</Text>
+          <Text
+            style={{ ...FONTS.fontSm, color: COLORS.title, marginRight: 2 }}
+          >
+            {actionTitle}
+          </Text>
           <FeatherIcon size={16} color={COLORS.title} name="chevron-right" />
         </TouchableOpacity>
       )}

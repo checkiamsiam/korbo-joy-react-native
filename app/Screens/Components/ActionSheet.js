@@ -52,7 +52,9 @@ const register = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://ww
 const ActionSheet = () => {
   const refRBSheet = useRef();
   const [activeSheet, setActiveSheet] = useState("");
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
 
   const ActionData = [
     {
@@ -82,7 +84,15 @@ const ActionSheet = () => {
       <RBSheet
         closeOnDragDown={true}
         height={
-          activeSheet === "option" ? 270 : activeSheet === "success" ? 220 : activeSheet === "login" ? 360 : activeSheet === "register" ? 430 : 230
+          activeSheet === "option"
+            ? 270
+            : activeSheet === "success"
+            ? 220
+            : activeSheet === "login"
+            ? 360
+            : activeSheet === "register"
+            ? 430
+            : 230
         }
         openDuration={100}
         customStyles={{
@@ -114,7 +124,13 @@ const ActionSheet = () => {
         )}
       </RBSheet>
 
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header titleLeft title={"Action Sheet"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
@@ -167,7 +183,11 @@ const ActionSheet = () => {
                       >
                         {data.title}
                       </Text>
-                      <FeatherIcon color={COLORS.text} name={"chevron-right"} size={22} />
+                      <FeatherIcon
+                        color={COLORS.text}
+                        name={"chevron-right"}
+                        size={22}
+                      />
                     </Ripple>
                   );
                 })}

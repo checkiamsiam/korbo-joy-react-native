@@ -78,7 +78,9 @@ const PricingStyle2 = () => {
           </View>
         </View>
         <View style={{ alignItems: "center", marginBottom: 25 }}>
-          <Text style={{ ...FONTS.h4, color: COLORS.title, marginBottom: 5 }}>Free</Text>
+          <Text style={{ ...FONTS.h4, color: COLORS.title, marginBottom: 5 }}>
+            Free
+          </Text>
           <View
             style={{
               flexDirection: "row",
@@ -86,7 +88,9 @@ const PricingStyle2 = () => {
               marginBottom: 5,
             }}
           >
-            <Text style={{ ...FONTS.h2, lineHeight: 35, color: COLORS.title }}>$0</Text>
+            <Text style={{ ...FONTS.h2, lineHeight: 35, color: COLORS.title }}>
+              $0
+            </Text>
             <Text
               style={{
                 ...FONTS.font,
@@ -129,8 +133,15 @@ const PricingStyle2 = () => {
                   paddingVertical: 5,
                 }}
               >
-                <FeatherIcon style={{ marginRight: 8 }} color={COLORS.secondary} name="check" size={18} />
-                <Text style={{ ...FONTS.font, color: COLORS.text }}>{data}</Text>
+                <FeatherIcon
+                  style={{ marginRight: 8 }}
+                  color={COLORS.secondary}
+                  name="check"
+                  size={18}
+                />
+                <Text style={{ ...FONTS.font, color: COLORS.text }}>
+                  {data}
+                </Text>
               </View>
             );
           })}
