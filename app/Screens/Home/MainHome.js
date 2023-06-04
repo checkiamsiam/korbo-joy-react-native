@@ -24,7 +24,7 @@ const MainHome = ({ navigation }) => {
       <ScrollView>
         <Categories />
         <HomeBanner />
-        <SectionHeader title="Our Vendors" />
+        <SectionHeader title="Our Vendors" action={true} actionTitle="View all" actionFunc={() => navigation.navigate("Vendor")} />
         <OurVendors />
         <SectionHeader
           title="Flash Sale"

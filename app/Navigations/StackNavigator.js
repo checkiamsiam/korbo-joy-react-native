@@ -17,6 +17,7 @@ import Orders from "../Screens/Orders/Orders";
 import ProductDetail from "../Screens/Products/ProductDetail";
 import Products from "../Screens/Products/Products";
 import Search from "../Screens/Search/Search";
+import VendorsScreen from "../Screens/Vendors/VenorsScreen";
 import protectedScreen from "../utils/ProtectedScreen";
 import DrawerNavigation from "./DrawerNavigation";
 
@@ -50,6 +51,7 @@ const StackNavigator = () => {
         <StackComponent.Screen name={"AddDeliveryAddress"} component={protectedScreen(AddDeliveryAddress, token)} />
         <StackComponent.Screen name={"Filter"} component={Filter} />
         <StackComponent.Screen name={"Items"} component={Items} />
+        <StackComponent.Screen name={"Vendor"} component={VendorsScreen} />
         <StackComponent.Screen name={"Search"} component={Search} />
         {/* <StackComponent.Screen name={"Splash"} component={Splash} /> */}
         {/* <StackComponent.Screen name={"Onboarding"} component={Onboarding} /> */}
