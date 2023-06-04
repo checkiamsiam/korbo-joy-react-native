@@ -4,7 +4,11 @@ import { ScrollView, View } from "react-native";
 const FlashSaleSkeleton = () => {
   return (
     <View>
-      <ScrollView contentContainerStyle={{ paddingLeft: 15 }} horizontal showsHorizontalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={{ paddingLeft: 15 }}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      >
         {Array(4)
           .fill(undefined)
           .map((data, index) => {

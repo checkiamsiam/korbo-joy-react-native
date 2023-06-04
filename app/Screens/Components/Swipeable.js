@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { LayoutAnimation, SafeAreaView, ScrollView, StatusBar, View } from "react-native";
+import {
+  LayoutAnimation,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  View,
+} from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useSelector } from "react-redux";
 import SwipeBox from "../../components/SwipeBox";

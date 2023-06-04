@@ -36,7 +36,15 @@ const ListStyle2 = (props) => {
           {props.icon}
         </View>
         <View style={{ flex: 1, paddingRight: 10 }}>
-          <Text style={[FONTS.font, FONTS.fontMedium, { color: COLORS.title, fontSize: 15, marginBottom: 7 }]}>{props.title}</Text>
+          <Text
+            style={[
+              FONTS.font,
+              FONTS.fontMedium,
+              { color: COLORS.title, fontSize: 15, marginBottom: 7 },
+            ]}
+          >
+            {props.title}
+          </Text>
           <Text
             numberOfLines={1}
             style={[

@@ -8,7 +8,13 @@ const Footers = (props) => {
   const { COLORS, GlobalStyleSheet } = useSelector((state) => state.theme);
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header title={"Footer styles"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
@@ -24,10 +30,26 @@ const Footers = (props) => {
               }}
             >
               <View style={GlobalStyleSheet.card}>
-                <ListStyle1 onPress={() => props.navigation.navigate("TabStyle1")} arrowRight title={"Footer Style 1"} />
-                <ListStyle1 onPress={() => props.navigation.navigate("TabStyle2")} arrowRight title={"Footer Style 2"} />
-                <ListStyle1 onPress={() => props.navigation.navigate("TabStyle3")} arrowRight title={"Footer Style 3"} />
-                <ListStyle1 onPress={() => props.navigation.navigate("TabStyle4")} arrowRight title={"Footer Style 4"} />
+                <ListStyle1
+                  onPress={() => props.navigation.navigate("TabStyle1")}
+                  arrowRight
+                  title={"Footer Style 1"}
+                />
+                <ListStyle1
+                  onPress={() => props.navigation.navigate("TabStyle2")}
+                  arrowRight
+                  title={"Footer Style 2"}
+                />
+                <ListStyle1
+                  onPress={() => props.navigation.navigate("TabStyle3")}
+                  arrowRight
+                  title={"Footer Style 3"}
+                />
+                <ListStyle1
+                  onPress={() => props.navigation.navigate("TabStyle4")}
+                  arrowRight
+                  title={"Footer Style 4"}
+                />
               </View>
             </View>
           </View>

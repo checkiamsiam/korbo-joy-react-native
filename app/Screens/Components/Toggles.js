@@ -8,10 +8,18 @@ import ToggleStyle4 from "../../components/Toggles/ToggleStyle4";
 import Header from "../../layout/Header";
 
 const Toggles = () => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header title={"Toggles"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View style={{ ...GlobalStyleSheet.container }}>
@@ -30,7 +38,8 @@ const Toggles = () => {
                 <View style={{ paddingBottom: 10, marginBottom: 10 }}>
                   <Text style={{ ...FONTS.h6 }}>Toggle Mobile Styled</Text>
                   <Text style={{ ...FONTS.font }}>
-                    These toggles are designed to look like mobile toggles. They can have any color or icon you wish.
+                    These toggles are designed to look like mobile toggles. They
+                    can have any color or icon you wish.
                   </Text>
                 </View>
 

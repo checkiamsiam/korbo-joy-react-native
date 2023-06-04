@@ -36,7 +36,12 @@ const Coupons = () => {
       <ScrollView>
         <View style={GlobalStyleSheet.container}>
           {CouponsData.map((data, index) => (
-            <CouponItem off={data.off} desc={data.desc} category={data.category} key={index} />
+            <CouponItem
+              off={data.off}
+              desc={data.desc}
+              category={data.category}
+              key={index}
+            />
           ))}
         </View>
       </ScrollView>

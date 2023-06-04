@@ -39,7 +39,9 @@ const PricingStyle1 = () => {
           >
             Basic plan
           </Text>
-          <Text style={{ ...FONTS.font, color: COLORS.text }}>Billed annually</Text>
+          <Text style={{ ...FONTS.font, color: COLORS.text }}>
+            Billed annually
+          </Text>
         </View>
         <View style={{ marginBottom: 25 }}>
           {Data.map((data, index) => {
@@ -52,8 +54,15 @@ const PricingStyle1 = () => {
                   paddingVertical: 5,
                 }}
               >
-                <FeatherIcon style={{ marginRight: 8 }} color={COLORS.primary} name="check-circle" size={18} />
-                <Text style={{ ...FONTS.font, color: COLORS.text }}>{data}</Text>
+                <FeatherIcon
+                  style={{ marginRight: 8 }}
+                  color={COLORS.primary}
+                  name="check-circle"
+                  size={18}
+                />
+                <Text style={{ ...FONTS.font, color: COLORS.text }}>
+                  {data}
+                </Text>
               </View>
             );
           })}

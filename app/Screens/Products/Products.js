@@ -1,5 +1,10 @@
 import React from "react";
-import { SafeAreaView, StatusBar, useWindowDimensions, View } from "react-native";
+import {
+  SafeAreaView,
+  StatusBar,
+  useWindowDimensions,
+  View,
+} from "react-native";
 import { SceneMap, TabBar, TabView } from "react-native-tab-view";
 import { useSelector } from "react-redux";
 import SearchBar from "../../components/SearchBar";
@@ -14,7 +19,9 @@ const renderScene = SceneMap({
 
 const Products = (props) => {
   const layout = useWindowDimensions();
-  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
 
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
@@ -24,9 +31,25 @@ const Products = (props) => {
   ]);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
-      <Header leftIcon={"back"} title={"Products"} rightIcon={"more"} borderNone />
-      <View style={[GlobalStyleSheet.container, { paddingTop: 5, paddingBottom: 10 }]}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
+      }}
+    >
+      <Header
+        leftIcon={"back"}
+        title={"Products"}
+        rightIcon={"more"}
+        borderNone
+      />
+      <View
+        style={[
+          GlobalStyleSheet.container,
+          { paddingTop: 5, paddingBottom: 10 },
+        ]}
+      >
         <SearchBar />
       </View>
       <TabView

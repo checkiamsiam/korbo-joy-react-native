@@ -56,7 +56,14 @@ const JustForYou = () => {
       ) : (
         <ProductsListSkeleton />
       )}
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", paddingVertical: 25 }}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          paddingVertical: 25,
+        }}
+      >
         <ActivityIndicator animating={true} color={COLORS.primary} />
       </View>
     </View>

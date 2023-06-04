@@ -9,7 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "eslint .",
-    "lint-fix": "eslint --ext .js,.jsx,.ts,.tsx app/ --fix",
+    "lint-fix": "eslint --ext .js,.jsx,.ts,.tsx  ./ --fix",
     "test": "jest"
   },
   "dependencies": {

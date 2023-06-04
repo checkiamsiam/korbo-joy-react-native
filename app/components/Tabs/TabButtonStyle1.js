@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Animated, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Animated,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { useSelector } from "react-redux";
 
 const TabButtonStyle1 = ({ buttons, onClick, scrollX }) => {
@@ -25,8 +31,16 @@ const TabButtonStyle1 = ({ buttons, onClick, scrollX }) => {
       onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
     >
       {buttons.map((btn, i) => (
-        <TouchableOpacity key={btn} style={styles.btn} onPress={() => onClick(i)}>
-          <Text style={{ ...FONTS.font, ...FONTS.fontMedium, color: COLORS.text }}>{btn}</Text>
+        <TouchableOpacity
+          key={btn}
+          style={styles.btn}
+          onPress={() => onClick(i)}
+        >
+          <Text
+            style={{ ...FONTS.font, ...FONTS.fontMedium, color: COLORS.text }}
+          >
+            {btn}
+          </Text>
         </TouchableOpacity>
       ))}
       <Animated.View

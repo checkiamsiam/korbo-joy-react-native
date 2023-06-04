@@ -38,17 +38,41 @@ const StackNavigator = () => {
         <StackComponent.Screen name={"Welcome"} component={Welcome} />
         <StackComponent.Screen name={"SignUp"} component={SignUp} />
         <StackComponent.Screen name={"SignIn"} component={SignIn} />
-        <StackComponent.Screen name={"DrawerNavigation"} component={DrawerNavigation} />
+        <StackComponent.Screen
+          name={"DrawerNavigation"}
+          component={DrawerNavigation}
+        />
         <StackComponent.Screen name={"CategoryHome"} component={CategoryHome} />
         <StackComponent.Screen name={"Products"} component={Products} />
-        <StackComponent.Screen name={"ProductDetail"} component={ProductDetail} />
+        <StackComponent.Screen
+          name={"ProductDetail"}
+          component={ProductDetail}
+        />
         <StackComponent.Screen name={"Featured"} component={Featured} />
-        <StackComponent.Screen name={"Orders"} component={protectedScreen(Orders, token)} />
-        <StackComponent.Screen name={"Profile"} component={protectedScreen(Profile, token)} />
-        <StackComponent.Screen name={"EditProfile"} component={protectedScreen(EditProfile, token)} />
-        <StackComponent.Screen name={"Address"} component={protectedScreen(Address, token)} />
-        <StackComponent.Screen name={"Payment"} component={protectedScreen(Payment, token)} />
-        <StackComponent.Screen name={"AddDeliveryAddress"} component={protectedScreen(AddDeliveryAddress, token)} />
+        <StackComponent.Screen
+          name={"Orders"}
+          component={protectedScreen(Orders, token)}
+        />
+        <StackComponent.Screen
+          name={"Profile"}
+          component={protectedScreen(Profile, token)}
+        />
+        <StackComponent.Screen
+          name={"EditProfile"}
+          component={protectedScreen(EditProfile, token)}
+        />
+        <StackComponent.Screen
+          name={"Address"}
+          component={protectedScreen(Address, token)}
+        />
+        <StackComponent.Screen
+          name={"Payment"}
+          component={protectedScreen(Payment, token)}
+        />
+        <StackComponent.Screen
+          name={"AddDeliveryAddress"}
+          component={protectedScreen(AddDeliveryAddress, token)}
+        />
         <StackComponent.Screen name={"Filter"} component={Filter} />
         <StackComponent.Screen name={"Items"} component={Items} />
         <StackComponent.Screen name={"Vendor"} component={VendorsScreen} />

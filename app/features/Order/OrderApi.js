@@ -1,5 +1,8 @@
 import { showMessage } from "react-native-flash-message";
-import { removeLoadingScreen, setLoadingScreen } from "../Action/ActionSheetSlice";
+import {
+  removeLoadingScreen,
+  setLoadingScreen,
+} from "../Action/ActionSheetSlice";
 import ApiBase from "../app/ApiBase";
 
 export const orderApi = ApiBase.injectEndpoints({

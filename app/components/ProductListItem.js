@@ -3,7 +3,16 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useSelector } from "react-redux";
 
-const ProductListItem = ({ image, title, desc, price, oldPrice, offer, imageUrl, onPress }) => {
+const ProductListItem = ({
+  image,
+  title,
+  desc,
+  price,
+  oldPrice,
+  offer,
+  imageUrl,
+  onPress,
+}) => {
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <TouchableOpacity
@@ -39,7 +48,9 @@ const ProductListItem = ({ image, title, desc, price, oldPrice, offer, imageUrl,
         >
           {title}
         </Text>
-        <Text style={{ ...FONTS.font, fontSize: 11, ...FONTS.fontMedium }}>{desc}</Text>
+        <Text style={{ ...FONTS.font, fontSize: 11, ...FONTS.fontMedium }}>
+          {desc}
+        </Text>
         <View
           style={{
             flexDirection: "row",
@@ -94,7 +105,11 @@ const ProductListItem = ({ image, title, desc, price, oldPrice, offer, imageUrl,
               paddingRight: 1,
             }}
           >
-            <FeatherIcon size={15} color={COLORS.primary} name="shopping-cart" />
+            <FeatherIcon
+              size={15}
+              color={COLORS.primary}
+              name="shopping-cart"
+            />
           </TouchableOpacity>
         </View>
       </View>

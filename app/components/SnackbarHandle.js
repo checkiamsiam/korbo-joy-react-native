@@ -7,7 +7,9 @@ import { hideSnack } from "../features/Action/SnackbarSlice";
 const SnackbarHandle = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const { visible, text, actionLabel, navigateTo } = useSelector((state) => state.snackbar);
+  const { visible, text, actionLabel, navigateTo } = useSelector(
+    (state) => state.snackbar
+  );
   return (
     <>
       <Snackbar

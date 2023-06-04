@@ -37,7 +37,11 @@ const HeaderStyle3 = () => {
             >
               Hello, John
             </Text>
-            <Text style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.title }}>Thursday, 10 Sep</Text>
+            <Text
+              style={{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.title }}
+            >
+              Thursday, 10 Sep
+            </Text>
           </View>
         </View>
         <TouchableOpacity

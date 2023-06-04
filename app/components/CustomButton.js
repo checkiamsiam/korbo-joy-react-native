@@ -27,7 +27,10 @@ const CustomButton = (props) => {
         },
         props.btnSm && { height: 40 },
         props.color && { backgroundColor: props.color },
-        props.btnLight && { backgroundColor: COLORS.backgroundColor, elevation: 0 },
+        props.btnLight && {
+          backgroundColor: COLORS.backgroundColor,
+          elevation: 0,
+        },
         props.disabled && { backgroundColor: COLORS.borderColor, elevation: 0 },
         props.outline && {
           backgroundColor: "transparent",

@@ -27,4 +27,5 @@ export const categoryAPI = ApiBase.injectEndpoints({
   }),
 });
 
-export const { useGetCategoriesQuery, useGetCategoryProductQuery } = categoryAPI;
+export const { useGetCategoriesQuery, useGetCategoryProductQuery } =
+  categoryAPI;

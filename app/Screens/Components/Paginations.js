@@ -6,10 +6,18 @@ import RoundedPagination from "../../components/Paginations/RoundedPagination";
 import Header from "../../layout/Header";
 
 const Paginations = () => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header title={"Paginations"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
@@ -33,7 +41,9 @@ const Paginations = () => {
                     marginBottom: 20,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>Default Pagination</Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
+                    Default Pagination
+                  </Text>
                 </View>
 
                 <DefaultPagination />
@@ -60,7 +70,9 @@ const Paginations = () => {
                     marginBottom: 20,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>Rounded Pagination</Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
+                    Rounded Pagination
+                  </Text>
                 </View>
 
                 <RoundedPagination />
@@ -87,7 +99,9 @@ const Paginations = () => {
                     marginBottom: 20,
                   }}
                 >
-                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>Pagination Sizes</Text>
+                  <Text style={{ ...FONTS.h6, color: COLORS.title }}>
+                    Pagination Sizes
+                  </Text>
                 </View>
 
                 <View style={{ marginBottom: 15 }}>

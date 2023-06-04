@@ -6,7 +6,7 @@ const CustomStatusBar = () => {
   const { mode } = useSelector((state) => state.theme);
   return (
     <>
-       <StatusBar
+      <StatusBar
         translucent
         animated
         backgroundColor={mode === "dark" ? "rgba(51, 51, 51, 0.5)" : "#F5F5F5"}

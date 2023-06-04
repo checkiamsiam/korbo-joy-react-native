@@ -13,7 +13,13 @@ const Headers = (props) => {
 
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header title={"Header styles"} bgWhite leftIcon={"back"} />
         <ScrollView>
           <View style={{ paddingVertical: 30 }}>
@@ -42,7 +48,12 @@ const Headers = (props) => {
               </View>
             </View>
             <View style={{ marginBottom: 25 }}>
-              <Header titleLeft leftIcon={"back"} title={"Home"} rightIcon={"more"} />
+              <Header
+                titleLeft
+                leftIcon={"back"}
+                title={"Home"}
+                rightIcon={"more"}
+              />
             </View>
           </View>
         </ScrollView>

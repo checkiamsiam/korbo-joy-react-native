@@ -14,12 +14,22 @@ const ButtonOutline = (props) => {
           borderColor: props.color ? props.color : COLORS.primary,
           paddingHorizontal: 15,
           paddingVertical: 12,
-          borderRadius: props.btnSquare ? 0 : props.btnRounded ? 30 : SIZES.radius,
+          borderRadius: props.btnSquare
+            ? 0
+            : props.btnRounded
+            ? 30
+            : SIZES.radius,
           alignItems: "center",
         },
       ]}
     >
-      <Text style={[{ ...FONTS.h6, color: props.color ? props.color : COLORS.primary }]}>{props.title}</Text>
+      <Text
+        style={[
+          { ...FONTS.h6, color: props.color ? props.color : COLORS.primary },
+        ]}
+      >
+        {props.title}
+      </Text>
     </TouchableOpacity>
   );
 };

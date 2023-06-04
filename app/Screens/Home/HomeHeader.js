@@ -47,7 +47,9 @@ const HomeHeader = () => {
       </View>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <IconButton
-          icon={() => <FeatherIcon color={COLORS.title} size={20} name="search" />}
+          icon={() => (
+            <FeatherIcon color={COLORS.title} size={20} name="search" />
+          )}
           size={25}
           onPress={() => navigation.navigate("Search")}
         />
@@ -60,7 +62,11 @@ const HomeHeader = () => {
           onPress={() => navigation.navigate("Cart")}
           icon={() => (
             <View>
-              <FeatherIcon color={COLORS.title} size={20} name="shopping-cart" />
+              <FeatherIcon
+                color={COLORS.title}
+                size={20}
+                name="shopping-cart"
+              />
               {totalProductInCard > 0 && (
                 <View
                   style={{
@@ -75,7 +81,15 @@ const HomeHeader = () => {
                     right: -6,
                   }}
                 >
-                  <Text style={{ ...FONTS.fontXs, fontSize: 10, color: COLORS.white }}>{totalProductInCard}</Text>
+                  <Text
+                    style={{
+                      ...FONTS.fontXs,
+                      fontSize: 10,
+                      color: COLORS.white,
+                    }}
+                  >
+                    {totalProductInCard}
+                  </Text>
                 </View>
               )}
             </View>

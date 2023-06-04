@@ -3,10 +3,24 @@ import React, { memo } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useDispatch, useSelector } from "react-redux";
-import { useDeleteFromCartMutation, useUpdateCartProductMutation } from "../features/Cart/CartApi";
-import { quantityDecrement, quantityIncrement } from "../features/Cart/CartSlice";
+import {
+  useDeleteFromCartMutation,
+  useUpdateCartProductMutation,
+} from "../features/Cart/CartApi";
+import {
+  quantityDecrement,
+  quantityIncrement,
+} from "../features/Cart/CartSlice";
 
-const CheckoutItem = ({ image, title, price, oldPrice, quantity, type, id }) => {
+const CheckoutItem = ({
+  image,
+  title,
+  price,
+  oldPrice,
+  quantity,
+  type,
+  id,
+}) => {
   const dispatch = useDispatch();
   const { COLORS, FONTS } = useSelector((state) => state.theme);
   const [deleteFromCart, {}] = useDeleteFromCartMutation();

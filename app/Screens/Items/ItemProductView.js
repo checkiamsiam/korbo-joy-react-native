@@ -17,7 +17,13 @@ const ItemProductView = ({ data }) => {
     <View>
       {data.length > 0 ? (
         <View>
-          <View style={{ flexDirection: "row", flexWrap: "wrap", paddingHorizontal: 5 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              paddingHorizontal: 5,
+            }}
+          >
             <FlatList
               data={products}
               onEndReached={handleEndReach}
@@ -48,13 +54,22 @@ const ItemProductView = ({ data }) => {
             />
           </View>
           {data.length >= limit && (
-            <View style={{ flex: 1, justifyContent: "center", alignItems: "center", paddingVertical: 25 }}>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                paddingVertical: 25,
+              }}
+            >
               <ActivityIndicator animating={true} color={COLORS.primary} />
             </View>
           )}
         </View>
       ) : (
-        <Text style={{ textAlign: "center" , color: COLORS.text }}>No Product Found</Text>
+        <Text style={{ textAlign: "center", color: COLORS.text }}>
+          No Product Found
+        </Text>
       )}
     </View>
   );

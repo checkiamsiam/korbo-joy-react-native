@@ -47,7 +47,10 @@ const Onboarding = (props) => {
       >
         {SwiperData.map((data, index) => {
           return (
-            <View style={{ flex: 1, padding: 20, paddingBottom: 70 }} key={index}>
+            <View
+              style={{ flex: 1, padding: 20, paddingBottom: 70 }}
+              key={index}
+            >
               <Image
                 style={{
                   flex: 1,
@@ -62,15 +65,24 @@ const Onboarding = (props) => {
                   padding: 10,
                 }}
               >
-                <Text style={{ ...FONTS.h3, textAlign: "center", marginBottom: 8 }}>{data.title}</Text>
-                <Text style={[FONTS.font, { textAlign: "center" }]}>{data.desc}</Text>
+                <Text
+                  style={{ ...FONTS.h3, textAlign: "center", marginBottom: 8 }}
+                >
+                  {data.title}
+                </Text>
+                <Text style={[FONTS.font, { textAlign: "center" }]}>
+                  {data.desc}
+                </Text>
               </View>
             </View>
           );
         })}
       </Swiper>
       <View style={{ paddingHorizontal: 15, paddingBottom: 15 }}>
-        <CustomButton onPress={() => props.navigation.navigate("Welcome")} title="Get Started" />
+        <CustomButton
+          onPress={() => props.navigation.navigate("Welcome")}
+          title="Get Started"
+        />
       </View>
     </View>
   );

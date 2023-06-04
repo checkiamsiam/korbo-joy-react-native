@@ -7,8 +7,13 @@ const ListStyle1 = (props) => {
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <>
-      <TouchableOpacity onPress={() => props.onPress && props.onPress()} style={[styles.listStyle, { borderColor: COLORS.borderColor }]}>
-        {props.icon && <View style={{ marginRight: 14, width: 16 }}>{props.icon}</View>}
+      <TouchableOpacity
+        onPress={() => props.onPress && props.onPress()}
+        style={[styles.listStyle, { borderColor: COLORS.borderColor }]}
+      >
+        {props.icon && (
+          <View style={{ marginRight: 14, width: 16 }}>{props.icon}</View>
+        )}
         {props.image && (
           <Image
             style={{
@@ -30,8 +35,12 @@ const ListStyle1 = (props) => {
         >
           {props.title}
         </Text>
-        {props.arrowDown && <FontAwesome name={"angle-down"} color={COLORS.title} size={18} />}
-        {props.arrowRight && <FontAwesome name={"angle-right"} color={COLORS.title} size={18} />}
+        {props.arrowDown && (
+          <FontAwesome name={"angle-down"} color={COLORS.title} size={18} />
+        )}
+        {props.arrowRight && (
+          <FontAwesome name={"angle-right"} color={COLORS.title} size={18} />
+        )}
       </TouchableOpacity>
     </>
   );

@@ -35,7 +35,13 @@ const Snackbars = () => {
 
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header title={"Snackbars"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View style={{ ...GlobalStyleSheet.container }}>
@@ -54,25 +60,49 @@ const Snackbars = () => {
                 <ListStyle1
                   onPress={() => ShowSnackbarSuccess()}
                   arrowRight
-                  icon={<FontAwesome size={14} color={COLORS.success} name={"check"} />}
+                  icon={
+                    <FontAwesome
+                      size={14}
+                      color={COLORS.success}
+                      name={"check"}
+                    />
+                  }
                   title={"Confirmation Snackbar"}
                 />
                 <ListStyle1
                   onPress={() => ShowSnackbarWarning()}
                   arrowRight
-                  icon={<FontAwesome size={14} color={COLORS.warning} name={"warning"} />}
+                  icon={
+                    <FontAwesome
+                      size={14}
+                      color={COLORS.warning}
+                      name={"warning"}
+                    />
+                  }
                   title={"Warning Snackbar"}
                 />
                 <ListStyle1
                   onPress={() => ShowSnackbarInfo()}
                   arrowRight
-                  icon={<FontAwesome size={14} color={COLORS.info} name={"refresh"} />}
+                  icon={
+                    <FontAwesome
+                      size={14}
+                      color={COLORS.info}
+                      name={"refresh"}
+                    />
+                  }
                   title={"Loading Snackbar"}
                 />
                 <ListStyle1
                   onPress={() => ShowSnackbarError()}
                   arrowRight
-                  icon={<FontAwesome size={14} color={COLORS.danger} name={"close"} />}
+                  icon={
+                    <FontAwesome
+                      size={14}
+                      color={COLORS.danger}
+                      name={"close"}
+                    />
+                  }
                   title={"Error Snackbar"}
                 />
               </View>

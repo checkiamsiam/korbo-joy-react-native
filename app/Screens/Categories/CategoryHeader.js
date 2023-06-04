@@ -21,7 +21,13 @@ const CategoryHeader = () => {
         borderBottomColor: COLORS.borderColor,
       }}
     >
-      <IconButton icon={() => <FeatherIcon color={COLORS.title} size={18} name="arrow-left" />} size={25} onPress={() => navigation.goBack()} />
+      <IconButton
+        icon={() => (
+          <FeatherIcon color={COLORS.title} size={18} name="arrow-left" />
+        )}
+        size={25}
+        onPress={() => navigation.goBack()}
+      />
       <Text
         style={{
           ...FONTS.font,
@@ -34,7 +40,13 @@ const CategoryHeader = () => {
       >
         {name}
       </Text>
-      <IconButton icon={() => <FeatherIcon color={COLORS.title} size={20} name="search" />} size={25} onPress={() => navigation.navigate("Search")} />
+      <IconButton
+        icon={() => (
+          <FeatherIcon color={COLORS.title} size={20} name="search" />
+        )}
+        size={25}
+        onPress={() => navigation.navigate("Search")}
+      />
       {/* <IconButton
         icon={() => <FeatherIcon color={COLORS.title} size={20} name="heart" />}
         size={25}
@@ -58,7 +70,11 @@ const CategoryHeader = () => {
                 right: -6,
               }}
             >
-              <Text style={{ ...FONTS.fontXs, fontSize: 10, color: COLORS.white }}>2</Text>
+              <Text
+                style={{ ...FONTS.fontXs, fontSize: 10, color: COLORS.white }}
+              >
+                2
+              </Text>
             </View>
           </View>
         )}

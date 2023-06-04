@@ -14,7 +14,10 @@ const CategoryHome = ({ navigation, route }) => {
   const { name, categoryId } = route.params;
   const { allCategories } = useSelector((state) => state.categories);
   const thisCategory = allCategories.find((c) => c.id === categoryId);
-  const { isLoading, data, isSuccess } = useGetCategoryProductQuery(categoryId, { refetchOnMountOrArgChange: true });
+  const { isLoading, data, isSuccess } = useGetCategoryProductQuery(
+    categoryId,
+    { refetchOnMountOrArgChange: true }
+  );
 
   return (
     <SafeAreaView
@@ -49,7 +52,11 @@ const CategoryHome = ({ navigation, route }) => {
             {name} Products
           </Text>
         </View>
-        {!isLoading && isSuccess ? <Products products={data.products} /> : <ProductsListSkeleton />}
+        {!isLoading && isSuccess ? (
+          <Products products={data.products} />
+        ) : (
+          <ProductsListSkeleton />
+        )}
       </ScrollView>
     </SafeAreaView>
   );

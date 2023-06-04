@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { SafeAreaView, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
 import { setDeliveryDetails } from "../../features/Order/OrderSlice";
 import Header from "../../layout/Header";
 
 const AddDeliveryAddress = ({ navigation }) => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const [isFocused, setisFocused] = useState(false);
@@ -22,7 +32,11 @@ const AddDeliveryAddress = ({ navigation }) => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const deliveryAdress = { ...data, addressType: defaultAddress, userId: user.id };
+    const deliveryAdress = {
+      ...data,
+      addressType: defaultAddress,
+      userId: user.id,
+    };
     dispatch(setDeliveryDetails(deliveryAdress));
     navigation.navigate("Payment");
   };
@@ -73,7 +87,11 @@ const AddDeliveryAddress = ({ navigation }) => {
                 }}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    style={[GlobalStyleSheet.formControl, isFocused && GlobalStyleSheet.activeInput, errors.name && GlobalStyleSheet.errorInput]}
+                    style={[
+                      GlobalStyleSheet.formControl,
+                      isFocused && GlobalStyleSheet.activeInput,
+                      errors.name && GlobalStyleSheet.errorInput,
+                    ]}
                     onFocus={() => {
                       setisFocused(true);
                     }}
@@ -89,7 +107,11 @@ const AddDeliveryAddress = ({ navigation }) => {
                 )}
                 name="name"
               />
-              {errors.name && <Text style={GlobalStyleSheet.errorInputText}>{errors.name?.message}</Text>}
+              {errors.name && (
+                <Text style={GlobalStyleSheet.errorInputText}>
+                  {errors.name?.message}
+                </Text>
+              )}
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
               <Text style={GlobalStyleSheet.label}>Mobile Number *</Text>
@@ -107,7 +129,11 @@ const AddDeliveryAddress = ({ navigation }) => {
                 }}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    style={[GlobalStyleSheet.formControl, isFocused1 && GlobalStyleSheet.activeInput, errors.number && GlobalStyleSheet.errorInput]}
+                    style={[
+                      GlobalStyleSheet.formControl,
+                      isFocused1 && GlobalStyleSheet.activeInput,
+                      errors.number && GlobalStyleSheet.errorInput,
+                    ]}
                     onFocus={() => {
                       setisFocused1(true);
                     }}
@@ -124,7 +150,11 @@ const AddDeliveryAddress = ({ navigation }) => {
                 )}
                 name="number"
               />
-              {errors.number && <Text style={GlobalStyleSheet.errorInputText}>{errors.number?.message}</Text>}
+              {errors.number && (
+                <Text style={GlobalStyleSheet.errorInputText}>
+                  {errors.number?.message}
+                </Text>
+              )}
             </View>
             <View
               style={{
@@ -156,7 +186,11 @@ const AddDeliveryAddress = ({ navigation }) => {
                 }}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    style={[GlobalStyleSheet.formControl, isFocused2 && GlobalStyleSheet.activeInput, errors.adress && GlobalStyleSheet.errorInput]}
+                    style={[
+                      GlobalStyleSheet.formControl,
+                      isFocused2 && GlobalStyleSheet.activeInput,
+                      errors.adress && GlobalStyleSheet.errorInput,
+                    ]}
                     onFocus={() => {
                       setisFocused2(true);
                     }}
@@ -172,7 +206,11 @@ const AddDeliveryAddress = ({ navigation }) => {
                 )}
                 name="adress"
               />
-              {errors.adress && <Text style={GlobalStyleSheet.errorInputText}>{errors.adress?.message}</Text>}
+              {errors.adress && (
+                <Text style={GlobalStyleSheet.errorInputText}>
+                  {errors.adress?.message}
+                </Text>
+              )}
             </View>
             <View style={GlobalStyleSheet.inputGroup}>
               <Text style={GlobalStyleSheet.label}>Locality/Town *</Text>
@@ -200,7 +238,11 @@ const AddDeliveryAddress = ({ navigation }) => {
                 )}
                 name="localTown"
               />
-              {errors.localTown && <Text style={GlobalStyleSheet.errorInputText}>{errors.localTown?.message}</Text>}
+              {errors.localTown && (
+                <Text style={GlobalStyleSheet.errorInputText}>
+                  {errors.localTown?.message}
+                </Text>
+              )}
             </View>
             {/* <View style={[GlobalStyleSheet.row]}>
               <View style={[GlobalStyleSheet.col50]}>
@@ -255,7 +297,12 @@ const AddDeliveryAddress = ({ navigation }) => {
                   },
                 ]}
               >
-                <Text style={[{ ...FONTS.font, color: COLORS.title, paddingBottom: 2 }, defaultAddress === "Home" && { color: COLORS.primary }]}>
+                <Text
+                  style={[
+                    { ...FONTS.font, color: COLORS.title, paddingBottom: 2 },
+                    defaultAddress === "Home" && { color: COLORS.primary },
+                  ]}
+                >
                   Home
                 </Text>
               </TouchableOpacity>
@@ -274,7 +321,12 @@ const AddDeliveryAddress = ({ navigation }) => {
                   },
                 ]}
               >
-                <Text style={[{ ...FONTS.font, color: COLORS.title, paddingBottom: 2 }, defaultAddress === "Work" && { color: COLORS.primary }]}>
+                <Text
+                  style={[
+                    { ...FONTS.font, color: COLORS.title, paddingBottom: 2 },
+                    defaultAddress === "Work" && { color: COLORS.primary },
+                  ]}
+                >
                   Work
                 </Text>
               </TouchableOpacity>

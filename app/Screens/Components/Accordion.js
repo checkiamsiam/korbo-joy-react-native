@@ -7,10 +7,18 @@ import ClassicAccordion from "../../components/Accordion/ClassicAccordion";
 import Header from "../../layout/Header";
 
 const AccordionScreen = () => {
-  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header titleLeft title={"Accordions"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
@@ -47,7 +55,9 @@ const AccordionScreen = () => {
                   >
                     Classic Accordion
                   </Text>
-                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>You can use accordion with icon or without icon.</Text>
+                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
+                    You can use accordion with icon or without icon.
+                  </Text>
                 </View>
                 <ClassicAccordion />
               </View>
@@ -87,7 +97,9 @@ const AccordionScreen = () => {
                   >
                     Accordion Highlight
                   </Text>
-                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>You can use accordion with icon or without icon.</Text>
+                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
+                    You can use accordion with icon or without icon.
+                  </Text>
                 </View>
                 <AccordionHighlight />
               </View>
@@ -127,7 +139,9 @@ const AccordionScreen = () => {
                   >
                     Accordion Seprator
                   </Text>
-                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>You can use accordion with icon or without icon.</Text>
+                  <Text style={{ ...FONTS.fontSm, color: COLORS.text }}>
+                    You can use accordion with icon or without icon.
+                  </Text>
                 </View>
                 <AccordionSeprator />
               </View>

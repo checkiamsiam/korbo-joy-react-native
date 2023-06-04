@@ -10,7 +10,13 @@ const Pricings = () => {
   const { COLORS, GlobalStyleSheet } = useSelector((state) => state.theme);
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header title={"Pricings"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View

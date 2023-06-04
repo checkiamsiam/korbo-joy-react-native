@@ -1,7 +1,11 @@
 import { useFocusEffect } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 import { useSelector } from "react-redux";
 import cart from "../assets/images/icons/cart.png";
 import category from "../assets/images/icons/category.png";
@@ -101,7 +105,12 @@ const CustomBottomNavigation = ({ state, descriptors, navigation }) => {
       </Animated.View>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
-        const label = options.tabBarLabel !== undefined ? options.tabBarLabel : options.title !== undefined ? options.title : route.name;
+        const label =
+          options.tabBarLabel !== undefined
+            ? options.tabBarLabel
+            : options.title !== undefined
+            ? options.title
+            : route.name;
 
         const isFocused = state.index === index;
 
@@ -141,7 +150,15 @@ const CustomBottomNavigation = ({ state, descriptors, navigation }) => {
                   marginBottom: 5,
                   tintColor: isFocused ? COLORS.primary : COLORS.title,
                 }}
-                source={label === "Home" ? home : label === "Categories" ? category : label === "Account" ? user : label === "Cart" && cart}
+                source={
+                  label === "Home"
+                    ? home
+                    : label === "Categories"
+                    ? category
+                    : label === "Account"
+                    ? user
+                    : label === "Cart" && cart
+                }
               />
               <Text style={{ ...FONTS.fontXs }}>{label}</Text>
             </TouchableOpacity>

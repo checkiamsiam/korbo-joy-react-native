@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Animated, Dimensions, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Animated,
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import { connect } from "react-redux";
 
@@ -48,9 +55,15 @@ class SwipeBox extends Component {
   render() {
     const { COLORS, FONTS } = this.props;
     return (
-      <Swipeable ref={this.updateRef} friction={2} renderLeftActions={this.leftSwipe}>
+      <Swipeable
+        ref={this.updateRef}
+        friction={2}
+        renderLeftActions={this.leftSwipe}
+      >
         <View style={[styles.container, { backgroundColor: COLORS.white }]}>
-          <Text style={{ ...FONTS.font, color: COLORS.title, fontSize: 16 }}>{this.props.data.title}</Text>
+          <Text style={{ ...FONTS.font, color: COLORS.title, fontSize: 16 }}>
+            {this.props.data.title}
+          </Text>
         </View>
       </Swipeable>
     );

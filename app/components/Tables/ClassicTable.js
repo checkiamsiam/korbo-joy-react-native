@@ -3,7 +3,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 
 const ClassicTable = () => {
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   const styles = createStyles(COLORS, FONTS);
   const TableData = [
     {
@@ -52,7 +54,9 @@ const ClassicTable = () => {
               borderColor: COLORS.borderColor,
             }}
           >
-            <Text style={{ ...styles.theadItem, flex: 0.6, paddingLeft: 15 }}>Name</Text>
+            <Text style={{ ...styles.theadItem, flex: 0.6, paddingLeft: 15 }}>
+              Name
+            </Text>
             <Text style={{ ...styles.theadItem }}>Email</Text>
             <Text
               style={{
@@ -75,7 +79,11 @@ const ClassicTable = () => {
                   flexDirection: "row",
                 }}
               >
-                <Text style={{ ...styles.tbodyItem, flex: 0.6, paddingLeft: 15 }}>{data.name}</Text>
+                <Text
+                  style={{ ...styles.tbodyItem, flex: 0.6, paddingLeft: 15 }}
+                >
+                  {data.name}
+                </Text>
                 <Text numberOfLines={1} style={{ ...styles.tbodyItem }}>
                   {data.email}
                 </Text>

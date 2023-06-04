@@ -1,5 +1,13 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { IconButton } from "react-native-paper";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
@@ -62,7 +70,13 @@ const Search = ({ navigation }) => {
           borderBottomColor: COLORS.borderColor,
         }}
       >
-        <IconButton onPress={handleSearch} size={24} icon={() => <FeatherIcon color={COLORS.text} name="search" size={22} />} />
+        <IconButton
+          onPress={handleSearch}
+          size={24}
+          icon={() => (
+            <FeatherIcon color={COLORS.text} name="search" size={22} />
+          )}
+        />
         <TextInput
           style={{
             ...FONTS.font,
@@ -83,7 +97,9 @@ const Search = ({ navigation }) => {
       >
         {SearchData.map((data, index) => (
           <TouchableOpacity
-            onPress={() => navigation.navigate("Items", { type: "Electronics" })}
+            onPress={() =>
+              navigation.navigate("Items", { type: "Electronics" })
+            }
             key={index}
             style={{
               flexDirection: "row",
@@ -111,7 +127,12 @@ const Search = ({ navigation }) => {
             >
               {data.title}
             </Text>
-            <FeatherIcon style={{ opacity: 0.6 }} color={COLORS.text} size={20} name="arrow-up-left" />
+            <FeatherIcon
+              style={{ opacity: 0.6 }}
+              color={COLORS.text}
+              size={20}
+              name="arrow-up-left"
+            />
           </TouchableOpacity>
         ))}
       </ScrollView>

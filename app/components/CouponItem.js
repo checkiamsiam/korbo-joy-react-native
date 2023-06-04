@@ -28,8 +28,12 @@ const CouponItem = ({ off, desc, category }) => {
             borderStyle: "dashed",
           }}
         >
-          <Text style={{ ...FONTS.h5, color: COLORS.secondary, top: 2 }}>{off}</Text>
-          <Text style={{ ...FONTS.font, color: COLORS.secondary, top: -3 }}>Off</Text>
+          <Text style={{ ...FONTS.h5, color: COLORS.secondary, top: 2 }}>
+            {off}
+          </Text>
+          <Text style={{ ...FONTS.font, color: COLORS.secondary, top: -3 }}>
+            Off
+          </Text>
         </View>
         <View>
           <Text style={{ ...FONTS.font, marginBottom: 3 }}>{category}</Text>

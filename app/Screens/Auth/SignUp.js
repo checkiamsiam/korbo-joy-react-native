@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
@@ -15,7 +22,9 @@ const SignUp = (props) => {
   const [password, setPassword] = useState("");
   const [handlePassword, setHandlePassword] = useState(true);
   const [handlePassword2, setHandlePassword2] = useState(true);
-  const { COLORS, FONTS, GlobalStyleSheet } = useSelector((state) => state.theme);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   const {
     control,
     handleSubmit,
@@ -49,7 +58,10 @@ const SignUp = (props) => {
             paddingVertical: 20,
           }}
         >
-          <Image style={{ height: 70, resizeMode: "contain" }} source={IMAGES.logo} />
+          <Image
+            style={{ height: 70, resizeMode: "contain" }}
+            source={IMAGES.logo}
+          />
         </View>
         <View style={{ marginBottom: 10 }}>
           <Text style={{ ...FONTS.h3 }}>Create account Free</Text>
@@ -71,7 +83,11 @@ const SignUp = (props) => {
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                style={[GlobalStyleSheet.formControl, isFocused1 && GlobalStyleSheet.activeInput, errors.number && GlobalStyleSheet.errorInput]}
+                style={[
+                  GlobalStyleSheet.formControl,
+                  isFocused1 && GlobalStyleSheet.activeInput,
+                  errors.number && GlobalStyleSheet.errorInput,
+                ]}
                 onFocus={() => {
                   setisFocused1(true);
                 }}
@@ -88,7 +104,11 @@ const SignUp = (props) => {
             )}
             name="number"
           />
-          {errors.number && <Text style={GlobalStyleSheet.errorInputText}>{errors.number?.message}</Text>}
+          {errors.number && (
+            <Text style={GlobalStyleSheet.errorInputText}>
+              {errors.number?.message}
+            </Text>
+          )}
         </View>
         <View style={GlobalStyleSheet.inputGroup}>
           <Text style={GlobalStyleSheet.label}>Name *</Text>
@@ -106,7 +126,11 @@ const SignUp = (props) => {
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                style={[GlobalStyleSheet.formControl, isFocused && GlobalStyleSheet.activeInput, errors.name && GlobalStyleSheet.errorInput]}
+                style={[
+                  GlobalStyleSheet.formControl,
+                  isFocused && GlobalStyleSheet.activeInput,
+                  errors.name && GlobalStyleSheet.errorInput,
+                ]}
                 onFocus={() => {
                   setisFocused(true);
                 }}
@@ -122,7 +146,11 @@ const SignUp = (props) => {
             )}
             name="name"
           />
-          {errors.name && <Text style={GlobalStyleSheet.errorInputText}>{errors.name?.message}</Text>}
+          {errors.name && (
+            <Text style={GlobalStyleSheet.errorInputText}>
+              {errors.name?.message}
+            </Text>
+          )}
         </View>
         <View style={GlobalStyleSheet.inputGroup}>
           <Text style={GlobalStyleSheet.label}>Password *</Text>
@@ -142,7 +170,11 @@ const SignUp = (props) => {
               {handlePassword ? (
                 <FeatherIcon name="eye" color={COLORS.secondary} size={22} />
               ) : (
-                <FeatherIcon name="eye-off" color={COLORS.secondary} size={22} />
+                <FeatherIcon
+                  name="eye-off"
+                  color={COLORS.secondary}
+                  size={22}
+                />
               )}
             </TouchableOpacity>
             <Controller
@@ -155,7 +187,11 @@ const SignUp = (props) => {
               }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <TextInput
-                  style={[GlobalStyleSheet.formControl, isFocused2 && GlobalStyleSheet.activeInput, errors.password && GlobalStyleSheet.errorInput]}
+                  style={[
+                    GlobalStyleSheet.formControl,
+                    isFocused2 && GlobalStyleSheet.activeInput,
+                    errors.password && GlobalStyleSheet.errorInput,
+                  ]}
                   onFocus={() => {
                     setisFocused2(true);
                   }}
@@ -175,7 +211,11 @@ const SignUp = (props) => {
               )}
               name="password"
             />
-            {errors.password && <Text style={GlobalStyleSheet.errorInputText}>{errors.password?.message}</Text>}
+            {errors.password && (
+              <Text style={GlobalStyleSheet.errorInputText}>
+                {errors.password?.message}
+              </Text>
+            )}
           </View>
         </View>
         <View style={GlobalStyleSheet.inputGroup}>
@@ -196,7 +236,11 @@ const SignUp = (props) => {
               {handlePassword2 ? (
                 <FeatherIcon name="eye" color={COLORS.secondary} size={22} />
               ) : (
-                <FeatherIcon name="eye-off" color={COLORS.secondary} size={22} />
+                <FeatherIcon
+                  name="eye-off"
+                  color={COLORS.secondary}
+                  size={22}
+                />
               )}
             </TouchableOpacity>
             <Controller
@@ -206,7 +250,8 @@ const SignUp = (props) => {
                   value: true,
                   message: "Confirm Password is required",
                 },
-                validate: (value) => value === password || "The passwords do not match",
+                validate: (value) =>
+                  value === password || "The passwords do not match",
               }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <TextInput
@@ -231,12 +276,22 @@ const SignUp = (props) => {
               )}
               name="confirmPassword"
             />
-            {errors.confirmPassword && <Text style={GlobalStyleSheet.errorInputText}>{errors.confirmPassword?.message}</Text>}
+            {errors.confirmPassword && (
+              <Text style={GlobalStyleSheet.errorInputText}>
+                {errors.confirmPassword?.message}
+              </Text>
+            )}
           </View>
         </View>
 
-        <CustomButton disabled={isLoading} onPress={handleSubmit(onSubmit)} title="Register" />
-        <Text style={{ ...FONTS.font, marginTop: 15 }}>By tapping “Register” you accept our terms and condition.</Text>
+        <CustomButton
+          disabled={isLoading}
+          onPress={handleSubmit(onSubmit)}
+          title="Register"
+        />
+        <Text style={{ ...FONTS.font, marginTop: 15 }}>
+          By tapping “Register” you accept our terms and condition.
+        </Text>
         <View style={{ marginTop: 20 }}>
           <Text
             style={{
@@ -248,7 +303,11 @@ const SignUp = (props) => {
           >
             Already have an account?
           </Text>
-          <CustomButton onPress={() => props.navigation.navigate("SignIn")} outline title="Login with Phone Number" />
+          <CustomButton
+            onPress={() => props.navigation.navigate("SignIn")}
+            outline
+            title="Login with Phone Number"
+          />
 
           {/* <View
             style={{

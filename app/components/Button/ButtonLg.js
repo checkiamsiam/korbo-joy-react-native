@@ -17,7 +17,9 @@ const ButtonLg = (props) => {
         },
       ]}
     >
-      <Text style={{ ...FONTS.h5, ...FONTS.fontPoppins, color: COLORS.white }}>{props.title}</Text>
+      <Text style={{ ...FONTS.h5, ...FONTS.fontPoppins, color: COLORS.white }}>
+        {props.title}
+      </Text>
     </TouchableOpacity>
   );
 };

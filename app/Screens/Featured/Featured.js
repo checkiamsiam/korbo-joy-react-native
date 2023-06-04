@@ -30,12 +30,20 @@ const FeaturedData = [
 const Featured = () => {
   const { COLORS, GlobalStyleSheet } = useSelector((state) => state.theme);
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor, paddingTop: StatusBar.currentHeight }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
+      }}
+    >
       <Header leftIcon={"back"} title={"Featured"} rightIcon={"more"} />
       <ScrollView>
         <View style={GlobalStyleSheet.container}>
           {FeaturedData.map((data, index) => {
-            return <FeaturedCard key={index} image={data.image} title={data.title} />;
+            return (
+              <FeaturedCard key={index} image={data.image} title={data.title} />
+            );
           })}
         </View>
       </ScrollView>

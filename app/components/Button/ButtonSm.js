@@ -13,11 +13,19 @@ const ButtonSm = (props) => {
           paddingHorizontal: 10,
           paddingVertical: 8,
           alignItems: "center",
-          borderRadius: props.btnSquare ? 0 : props.btnRounded ? 20 : SIZES.radius_sm,
+          borderRadius: props.btnSquare
+            ? 0
+            : props.btnRounded
+            ? 20
+            : SIZES.radius_sm,
         },
       ]}
     >
-      <Text style={{ ...FONTS.fontSm, ...FONTS.fontPoppins, color: COLORS.white }}>{props.title}</Text>
+      <Text
+        style={{ ...FONTS.fontSm, ...FONTS.fontPoppins, color: COLORS.white }}
+      >
+        {props.title}
+      </Text>
     </TouchableOpacity>
   );
 };
