@@ -23,6 +23,8 @@ import DrawerNavigation from "./DrawerNavigation";
 
 const StackComponent = createNativeStackNavigator();
 
+console.log("object");
+
 const StackNavigator = () => {
   const { token } = useSelector((state) => state.auth);
   return (
