@@ -33,8 +33,6 @@ const themeSlice = createSlice({
   },
 });
 
-console.log("object");
-
 const themeReducer = themeSlice.reducer;
 
 export const { toggleTheme } = themeSlice.actions;
