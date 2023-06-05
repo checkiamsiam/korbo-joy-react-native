@@ -86,6 +86,10 @@
     "preset": "react-native"
   },
   "lint-staged": {
-    "*.js": "yarn lint-fix"
+    "*.js": [
+      "git pull origin main",
+      "yarn lint-fix",
+      "git add"
+    ]
   }
 }
