@@ -86,8 +86,6 @@
     "preset": "react-native"
   },
   "lint-staged": {
-    "*.js": [
-      "yarn lint-fix"
-    ]
+    "*.js": "yarn lint-fix"
   }
 }
