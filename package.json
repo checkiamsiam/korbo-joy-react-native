@@ -87,9 +87,8 @@
   },
   "lint-staged": {
     "*.js": [
-      "git pull origin main",
       "yarn lint-fix",
-      "git add"
+      "git pull origin main"
     ]
   }
 }
