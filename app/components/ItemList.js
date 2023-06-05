@@ -23,7 +23,6 @@ const ItemList = ({
   const navigation = useNavigation();
   const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const { user } = useSelector((state) => state.auth);
-  console.log("simple console");
 
   // var ratingArry = [];
   // for(var i = 0; i < rating; i++){
