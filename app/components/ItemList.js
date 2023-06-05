@@ -140,7 +140,7 @@ const ItemList = ({
               name="star-fill"
             />
           </View>
-          <Text>({review || 20} Reviews)</Text>
+          <Text style={{ color: COLORS.text }}>({review || 20} Reviews)</Text>
         </View>
         <Text style={{ ...FONTS.h6, fontSize: 15 }}>{title}</Text>
         <View
