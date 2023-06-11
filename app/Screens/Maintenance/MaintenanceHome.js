@@ -1,13 +1,19 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
-import FeatherIcon from "react-native-vector-icons/Feather";
-import { useSelector } from "react-redux";
-import { IMAGES } from "../constants/theme";
 
-const OfflineScreen = () => {
-  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
+import { useSelector } from "react-redux";
+import { IMAGES } from "../../constants/theme";
+
+const MaintenanceHome = ({ icon, title }) => {
+  const { COLORS } = useSelector((state) => state.theme);
   return (
-    <View style={{ flex: 1 }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: COLORS.backgroundColor,
+        paddingHorizontal: 10,
+      }}
+    >
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Image
           style={{
@@ -16,28 +22,39 @@ const OfflineScreen = () => {
           }}
           source={IMAGES.logo}
         />
+        <Text
+          style={{
+            fontSize: 30,
+            marginTop: 10,
+            color: COLORS.text,
+          }}
+        >
+          Korbo Joy
+        </Text>
       </View>
       <View
         style={{
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: COLORS.background,
         }}
       >
-        <FeatherIcon name="wifi-off" size={80} color={COLORS.primary} />
+        {icon}
+
         <Text
           style={{
             fontSize: 20,
+            marginTop: 15,
             marginBottom: 24,
             color: COLORS.text,
+            textAlign: "center",
           }}
         >
-          You are offline
+          {title}
         </Text>
       </View>
     </View>
   );
 };
 
-export default OfflineScreen;
+export default MaintenanceHome;

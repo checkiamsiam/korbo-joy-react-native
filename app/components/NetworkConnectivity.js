@@ -1,10 +1,23 @@
+import { API_BASE } from "@env";
+import { MaterialIcons } from "@expo/vector-icons";
 import NetInfo from "@react-native-community/netinfo";
 import React, { useEffect, useState } from "react";
 import "react-native-gesture-handler";
-import OfflineScreen from "../Screens/OfflineScreen";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
+import MaintenanceHome from "../Screens/Maintenance/MaintenanceHome";
 
 const NetworkConnectivity = ({ children }) => {
+  const { COLORS } = useSelector((state) => state.theme);
   const [isOnline, setIsOnline] = useState(true);
+  const [isServerOK, setIsServerOk] = useState(true);
+
+  const offlineIcon = (
+    <FeatherIcon name="wifi-off" size={80} color={COLORS.primary} />
+  );
+  const MaintannaceIcon = (
+    <MaterialIcons name="build" size={80} color={COLORS.primary} />
+  );
 
   const checkInternetConnectivity = async () => {
     try {
@@ -12,6 +25,14 @@ const NetworkConnectivity = ({ children }) => {
       setIsOnline(response.ok);
     } catch (error) {
       setIsOnline(false);
+    }
+  };
+  const checkServerConnectivity = async () => {
+    try {
+      const response = await fetch(API_BASE, { method: "HEAD" });
+      setIsServerOk(response.ok);
+    } catch (error) {
+      setIsServerOk(false);
     }
   };
 
@@ -29,9 +50,27 @@ const NetworkConnectivity = ({ children }) => {
     };
   }, [isOnline]);
 
+  useEffect(() => {
+    checkServerConnectivity();
+  }, [isServerOK]);
+
   if (!isOnline) {
-    return <OfflineScreen />;
+    return (
+      <MaintenanceHome
+        icon={offlineIcon}
+        title="You are offline. Check you internet connection"
+      />
+    );
   }
+  if (!isServerOK) {
+    return (
+      <MaintenanceHome
+        icon={MaintannaceIcon}
+        title="Application is under maintenance. Please try again later"
+      />
+    );
+  }
+
   return children;
 };
 
