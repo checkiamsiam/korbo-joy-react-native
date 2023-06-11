@@ -1,3 +1,4 @@
+import { showMessage } from "react-native-flash-message";
 import ApiBase from "../app/ApiBase";
 import { setCategories } from "./CategoriesSlice";
 
@@ -13,7 +14,10 @@ export const categoryAPI = ApiBase.injectEndpoints({
           const res = await queryFulfilled;
           dispatch(setCategories(res.data));
         } catch (err) {
-          console.log(err);
+          showMessage({
+            message: "There is an server side error!",
+            type: "danger",
+          });
         }
       },
     }),
