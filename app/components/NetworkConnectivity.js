@@ -52,7 +52,7 @@ const NetworkConnectivity = ({ children }) => {
 
   useEffect(() => {
     checkServerConnectivity();
-  }, [isServerOK]);
+  }, []);
 
   if (!isOnline) {
     return (
