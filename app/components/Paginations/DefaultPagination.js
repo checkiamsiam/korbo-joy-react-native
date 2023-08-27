@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const DefaultPagination = (props) => {
   const [active, setActive] = useState(2);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
+  const styles = createStyles(SIZES);
 
   return (
     <>
@@ -46,7 +48,14 @@ const DefaultPagination = (props) => {
                 },
               ]}
             >
-              <Text style={[{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.text }, data === active && { color: COLORS.white }]}>{data}</Text>
+              <Text
+                style={[
+                  { ...FONTS.font, ...FONTS.fontBold, color: COLORS.text },
+                  data === active && { color: COLORS.white },
+                ]}
+              >
+                {data}
+              </Text>
             </TouchableOpacity>
           );
         })}
@@ -71,24 +80,26 @@ const DefaultPagination = (props) => {
   );
 };
 
-const styles = StyleSheet.create({
-  pagItem: {
-    height: 40,
-    width: 40,
-    marginHorizontal: 5,
-    borderRadius: SIZES.radius,
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: "rgba(0,0,0,.6)",
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
+const createStyles = (SIZES) => {
+  return StyleSheet.create({
+    pagItem: {
+      height: 40,
+      width: 40,
+      marginHorizontal: 5,
+      borderRadius: SIZES.radius,
+      alignItems: "center",
+      justifyContent: "center",
+      shadowColor: "rgba(0,0,0,.6)",
+      shadowOffset: {
+        width: 0,
+        height: 4,
+      },
+      shadowOpacity: 0.3,
+      shadowRadius: 4.65,
 
-    elevation: 8,
-  },
-});
+      elevation: 8,
+    },
+  });
+};
 
 export default DefaultPagination;

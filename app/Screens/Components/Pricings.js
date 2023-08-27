@@ -1,24 +1,28 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, View } from 'react-native';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import Header from '../../layout/Header';
-import PricingStyle1 from '../../components/Pricing/PricingStyle1';
-import PricingStyle2 from '../../components/Pricing/PricingStyle2';
-import PricingStyle3 from '../../components/Pricing/PricingStyle3';
-import { COLORS } from '../../constants/theme';
+import React from "react";
+import { SafeAreaView, ScrollView, StatusBar, View } from "react-native";
+import { useSelector } from "react-redux";
+import PricingStyle1 from "../../components/Pricing/PricingStyle1";
+import PricingStyle2 from "../../components/Pricing/PricingStyle2";
+import PricingStyle3 from "../../components/Pricing/PricingStyle3";
+import Header from "../../layout/Header";
 
 const Pricings = () => {
+  const { COLORS, GlobalStyleSheet } = useSelector((state) => state.theme);
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
       >
-        <Header title={'Pricings'} titleLeft leftIcon={'back'} />
+        <Header title={"Pricings"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View
             style={{
               ...GlobalStyleSheet.container,
-              alignItems: 'center',
+              alignItems: "center",
               paddingVertical: 30,
             }}
           >

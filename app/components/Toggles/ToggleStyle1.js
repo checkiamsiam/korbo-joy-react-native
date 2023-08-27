@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native";
-import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
-import { COLORS } from "../../constants/theme";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from "react-native-reanimated";
+import { useSelector } from "react-redux";
 
 const ToggleStyle1 = (props) => {
   const [active, setActive] = useState(false);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
 
   const offset = useSharedValue(0);
   const toggleStyle = useAnimatedStyle(() => {

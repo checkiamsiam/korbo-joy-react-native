@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import { SvgXml } from "react-native-svg";
-import { COLORS, FONTS, ICONS, SIZES } from "../../constants/theme";
+import { useSelector } from "react-redux";
+import { ICONS } from "../../constants/theme";
 
 const CustomInput = (props) => {
   const [passwordShow, setPasswordShow] = useState(true);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
 
   const handndleShowPassword = () => {
     setPasswordShow(!passwordShow);

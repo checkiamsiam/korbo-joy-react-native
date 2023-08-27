@@ -1,26 +1,34 @@
 import React from "react";
-import { SafeAreaView, ScrollView, Text, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 import Chip from "../../components/Chip";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, IMAGES } from "../../constants/theme";
+import { IMAGES } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const Chips = () => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <>
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header titleLeft title={"Chips"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -42,27 +50,39 @@ const Chips = () => {
                   <Chip
                     style={{ marginRight: 8 }}
                     color={COLORS.success}
-                    icon={<FeatherIcon name="check" size={18} color={COLORS.white} />}
+                    icon={
+                      <FeatherIcon
+                        name="check"
+                        size={18}
+                        color={COLORS.white}
+                      />
+                    }
                     title={"All good"}
                   />
                   <Chip
                     style={{ marginRight: 8 }}
                     color={COLORS.danger}
-                    icon={<FeatherIcon name="x" size={18} color={COLORS.white} />}
+                    icon={
+                      <FeatherIcon name="x" size={18} color={COLORS.white} />
+                    }
                     title={"Error"}
                   />
-                  <Chip style={{ marginRight: 8 }} image={IMAGES.user} title={"Profile"} />
+                  <Chip
+                    style={{ marginRight: 8 }}
+                    image={IMAGES.user}
+                    title={"Profile"}
+                  />
                 </View>
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -85,28 +105,42 @@ const Chips = () => {
                     darkMode
                     style={{ marginRight: 8 }}
                     color={COLORS.success}
-                    icon={<FeatherIcon name="check" dark size={18} color={COLORS.white} />}
+                    icon={
+                      <FeatherIcon
+                        name="check"
+                        dark
+                        size={18}
+                        color={COLORS.white}
+                      />
+                    }
                     title={"All good"}
                   />
                   <Chip
                     darkMode
                     style={{ marginRight: 8 }}
                     color={COLORS.danger}
-                    icon={<FeatherIcon name="x" size={18} color={COLORS.white} />}
+                    icon={
+                      <FeatherIcon name="x" size={18} color={COLORS.white} />
+                    }
                     title={"Error"}
                   />
-                  <Chip darkMode style={{ marginRight: 8 }} image={IMAGES.user} title={"Profile"} />
+                  <Chip
+                    darkMode
+                    style={{ marginRight: 8 }}
+                    image={IMAGES.user}
+                    title={"Profile"}
+                  />
                 </View>
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -125,12 +159,44 @@ const Chips = () => {
                   </Text>
                 </View>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
-                  <Chip style={{ marginRight: 8 }} chipLarge icon={<FeatherIcon name="settings" size={16} color={COLORS.white} />} title={"Large"} />
-                  <Chip style={{ marginRight: 8 }} icon={<FeatherIcon name="settings" size={16} color={COLORS.white} />} title={"Default"} />
-                  <Chip style={{ marginRight: 8 }} chipSmall icon={<FeatherIcon name="settings" size={16} color={COLORS.white} />} title={"Small"} />
+                  <Chip
+                    style={{ marginRight: 8 }}
+                    chipLarge
+                    icon={
+                      <FeatherIcon
+                        name="settings"
+                        size={16}
+                        color={COLORS.white}
+                      />
+                    }
+                    title={"Large"}
+                  />
+                  <Chip
+                    style={{ marginRight: 8 }}
+                    icon={
+                      <FeatherIcon
+                        name="settings"
+                        size={16}
+                        color={COLORS.white}
+                      />
+                    }
+                    title={"Default"}
+                  />
+                  <Chip
+                    style={{ marginRight: 8 }}
+                    chipSmall
+                    icon={
+                      <FeatherIcon
+                        name="settings"
+                        size={16}
+                        color={COLORS.white}
+                      />
+                    }
+                    title={"Small"}
+                  />
                 </View>
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

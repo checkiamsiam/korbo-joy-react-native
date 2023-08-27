@@ -1,8 +1,9 @@
-import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { COLORS, FONTS } from '../constants/theme';
+import React from "react";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import { useSelector } from "react-redux";
 
-const ProductCardStyle2 = ({ image, title, category, imageUrl, onPress }) => {
+const VendorCard = ({ image, title, category, imageUrl, onPress }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <TouchableOpacity
       activeOpacity={0.9}
@@ -15,8 +16,8 @@ const ProductCardStyle2 = ({ image, title, category, imageUrl, onPress }) => {
     >
       <Image
         style={{
-          width: '100%',
-          height: undefined,
+          width: "100%",
+          height: 100,
           aspectRatio: 100 / 100,
           borderTopLeftRadius: 4,
           borderTopRightRadius: 4,
@@ -25,12 +26,11 @@ const ProductCardStyle2 = ({ image, title, category, imageUrl, onPress }) => {
       />
       <View
         style={{
-          alignItems: 'center',
+          alignItems: "center",
           paddingHorizontal: 8,
           paddingVertical: 10,
         }}
       >
-        <Text style={{ ...FONTS.fontXs, ...FONTS.fontBold }}>{category}</Text>
         <Text
           style={{ ...FONTS.fontSm, ...FONTS.fontBold, color: COLORS.title }}
         >
@@ -41,4 +41,4 @@ const ProductCardStyle2 = ({ image, title, category, imageUrl, onPress }) => {
   );
 };
 
-export default ProductCardStyle2;
+export default VendorCard;

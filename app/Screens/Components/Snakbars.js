@@ -1,17 +1,16 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, View } from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import DropShadow from 'react-native-drop-shadow';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import Header from '../../layout/Header';
-import { COLORS } from '../../constants/theme';
-import ListStyle1 from '../../components/list/ListStyle1';
+import React from "react";
+import { SafeAreaView, ScrollView, StatusBar, View } from "react-native";
 import { showMessage } from "react-native-flash-message";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useSelector } from "react-redux";
+import ListStyle1 from "../../components/list/ListStyle1";
+import Header from "../../layout/Header";
 
 const Snackbars = () => {
+  const { COLORS, GlobalStyleSheet } = useSelector((state) => state.theme);
   const ShowSnackbarSuccess = () => {
     showMessage({
-      message: 'Confirmed',
+      message: "Confirmed",
       backgroundColor: COLORS.success,
     });
   };
@@ -29,7 +28,7 @@ const Snackbars = () => {
   };
   const ShowSnackbarError = () => {
     showMessage({
-      message: 'Error Occured',
+      message: "Error Occured",
       backgroundColor: COLORS.danger,
     });
   };
@@ -37,18 +36,22 @@ const Snackbars = () => {
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
       >
-        <Header title={'Snackbars'} titleLeft leftIcon={'back'} />
+        <Header title={"Snackbars"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View style={{ ...GlobalStyleSheet.container }}>
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -61,10 +64,10 @@ const Snackbars = () => {
                     <FontAwesome
                       size={14}
                       color={COLORS.success}
-                      name={'check'}
+                      name={"check"}
                     />
                   }
-                  title={'Confirmation Snackbar'}
+                  title={"Confirmation Snackbar"}
                 />
                 <ListStyle1
                   onPress={() => ShowSnackbarWarning()}
@@ -73,10 +76,10 @@ const Snackbars = () => {
                     <FontAwesome
                       size={14}
                       color={COLORS.warning}
-                      name={'warning'}
+                      name={"warning"}
                     />
                   }
-                  title={'Warning Snackbar'}
+                  title={"Warning Snackbar"}
                 />
                 <ListStyle1
                   onPress={() => ShowSnackbarInfo()}
@@ -85,10 +88,10 @@ const Snackbars = () => {
                     <FontAwesome
                       size={14}
                       color={COLORS.info}
-                      name={'refresh'}
+                      name={"refresh"}
                     />
                   }
-                  title={'Loading Snackbar'}
+                  title={"Loading Snackbar"}
                 />
                 <ListStyle1
                   onPress={() => ShowSnackbarError()}
@@ -97,13 +100,13 @@ const Snackbars = () => {
                     <FontAwesome
                       size={14}
                       color={COLORS.danger}
-                      name={'close'}
+                      name={"close"}
                     />
                   }
-                  title={'Error Snackbar'}
+                  title={"Error Snackbar"}
                 />
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

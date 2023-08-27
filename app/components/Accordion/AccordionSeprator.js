@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
-import Accordion from 'react-native-collapsible/Accordion';
+import React, { useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import Accordion from "react-native-collapsible/Accordion";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { COLORS, FONTS } from '../../constants/theme';
+import { useSelector } from "react-redux";
 
 const AccordionSeprator = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const [activeSections, setActiveSections] = useState([0]);
   const setSections = (sections) => {
     setActiveSections(sections.includes(undefined) ? [] : sections);
@@ -12,25 +13,25 @@ const AccordionSeprator = (props) => {
 
   const SECTIONS = [
     {
-      color: '#eb6374',
-      icon: 'heart',
-      title: 'Accordion Header One',
+      color: "#eb6374",
+      icon: "heart",
+      title: "Accordion Header One",
       content:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     },
     {
-      color: '#a3815d',
-      icon: 'star',
-      title: 'Accordion Header Two',
+      color: "#a3815d",
+      icon: "star",
+      title: "Accordion Header Two",
       content:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     },
     {
-      color: '#9cd986',
-      icon: 'bookmark',
-      title: 'Accordion Header Three',
+      color: "#9cd986",
+      icon: "bookmark",
+      title: "Accordion Header Three",
       content:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     },
   ];
 
@@ -38,8 +39,8 @@ const AccordionSeprator = (props) => {
     return (
       <View
         style={{
-          flexDirection: 'row',
-          alignItems: 'center',
+          flexDirection: "row",
+          alignItems: "center",
           paddingVertical: 12,
         }}
       >
@@ -59,7 +60,7 @@ const AccordionSeprator = (props) => {
           {item.title}
         </Text>
         <FontAwesome
-          name={isActive ? 'angle-up' : 'angle-down'}
+          name={isActive ? "angle-up" : "angle-down"}
           size={20}
           color={COLORS.title}
         />

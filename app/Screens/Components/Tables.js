@@ -1,18 +1,22 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, View } from 'react-native';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import Header from '../../layout/Header';
-import ClassicTable from '../../components/Tables/ClassicTable';
-import TableOddEven from '../../components/Tables/TableOddEven';
-import { COLORS } from '../../constants/theme';
+import React from "react";
+import { SafeAreaView, ScrollView, StatusBar, View } from "react-native";
+import { useSelector } from "react-redux";
+import ClassicTable from "../../components/Tables/ClassicTable";
+import TableOddEven from "../../components/Tables/TableOddEven";
+import Header from "../../layout/Header";
 
 const Tables = () => {
+  const { COLORS, GlobalStyleSheet } = useSelector((state) => state.theme);
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
       >
-        <Header title={'Tables'} titleLeft leftIcon={'back'} />
+        <Header title={"Tables"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View style={{ ...GlobalStyleSheet.container }}>
             <ClassicTable />

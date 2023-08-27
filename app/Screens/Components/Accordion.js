@@ -1,34 +1,49 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
-import DropShadow from 'react-native-drop-shadow';
-import Header from '../../layout/Header';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import { COLORS, FONTS, SIZES } from '../../constants/theme';
-import ClassicAccordion from '../../components/Accordion/ClassicAccordion';
-import AccordionHighlight from '../../components/Accordion/AccordionHighlight';
-import AccordionSeprator from '../../components/Accordion/AccordionSeprator';
+import React from "react";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
+import { useSelector } from "react-redux";
+import AccordionHighlight from "../../components/Accordion/AccordionHighlight";
+import AccordionSeprator from "../../components/Accordion/AccordionSeprator";
+import ClassicAccordion from "../../components/Accordion/ClassicAccordion";
+import Header from "../../layout/Header";
 
 const AccordionScreen = () => {
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <>
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
+        }}
       >
-        <Header titleLeft title={'Accordions'} leftIcon={'back'} />
+        <Header titleLeft title={"Accordions"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
+                shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
                   height: 5,
                 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
+                elevation: 5,
               }}
             >
-              <View style={styles.card}>
+              <View
+                style={{
+                  padding: 15,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 15,
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.white,
+                }}
+              >
                 <View style={{ marginBottom: 15 }}>
                   <Text
                     style={{
@@ -46,19 +61,31 @@ const AccordionScreen = () => {
                 </View>
                 <ClassicAccordion />
               </View>
-            </DropShadow>
-            <DropShadow
+            </View>
+            <View
               style={{
-                shadowColor: '#000',
+                shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
                   height: 5,
                 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
+                elevation: 5,
+                backgroundColor: "#fff",
+                borderRadius: 10,
               }}
             >
-              <View style={styles.card}>
+              <View
+                style={{
+                  padding: 15,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 15,
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.white,
+                }}
+              >
                 <View style={{ marginBottom: 20 }}>
                   <Text
                     style={{
@@ -76,19 +103,31 @@ const AccordionScreen = () => {
                 </View>
                 <AccordionHighlight />
               </View>
-            </DropShadow>
-            <DropShadow
+            </View>
+            <View
               style={{
-                shadowColor: '#000',
+                backgroundColor: "#FFF",
+                borderRadius: 10,
+                shadowColor: "#000",
                 shadowOffset: {
                   width: 0,
                   height: 5,
                 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
+                elevation: 5,
               }}
             >
-              <View style={styles.card}>
+              <View
+                style={{
+                  padding: 15,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 15,
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.white,
+                }}
+              >
                 <View style={{ marginBottom: 20 }}>
                   <Text
                     style={{
@@ -106,23 +145,12 @@ const AccordionScreen = () => {
                 </View>
                 <AccordionSeprator />
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    padding: 15,
-    borderRadius: SIZES.radius,
-    marginBottom: 15,
-    borderWidth: 1,
-    borderColor: COLORS.borderColor,
-    backgroundColor: COLORS.white,
-  },
-});
 
 export default AccordionScreen;

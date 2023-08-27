@@ -1,18 +1,33 @@
-import React from "react";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import SnackbarHandle from "../components/SnackbarHandle";
+import { logout } from "../features/Auth/AuthSlice";
+import { clearCart } from "../features/Cart/CartSlice";
+import verifyToken from "../utils/verifyToken";
 import StackNavigator from "./StackNavigator";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-// import { createDrawerNavigator } from "@react-navigation/drawer";
-
-// const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator();
 
 const Routes = () => {
+  const { token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  const checkValidation = async () => {
+    await token;
+    const isVerify = await verifyToken(token);
+    if (!isVerify) {
+      dispatch(logout());
+      dispatch(clearCart());
+    }
+  };
+  checkValidation();
+
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <StackNavigator />
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <StackNavigator />
+      <SnackbarHandle />
+    </NavigationContainer>
   );
 };
 export default Routes;

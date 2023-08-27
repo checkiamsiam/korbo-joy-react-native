@@ -1,14 +1,42 @@
 import React, { useState } from "react";
-import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Controller, useForm } from "react-hook-form";
+import {
+  Image,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, IMAGES } from "../../constants/theme";
+import { IMAGES } from "../../constants/theme";
+import { useLoginMutation } from "../../features/Auth/AuthApi";
 
 const SignIn = (props) => {
   const [isFocused, setisFocused] = useState(false);
   const [isFocused2, setisFocused2] = useState(false);
   const [handlePassword, setHandlePassword] = useState(true);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [login, { isLoading }] = useLoginMutation();
+
+  const onSubmit = async (data) => {
+    const body = {
+      username: data.number,
+      password: data.password,
+    };
+    await login(body);
+    props.navigation.navigate("Home");
+  };
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -16,7 +44,7 @@ const SignIn = (props) => {
         style={{
           ...GlobalStyleSheet.container,
           flex: 1,
-          backgroundColor: COLORS.white,
+          backgroundColor: COLORS.backgroundColor,
         }}
       >
         <View
@@ -25,25 +53,64 @@ const SignIn = (props) => {
             paddingVertical: 30,
           }}
         >
-          <Image style={{ height: 70, resizeMode: "contain" }} source={IMAGES.logo} />
+          <Image
+            style={{ height: 70, resizeMode: "contain" }}
+            source={IMAGES.logo}
+          />
         </View>
         <View style={{ marginBottom: 20 }}>
           <Text style={{ ...FONTS.h3 }}>Welcome back!</Text>
-          <Text style={{ ...FONTS.font }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </Text>
+          <Text style={{ ...FONTS.font }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor{" "}
+          </Text>
         </View>
 
         <View style={GlobalStyleSheet.inputGroup}>
-          <Text style={GlobalStyleSheet.label}>Username</Text>
-          <TextInput
-            style={[GlobalStyleSheet.formControl, isFocused && GlobalStyleSheet.activeInput]}
-            onFocus={() => setisFocused(true)}
-            onBlur={() => setisFocused(false)}
-            placeholder="Type Username Here"
-            placeholderTextColor={COLORS.label}
+          <Text style={GlobalStyleSheet.label}>Phone Number *</Text>
+          <Controller
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "Phone Number is required",
+              },
+              pattern: {
+                value: /^[\+0-9-]+$/,
+                message: "Phone Number should contain only numbers",
+              },
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                style={[
+                  GlobalStyleSheet.formControl,
+                  isFocused && GlobalStyleSheet.activeInput,
+                  errors.number && GlobalStyleSheet.errorInput,
+                ]}
+                onFocus={() => {
+                  setisFocused(true);
+                }}
+                onChangeText={onChange}
+                value={value}
+                onBlur={() => {
+                  setisFocused(false);
+                  onBlur();
+                }}
+                placeholder="Type Phone Number Here"
+                placeholderTextColor={COLORS.dark}
+                keyboardType="numeric"
+              />
+            )}
+            name="number"
           />
+          {errors.number && (
+            <Text style={GlobalStyleSheet.errorInputText}>
+              {errors.number?.message}
+            </Text>
+          )}
         </View>
         <View style={GlobalStyleSheet.inputGroup}>
-          <Text style={GlobalStyleSheet.label}>Password</Text>
+          <Text style={GlobalStyleSheet.label}>Password *</Text>
           <View>
             <TouchableOpacity
               onPress={() => setHandlePassword(!handlePassword)}
@@ -60,23 +127,59 @@ const SignIn = (props) => {
               {handlePassword ? (
                 <FeatherIcon name="eye" color={COLORS.secondary} size={22} />
               ) : (
-                <FeatherIcon name="eye-off" color={COLORS.secondary} size={22} />
+                <FeatherIcon
+                  name="eye-off"
+                  color={COLORS.secondary}
+                  size={22}
+                />
               )}
             </TouchableOpacity>
-            <TextInput
-              style={[GlobalStyleSheet.formControl, isFocused2 && GlobalStyleSheet.activeInput]}
-              onFocus={() => setisFocused2(true)}
-              onBlur={() => setisFocused2(false)}
-              secureTextEntry={handlePassword}
-              placeholder="Type Password Here"
-              placeholderTextColor={COLORS.label}
+            <Controller
+              control={control}
+              rules={{
+                required: {
+                  value: true,
+                  message: "Password is required",
+                },
+              }}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  style={[
+                    GlobalStyleSheet.formControl,
+                    isFocused2 && GlobalStyleSheet.activeInput,
+                    errors.password && GlobalStyleSheet.errorInput,
+                  ]}
+                  onFocus={() => {
+                    setisFocused2(true);
+                  }}
+                  onChangeText={onChange}
+                  value={value}
+                  onBlur={() => {
+                    setisFocused2(false);
+                    onBlur();
+                  }}
+                  secureTextEntry={handlePassword}
+                  placeholder="Type Password Here"
+                  placeholderTextColor={COLORS.dark}
+                />
+              )}
+              name="password"
             />
+            {errors.password && (
+              <Text style={GlobalStyleSheet.errorInputText}>
+                {errors.password?.message}
+              </Text>
+            )}
           </View>
         </View>
 
-        <CustomButton onPress={() => props.navigation.navigate("DrawerNavigation")} title="Login" />
+        <CustomButton
+          disabled={isLoading}
+          onPress={handleSubmit(onSubmit)}
+          title="Login"
+        />
 
-        <View
+        {/* <View
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -88,7 +191,7 @@ const SignIn = (props) => {
           <TouchableOpacity>
             <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>Reset here</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
 
         <View style={{ marginTop: 20 }}>
           <Text
@@ -101,7 +204,11 @@ const SignIn = (props) => {
           >
             Don’t have an account?
           </Text>
-          <CustomButton onPress={() => props.navigation.navigate("SignUp")} outline title="Register now" />
+          <CustomButton
+            onPress={() => props.navigation.navigate("SignUp")}
+            outline
+            title="Register now"
+          />
         </View>
       </View>
     </ScrollView>

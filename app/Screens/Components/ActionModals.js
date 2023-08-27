@@ -1,15 +1,21 @@
 import React, { useState } from "react";
-import { Modal, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
+import {
+  Modal,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Ripple from "react-native-material-ripple";
 import { SvgXml } from "react-native-svg";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
 import LoginModal from "../../components/Modal/LoginModal";
 import OptionBar from "../../components/Modal/OptionBar";
 import RegisterModal from "../../components/Modal/RegisterModal";
 import SuccessModal from "../../components/Modal/SuccessModal";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const option = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
@@ -53,6 +59,9 @@ const register = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://ww
 const ActionModals = () => {
   const [activeSheet, setActiveSheet] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
 
   const ActionData = [
     {
@@ -112,17 +121,23 @@ const ActionModals = () => {
         </View>
       </Modal>
 
-      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.background,
+          paddingTop: StatusBar.currentHeight,
+        }}
+      >
         <Header titleLeft title={"Action Modals"} leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
+            <View
               style={{
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
                 shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -162,12 +177,16 @@ const ActionModals = () => {
                       >
                         {data.title}
                       </Text>
-                      <FeatherIcon color={COLORS.text} name={"chevron-right"} size={22} />
+                      <FeatherIcon
+                        color={COLORS.text}
+                        name={"chevron-right"}
+                        size={22}
+                      />
                     </Ripple>
                   );
                 })}
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

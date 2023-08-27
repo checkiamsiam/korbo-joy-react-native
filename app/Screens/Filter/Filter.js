@@ -1,9 +1,9 @@
-import CheckBox from "@react-native-community/checkbox";
+import { CheckBox } from "@rneui/themed";
 import React, { useState } from "react";
-import { SafeAreaView, ScrollView, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import { List } from "react-native-paper";
+import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
-import { COLORS, FONTS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const FilterOptionData = [
@@ -421,12 +421,15 @@ const availabilityFilterData = [
 ];
 
 const Filter = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const [activeFilter, setActiveFilter] = useState("Price");
   const [genderFilter, setGenderFilter] = useState(genderFilterData);
   const [discountFilter, setDiscountFilter] = useState(discountFilterData);
   const [sizeFilter, setSizeFilter] = useState(sizeFilterData);
   const [priceFilter, setPriceFilter] = useState(priceFilterData);
-  const [customerRatingFilter, setCustomerRatingFilter] = useState(customerRatingFilterData);
+  const [customerRatingFilter, setCustomerRatingFilter] = useState(
+    customerRatingFilterData
+  );
   const [typeFilter, setTypeFilter] = useState(typeFilterData);
   const [occasionFilter, setOccasionFilter] = useState(occasionFilterData);
   const [brandFilter, setBrandFilter] = useState(brandFilterData);
@@ -435,9 +438,12 @@ const Filter = () => {
   const [fabricFilter, setFabricFilter] = useState(fabricFilterData);
   const [offersFilter, setOffersFilter] = useState(offersFilterData);
   const [themeFilter, setThemeFilter] = useState(themeFilterData);
-  const [reversibleFilter, setReversibleFilter] = useState(reversibleFilterData);
+  const [reversibleFilter, setReversibleFilter] =
+    useState(reversibleFilterData);
   const [patternFilter, setPatternFilter] = useState(patternFilterData);
-  const [availabilityFilter, setAvailabilityFilter] = useState(availabilityFilterData);
+  const [availabilityFilter, setAvailabilityFilter] = useState(
+    availabilityFilterData
+  );
   const [filterData, setFilterData] = useState(priceFilter);
 
   const handleFilterOption = (val) => {
@@ -634,6 +640,7 @@ const Filter = () => {
       style={{
         flex: 1,
         backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
       }}
     >
       <Header titleLeft leftIcon={"back"} title={"Filters"} />
@@ -664,7 +671,7 @@ const Filter = () => {
                     style={{
                       ...FONTS.font,
                       ...FONTS.fontMedium,
-                      color: COLORS.title,
+                      color: COLORS.dark,
                     }}
                   >
                     {data}
@@ -685,7 +692,15 @@ const Filter = () => {
                 key={index}
                 onPress={() => handleFilterSelected(data.title)}
                 left={() => (
-                  <CheckBox tintColors={{ true: COLORS.primary, false: COLORS.text }} style={{ left: 10 }} value={data.selected} disabled />
+                  <CheckBox
+                    checked={data.selected}
+                    checkedColor={COLORS.primary}
+                    containerStyle={{
+                      marginLeft: 20,
+                      backgroundColor: "transparent",
+                    }}
+                    disabled={false}
+                  />
                 )}
                 title={() => (
                   <Text

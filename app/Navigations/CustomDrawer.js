@@ -1,9 +1,23 @@
 import React from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  Platform,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { COLORS, FONTS, IMAGES } from "../constants/theme";
+import { useDispatch, useSelector } from "react-redux";
+import DarkModeToggler from "../components/DarkModeToggler";
+import { IMAGES } from "../constants/theme";
+import { logout } from "../features/Auth/AuthSlice";
+import { clearCart } from "../features/Cart/CartSlice";
 
 const CustomDrawer = ({ navigation }) => {
+  const { user, token } = useSelector((state) => state.auth);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
   const navItem = [
     {
       icon: "home",
@@ -15,21 +29,21 @@ const CustomDrawer = ({ navigation }) => {
       name: "Products",
       navigate: "Products",
     },
-    {
-      icon: "grid",
-      name: "Components",
-      navigate: "Components",
-    },
-    {
-      icon: "list",
-      name: "Featured",
-      navigate: "Featured",
-    },
-    {
-      icon: "heart",
-      name: "Wishlist",
-      navigate: "Wishlist",
-    },
+    // {
+    //   icon: "grid",
+    //   name: "Components",
+    //   navigate: "Components",
+    // },
+    // {
+    //   icon: "list",
+    //   name: "Featured",
+    //   navigate: "Featured",
+    // },
+    // {
+    //   icon: "heart",
+    //   name: "Wishlist",
+    //   navigate: "Wishlist",
+    // },
     {
       icon: "repeat",
       name: "Orders",
@@ -48,13 +62,27 @@ const CustomDrawer = ({ navigation }) => {
     {
       icon: "log-out",
       name: "Logout",
-      navigate: "Onboarding",
+      navigate: "Welcome",
+    },
+    {
+      icon: "log-in",
+      name: "Login",
+      navigate: "SignIn",
     },
   ];
 
   return (
     <>
-      <View style={{ flex: 1, backgroundColor: COLORS.white }}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.backgroundColor,
+          paddingTop:
+            Platform.OS === "ios"
+              ? StatusBar.currentHeight * 2
+              : StatusBar.currentHeight,
+        }}
+      >
         <View
           style={{
             flexDirection: "row",
@@ -75,47 +103,79 @@ const CustomDrawer = ({ navigation }) => {
             source={IMAGES.user}
           />
           <View style={{ flex: 1 }}>
-            <Text style={{ ...FONTS.h6, color: COLORS.title, top: 2 }}>Olivia Johanson</Text>
-            <Text style={{ ...FONTS.font, color: "rgba(0,0,0,.6)" }}>oliviajon@mail.com</Text>
+            <Text
+              style={{
+                ...FONTS.h6,
+                color: COLORS.title,
+                top: 2,
+                textTransform: "capitalize",
+              }}
+            >
+              {user.name ? user.name : "Guest"}
+            </Text>
+            <Text style={{ ...FONTS.font, color: COLORS.title }}>
+              {user.number ? user.number : "+880XXXXXXXXXX"}
+            </Text>
           </View>
         </View>
 
         <View style={{ flex: 1 }}>
           {navItem.map((data, index) => {
+            if (data.name === "Logout" && !token) {
+              return null;
+            }
+            if (data.name === "Login" && token) {
+              return null;
+            }
             return (
-              <TouchableOpacity
-                onPress={() => {
-                  data.navigate === "Cart" || data.navigate === "Account"
-                    ? navigation.navigate("BottomNavigation", {
-                        screen: data.navigate,
-                      })
-                    : data.navigate && navigation.navigate(data.navigate);
-                  navigation.closeDrawer();
-                }}
-                key={index}
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  paddingHorizontal: 20,
-                  paddingVertical: 12,
-                }}
-              >
-                <View style={{ marginRight: 15 }}>
-                  <FeatherIcon name={data.icon} color={"rgba(0,0,0,.3)"} size={20} />
-                </View>
-                <Text
+              <View key={index}>
+                <TouchableOpacity
+                  onPress={() => {
+                    if (data.name === "Logout") {
+                      dispatch(logout());
+                      dispatch(clearCart());
+                      navigation.navigate("Welcome");
+                    } else {
+                      data.navigate === "Cart" || data.navigate === "Account"
+                        ? navigation.navigate("BottomNavigation", {
+                            screen: data.navigate,
+                          })
+                        : data.navigate && navigation.navigate(data.navigate);
+                    }
+                    navigation.closeDrawer();
+                  }}
                   style={{
-                    ...FONTS.font,
-                    ...FONTS.fontBold,
-                    color: COLORS.title,
-                    opacity: 0.8,
-                    flex: 1,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    paddingHorizontal: 20,
+                    paddingVertical: 12,
                   }}
                 >
-                  {data.name}
-                </Text>
-                <FeatherIcon size={16} color={COLORS.text} name="chevron-right" />
-              </TouchableOpacity>
+                  <View style={{ marginRight: 15 }}>
+                    <FeatherIcon
+                      name={data.icon}
+                      color={COLORS.primary}
+                      size={20}
+                    />
+                  </View>
+                  <Text
+                    style={{
+                      ...FONTS.font,
+                      ...FONTS.fontBold,
+                      color: COLORS.title,
+                      opacity: 0.8,
+                      flex: 1,
+                    }}
+                  >
+                    {data.name}
+                  </Text>
+                  <FeatherIcon
+                    size={16}
+                    color={COLORS.text}
+                    name="chevron-right"
+                  />
+                </TouchableOpacity>
+              </View>
             );
           })}
         </View>
@@ -127,8 +187,31 @@ const CustomDrawer = ({ navigation }) => {
             marginTop: 10,
           }}
         >
-          <Text style={{ ...FONTS.fontLg, color: COLORS.title, marginBottom: 6 }}>Wedo Fashion Store</Text>
-          <Text style={{ ...FONTS.font, color: "rgba(0,0,0,.5)" }}>App Version 1.0</Text>
+          <View
+            style={{
+              paddingVertical: 14,
+              borderTopWidth: 1,
+              borderTopColor: COLORS.borderColor,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Text
+              style={{
+                ...FONTS.fontLg,
+                color: COLORS.title,
+                ...FONTS.fontBold,
+              }}
+            >
+              Dark Mode
+            </Text>
+            <DarkModeToggler />
+          </View>
+          <Image source={require("../assets/images/logo-full.png")} />
+          <Text style={{ ...FONTS.font, color: COLORS.text, marginTop: 3 }}>
+            App Version 1.0
+          </Text>
         </View>
       </View>
     </>

@@ -1,8 +1,9 @@
-import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import { COLORS, SIZES } from '../../constants/theme';
+import React from "react";
+import { TouchableOpacity } from "react-native";
+import { useSelector } from "react-redux";
 
 const SocialIcon = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <>
       <TouchableOpacity
@@ -12,8 +13,8 @@ const SocialIcon = (props) => {
             width: 40,
             backgroundColor: props.color ? props.color : COLORS.primary,
             borderRadius: props.square ? 0 : props.rounded ? 30 : SIZES.radius,
-            alignItems: 'center',
-            justifyContent: 'center',
+            alignItems: "center",
+            justifyContent: "center",
             marginHorizontal: 4,
           },
           props.btnSm && {

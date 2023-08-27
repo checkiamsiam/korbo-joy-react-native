@@ -1,21 +1,22 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 import {
   Animated,
   SafeAreaView,
   ScrollView,
-  StyleSheet,
+  StatusBar,
   Text,
   View,
-} from 'react-native';
-import Header from '../../layout/Header';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import { COLORS, FONTS, SIZES } from '../../constants/theme';
-import TabButtonStyle1 from '../../components/Tabs/TabButtonStyle1';
-import TabButtonStyle2 from '../../components/Tabs/TabButtonStyle2';
-import DropShadow from 'react-native-drop-shadow';
+} from "react-native";
+import { useSelector } from "react-redux";
+import TabButtonStyle1 from "../../components/Tabs/TabButtonStyle1";
+import TabButtonStyle2 from "../../components/Tabs/TabButtonStyle2";
+import Header from "../../layout/Header";
 
 const Tabs = () => {
-  const buttons = ['First', 'Second', 'Third'];
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
+  const buttons = ["First", "Second", "Third"];
   const scrollX = useRef(new Animated.Value(0)).current;
   const onCLick = (i) =>
     this.scrollViewHome.scrollTo({ x: i * SIZES.width - 60 });
@@ -29,18 +30,19 @@ const Tabs = () => {
         style={{
           flex: 1,
           backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
         }}
       >
-        <Header title={'Tabs'} titleLeft leftIcon={'back'} />
+        <Header title={"Tabs"} titleLeft leftIcon={"back"} />
         <ScrollView>
           <View style={GlobalStyleSheet.container}>
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -77,7 +79,11 @@ const Tabs = () => {
                   )}
                 >
                   {/* tab 1 */}
-                  <View style={[styles.tabBody]}>
+                  <View
+                    style={{
+                      width: SIZES.width - 60,
+                    }}
+                  >
                     <Text style={{ ...FONTS.font }}>
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
@@ -87,7 +93,11 @@ const Tabs = () => {
                     </Text>
                   </View>
                   {/* tab 2 */}
-                  <View style={[styles.tabBody]}>
+                  <View
+                    style={{
+                      width: SIZES.width - 60,
+                    }}
+                  >
                     <Text style={{ ...FONTS.font }}>
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
@@ -97,7 +107,11 @@ const Tabs = () => {
                     </Text>
                   </View>
                   {/* tab 3 */}
-                  <View style={[styles.tabBody]}>
+                  <View
+                    style={{
+                      width: SIZES.width - 60,
+                    }}
+                  >
                     <Text style={{ ...FONTS.font }}>
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
@@ -108,15 +122,15 @@ const Tabs = () => {
                   </View>
                 </ScrollView>
               </View>
-            </DropShadow>
+            </View>
 
-            <DropShadow
+            <View
               style={{
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
+                backgroundColor: "#fff",
+                borderRadius: 10,
+                elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.15,
                 shadowRadius: 5,
               }}
@@ -153,7 +167,11 @@ const Tabs = () => {
                   )}
                 >
                   {/* tab 1 */}
-                  <View style={[styles.tabBody]}>
+                  <View
+                    style={{
+                      width: SIZES.width - 60,
+                    }}
+                  >
                     <Text style={{ ...FONTS.font }}>
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
@@ -163,7 +181,11 @@ const Tabs = () => {
                     </Text>
                   </View>
                   {/* tab 2 */}
-                  <View style={[styles.tabBody]}>
+                  <View
+                    style={{
+                      width: SIZES.width - 60,
+                    }}
+                  >
                     <Text style={{ ...FONTS.font }}>
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
@@ -173,7 +195,11 @@ const Tabs = () => {
                     </Text>
                   </View>
                   {/* tab 3 */}
-                  <View style={[styles.tabBody]}>
+                  <View
+                    style={{
+                      width: SIZES.width - 60,
+                    }}
+                  >
                     <Text style={{ ...FONTS.font }}>
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
@@ -184,18 +210,12 @@ const Tabs = () => {
                   </View>
                 </ScrollView>
               </View>
-            </DropShadow>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  tabBody: {
-    width: SIZES.width - 60,
-  },
-});
 
 export default Tabs;

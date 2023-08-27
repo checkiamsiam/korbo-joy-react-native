@@ -1,13 +1,15 @@
-import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
-import MaterialIcon from "react-native-vector-icons/MaterialIcons";
+import React from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { COLORS, FONTS } from '../../constants/theme';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import Button from '../Button/Button';
-import CustomInput from '../Input/CustomInput';
+import MaterialIcon from "react-native-vector-icons/MaterialIcons";
+import { useSelector } from "react-redux";
+import Button from "../Button/Button";
+import CustomInput from "../Input/CustomInput";
 
 const RegisterSheet = () => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <>
       <View
@@ -26,13 +28,13 @@ const RegisterSheet = () => {
             icon={
               <FontAwesome
                 style={{ opacity: 0.6 }}
-                name={'user'}
+                name={"user"}
                 size={20}
                 color={COLORS.text}
               />
             }
-            value={''}
-            placeholder={'Name'}
+            value={""}
+            placeholder={"Name"}
             onChangeText={(value) => console.log(value)}
           />
         </View>
@@ -41,13 +43,13 @@ const RegisterSheet = () => {
             icon={
               <MaterialIcon
                 style={{ opacity: 0.6 }}
-                name={'email'}
+                name={"email"}
                 size={20}
                 color={COLORS.text}
               />
             }
-            value={''}
-            placeholder={'Emai'}
+            value={""}
+            placeholder={"Emai"}
             onChangeText={(value) => console.log(value)}
           />
         </View>
@@ -56,20 +58,20 @@ const RegisterSheet = () => {
             icon={
               <FontAwesome
                 style={{ opacity: 0.6 }}
-                name={'lock'}
+                name={"lock"}
                 size={20}
                 color={COLORS.text}
               />
             }
-            value={''}
-            placeholder={'Password'}
+            value={""}
+            placeholder={"Password"}
             onChangeText={(value) => console.log(value)}
           />
         </View>
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
+            flexDirection: "row",
+            justifyContent: "space-between",
             marginBottom: 15,
             marginTop: 10,
           }}
@@ -85,7 +87,7 @@ const RegisterSheet = () => {
             </Text>
           </TouchableOpacity>
         </View>
-        <Button title={'Register'} />
+        <Button title={"Register"} />
       </View>
     </>
   );

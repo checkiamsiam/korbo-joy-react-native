@@ -1,14 +1,19 @@
 import { useFocusEffect } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
+import { useSelector } from "react-redux";
 import cart from "../assets/images/icons/cart.png";
 import category from "../assets/images/icons/category.png";
 import home from "../assets/images/icons/home.png";
 import user from "../assets/images/icons/user.png";
-import { COLORS, FONTS, SIZES } from "../constants/theme";
 
 const CustomBottomNavigation = ({ state, descriptors, navigation }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const offset = useSharedValue(0);
 
   const tabShapeStyle = useAnimatedStyle(() => {
@@ -61,7 +66,7 @@ const CustomBottomNavigation = ({ state, descriptors, navigation }) => {
         }
       };
       activeTabInCallBack();
-    }, [offset, state.index])
+    }, [offset, state.index, SIZES])
   );
 
   return (
@@ -70,7 +75,7 @@ const CustomBottomNavigation = ({ state, descriptors, navigation }) => {
         height: 60,
         borderTopWidth: 1,
         borderColor: COLORS.borderColor,
-        backgroundColor: COLORS.white,
+        backgroundColor: COLORS.backgroundColor,
         flexDirection: "row",
         paddingTop: 4,
       }}
@@ -100,7 +105,12 @@ const CustomBottomNavigation = ({ state, descriptors, navigation }) => {
       </Animated.View>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
-        const label = options.tabBarLabel !== undefined ? options.tabBarLabel : options.title !== undefined ? options.title : route.name;
+        const label =
+          options.tabBarLabel !== undefined
+            ? options.tabBarLabel
+            : options.title !== undefined
+            ? options.title
+            : route.name;
 
         const isFocused = state.index === index;
 
@@ -130,6 +140,7 @@ const CustomBottomNavigation = ({ state, descriptors, navigation }) => {
               style={{
                 alignItems: "center",
                 paddingVertical: 9,
+                transform: [{ scale: isFocused ? 1.1 : 1 }],
               }}
             >
               <Image
@@ -139,7 +150,15 @@ const CustomBottomNavigation = ({ state, descriptors, navigation }) => {
                   marginBottom: 5,
                   tintColor: isFocused ? COLORS.primary : COLORS.title,
                 }}
-                source={label === "Home" ? home : label === "Categories" ? category : label === "Account" ? user : label === "Cart" && cart}
+                source={
+                  label === "Home"
+                    ? home
+                    : label === "Categories"
+                    ? category
+                    : label === "Account"
+                    ? user
+                    : label === "Cart" && cart
+                }
               />
               <Text style={{ ...FONTS.fontXs }}>{label}</Text>
             </TouchableOpacity>

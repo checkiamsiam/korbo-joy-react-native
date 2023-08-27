@@ -1,12 +1,14 @@
-import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import React from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { COLORS, FONTS } from '../../constants/theme';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import Button from '../Button/Button';
-import CustomInput from '../Input/CustomInput';
+import { useSelector } from "react-redux";
+import Button from "../Button/Button";
+import CustomInput from "../Input/CustomInput";
 
 const LoginSheet = () => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <>
       <View
@@ -25,13 +27,13 @@ const LoginSheet = () => {
             icon={
               <FontAwesome
                 style={{ opacity: 0.6 }}
-                name={'user'}
+                name={"user"}
                 size={20}
                 color={COLORS.text}
               />
             }
-            value={''}
-            placeholder={'Name'}
+            value={""}
+            placeholder={"Name"}
             onChangeText={(value) => console.log(value)}
           />
         </View>
@@ -40,20 +42,20 @@ const LoginSheet = () => {
             icon={
               <FontAwesome
                 style={{ opacity: 0.6 }}
-                name={'lock'}
+                name={"lock"}
                 size={20}
                 color={COLORS.text}
               />
             }
-            value={''}
-            placeholder={'Password'}
+            value={""}
+            placeholder={"Password"}
             onChangeText={(value) => console.log(value)}
           />
         </View>
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
+            flexDirection: "row",
+            justifyContent: "space-between",
             marginBottom: 15,
             marginTop: 10,
           }}
@@ -69,7 +71,7 @@ const LoginSheet = () => {
             </Text>
           </TouchableOpacity>
         </View>
-        <Button title={'Login'} />
+        <Button title={"Login"} />
       </View>
     </>
   );

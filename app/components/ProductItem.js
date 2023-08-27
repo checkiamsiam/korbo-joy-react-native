@@ -1,10 +1,61 @@
-import React from "react";
+import { IMAGE_BASE } from "@env";
+import { LinearGradient } from "expo-linear-gradient";
+import React, { memo } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { COLORS, FONTS } from "../constants/theme";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import { useDispatch, useSelector } from "react-redux";
+import { showSnack } from "../features/Action/SnackbarSlice";
+import { useAddToCartMutation } from "../features/Cart/CartApi";
 
-const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews, status, imgLength, onPress, imageSrc, isLike, handleItemLike }) => {
+const ProductItem = ({
+  id,
+  image,
+  title,
+  desc,
+  price,
+  oldPrice,
+  rating,
+  reviews,
+  status,
+  imgLength,
+  onPress,
+  imageSrc,
+  isLike,
+  handleItemLike,
+}) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
+  const { user, token } = useSelector((state) => state.auth);
+  const { cart } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const [addToCart, { isLoading }] = useAddToCartMutation();
+  const handleAddToCart = async () => {
+    if (!token) {
+      dispatch(
+        showSnack({
+          text: "Please login to add product to cart!",
+          actionLabel: "Login",
+          navigateTo: "SignIn",
+        })
+      );
+      return;
+    } else {
+      if (!isLoading) {
+        await addToCart({
+          id: id,
+          userId: user.id,
+          orderType: "userOrder",
+          userType: "user",
+        });
+        dispatch(
+          showSnack({
+            text: `Product added to cart successfully!  +1x`,
+            actionLabel: "View",
+            navigateTo: "Cart",
+          })
+        );
+      }
+    }
+  };
   return (
     <TouchableOpacity
       activeOpacity={0.9}
@@ -25,7 +76,7 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
             borderTopLeftRadius: 6,
             borderTopRightRadius: 6,
           }}
-          source={imageSrc ? { uri: imageSrc } : image}
+          source={imageSrc ? { uri: `${IMAGE_BASE}/${imageSrc}` } : image}
         />
         <LinearGradient
           colors={["rgba(0,0,0,.3)", "rgba(0,0,0,0)", "rgba(0,0,0,0)"]}
@@ -42,25 +93,29 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
             ],
           }}
         />
-        {status && (
-          <View
-            style={{
-              position: "absolute",
-              left: 0,
-              top: 15,
-              backgroundColor: status === "Trending" ? COLORS.primary : COLORS.secondary,
-              paddingHorizontal: 10,
-              paddingVertical: 3,
-              borderTopRightRadius: 10,
-              borderBottomRightRadius: 10,
-              alignItems: "center",
-            }}
-          >
-            <Text style={{ ...FONTS.fontXs, color: COLORS.white }}>{status}</Text>
-          </View>
-        )}
+        {status === "Offer" ||
+          (status === "'FlashSales" && (
+            <View
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 15,
+                backgroundColor:
+                  status === "Offer" ? COLORS.primary : COLORS.secondary,
+                paddingHorizontal: 10,
+                paddingVertical: 3,
+                borderTopRightRadius: 10,
+                borderBottomRightRadius: 10,
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ ...FONTS.fontXs, color: COLORS.white }}>
+                {status}
+              </Text>
+            </View>
+          ))}
         <TouchableOpacity
-          onPress={() => handleItemLike && handleItemLike(id)}
+          onPress={handleAddToCart}
           style={{
             height: 40,
             width: 40,
@@ -72,7 +127,11 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
             justifyContent: "center",
           }}
         >
-          {isLike ? <FontAwesome color={COLORS.primary} size={24} name="heart" /> : <FontAwesome color={COLORS.white} size={24} name="heart-o" />}
+          <FeatherIcon
+            color={COLORS.primaryLight}
+            size={24}
+            name="shopping-cart"
+          />
         </TouchableOpacity>
       </View>
       <View
@@ -92,16 +151,18 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
         >
           {title}
         </Text>
-        <Text numberOfLines={1} style={{ ...FONTS.fontXs, marginBottom: 3 }}>
-          {desc}
-        </Text>
+        {desc && (
+          <Text numberOfLines={1} style={{ ...FONTS.fontXs, marginBottom: 3 }}>
+            {desc}
+          </Text>
+        )}
         <View
           style={{
             marginTop: 4,
             flexDirection: "row",
           }}
         >
-          <Text style={{ ...FONTS.h6 }}>{price}</Text>
+          <Text style={{ ...FONTS.h6 }}>{price} TK</Text>
           <Text
             style={{
               ...FONTS.fontSm,
@@ -110,10 +171,10 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
               marginTop: 2,
             }}
           >
-            {oldPrice}
+            {oldPrice} TK
           </Text>
         </View>
-        <View
+        {/* <View
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -123,10 +184,10 @@ const ProductItem = ({ id, image, title, desc, price, oldPrice, rating, reviews,
           <Text style={{ ...FONTS.font, ...FONTS.fontMedium, color: COLORS.title }}>{rating}</Text>
           <FontAwesome style={{ marginLeft: 3, marginRight: 10 }} color={"#FFA800"} size={14} name="star" />
           <Text style={{ ...FONTS.fontSm }}>({reviews} Reviews)</Text>
-        </View>
+        </View> */}
       </View>
     </TouchableOpacity>
   );
 };
 
-export default ProductItem;
+export default memo(ProductItem);

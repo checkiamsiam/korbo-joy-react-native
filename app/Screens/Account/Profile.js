@@ -1,26 +1,31 @@
-import React, { useRef } from "react";
+import { IconButton } from "@react-native-material/core";
+import * as ImagePicker from "expo-image-picker";
+import React, { useRef, useState } from "react";
 import {
   Image,
   SafeAreaView,
   ScrollView,
+  StatusBar,
   StyleSheet,
   Text,
+  TouchableHighlight,
   TouchableOpacity,
   View,
 } from "react-native";
-import { IconButton } from "@react-native-material/core";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import FeatherIcon from "react-native-vector-icons/Feather";
 import RBSheet from "react-native-raw-bottom-sheet";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import Octicons from "react-native-vector-icons/Octicons";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, IMAGES } from "../../constants/theme";
-import Header from "../../layout/Header";
-import india from "../../assets/images/flags/india.png";
+import { useDispatch, useSelector } from "react-redux";
 import UnitedStates from "../../assets/images/flags/UnitedStates.png";
 import german from "../../assets/images/flags/german.png";
+import india from "../../assets/images/flags/india.png";
 import italian from "../../assets/images/flags/italian.png";
 import spanish from "../../assets/images/flags/spanish.png";
+import { IMAGES } from "../../constants/theme";
+import { logout } from "../../features/Auth/AuthSlice";
+import { clearCart } from "../../features/Cart/CartSlice";
+import Header from "../../layout/Header";
 
 const languagetData = [
   {
@@ -46,8 +51,29 @@ const languagetData = [
 ];
 
 const Profile = ({ navigation }) => {
+  const dispatch = useDispatch();
+  const RBSheetLanguage = useRef();
+  const { user } = useSelector((state) => state.auth);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
+  const [image, setImage] = useState(null);
 
-    const RBSheetLanguage = useRef();
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [65, 65],
+      quality: 1,
+    });
+
+    if (!result?.canceled) {
+      setImage(result.assets[0].uri);
+      // server side upload
+    }
+  };
+  const styles = createStyles(COLORS);
 
   return (
     <>
@@ -114,6 +140,7 @@ const Profile = ({ navigation }) => {
         style={{
           flex: 1,
           backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
         }}
       >
         <Header title={"Profile"} />
@@ -126,22 +153,54 @@ const Profile = ({ navigation }) => {
                 marginBottom: 20,
               }}
             >
-              <Image
+              <TouchableHighlight
+                onPress={pickImage}
                 style={{
                   height: 65,
                   width: 65,
                   borderRadius: 65,
                   marginRight: 15,
                 }}
-                source={IMAGES.user}
-              />
+              >
+                <View>
+                  <Image
+                    style={{
+                      height: 65,
+                      width: 65,
+                      borderRadius: 65,
+                    }}
+                    source={image ? { uri: image } : IMAGES.user}
+                  />
+                  <View
+                    style={{
+                      flex: 1,
+                      height: 65,
+                      width: 65,
+                      borderRadius: 65,
+                      position: "absolute",
+                      backgroundColor: "rgba(51, 51, 51, 0.6)",
+                    }}
+                  >
+                    <Ionicons
+                      name="md-image"
+                      size={20}
+                      color="white"
+                      style={{ position: "absolute", top: 23, left: 23 }}
+                    />
+                  </View>
+                </View>
+              </TouchableHighlight>
               <View
                 style={{
                   flex: 1,
                 }}
               >
-                <Text style={{ ...FONTS.h6 }}>Elena</Text>
-                <Text style={{ ...FONTS.font }}>elena@example.com</Text>
+                <Text style={{ ...FONTS.h6, textTransform: "capitalize" }}>
+                  {user.name ? user.name : "Guest"}
+                </Text>
+                <Text style={{ ...FONTS.font }}>
+                  {user.number ? user.number : "+880XXXXXXXXXX"}
+                </Text>
               </View>
               <IconButton
                 onPress={() => navigation.navigate("EditProfile")}
@@ -170,7 +229,7 @@ const Profile = ({ navigation }) => {
                   <Text style={{ ...FONTS.h6 }}>Orders</Text>
                 </TouchableOpacity>
               </View>
-              <View style={{ width: "50%", paddingHorizontal: 5 }}>
+              {/* <View style={{ width: "50%", paddingHorizontal: 5 }}>
                 <TouchableOpacity
                   onPress={() => navigation.navigate("Wishlist")}
                   style={styles.profileBtn}
@@ -197,7 +256,7 @@ const Profile = ({ navigation }) => {
                   />
                   <Text style={{ ...FONTS.h6 }}>Coupons</Text>
                 </TouchableOpacity>
-              </View>
+              </View> */}
               <View style={{ width: "50%", paddingHorizontal: 5 }}>
                 <TouchableOpacity style={styles.profileBtn}>
                   <FeatherIcon
@@ -228,7 +287,7 @@ const Profile = ({ navigation }) => {
               >
                 <FeatherIcon
                   style={{ marginRight: 12 }}
-                  color={COLORS.secondary}
+                  color={COLORS.primary}
                   size={20}
                   name="user"
                 />
@@ -241,26 +300,12 @@ const Profile = ({ navigation }) => {
                   name="chevron-right"
                 />
               </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("Address")}
-                style={styles.listItem}
-              >
-                <FeatherIcon
-                  style={{ marginRight: 12 }}
-                  color={COLORS.secondary}
-                  size={18}
-                  name="map-pin"
-                />
-                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>
-                  Saved Addresses
-                </Text>
-                <FeatherIcon
-                  size={20}
-                  color={COLORS.title}
-                  name="chevron-right"
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
+              {/* <TouchableOpacity onPress={() => navigation.navigate("Address")} style={styles.listItem}>
+                <FeatherIcon style={{ marginRight: 12 }} color={COLORS.secondary} size={18} name="map-pin" />
+                <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Saved Addresses</Text>
+                <FeatherIcon size={20} color={COLORS.title} name="chevron-right" />
+              </TouchableOpacity> */}
+              {/* <TouchableOpacity
                 onPress={() => RBSheetLanguage.current.open()}
                 style={styles.listItem}
               >
@@ -294,14 +339,18 @@ const Profile = ({ navigation }) => {
                   color={COLORS.title}
                   name="chevron-right"
                 />
-              </TouchableOpacity>
+              </TouchableOpacity> */}
               <TouchableOpacity
-                onPress={() => navigation.navigate("Onboarding")}
+                onPress={() => {
+                  dispatch(logout());
+                  dispatch(clearCart());
+                  navigation.navigate("Welcome");
+                }}
                 style={styles.listItem}
               >
                 <FeatherIcon
                   style={{ marginRight: 12 }}
-                  color={COLORS.secondary}
+                  color={COLORS.primary}
                   size={20}
                   name="log-out"
                 />
@@ -322,26 +371,28 @@ const Profile = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  profileBtn: {
-    backgroundColor: "#F9F9F9",
-    borderWidth: 1,
-    borderColor: COLORS.borderColor,
-    paddingHorizontal: 15,
-    paddingBottom: 7,
-    paddingTop: 8,
-    borderRadius: 6,
-    marginBottom: 10,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  listItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: COLORS.borderColor,
-  },
-});
+const createStyles = (COLORS) => {
+  return StyleSheet.create({
+    profileBtn: {
+      backgroundColor: COLORS.backgroundColor,
+      borderWidth: 1,
+      borderColor: COLORS.borderColor,
+      paddingHorizontal: 15,
+      paddingBottom: 7,
+      paddingTop: 8,
+      borderRadius: 6,
+      marginBottom: 10,
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    listItem: {
+      flexDirection: "row",
+      alignItems: "center",
+      paddingVertical: 12,
+      borderBottomWidth: 1,
+      borderBottomColor: COLORS.borderColor,
+    },
+  });
+};
 
 export default Profile;

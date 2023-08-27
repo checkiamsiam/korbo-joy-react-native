@@ -1,39 +1,50 @@
-import React from 'react';
+import React from "react";
 import {
   Image,
   SafeAreaView,
   ScrollView,
+  StatusBar,
   StyleSheet,
   Text,
   View,
-} from 'react-native';
-import FeatherIcon from 'react-native-vector-icons/Feather';
-import { COLORS, FONTS, IMAGES } from '../../constants/theme';
-import pic1 from '../../assets/images/product/pic1.jpg';
-import Header from '../../layout/Header';
-import CheckoutItem from '../../components/CheckoutItem';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import DeliveryMap from './DeliveryMap';
+} from "react-native";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
+import pic1 from "../../assets/images/product/pic1.jpg";
+import CheckoutItem from "../../components/CheckoutItem";
+import { IMAGES } from "../../constants/theme";
+import Header from "../../layout/Header";
+import DeliveryMap from "./DeliveryMap";
 
 const CheckoutData = [
   {
     image: pic1,
-    title: 'Long Grey Bomber Jackets',
-    type: 'Grey Variant',
+    title: "Long Grey Bomber Jackets",
+    type: "Grey Variant",
     quantity: 1,
-    price: '$158.2',
-    oldPrice: '$170',
+    price: "$158.2",
+    oldPrice: "$170",
   },
 ];
 
 const DeliveryTracking = () => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
+  const styles = createStyles(COLORS);
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
+      }}
+    >
       <Header
-        leftIcon={'back'}
-        title={'Tracking Orders'}
-        rightIcon={'more'}
-        productId={'#04451255'}
+        leftIcon={"back"}
+        title={"Tracking Orders"}
+        rightIcon={"more"}
+        productId={"#04451255"}
       />
       <ScrollView contentContainerStyle={{ paddingTop: 10 }}>
         {CheckoutData.map((data, index) => (
@@ -63,8 +74,8 @@ const DeliveryTracking = () => {
               </Text>
               <View
                 style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
+                  flexDirection: "row",
+                  alignItems: "center",
                 }}
               >
                 <Image
@@ -116,7 +127,7 @@ const DeliveryTracking = () => {
           </View>
           <View>
             <View style={styles.delCircle} />
-            <View style={[styles.delInfo, { borderColor: 'transparent' }]}>
+            <View style={[styles.delInfo, { borderColor: "transparent" }]}>
               <Text style={{ ...FONTS.h6, color: COLORS.primary }}>
                 Order Created
               </Text>
@@ -131,27 +142,29 @@ const DeliveryTracking = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  delCircle: {
-    height: 21,
-    width: 21,
-    borderRadius: 21,
-    backgroundColor: COLORS.secondary,
-    borderWidth: 3,
-    borderColor: COLORS.white,
-    position: 'absolute',
-    top: 0,
-    left: 5,
-    zIndex: 2,
-  },
-  delInfo: {
-    paddingLeft: 30,
-    marginLeft: 15,
-    borderLeftWidth: 2,
-    borderColor: COLORS.primary,
-    paddingBottom: 30,
-    paddingRight: 10,
-  },
-});
+const createStyles = (COLORS) => {
+  return StyleSheet.create({
+    delCircle: {
+      height: 21,
+      width: 21,
+      borderRadius: 21,
+      backgroundColor: COLORS.secondary,
+      borderWidth: 3,
+      borderColor: COLORS.white,
+      position: "absolute",
+      top: 0,
+      left: 5,
+      zIndex: 2,
+    },
+    delInfo: {
+      paddingLeft: 30,
+      marginLeft: 15,
+      borderLeftWidth: 2,
+      borderColor: COLORS.primary,
+      paddingBottom: 30,
+      paddingRight: 10,
+    },
+  });
+};
 
 export default DeliveryTracking;

@@ -1,8 +1,9 @@
-import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
-import { COLORS, FONTS, SIZES } from '../../constants/theme';
+import React from "react";
+import { Text, TouchableOpacity } from "react-native";
+import { useSelector } from "react-redux";
 
 const Button = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <TouchableOpacity
       activeOpacity={0.8}
@@ -18,7 +19,7 @@ const Button = (props) => {
             : props.btnRounded
             ? 30
             : SIZES.radius,
-          alignItems: 'center',
+          alignItems: "center",
         },
       ]}
     >

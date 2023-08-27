@@ -1,108 +1,24 @@
-import CheckBox from "@react-native-community/checkbox";
+import { CheckBox } from "@rneui/themed";
 import React, { useRef, useState } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  SafeAreaView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Ripple from "react-native-material-ripple";
 import { List, RadioButton, Snackbar } from "react-native-paper";
 import RBSheet from "react-native-raw-bottom-sheet";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Octicons from "react-native-vector-icons/Octicons";
-import AppliancesData from "../../JSON/Appliances.json";
-import BooksToysData from "../../JSON/BooksToys.json";
-import ElectronicsData from "../../JSON/Electronics.json";
-import FashionData from "../../JSON/Fashion.json";
-import FurnitureData from "../../JSON/Furniture.json";
-import GroceryData from "../../JSON/Grocery.json";
-import MobilesData from "../../JSON/Mobiles.json";
-import pic1 from "../../assets/images/product/pic1.jpg";
-import pic2 from "../../assets/images/product/pic2.jpg";
-import pic3 from "../../assets/images/product/pic3.jpg";
-import pic4 from "../../assets/images/product/pic4.jpg";
-import pic5 from "../../assets/images/product/pic5.jpg";
-import pic6 from "../../assets/images/product/pic6.jpg";
-import pic7 from "../../assets/images/product/pic7.jpg";
-import pic8 from "../../assets/images/product/pic8.jpg";
+import { ScrollView } from "react-native-virtualized-view";
+import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
-import ProductItem from "../../components/ProductItem";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
+import ProductsListSkeleton from "../../components/skeletons/ProductsListSkeleton";
+import { useGetVendorProductsQuery } from "../../features/VendorFeature/vendorApi";
 import Header from "../../layout/Header";
-
-const ProductData = [
-  {
-    image: pic1,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-  },
-  {
-    image: pic2,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-  },
-  {
-    image: pic3,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-    status: "Trending",
-  },
-  {
-    image: pic4,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-  },
-  {
-    image: pic5,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-  },
-  {
-    image: pic6,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-    status: "Sale",
-  },
-  {
-    image: pic7,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-  },
-  {
-    image: pic8,
-    title: "Peter England Causual",
-    desc: "Printed Longline Pure Cotteon T-shirt",
-    price: "$151.15",
-    oldPrice: "$255.11",
-    rating: "4.2",
-    reviews: "245",
-  },
-];
+import ItemProductView from "./ItemProductView";
 
 const discountFilterData = [
   {
@@ -147,45 +63,29 @@ const brandFilterData = [
     selected: true,
     title: "Levi's",
   },
-  {
-    selected: true,
-    title: "Puma",
-  },
-  {
-    selected: true,
-    title: "Wildcraft",
-  },
-  {
-    selected: true,
-    title: "Ndet",
-  },
-  {
-    selected: true,
-    title: "Woodland",
-  },
 ];
 
 const Items = ({ navigation, route }) => {
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   const sheetRef = useRef();
 
-  const { type } = route.params;
-
+  const { type, key } = route.params;
+  const { isLoading } = useGetVendorProductsQuery(key?.id, {
+    refetchOnMountOrArgChange: true,
+    skip: type !== "Vendors",
+  });
+  const { products: flashSaleProducts } = useSelector(
+    (state) => state.flashSale
+  );
+  const { vendorsWiseProducts } = useSelector((state) => state.vendor);
   const Products =
-    type === "Mobiles"
-      ? MobilesData.items
-      : type === "Electronics"
-      ? ElectronicsData.items
-      : type === "Furniture"
-      ? FurnitureData.items
-      : type === "Grocery"
-      ? GroceryData.items
-      : type === "Appliances"
-      ? AppliancesData.items
-      : type === "Books,Toys"
-      ? BooksToysData.items
-      : type === "Fashion"
-      ? FashionData.items
-      : ProductData;
+    type === "Flash Sale"
+      ? flashSaleProducts
+      : type === "Vendors"
+      ? vendorsWiseProducts
+      : flashSaleProducts;
 
   const [itemData, setItemData] = useState(Products);
 
@@ -228,14 +128,24 @@ const Items = ({ navigation, route }) => {
     });
     setBrandFilter(Brand);
     setDiscountFilter(Discount);
-    setFilterData(sheetType === "brand" ? Brand : sheetType === "discount" ? Discount : []);
+    setFilterData(
+      sheetType === "brand" ? Brand : sheetType === "discount" ? Discount : []
+    );
   };
 
   return (
     <>
       <RBSheet
         ref={sheetRef}
-        height={sheetType === "sort" ? 250 : sheetType === "discount" ? 310 : sheetType === "brand" ? 400 : 300}
+        height={
+          sheetType === "sort"
+            ? 250
+            : sheetType === "discount"
+            ? 310
+            : sheetType === "brand"
+            ? 330
+            : 300
+        }
         closeOnDragDown={true}
         closeOnPressMask={true}
       >
@@ -247,52 +157,39 @@ const Items = ({ navigation, route }) => {
             }}
             value={sortVal}
           >
-            <RadioButton.Item color={COLORS.primary} uncheckedColor={COLORS.label} style={{ paddingVertical: 2 }} label="What's new" value="newest" />
             <RadioButton.Item
               color={COLORS.primary}
-              uncheckedColor={COLORS.label}
+              style={{ paddingVertical: 2 }}
+              label="What's new"
+              value="newest"
+            />
+            <RadioButton.Item
+              color={COLORS.primary}
               style={{ paddingVertical: 2 }}
               label="Price - high to low"
               value="price-hightolow"
             />
             <RadioButton.Item
               color={COLORS.primary}
-              uncheckedColor={COLORS.label}
               style={{ paddingVertical: 2 }}
               label="Price - low to hight"
               value="price-lowtohigh"
             />
             <RadioButton.Item
               color={COLORS.primary}
-              uncheckedColor={COLORS.label}
               style={{ paddingVertical: 2 }}
               label="Popularity"
               value="popularity"
             />
-            <RadioButton.Item color={COLORS.primary} uncheckedColor={COLORS.label} style={{ paddingVertical: 2 }} label="Discount" value="discount" />
+            <RadioButton.Item
+              color={COLORS.primary}
+              style={{ paddingVertical: 2 }}
+              label="Discount"
+              value="discount"
+            />
           </RadioButton.Group>
         ) : (
           <>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                paddingHorizontal: 5,
-                marginTop: -10,
-                marginBottom: 5,
-              }}
-            >
-              <TouchableOpacity
-                onPress={() => sheetRef.current.close()}
-                style={{
-                  padding: 10,
-                  marginRight: 3,
-                }}
-              >
-                <FeatherIcon color={COLORS.title} size={24} name="x" />
-              </TouchableOpacity>
-              <Text style={{ ...FONTS.h6, top: 1 }}>Filters</Text>
-            </View>
             <View
               style={{
                 flexDirection: "row",
@@ -311,13 +208,10 @@ const Items = ({ navigation, route }) => {
                     onPress={() => handleFilterSelected(data.title)}
                     left={() => (
                       <CheckBox
-                        tintColors={{
-                          true: COLORS.primary,
-                          false: COLORS.text,
-                        }}
-                        style={{ left: 10 }}
-                        value={data.selected}
-                        disabled
+                        checked={data.selected}
+                        checkedColor={COLORS.primary}
+                        containerStyle={{ marginLeft: 20 }}
+                        disabled={false}
                       />
                     )}
                     title={() => (
@@ -326,7 +220,7 @@ const Items = ({ navigation, route }) => {
                           ...FONTS.font,
                           ...FONTS.fontMedium,
                           top: -1,
-                          color: COLORS.title,
+                          color: COLORS.dark,
                         }}
                       >
                         {data.title}
@@ -349,7 +243,9 @@ const Items = ({ navigation, route }) => {
                       borderRadius: SIZES.radius,
                     }}
                   >
-                    <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>Clear</Text>
+                    <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>
+                      Clear
+                    </Text>
                   </TouchableOpacity>
                 </View>
                 <View style={GlobalStyleSheet.col50}>
@@ -365,9 +261,15 @@ const Items = ({ navigation, route }) => {
         style={{
           flex: 1,
           backgroundColor: COLORS.backgroundColor,
+          paddingTop: StatusBar.currentHeight,
         }}
       >
-        <Header titleLeft leftIcon={"back"} title={type} />
+        <Header
+          titleLeft
+          leftIcon={"back"}
+          title={key?.title}
+          rightIcon2="search"
+        />
         <View>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <View
@@ -383,15 +285,57 @@ const Items = ({ navigation, route }) => {
                   setSheetType("sort");
                   sheetRef.current.open();
                 }}
-                style={styles.badge}
+                style={{
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.backgroundColor,
+                  paddingHorizontal: 15,
+                  paddingVertical: 6,
+                  borderRadius: 20,
+                  marginRight: 12,
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
               >
-                <Octicons size={16} style={{ marginRight: 6 }} name="sort-desc" />
-                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>Sort By</Text>
-                <FeatherIcon style={{ marginLeft: 2, marginRight: -6 }} size={18} name="chevron-down" />
+                <Octicons
+                  color={COLORS.primary}
+                  size={16}
+                  style={{ marginRight: 6 }}
+                  name="sort-desc"
+                />
+                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>
+                  Sort By
+                </Text>
+                <FeatherIcon
+                  color={COLORS.text}
+                  style={{ marginLeft: 2, marginRight: -6 }}
+                  size={18}
+                  name="chevron-down"
+                />
               </Ripple>
-              <TouchableOpacity onPress={() => navigation.navigate("Filter")} style={styles.badge}>
-                <FeatherIcon style={{ marginRight: 8 }} size={15} name="filter" />
-                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>Filter</Text>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Filter")}
+                style={{
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.backgroundColor,
+                  paddingHorizontal: 15,
+                  paddingVertical: 6,
+                  borderRadius: 20,
+                  marginRight: 12,
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <FeatherIcon
+                  color={COLORS.primary}
+                  style={{ marginRight: 8 }}
+                  size={15}
+                  name="filter"
+                />
+                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>
+                  Filter
+                </Text>
               </TouchableOpacity>
               <Ripple
                 onPress={() => {
@@ -399,10 +343,27 @@ const Items = ({ navigation, route }) => {
                   setFilterData(brandFilter);
                   sheetRef.current.open();
                 }}
-                style={styles.badge}
+                style={{
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.backgroundColor,
+                  paddingHorizontal: 15,
+                  paddingVertical: 6,
+                  borderRadius: 20,
+                  marginRight: 12,
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
               >
-                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>Brand</Text>
-                <FeatherIcon style={{ marginLeft: 2, marginRight: -6 }} size={18} name="chevron-down" />
+                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>
+                  Brand
+                </Text>
+                <FeatherIcon
+                  color={COLORS.text}
+                  style={{ marginLeft: 2, marginRight: -6 }}
+                  size={18}
+                  name="chevron-down"
+                />
               </Ripple>
               <Ripple
                 onPress={() => {
@@ -410,53 +371,37 @@ const Items = ({ navigation, route }) => {
                   setFilterData(discountFilter);
                   sheetRef.current.open();
                 }}
-                style={styles.badge}
+                style={{
+                  borderWidth: 1,
+                  borderColor: COLORS.borderColor,
+                  backgroundColor: COLORS.backgroundColor,
+                  paddingHorizontal: 15,
+                  paddingVertical: 6,
+                  borderRadius: 20,
+                  marginRight: 12,
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
               >
-                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>discount</Text>
-                <FeatherIcon style={{ marginLeft: 2, marginRight: -6 }} size={18} name="chevron-down" />
+                <Text style={{ ...FONTS.font, top: -1, color: COLORS.title }}>
+                  discount
+                </Text>
+                <FeatherIcon
+                  color={COLORS.text}
+                  style={{ marginLeft: 2, marginRight: -6 }}
+                  size={18}
+                  name="chevron-down"
+                />
               </Ripple>
             </View>
           </ScrollView>
         </View>
         <ScrollView>
-          <View
-            style={{
-              paddingTop: 5,
-            }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                flexWrap: "wrap",
-                paddingHorizontal: 5,
-              }}
-            >
-              {itemData.map((data, index) => (
-                <View key={index} style={{ width: "50%", paddingHorizontal: 5 }}>
-                  <ProductItem
-                    onPress={() =>
-                      navigation.navigate("ProductDetail", {
-                        item: data,
-                        category: type,
-                      })
-                    }
-                    imgLength={type === "Fashion"}
-                    id={data.id}
-                    imageSrc={data.image}
-                    title={data.title}
-                    desc={data.desc}
-                    status={data.status}
-                    price={data.price}
-                    oldPrice={data.oldPrice}
-                    rating={data.rating}
-                    reviews={data.reviews}
-                    isLike={data.isLike}
-                    handleItemLike={handleItemLike}
-                  />
-                </View>
-              ))}
-            </View>
-          </View>
+          {!isLoading ? (
+            <ItemProductView data={Products} />
+          ) : (
+            <ProductsListSkeleton />
+          )}
         </ScrollView>
         <Snackbar
           visible={isSnackbar}
@@ -475,19 +420,5 @@ const Items = ({ navigation, route }) => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  badge: {
-    borderWidth: 1,
-    borderColor: COLORS.borderColor,
-    backgroundColor: "#f5f5f5",
-    paddingHorizontal: 15,
-    paddingVertical: 6,
-    borderRadius: 20,
-    marginRight: 12,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-});
 
 export default Items;

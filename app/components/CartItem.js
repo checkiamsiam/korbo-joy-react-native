@@ -1,8 +1,18 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
-import { COLORS, FONTS } from "../constants/theme";
+import { useSelector } from "react-redux";
 
-const CartItem = ({ productId, image, title, price, quantity, size, status, desc }) => {
+const CartItem = ({
+  productId,
+  image,
+  title,
+  price,
+  quantity,
+  size,
+  status,
+  desc,
+}) => {
+  const { COLORS, FONTS } = useSelector((state) => state.theme);
   return (
     <View
       style={{
@@ -18,7 +28,11 @@ const CartItem = ({ productId, image, title, price, quantity, size, status, desc
         }}
       >
         <View style={{ flex: 1, paddingRight: 15 }}>
-          <Text style={{ ...FONTS.font, color: COLORS.primary, marginBottom: 6 }}>{productId}</Text>
+          <Text
+            style={{ ...FONTS.font, color: COLORS.primary, marginBottom: 6 }}
+          >
+            {productId}
+          </Text>
           <Text style={{ ...FONTS.h6 }}>{title}</Text>
         </View>
         <Image
@@ -31,8 +45,12 @@ const CartItem = ({ productId, image, title, price, quantity, size, status, desc
           source={image}
         />
       </View>
-      <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 15 }}>
-        <Text style={{ ...FONTS.font, ...FONTS.fontBold, flex: 1 }}>{size}</Text>
+      <View
+        style={{ flexDirection: "row", alignItems: "center", marginBottom: 15 }}
+      >
+        <Text style={{ ...FONTS.font, ...FONTS.fontBold, flex: 1 }}>
+          {size}
+        </Text>
         <Text style={{ ...FONTS.font, ...FONTS.fontBold }}>{quantity}</Text>
         <Text
           style={{

@@ -1,68 +1,47 @@
-import React from 'react';
+import React from "react";
 import {
   Image,
   SafeAreaView,
   ScrollView,
+  StatusBar,
   Text,
-  TextInput,
-  TouchableOpacity,
   View,
-} from 'react-native';
-import FeatherIcon from 'react-native-vector-icons/Feather';
-import CheckoutItem from '../../components/CheckoutItem';
-import { COLORS, FONTS, IMAGES } from '../../constants/theme';
-import Header from '../../layout/Header';
-import pic1 from '../../assets/images/product/pic1.jpg';
-import pic2 from '../../assets/images/product/pic2.jpg';
-import pic3 from '../../assets/images/product/pic3.jpg';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import CustomButton from '../../components/CustomButton';
-
-const CheckoutData = [
-  {
-    image: pic1,
-    title: 'Peter England Causual',
-    type: 'Printed Longline Pure Cotteon T-shirt',
-    quantity: 1,
-    price: '$158.2',
-    oldPrice: '$170',
-  },
-  {
-    image: pic2,
-    title: 'Peter England Causual',
-    type: 'Printed Longline Pure Cotteon T-shirt',
-    quantity: 1,
-    price: '$158.2',
-    oldPrice: '$170',
-  },
-  {
-    image: pic3,
-    title: 'Peter England Causual',
-    type: 'Printed Longline Pure Cotteon T-shirt',
-    quantity: 1,
-    price: '$158.2',
-    oldPrice: '$170',
-  },
-];
+} from "react-native";
+import { useSelector } from "react-redux";
+import CustomButton from "../../components/CustomButton";
+import { IMAGES } from "../../constants/theme";
+import Header from "../../layout/Header";
+import calculateSum from "../../utils/calculateSum";
+import CheckoutItems from "./CheckoutItems";
 
 const Cart = ({ navigation }) => {
+  const { user } = useSelector((state) => state.auth);
+  const { cart } = useSelector((state) => state.cart);
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
+
+  const totalPrice = calculateSum(cart, "totalSalesPrice");
+  const totalCharge = calculateSum(cart, "charge");
+  const totalBill = totalCharge + totalPrice;
+
   return (
     <SafeAreaView
       style={{
         flex: 1,
         backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
       }}
     >
       <Header
-        backAction={() => navigation.navigate('Home')}
-        title={'Cart'}
-        leftIcon={'back'}
-        rightIcon={'more'}
+        backAction={() => navigation.navigate("Home")}
+        title={"Cart"}
+        leftIcon={"back"}
       />
       <View
         style={{
-          flexDirection: 'row',
-          alignItems: 'center',
+          flexDirection: "row",
+          alignItems: "center",
           paddingHorizontal: 15,
           paddingVertical: 12,
           borderBottomWidth: 1,
@@ -84,14 +63,15 @@ const Cart = ({ navigation }) => {
             ...FONTS.fontBold,
             color: COLORS.title,
             flex: 1,
+            textTransform: "capitalize",
           }}
         >
-          Deliver to Yatin
+          Deliver to {user?.name.split(" ")[0]}
         </Text>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
+            flexDirection: "row",
+            alignItems: "center",
           }}
         >
           <Text
@@ -101,42 +81,16 @@ const Cart = ({ navigation }) => {
               color: COLORS.primary,
             }}
           >
-            Ram krishan, puram
+            City, State
           </Text>
-          <FeatherIcon
-            color={COLORS.primary}
-            style={{ marginLeft: 2, top: 1 }}
-            size={16}
-            name="chevron-down"
-          />
-        </TouchableOpacity>
+          <FeatherIcon color={COLORS.primary} style={{ marginLeft: 2, top: 1 }} size={16} name="chevron-down" />
+        </TouchableOpacity> */}
       </View>
       <View style={{ flex: 1 }}>
         <ScrollView>
-          {CheckoutData.map((data, index) => (
-            <CheckoutItem
-              onPress={() =>
-                navigation.navigate('ProductDetail', {
-                  item: {
-                    imagePath: data.image,
-                    title: data.title,
-                    price: data.price,
-                    oldPrice: data.oldPrice,
-                  },
-                  category: 'Fashion',
-                })
-              }
-              key={index}
-              image={data.image}
-              title={data.title}
-              type={data.type}
-              quantity={data.quantity}
-              price={data.price}
-              oldPrice={data.oldPrice}
-            />
-          ))}
+          <CheckoutItems />
           <View style={GlobalStyleSheet.container}>
-            <Text
+            {/* <Text
               style={{ ...FONTS.fontSm, ...FONTS.fontBold, marginBottom: 6 }}
             >
               Have a coupon code ? enter here
@@ -175,11 +129,11 @@ const Cart = ({ navigation }) => {
                   name="chevron-right"
                 />
               </TouchableOpacity>
-            </View>
+            </View> */}
             <View
               style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
+                flexDirection: "row",
+                justifyContent: "space-between",
                 marginBottom: 8,
                 marginTop: 12,
               }}
@@ -192,31 +146,13 @@ const Cart = ({ navigation }) => {
                   color: COLORS.title,
                 }}
               >
-                $158.2
+                {totalPrice} TK
               </Text>
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginBottom: 8,
-              }}
-            >
-              <Text style={{ ...FONTS.font }}>Tax : </Text>
-              <Text
-                style={{
-                  ...FONTS.font,
-                  ...FONTS.fontBold,
-                  color: COLORS.title,
-                }}
-              >
-                0.5%
-              </Text>
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
+                flexDirection: "row",
+                justifyContent: "space-between",
                 marginBottom: 8,
               }}
             >
@@ -228,40 +164,43 @@ const Cart = ({ navigation }) => {
                   color: COLORS.title,
                 }}
               >
-                0.5%
+                {totalCharge} TK
               </Text>
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
+                flexDirection: "row",
+                justifyContent: "space-between",
                 marginBottom: 10,
                 marginTop: 5,
-                alignItems: 'center',
+                alignItems: "center",
                 borderTopWidth: 1,
-                borderStyle: 'dashed',
+                borderStyle: "dashed",
                 borderColor: COLORS.borderColor,
                 paddingTop: 8,
               }}
             >
               <Text style={{ ...FONTS.font }}>Total : </Text>
-              <Text style={{ ...FONTS.h4, color: COLORS.primary }}>$215.5</Text>
+              <Text style={{ ...FONTS.h4, color: COLORS.primary }}>
+                {totalBill} TK
+              </Text>
             </View>
           </View>
         </ScrollView>
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          paddingHorizontal: 15,
-          paddingVertical: 10,
-          borderTopWidth: 1,
-          borderColor: COLORS.borderColor,
-        }}
-      >
-        <View style={{ flex: 1 }}>
-          <Text style={{ ...FONTS.h4 }}>$215.5</Text>
-          <TouchableOpacity
+      {cart.length > 0 && (
+        <View
+          style={{
+            flexDirection: "row",
+            paddingHorizontal: 15,
+            paddingVertical: 10,
+            borderTopWidth: 1,
+            borderColor: COLORS.borderColor,
+          }}
+        >
+          <View style={{ flex: 1 }}>
+            <Text style={{ ...FONTS.h4 }}>{totalBill} TK</Text>
+            {/* <TouchableOpacity
             style={{
               marginTop: -4,
             }}
@@ -275,16 +214,17 @@ const Cart = ({ navigation }) => {
             >
               View price details
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          </View>
+          <View style={{ flex: 1 }}>
+            <CustomButton
+              btnSm
+              onPress={() => navigation.navigate("AddDeliveryAddress")}
+              title="Checkout"
+            />
+          </View>
         </View>
-        <View style={{ flex: 1 }}>
-          <CustomButton
-            btnSm
-            onPress={() => navigation.navigate('AddDeliveryAddress')}
-            title="Checkout"
-          />
-        </View>
-      </View>
+      )}
     </SafeAreaView>
   );
 };

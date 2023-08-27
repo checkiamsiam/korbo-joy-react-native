@@ -1,10 +1,9 @@
-import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
-import DropShadow from "react-native-drop-shadow";
-import { COLORS, FONTS, SIZES } from '../constants/theme';
-import { useNavigation } from '@react-navigation/native';
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useSelector } from "react-redux";
 
 const ItemCard = (props) => {
   const {
@@ -21,31 +20,32 @@ const ItemCard = (props) => {
     listView,
     imageSrc,
   } = props;
-
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const navigation = useNavigation();
 
   return (
-    <DropShadow
+    <View
       style={{
-        shadowColor: '#000',
-        shadowOffset: {
-          width: 5,
-          height: 5,
-        },
+        backgroundColor: "#fff",
+        padding: 20,
+        borderRadius: 10,
+        elevation: 5,
+        shadowColor: "#000",
+        shadowOffset: { width: 5, height: 5 },
         shadowOpacity: listView ? 0.1 : 0.06,
         shadowRadius: 5,
       }}
     >
       <TouchableOpacity
         onPress={() =>
-          navigation.navigate('ProductDetail', {
+          navigation.navigate("ProductDetail", {
             item: {
               title: title,
               image: imageSrc,
               oldPrice: oldPrice,
               price: price,
             },
-            category: 'Appliances',
+            category: "Appliances",
           })
         }
         activeOpacity={0.98}
@@ -56,7 +56,7 @@ const ItemCard = (props) => {
             marginBottom: 15,
           },
           listView && {
-            flexDirection: 'row',
+            flexDirection: "row",
             //elevation:8,
           },
         ]}
@@ -66,9 +66,9 @@ const ItemCard = (props) => {
             style={{
               height: 50,
               width: 50,
-              alignItems: 'center',
-              justifyContent: 'center',
-              position: 'absolute',
+              alignItems: "center",
+              justifyContent: "center",
+              position: "absolute",
               top: 0,
               right: 0,
               zIndex: 1,
@@ -85,7 +85,7 @@ const ItemCard = (props) => {
             style={[
               {
                 borderRadius: SIZES.radius,
-                width: '100%',
+                width: "100%",
                 height: 160,
               },
               listView && {
@@ -100,10 +100,10 @@ const ItemCard = (props) => {
           style={[
             {
               backgroundColor: COLORS.white,
-              shadowColor: 'rgba(0,0,0,.5)',
+              shadowColor: "rgba(0,0,0,.5)",
               elevation: 10,
               borderRadius: SIZES.radius,
-              position: 'relative',
+              position: "relative",
               zIndex: 1,
               paddingHorizontal: 10,
               paddingBottom: 12,
@@ -117,7 +117,7 @@ const ItemCard = (props) => {
               borderRadius: 0,
               elevation: 0,
               paddingTop: 20,
-              backgroundColor: 'transparent',
+              backgroundColor: "transparent",
             },
           ]}
         >
@@ -142,30 +142,30 @@ const ItemCard = (props) => {
           >
             {title}
           </Text>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Text style={{ ...FONTS.h6, marginRight: 15 }}>{price}</Text>
             <Text
               style={{
                 ...FONTS.fontXs,
                 marginBottom: 2,
-                textDecorationLine: 'line-through',
+                textDecorationLine: "line-through",
               }}
             />
           </View>
 
           <View
             style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
               marginTop: rating ? 8 : 0,
             }}
           >
             {rating && (
               <View
                 style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
+                  flexDirection: "row",
+                  alignItems: "center",
                   marginBottom: 5,
                 }}
               >
@@ -194,7 +194,7 @@ const ItemCard = (props) => {
           </View>
         </View>
       </TouchableOpacity>
-    </DropShadow>
+    </View>
   );
 };
 

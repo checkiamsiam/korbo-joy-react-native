@@ -1,14 +1,15 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { COLORS, FONTS, SIZES } from '../../constants/theme';
+import React from "react";
+import { Text, View } from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import { useSelector } from "react-redux";
 
 const SuccessModal = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <>
       <View
         style={{
-          alignItems: 'center',
+          alignItems: "center",
           paddingHorizontal: 30,
           paddingVertical: 20,
           paddingBottom: 30,
@@ -26,7 +27,7 @@ const SuccessModal = () => {
         />
         <Text style={{ ...FONTS.h5, color: COLORS.title }}>Success</Text>
         <Text
-          style={{ ...FONTS.font, color: COLORS.text, textAlign: 'center' }}
+          style={{ ...FONTS.font, color: COLORS.text, textAlign: "center" }}
         >
           You can continue with your previous actions. Easy to attach these to
           success calls.

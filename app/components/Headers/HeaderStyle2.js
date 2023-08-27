@@ -1,19 +1,20 @@
-import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import FeatherIcon from 'react-native-vector-icons/Feather';
-import DropShadow from 'react-native-drop-shadow';
-import { COLORS, FONTS, IMAGES } from '../../constants/theme';
+import React from "react";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
+import { IMAGES } from "../../constants/theme";
 
 const HeaderStyle2 = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <>
-      <DropShadow
+      <View
         style={{
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 2,
-            height: 2,
-          },
+          backgroundColor: "#fff",
+          borderRadius: 10,
+          elevation: 5,
+          shadowColor: "#000",
+          shadowOffset: { width: 2, height: 2 },
           shadowOpacity: 0.1,
           shadowRadius: 5,
         }}
@@ -22,8 +23,8 @@ const HeaderStyle2 = (props) => {
           style={{
             height: 50,
             backgroundColor: COLORS.white,
-            flexDirection: 'row',
-            alignItems: 'center',
+            flexDirection: "row",
+            alignItems: "center",
             paddingHorizontal: 5,
           }}
         >
@@ -31,8 +32,8 @@ const HeaderStyle2 = (props) => {
             style={{
               height: 50,
               width: 50,
-              alignItems: 'center',
-              justifyContent: 'center',
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             <FeatherIcon color={COLORS.title} name="menu" size={18} />
@@ -42,7 +43,7 @@ const HeaderStyle2 = (props) => {
               ...FONTS.h6,
               color: COLORS.title,
               flex: 1,
-              textAlign: 'center',
+              textAlign: "center",
             }}
           >
             {props.title}
@@ -51,13 +52,13 @@ const HeaderStyle2 = (props) => {
             style={{
               height: 50,
               width: 50,
-              alignItems: 'center',
-              justifyContent: 'center',
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             <View
               style={{
-                position: 'absolute',
+                position: "absolute",
                 bottom: 8,
                 right: 8,
                 zIndex: 1,
@@ -79,7 +80,7 @@ const HeaderStyle2 = (props) => {
             />
           </TouchableOpacity>
         </View>
-      </DropShadow>
+      </View>
     </>
   );
 };

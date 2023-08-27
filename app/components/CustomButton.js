@@ -1,18 +1,37 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { COLORS, FONTS, SIZES } from "../constants/theme";
+import { Text, TouchableOpacity, View } from "react-native";
+import { useSelector } from "react-redux";
 
 const CustomButton = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <TouchableOpacity
       disabled={props.disabled}
       activeOpacity={0.75}
       style={[
-        { ...styles.button },
+        {
+          height: 50,
+          borderRadius: SIZES.radius,
+          backgroundColor: COLORS.primary,
+          alignItems: "center",
+          paddingHorizontal: 20,
+          justifyContent: "center",
+          shadowColor: COLORS.primary,
+          shadowOffset: {
+            width: 0,
+            height: 5,
+          },
+          shadowOpacity: 0.34,
+          shadowRadius: 6.27,
+          elevation: 8,
+        },
         props.btnSm && { height: 40 },
         props.color && { backgroundColor: props.color },
-        props.btnLight && { backgroundColor: "#E6E6E6", elevation: 0 },
-        props.disabled && { backgroundColor: "#C9C9C9", elevation: 0 },
+        props.btnLight && {
+          backgroundColor: COLORS.backgroundColor,
+          elevation: 0,
+        },
+        props.disabled && { backgroundColor: COLORS.borderColor, elevation: 0 },
         props.outline && {
           backgroundColor: "transparent",
           elevation: 0,
@@ -36,7 +55,7 @@ const CustomButton = (props) => {
       <Text
         style={[
           { ...FONTS.fontLg, color: COLORS.white },
-          props.btnLight && { color: "#646464" },
+          props.btnLight && { color: COLORS.text },
           props.textColor && { color: props.textColor },
           props.outline && { color: COLORS.primary },
         ]}
@@ -46,24 +65,5 @@ const CustomButton = (props) => {
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  button: {
-    height: 50,
-    borderRadius: SIZES.radius,
-    backgroundColor: COLORS.primary,
-    alignItems: "center",
-    paddingHorizontal: 20,
-    justifyContent: "center",
-    shadowColor: COLORS.primary,
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.34,
-    shadowRadius: 6.27,
-    elevation: 8,
-  },
-});
 
 export default CustomButton;

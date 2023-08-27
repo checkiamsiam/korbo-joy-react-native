@@ -1,13 +1,14 @@
-import React from 'react';
-import { LineChart } from 'react-native-chart-kit';
-import { COLORS, SIZES } from '../../constants/theme';
+import React from "react";
+import { LineChart } from "react-native-chart-kit";
+import { useSelector } from "react-redux";
 
 const BasicLineChart = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <>
       <LineChart
         data={{
-          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
           datasets: [
             {
               data: [
@@ -38,9 +39,9 @@ const BasicLineChart = () => {
             borderRadius: 16,
           },
           propsForDots: {
-            r: '6',
-            strokeWidth: '2',
-            stroke: '#fff',
+            r: "6",
+            strokeWidth: "2",
+            stroke: "#fff",
           },
           propsForBackgroundLines: {
             stroke: COLORS.text,

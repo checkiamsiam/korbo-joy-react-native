@@ -1,10 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const TableOddEven = () => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
+  const styles = createStyles(COLORS, FONTS);
   const TableData = [
     {
       name: "John Doe",
@@ -30,13 +32,13 @@ const TableOddEven = () => {
 
   return (
     <>
-      <DropShadow
+      <View
         style={{
+          backgroundColor: "#fff",
+          borderRadius: 10,
+          elevation: 5,
           shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 5,
-          },
+          shadowOffset: { width: 0, height: 5 },
           shadowOpacity: 0.15,
           shadowRadius: 5,
         }}
@@ -49,7 +51,9 @@ const TableOddEven = () => {
               flexDirection: "row",
             }}
           >
-            <Text style={{ ...styles.theadItem, flex: 0.6, paddingLeft: 15 }}>Name</Text>
+            <Text style={{ ...styles.theadItem, flex: 0.6, paddingLeft: 15 }}>
+              Name
+            </Text>
             <Text style={{ ...styles.theadItem }}>Email</Text>
             <Text
               style={{
@@ -77,8 +81,21 @@ const TableOddEven = () => {
                   },
                 ]}
               >
-                <Text style={[{ ...styles.tbodyItem, flex: 0.6, paddingLeft: 15 }, index % 2 === 0 && { color: COLORS.title }]}>{data.name}</Text>
-                <Text numberOfLines={1} style={[{ ...styles.tbodyItem }, index % 2 === 0 && { color: COLORS.title }]}>
+                <Text
+                  style={[
+                    { ...styles.tbodyItem, flex: 0.6, paddingLeft: 15 },
+                    index % 2 === 0 && { color: COLORS.title },
+                  ]}
+                >
+                  {data.name}
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={[
+                    { ...styles.tbodyItem },
+                    index % 2 === 0 && { color: COLORS.title },
+                  ]}
+                >
                   {data.email}
                 </Text>
                 <Text
@@ -98,29 +115,31 @@ const TableOddEven = () => {
             );
           })}
         </View>
-      </DropShadow>
+      </View>
     </>
   );
 };
 
-const styles = StyleSheet.create({
-  theadItem: {
-    flex: 1,
-    alignSelf: "stretch",
-    paddingHorizontal: 10,
-    paddingVertical: 12,
-    ...FONTS.font,
-    color: COLORS.text,
-  },
-  tbodyItem: {
-    flex: 1,
-    alignSelf: "stretch",
-    paddingHorizontal: 10,
-    paddingVertical: 12,
-    ...FONTS.font,
-    ...FONTS.fontBold,
-    color: COLORS.title,
-  },
-});
+const createStyles = (COLORS, FONTS) => {
+  return StyleSheet.create({
+    theadItem: {
+      flex: 1,
+      alignSelf: "stretch",
+      paddingHorizontal: 10,
+      paddingVertical: 12,
+      ...FONTS.font,
+      color: COLORS.text,
+    },
+    tbodyItem: {
+      flex: 1,
+      alignSelf: "stretch",
+      paddingHorizontal: 10,
+      paddingVertical: 12,
+      ...FONTS.font,
+      ...FONTS.fontBold,
+      color: COLORS.title,
+    },
+  });
+};
 
 export default TableOddEven;

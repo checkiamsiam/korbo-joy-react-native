@@ -1,17 +1,22 @@
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
-import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
-import { COLORS, FONTS, SIZES } from "../../../constants/theme";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from "react-native-reanimated";
 
-import home from '../../../assets/images/icons/home2.png';
-import collage from '../../../assets/images/icons/collage.png';
-import profile from '../../../assets/images/icons/user2.png';
-import heart from '../../../assets/images/icons/heart.png';
-import blog from '../../../assets/images/icons/blog.png';
-
+import { useSelector } from "react-redux";
+import blog from "../../../assets/images/icons/blog.png";
+import collage from "../../../assets/images/icons/collage.png";
+import heart from "../../../assets/images/icons/heart.png";
+import home from "../../../assets/images/icons/home2.png";
+import profile from "../../../assets/images/icons/user2.png";
 
 const CustomNavigation = ({ state, navigation, descriptors }) => {
   const offset = useSharedValue((SIZES.width - 40) / 2.5);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
+  const styles = createStyle(FONTS);
 
   const tabShapeStyle = useAnimatedStyle(() => {
     return {
@@ -72,7 +77,12 @@ const CustomNavigation = ({ state, navigation, descriptors }) => {
         </Animated.View>
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key];
-          const label = options.tabBarLabel !== undefined ? options.tabBarLabel : options.title !== undefined ? options.title : route.name;
+          const label =
+            options.tabBarLabel !== undefined
+              ? options.tabBarLabel
+              : options.title !== undefined
+              ? options.title
+              : route.name;
 
           const isFocused = state.index === index;
 
@@ -135,18 +145,20 @@ const CustomNavigation = ({ state, navigation, descriptors }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  tabLink: {
-    alignItems: "center",
-  },
-  tabItem: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  navText: {
-    ...FONTS.fontSm,
-  },
-});
+const createStyle = (FONTS) => {
+  return StyleSheet.create({
+    tabLink: {
+      alignItems: "center",
+    },
+    tabItem: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    navText: {
+      ...FONTS.fontSm,
+    },
+  });
+};
 
 export default CustomNavigation;

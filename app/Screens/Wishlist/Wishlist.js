@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { SafeAreaView, ScrollView, View } from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, View } from "react-native";
 import { Snackbar } from "react-native-paper";
+import { useSelector } from "react-redux";
 import ItemCard from "../../components/ItemCard";
-import { COLORS } from "../../constants/theme";
 import Header from "../../layout/Header";
 
 const WishlistData = [
@@ -18,8 +18,10 @@ const WishlistData = [
   },
   {
     id: "2",
-    image: "https://appzilla.dexignzone.com/wedo/electronics/products/item1.png",
-    title: "Apple MacBook Air 2023 (M1, 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey)",
+    image:
+      "https://appzilla.dexignzone.com/wedo/electronics/products/item1.png",
+    title:
+      "Apple MacBook Air 2023 (M1, 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey)",
     category: "Electronics",
     price: "$1259.85",
     oldPrice: "$1500",
@@ -28,8 +30,10 @@ const WishlistData = [
   },
   {
     id: "3",
-    image: "https://appzilla.dexignzone.com/wedo/electronics/products/item2.png",
-    title: "ASUS TUF Gaming A17 with 90Whr Battery Ryzen 5 Hexa Core AMD R5-4600H",
+    image:
+      "https://appzilla.dexignzone.com/wedo/electronics/products/item2.png",
+    title:
+      "ASUS TUF Gaming A17 with 90Whr Battery Ryzen 5 Hexa Core AMD R5-4600H",
     category: "Electronics",
     price: "$1059",
     oldPrice: "$1240",
@@ -49,7 +53,8 @@ const WishlistData = [
   {
     id: "5",
     image: "https://appzilla.dexignzone.com/wedo/furniture/products/item3.png",
-    title: "Royaloak Tivoli Italian King Size Bed with Hydraulic and Headboard Storage",
+    title:
+      "Royaloak Tivoli Italian King Size Bed with Hydraulic and Headboard Storage",
     category: "Furniture",
     price: "$1150.5",
     oldPrice: "$1350",
@@ -78,7 +83,8 @@ const WishlistData = [
   },
   {
     id: "8",
-    image: "https://appzilla.dexignzone.com/wedo/electronics/products/item5.png",
+    image:
+      "https://appzilla.dexignzone.com/wedo/electronics/products/item5.png",
     title: "JBL Tune 710 JBLT710BTBLK Bluetooth Headset with Mic",
     category: "Electronics",
     price: "$260.4",
@@ -89,6 +95,7 @@ const WishlistData = [
 ];
 
 const Wishlist = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const [productsData, setProductsData] = useState(WishlistData);
   const [itemView, setItemView] = useState("grid");
   const [isSnackbar, setIsSnackbar] = useState(false);
@@ -115,9 +122,16 @@ const Wishlist = () => {
       style={{
         flex: 1,
         backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
       }}
     >
-      <Header leftIcon={"back"} title={"Wishlist"} rightIcon={"grid"} itemView={itemView} setItemView={setItemView} />
+      <Header
+        leftIcon={"back"}
+        title={"Wishlist"}
+        rightIcon={"grid"}
+        itemView={itemView}
+        setItemView={setItemView}
+      />
 
       <ScrollView
         contentContainerStyle={{

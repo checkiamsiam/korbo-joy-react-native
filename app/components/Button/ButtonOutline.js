@@ -1,8 +1,9 @@
-import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
-import { COLORS, FONTS, SIZES } from '../../constants/theme';
+import React from "react";
+import { Text, TouchableOpacity } from "react-native";
+import { useSelector } from "react-redux";
 
 const ButtonOutline = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <TouchableOpacity
       onPress={() => props.onPress && props.onPress()}
@@ -18,7 +19,7 @@ const ButtonOutline = (props) => {
             : props.btnRounded
             ? 30
             : SIZES.radius,
-          alignItems: 'center',
+          alignItems: "center",
         },
       ]}
     >

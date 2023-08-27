@@ -1,9 +1,10 @@
-import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { COLORS, FONTS } from '../../constants/theme';
+import React from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useSelector } from "react-redux";
 
 const ListStyle1 = (props) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <>
       <TouchableOpacity
@@ -35,10 +36,10 @@ const ListStyle1 = (props) => {
           {props.title}
         </Text>
         {props.arrowDown && (
-          <FontAwesome name={'angle-down'} color={COLORS.title} size={18} />
+          <FontAwesome name={"angle-down"} color={COLORS.title} size={18} />
         )}
         {props.arrowRight && (
-          <FontAwesome name={'angle-right'} color={COLORS.title} size={18} />
+          <FontAwesome name={"angle-right"} color={COLORS.title} size={18} />
         )}
       </TouchableOpacity>
     </>
@@ -49,8 +50,8 @@ const styles = StyleSheet.create({
   listStyle: {
     borderBottomWidth: 1,
     paddingVertical: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
 });
 

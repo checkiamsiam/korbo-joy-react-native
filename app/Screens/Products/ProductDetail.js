@@ -1,91 +1,77 @@
-import React, { useState } from "react";
-import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
-import { Snackbar } from "react-native-paper";
-import Swiper from "react-native-swiper";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import Octicons from "react-native-vector-icons/Octicons";
-import pic1 from "../../assets/images/shop/detail/pic1.png";
+import { Skeleton } from "@rneui/themed";
+import React from "react";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
+import { useSelector } from "react-redux";
 import CustomButton from "../../components/CustomButton";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
+import { useAddToCartMutation } from "../../features/Cart/CartApi";
+import { useGetProductDetailQuery } from "../../features/Product/productApi";
 import Header from "../../layout/Header";
+import ProductDetailSlider from "./ProductDetailSlider";
 
-const productImage = [pic1, pic1, pic1];
+// const productImage = [pic1, pic1, pic1];
 
 const ProductDetail = ({ navigation, route }) => {
-  const { item, category } = route.params;
-
-  const productColors = ["#A29698", "#80C6A9", "#8E84CA", "#E5907D"];
-
-  const [isLike, setIsLike] = useState(false);
-  const [isSnackbar, setIsSnackbar] = useState(false);
-  const [snackText, setSnackText] = useState("Loading...");
-
-  var ratingArry = [];
-  for (var i = 0; i < 4; i++) {
-    ratingArry.push(i);
-  }
-
-  const [activeColor, setActiveColor] = useState(productColors[0]);
-
-  const handleLike = () => {
-    if (isLike) {
-      setSnackText("Item removed to Favourite.");
-    } else {
-      setSnackText("Item add to Favourite.");
-    }
-    setIsSnackbar(true);
-    setIsLike(!isLike);
+  const { item } = route.params;
+  const {
+    isLoading,
+    isSuccess,
+    data: productDetails,
+  } = useGetProductDetailQuery(item.id, { refetchOnMountOrArgChange: true });
+  const { COLORS, FONTS, SIZES, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
+  const { user } = useSelector((state) => state.auth);
+  const [addToCart, {}] = useAddToCartMutation();
+  const handleAddToCart = async () => {
+    await addToCart({
+      id: productDetails.id,
+      userId: user.id,
+      orderType: "userOrder",
+      userType: "user",
+    });
+    navigation.navigate("Cart");
   };
 
+  // const productColors = ["#A29698", "#80C6A9", "#8E84CA", "#E5907D"];
+
+  // const [isLike, setIsLike] = useState(false);
+  // const [isSnackbar, setIsSnackbar] = useState(false);
+  // const [snackText, setSnackText] = useState("Loading...");
+
+  // var ratingArry = [];
+  // for (var i = 0; i < 4; i++) {
+  //   ratingArry.push(i);
+  // }
+
+  // const [activeColor, setActiveColor] = useState(productColors[0]);
+
+  // const handleLike = () => {
+  //   if (isLike) {
+  //     setSnackText("Item removed to Favourite.");
+  //   } else {
+  //     setSnackText("Item add to Favourite.");
+  //   }
+  //   setIsSnackbar(true);
+  //   setIsLike(!isLike);
+  // };
+
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backgroundColor }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
+      }}
+    >
       <ScrollView contentContainerStyle={{ paddingBottom: 30 }}>
-        <Header transparent={true} leftIcon={"back"} rightIcon={"more"} />
+        <Header transparent={true} leftIcon={"back"} />
         <View>
-          <Swiper
-            style={{ height: SIZES.width }}
-            dotStyle={{
-              height: 10,
-              width: 10,
-              borderWidth: 2,
-              borderColor: COLORS.white,
-              borderRadius: 10,
-            }}
-            activeDotStyle={{
-              height: 10,
-              width: 10,
-              backgroundColor: COLORS.white,
-              borderRadius: 10,
-            }}
-          >
-            {productImage.map((data, index) => {
-              return (
-                <View key={index}>
-                  <Image
-                    source={item.imagePath ? item.imagePath : { uri: item.image }}
-                    style={{
-                      width: "100%",
-                      height: undefined,
-                      aspectRatio: 1 / 1,
-                    }}
-                  />
-                  <LinearGradient
-                    style={{
-                      position: "absolute",
-                      height: "100%",
-                      width: "100%",
-                      top: 0,
-                      left: 0,
-                    }}
-                    colors={["rgba(0,0,0,.3)", "rgba(0,0,0,0)", "rgba(0,0,0,0)"]}
-                  />
-                </View>
-              );
-            })}
-          </Swiper>
-          <TouchableOpacity
+          {!isLoading && isSuccess ? (
+            <ProductDetailSlider images={JSON.parse(productDetails.img)} />
+          ) : (
+            <Skeleton width={SIZES.width} height={SIZES.width} />
+          )}
+          {/* <TouchableOpacity
             onPress={() => handleLike()}
             activeOpacity={0.95}
             style={{
@@ -101,7 +87,7 @@ const ProductDetail = ({ navigation, route }) => {
             }}
           >
             {isLike ? <FontAwesome name="heart" color={COLORS.primary} size={22} /> : <FontAwesome name="heart-o" color={COLORS.primary} size={22} />}
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         <View style={GlobalStyleSheet.container}>
           <View
@@ -112,23 +98,58 @@ const ProductDetail = ({ navigation, route }) => {
               paddingBottom: 12,
             }}
           >
-            <View
-              style={{
-                backgroundColor: COLORS.primaryLight,
-                paddingHorizontal: 14,
-                paddingVertical: 6,
-                borderRadius: SIZES.radius,
-                marginBottom: 14,
-                marginTop: 10,
-              }}
-            >
-              <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>{category}</Text>
-            </View>
-            <Text style={{ ...FONTS.h6, marginBottom: 3 }}>{item.title}</Text>
-            <Text style={{ ...FONTS.font, color: COLORS.text }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            </Text>
-            <View
+            {!isLoading && isSuccess ? (
+              <View
+                style={{
+                  backgroundColor: COLORS.primaryLight,
+                  paddingHorizontal: 14,
+                  paddingVertical: 6,
+                  borderRadius: SIZES.radius,
+                  marginBottom: 14,
+                  marginTop: 10,
+                }}
+              >
+                <Text style={{ ...FONTS.fontLg, color: COLORS.primary }}>
+                  {productDetails?.category?.name}
+                </Text>
+              </View>
+            ) : (
+              <Skeleton
+                width={90}
+                height={25}
+                style={{
+                  borderRadius: SIZES.radius,
+                  marginBottom: 14,
+                  marginTop: 10,
+                }}
+              />
+            )}
+
+            {!isLoading && isSuccess ? (
+              <Text style={{ ...FONTS.h6, marginBottom: 3 }}>
+                {productDetails?.name}
+              </Text>
+            ) : (
+              <Skeleton
+                width={200}
+                height={25}
+                style={{ borderRadius: SIZES.radius, marginBottom: 10 }}
+              />
+            )}
+            {!isLoading && isSuccess ? (
+              productDetails?.shortDescription && (
+                <Text style={{ ...FONTS.font, color: COLORS.text }}>
+                  {productDetails?.shortDescription}
+                </Text>
+              )
+            ) : (
+              <Skeleton
+                width={SIZES.width - 28}
+                height={50}
+                style={{ borderRadius: SIZES.radius, marginBottom: 3 }}
+              />
+            )}
+            {/* <View
               style={{
                 flexDirection: "row",
                 marginTop: 20,
@@ -191,44 +212,167 @@ const ProductDetail = ({ navigation, route }) => {
                   );
                 })}
               </View>
-            </View>
+            </View> */}
           </View>
-          <View
-            style={{
-              paddingTop: 15,
-              borderBottomWidth: 1,
-              borderColor: COLORS.borderColor,
-              paddingBottom: 12,
-            }}
-          >
-            <Text style={{ ...FONTS.h6, marginBottom: 5 }}>Specifications</Text>
-            <View style={{ flexDirection: "row", marginBottom: 5 }}>
-              <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Brand</Text>
-              <Text style={FONTS.font}>Femall Clothing</Text>
+
+          {!isLoading && isSuccess ? (
+            <View
+              style={{
+                paddingTop: 15,
+                borderBottomWidth: 1,
+                borderColor: COLORS.borderColor,
+                paddingBottom: 12,
+              }}
+            >
+              <Text style={{ ...FONTS.h6, marginBottom: 5 }}>
+                Specifications
+              </Text>
+              {productDetails?.categoryBrand?.name && (
+                <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                  <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>
+                    Brand
+                  </Text>
+                  <Text style={FONTS.font}>
+                    {productDetails?.categoryBrand?.name}
+                  </Text>
+                </View>
+              )}
+              {productDetails?.categorySub?.name && (
+                <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                  <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>
+                    Sub Category
+                  </Text>
+                  <Text style={FONTS.font}>
+                    {productDetails?.categorySub?.name}
+                  </Text>
+                </View>
+              )}
+              {productDetails?.status && (
+                <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                  <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>
+                    Status
+                  </Text>
+                  <Text style={FONTS.font}>{productDetails?.status}</Text>
+                </View>
+              )}
+              {productDetails?.productType && (
+                <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                  <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>
+                    Product Type
+                  </Text>
+                  <Text style={FONTS.font}>{productDetails?.productType}</Text>
+                </View>
+              )}
+              {productDetails?.qty && (
+                <View style={{ flexDirection: "row", marginBottom: 5 }}>
+                  <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>
+                    Available Quantity
+                  </Text>
+                  <Text style={FONTS.font}>{productDetails?.qty}</Text>
+                </View>
+              )}
             </View>
-            <View style={{ flexDirection: "row", marginBottom: 5 }}>
-              <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Weight</Text>
-              <Text style={FONTS.font}>260gr</Text>
+          ) : (
+            <View
+              style={{
+                paddingTop: 15,
+                borderBottomWidth: 1,
+                borderColor: COLORS.borderColor,
+                paddingBottom: 12,
+              }}
+            >
+              <Skeleton
+                width={120}
+                height={20}
+                style={{ borderRadius: SIZES.radius, marginBottom: 5 }}
+              />
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  marginBottom: 5,
+                }}
+              >
+                <Skeleton
+                  width={100}
+                  height={18}
+                  style={{ borderRadius: SIZES.radius, marginBottom: 5 }}
+                />
+                <Skeleton
+                  width={100}
+                  height={18}
+                  style={{ borderRadius: SIZES.radius, marginBottom: 5 }}
+                />
+              </View>
+
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  marginBottom: 5,
+                }}
+              >
+                <Skeleton
+                  width={100}
+                  height={18}
+                  style={{ borderRadius: SIZES.radius, marginBottom: 5 }}
+                />
+                <Skeleton
+                  width={100}
+                  height={18}
+                  style={{ borderRadius: SIZES.radius, marginBottom: 5 }}
+                />
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  marginBottom: 5,
+                }}
+              >
+                <Skeleton
+                  width={100}
+                  height={18}
+                  style={{ borderRadius: SIZES.radius, marginBottom: 5 }}
+                />
+                <Skeleton
+                  width={100}
+                  height={18}
+                  style={{ borderRadius: SIZES.radius, marginBottom: 5 }}
+                />
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  marginBottom: 5,
+                }}
+              >
+                <Skeleton
+                  width={100}
+                  height={18}
+                  style={{ borderRadius: SIZES.radius, marginBottom: 5 }}
+                />
+                <Skeleton
+                  width={100}
+                  height={18}
+                  style={{ borderRadius: SIZES.radius, marginBottom: 5 }}
+                />
+              </View>
             </View>
-            <View style={{ flexDirection: "row", marginBottom: 5 }}>
-              <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Condition</Text>
-              <Text style={FONTS.font}>NEW</Text>
+          )}
+          {productDetails?.fullDescription && (
+            <View
+              style={{
+                paddingTop: 12,
+              }}
+            >
+              <Text style={{ ...FONTS.h6, marginBottom: 2 }}>Description</Text>
+              <Text style={{ ...FONTS.font, color: COLORS.text }}>
+                {productDetails?.fullDescription}
+              </Text>
             </View>
-            <View style={{ flexDirection: "row", marginBottom: 5 }}>
-              <Text style={{ ...FONTS.font, color: COLORS.title, flex: 1 }}>Category</Text>
-              <Text style={{ ...FONTS.font, color: COLORS.primary }}>Sleep Suits</Text>
-            </View>
-          </View>
-          <View
-            style={{
-              paddingTop: 12,
-            }}
-          >
-            <Text style={{ ...FONTS.h6, marginBottom: 2 }}>Description</Text>
-            <Text style={{ ...FONTS.font, color: COLORS.text }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            </Text>
-          </View>
+          )}
         </View>
       </ScrollView>
       <View
@@ -242,32 +386,51 @@ const ProductDetail = ({ navigation, route }) => {
           backgroundColor: COLORS.backgroundColor,
         }}
       >
-        <View style={{ flex: 1 }}>
-          <Text style={{ ...FONTS.h3, lineHeight: 30 }}>{item.price}</Text>
-          <View style={{ flexDirection: "row" }}>
-            <Text
-              style={{
-                ...FONTS.font,
-                textDecorationLine: "line-through",
-                marginRight: 8,
-              }}
-            >
-              {item.oldPrice}
+        {!isLoading && isSuccess ? (
+          <View style={{ flex: 1 }}>
+            <Text style={{ ...FONTS.h3, lineHeight: 30 }}>
+              {productDetails?.price} TK
             </Text>
-            <Text
-              style={{
-                ...FONTS.font,
-                color: COLORS.primary,
-                ...FONTS.fontBold,
-              }}
-            >
-              20% OFF
-            </Text>
+            <View style={{ flexDirection: "row" }}>
+              <Text
+                style={{
+                  ...FONTS.font,
+                  textDecorationLine: "line-through",
+                  marginRight: productDetails?.salesPrice ? 8 : 0,
+                }}
+              >
+                {productDetails?.salesPrice} TK
+              </Text>
+            </View>
           </View>
-        </View>
-        <CustomButton onPress={() => navigation.navigate("Cart")} title="BUY NOW" />
+        ) : (
+          <View style={{ flex: 1 }}>
+            <Skeleton
+              width={100}
+              height={25}
+              style={{ borderRadius: SIZES.radius, marginBottom: 6 }}
+            />
+            <View style={{ flexDirection: "row" }}>
+              <Skeleton
+                width={70}
+                height={20}
+                style={{ borderRadius: SIZES.radius }}
+              />
+            </View>
+          </View>
+        )}
+
+        {!isLoading && isSuccess ? (
+          <CustomButton onPress={handleAddToCart} title="ADD TO CART" />
+        ) : (
+          <Skeleton
+            width={140}
+            height={50}
+            style={{ borderRadius: SIZES.radius, marginBottom: 6 }}
+          />
+        )}
       </View>
-      <Snackbar
+      {/* <Snackbar
         visible={isSnackbar}
         duration={3000}
         onDismiss={() => setIsSnackbar(false)}
@@ -279,7 +442,7 @@ const ProductDetail = ({ navigation, route }) => {
         }}
       >
         {snackText}
-      </Snackbar>
+      </Snackbar> */}
     </SafeAreaView>
   );
 };

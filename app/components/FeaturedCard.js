@@ -1,15 +1,16 @@
-import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { COLORS, FONTS, SIZES } from '../constants/theme';
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import { useSelector } from "react-redux";
 
 const FeaturedCard = ({ image, title }) => {
   const navigation = useNavigation();
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
 
   return (
     <TouchableOpacity
       activeOpacity={0.9}
-      onPress={() => navigation.navigate('Items', { type: 'Fashion' })}
+      onPress={() => navigation.navigate("Items", { type: "Fashion" })}
       style={{
         marginBottom: 20,
       }}
@@ -17,7 +18,7 @@ const FeaturedCard = ({ image, title }) => {
       <Image
         style={{
           borderRadius: 8,
-          width: '100%',
+          width: "100%",
           height: 170,
           //aspectRatio : 2 / 2,
         }}
@@ -25,12 +26,12 @@ const FeaturedCard = ({ image, title }) => {
       />
       <View
         style={{
-          position: 'absolute',
-          width: '100%',
-          paddingLeft: '45%',
-          height: '100%',
-          justifyContent: 'center',
-          alignItems: 'flex-start',
+          position: "absolute",
+          width: "100%",
+          paddingLeft: "45%",
+          height: "100%",
+          justifyContent: "center",
+          alignItems: "flex-start",
         }}
       >
         <Text style={{ ...FONTS.h3, color: COLORS.white }}>{title}</Text>
@@ -40,7 +41,7 @@ const FeaturedCard = ({ image, title }) => {
           Collections
         </Text>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Items', { type: 'Fashion' })}
+          onPress={() => navigation.navigate("Items", { type: "Fashion" })}
           style={{
             backgroundColor: COLORS.primary,
             borderRadius: SIZES.radius,

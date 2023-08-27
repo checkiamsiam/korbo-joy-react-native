@@ -1,6 +1,7 @@
-import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { COLORS, FONTS } from '../constants/theme';
+import { IMAGE_BASE } from "@env";
+import React, { memo } from "react";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import { useSelector } from "react-redux";
 
 const ProductCardStyle1 = ({
   image,
@@ -10,6 +11,7 @@ const ProductCardStyle1 = ({
   offer,
   onPress,
 }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -22,13 +24,15 @@ const ProductCardStyle1 = ({
     >
       <Image
         style={{
-          width: '100%',
+          width: "100%",
           height: undefined,
           aspectRatio: 80 / 100,
           borderTopLeftRadius: 6,
           borderTopRightRadius: 6,
         }}
-        source={image}
+        source={{
+          uri: `${IMAGE_BASE}/${image}`,
+        }}
       />
       <View
         style={{
@@ -49,8 +53,8 @@ const ProductCardStyle1 = ({
         </Text>
         <View
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
+            flexDirection: "row",
+            alignItems: "center",
             marginTop: -3,
           }}
         >
@@ -68,12 +72,12 @@ const ProductCardStyle1 = ({
             style={{
               ...FONTS.font,
               fontSize: 10,
-              textDecorationLine: 'line-through',
-              marginLeft: 5,
-              marginRight: 5,
+              textDecorationLine: "line-through",
+              marginLeft: offer ? 5 : 0,
+              marginRight: price ? 5 : 0,
             }}
           >
-            {oldPrice}
+            {oldPrice} {oldPrice && "TK"}
           </Text>
           <Text
             style={{
@@ -83,7 +87,7 @@ const ProductCardStyle1 = ({
               color: COLORS.title,
             }}
           >
-            {price}
+            {price} {price && "TK"}
           </Text>
         </View>
       </View>
@@ -91,4 +95,4 @@ const ProductCardStyle1 = ({
   );
 };
 
-export default ProductCardStyle1;
+export default memo(ProductCardStyle1);

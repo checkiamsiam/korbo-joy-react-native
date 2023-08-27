@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { TouchableOpacity, View } from "react-native";
-import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from "react-native-reanimated";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { COLORS } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const ToggleStyle2 = (props) => {
   const [active, setActive] = useState(false);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
 
   const offset = useSharedValue(0);
   const toggleStyle = useAnimatedStyle(() => {

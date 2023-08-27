@@ -1,27 +1,31 @@
-import React from 'react';
+import React from "react";
 import {
   SafeAreaView,
   ScrollView,
+  StatusBar,
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import { COLORS, FONTS } from '../../constants/theme';
-import Header from '../../layout/Header';
+} from "react-native";
+import { useSelector } from "react-redux";
+import Header from "../../layout/Header";
 
 const Address = ({ navigation }) => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
   return (
     <SafeAreaView
       style={{
         flex: 1,
         backgroundColor: COLORS.backgroundColor,
+        paddingTop: StatusBar.currentHeight,
       }}
     >
-      <Header titleLeft leftIcon={'back'} title={'Address'} />
+      <Header titleLeft leftIcon={"back"} title={"Address"} />
       <ScrollView>
         <TouchableOpacity
-          onPress={() => navigation.navigate('AddDeliveryAddress')}
+          onPress={() => navigation.navigate("AddDeliveryAddress")}
           style={{
             paddingHorizontal: 15,
             paddingVertical: 8,
@@ -55,9 +59,9 @@ const Address = ({ navigation }) => {
             <View
               style={{
                 marginBottom: 8,
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
               }}
             >
               <Text
@@ -71,7 +75,7 @@ const Address = ({ navigation }) => {
               </Text>
               <View
                 style={{
-                  backgroundColor: '#F2F2F2',
+                  backgroundColor: "#F2F2F2",
                   paddingHorizontal: 10,
                   paddingTop: 6,
                   paddingBottom: 4,
@@ -84,16 +88,16 @@ const Address = ({ navigation }) => {
               </View>
             </View>
             <Text style={FONTS.font}>
-              Mokshita dairy near bsnl circle {'\n'}Rk puram{'\n'}Kota -324009
-              {'\n'}Rajasthan{'\n'}
-              {'\n'}Mobile: 0123 4567 891
+              Mokshita dairy near bsnl circle {"\n"}Rk puram{"\n"}Kota -324009
+              {"\n"}Rajasthan{"\n"}
+              {"\n"}Mobile: 0123 4567 891
             </Text>
             <View
               style={{
                 borderTopWidth: 1,
                 borderColor: COLORS.borderColor,
                 marginTop: 12,
-                flexDirection: 'row',
+                flexDirection: "row",
                 marginHorizontal: -12,
                 marginBottom: -12,
               }}
@@ -102,7 +106,7 @@ const Address = ({ navigation }) => {
                 style={{
                   flex: 1,
                   padding: 12,
-                  alignItems: 'center',
+                  alignItems: "center",
                   borderRightWidth: 1,
                   borderColor: COLORS.borderColor,
                 }}
@@ -115,7 +119,7 @@ const Address = ({ navigation }) => {
                 style={{
                   flex: 1,
                   padding: 12,
-                  alignItems: 'center',
+                  alignItems: "center",
                 }}
               >
                 <Text style={{ ...FONTS.h6, color: COLORS.secondary }}>

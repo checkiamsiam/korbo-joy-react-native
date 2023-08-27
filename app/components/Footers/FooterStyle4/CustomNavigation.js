@@ -1,14 +1,16 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { COLORS, FONTS } from "../../../constants/theme";
 
-import home from '../../../assets/images/icons/home.png';
-import search from '../../../assets/images/icons/search.png';
-import chat from '../../../assets/images/icons/chat.png';
-import profile from '../../../assets/images/icons/user.png';
-import addition from '../../../assets/images/icons/addition.png';
+import { useSelector } from "react-redux";
+import addition from "../../../assets/images/icons/addition.png";
+import chat from "../../../assets/images/icons/chat.png";
+import home from "../../../assets/images/icons/home.png";
+import search from "../../../assets/images/icons/search.png";
+import profile from "../../../assets/images/icons/user.png";
 
 const CustomNavigation = ({ state, navigation, descriptors }) => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
+  const styles = createStyle(FONTS);
   return (
     <>
       <View
@@ -34,7 +36,12 @@ const CustomNavigation = ({ state, navigation, descriptors }) => {
       >
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key];
-          const label = options.tabBarLabel !== undefined ? options.tabBarLabel : options.title !== undefined ? options.title : route.name;
+          const label =
+            options.tabBarLabel !== undefined
+              ? options.tabBarLabel
+              : options.title !== undefined
+              ? options.title
+              : route.name;
 
           const isFocused = state.index === index;
 
@@ -92,18 +99,20 @@ const CustomNavigation = ({ state, navigation, descriptors }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  tabLink: {
-    alignItems: "center",
-  },
-  tabItem: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  navText: {
-    ...FONTS.fontSm,
-  },
-});
+const createStyle = (FONTS) => {
+  return StyleSheet.create({
+    tabLink: {
+      alignItems: "center",
+    },
+    tabItem: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    navText: {
+      ...FONTS.fontSm,
+    },
+  });
+};
 
 export default CustomNavigation;

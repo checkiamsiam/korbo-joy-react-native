@@ -1,7 +1,7 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Header from '../../../layout/Header';
-import CustomNavigation from './CustomNavigation';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Header from "../../../layout/Header";
+import CustomNavigation from "./CustomNavigation";
 
 const Home = () => {
   return <></>;
@@ -24,7 +24,7 @@ const Tab = createBottomTabNavigator();
 const TabStyle1 = () => {
   return (
     <>
-      <Header title={'Footer Style 1'} titleLeft leftIcon={'back'} />
+      <Header title={"Footer Style 1"} titleLeft leftIcon={"back"} />
       <Tab.Navigator
         tabBar={(props) => <CustomNavigation {...props} />}
         screenOptions={{

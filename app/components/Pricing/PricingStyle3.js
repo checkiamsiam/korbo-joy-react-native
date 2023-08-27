@@ -1,10 +1,11 @@
 import React from "react";
 import { Text, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { COLORS, FONTS, SIZES } from "../../constants/theme";
+import { useSelector } from "react-redux";
 import Button from "../Button/Button";
 
 const PricingStyle3 = () => {
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
   const Data = [
     "Access to all basic features",
     "Basic reporting and analytics",
@@ -61,10 +62,14 @@ const PricingStyle3 = () => {
           >
             $56
           </Text>
-          <Text style={{ ...FONTS.font, color: COLORS.text, marginLeft: 5 }}>/m</Text>
+          <Text style={{ ...FONTS.font, color: COLORS.text, marginLeft: 5 }}>
+            /m
+          </Text>
         </View>
         <View style={{ marginBottom: 20 }}>
-          <Text style={{ ...FONTS.h4, color: COLORS.title, marginBottom: 4 }}>Professional</Text>
+          <Text style={{ ...FONTS.h4, color: COLORS.title, marginBottom: 4 }}>
+            Professional
+          </Text>
           <Text
             style={{
               ...FONTS.font,
@@ -73,7 +78,8 @@ const PricingStyle3 = () => {
               lineHeight: 22,
             }}
           >
-            This plan for those who have a team already and running a large business.
+            This plan for those who have a team already and running a large
+            business.
           </Text>
         </View>
         <View style={{ marginBottom: 25 }}>
@@ -100,7 +106,9 @@ const PricingStyle3 = () => {
                 >
                   <FeatherIcon color={COLORS.white} name="check" size={14} />
                 </View>
-                <Text style={{ ...FONTS.font, color: COLORS.text }}>{data}</Text>
+                <Text style={{ ...FONTS.font, color: COLORS.text }}>
+                  {data}
+                </Text>
               </View>
             );
           })}

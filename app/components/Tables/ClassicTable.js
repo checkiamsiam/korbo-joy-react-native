@@ -1,10 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import DropShadow from "react-native-drop-shadow";
-import { GlobalStyleSheet } from "../../constants/StyleSheet";
-import { COLORS, FONTS } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const ClassicTable = () => {
+  const { COLORS, FONTS, GlobalStyleSheet } = useSelector(
+    (state) => state.theme
+  );
+  const styles = createStyles(COLORS, FONTS);
   const TableData = [
     {
       name: "John Doe",
@@ -30,7 +32,7 @@ const ClassicTable = () => {
 
   return (
     <>
-      <DropShadow
+      <View
         style={{
           shadowColor: "#000",
           shadowOffset: {
@@ -39,6 +41,7 @@ const ClassicTable = () => {
           },
           shadowOpacity: 0.15,
           shadowRadius: 5,
+          elevation: 5, // This is required for Android
         }}
       >
         <View style={{ ...GlobalStyleSheet.card, padding: 5 }}>
@@ -51,7 +54,9 @@ const ClassicTable = () => {
               borderColor: COLORS.borderColor,
             }}
           >
-            <Text style={{ ...styles.theadItem, flex: 0.6, paddingLeft: 15 }}>Name</Text>
+            <Text style={{ ...styles.theadItem, flex: 0.6, paddingLeft: 15 }}>
+              Name
+            </Text>
             <Text style={{ ...styles.theadItem }}>Email</Text>
             <Text
               style={{
@@ -74,7 +79,11 @@ const ClassicTable = () => {
                   flexDirection: "row",
                 }}
               >
-                <Text style={{ ...styles.tbodyItem, flex: 0.6, paddingLeft: 15 }}>{data.name}</Text>
+                <Text
+                  style={{ ...styles.tbodyItem, flex: 0.6, paddingLeft: 15 }}
+                >
+                  {data.name}
+                </Text>
                 <Text numberOfLines={1} style={{ ...styles.tbodyItem }}>
                   {data.email}
                 </Text>
@@ -92,28 +101,30 @@ const ClassicTable = () => {
             );
           })}
         </View>
-      </DropShadow>
+      </View>
     </>
   );
 };
 
-const styles = StyleSheet.create({
-  theadItem: {
-    flex: 1,
-    alignSelf: "stretch",
-    paddingHorizontal: 10,
-    paddingVertical: 12,
-    ...FONTS.font,
-  },
-  tbodyItem: {
-    flex: 1,
-    alignSelf: "stretch",
-    paddingHorizontal: 10,
-    paddingVertical: 12,
-    ...FONTS.font,
-    ...FONTS.fontBold,
-    color: COLORS.title,
-  },
-});
+const createStyles = (COLORS, FONTS) => {
+  return StyleSheet.create({
+    theadItem: {
+      flex: 1,
+      alignSelf: "stretch",
+      paddingHorizontal: 10,
+      paddingVertical: 12,
+      ...FONTS.font,
+    },
+    tbodyItem: {
+      flex: 1,
+      alignSelf: "stretch",
+      paddingHorizontal: 10,
+      paddingVertical: 12,
+      ...FONTS.font,
+      ...FONTS.fontBold,
+      color: COLORS.title,
+    },
+  });
+};
 
 export default ClassicTable;

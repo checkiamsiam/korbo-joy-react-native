@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { COLORS, FONTS } from "../../constants/theme";
+import { useSelector } from "react-redux";
 
 const RoundedPagination = () => {
   const [active, setActive] = useState(2);
+  const { COLORS, FONTS, SIZES } = useSelector((state) => state.theme);
 
   return (
     <>
       <View style={{ flexDirection: "row" }}>
-        <TouchableOpacity style={[styles.pagItem, { backgroundColor: COLORS.white }]}>
+        <TouchableOpacity
+          style={[styles.pagItem, { backgroundColor: COLORS.white }]}
+        >
           <FontAwesome name={"angle-left"} size={20} color={COLORS.text} />
         </TouchableOpacity>
         {[1, 2, 3, 4].map((data, index) => {
@@ -17,13 +20,26 @@ const RoundedPagination = () => {
             <TouchableOpacity
               onPress={() => setActive(data)}
               key={index}
-              style={[styles.pagItem, { backgroundColor: COLORS.white }, data === active && { backgroundColor: COLORS.primary }]}
+              style={[
+                styles.pagItem,
+                { backgroundColor: COLORS.white },
+                data === active && { backgroundColor: COLORS.primary },
+              ]}
             >
-              <Text style={[{ ...FONTS.font, ...FONTS.fontBold, color: COLORS.text }, data === active && { color: COLORS.white }]}>{data}</Text>
+              <Text
+                style={[
+                  { ...FONTS.font, ...FONTS.fontBold, color: COLORS.text },
+                  data === active && { color: COLORS.white },
+                ]}
+              >
+                {data}
+              </Text>
             </TouchableOpacity>
           );
         })}
-        <TouchableOpacity style={[styles.pagItem, { backgroundColor: COLORS.white }]}>
+        <TouchableOpacity
+          style={[styles.pagItem, { backgroundColor: COLORS.white }]}
+        >
           <FontAwesome name={"angle-right"} size={20} color={COLORS.text} />
         </TouchableOpacity>
       </View>
