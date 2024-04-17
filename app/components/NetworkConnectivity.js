@@ -62,14 +62,14 @@ const NetworkConnectivity = ({ children }) => {
       />
     );
   }
-  if (!isServerOK) {
-    return (
-      <MaintenanceHome
-        icon={MaintannaceIcon}
-        title="Application is under maintenance. Please try again later"
-      />
-    );
-  }
+  // if (!isServerOK) {
+  //   return (
+  //     <MaintenanceHome
+  //       icon={MaintannaceIcon}
+  //       title="Application is under maintenance. Please try again later"
+  //     />
+  //   );
+  // }
 
   return children;
 };
