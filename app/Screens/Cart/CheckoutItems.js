@@ -14,7 +14,7 @@ const CheckoutItems = () => {
             <CheckoutItem
               key={index}
               id={item.id}
-              image={JSON.parse(item.img)[0]}
+              image={item.img}
               title={item.name}
               type={item.status}
               quantity={item.qty}

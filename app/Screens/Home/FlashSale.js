@@ -35,7 +35,7 @@ const FlashSale = () => {
                       item: data,
                     })
                   }
-                  image={JSON.parse(data.img)[0]}
+                  image={data.img}
                   title={data.name}
                   price={data.price}
                   oldPrice={data?.salesPrice}

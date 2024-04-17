@@ -22,7 +22,7 @@ const FlashSaleItems = (props) => {
                 price={data.price}
                 oldPrice={data.salesPrice}
                 offer={data.offer}
-                image={JSON.parse(data.img)[0]}
+                image={data.img}
               />
             );
           })}

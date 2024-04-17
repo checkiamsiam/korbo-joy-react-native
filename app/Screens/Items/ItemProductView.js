@@ -39,7 +39,7 @@ const ItemProductView = ({ data }) => {
                     }
                     imgLength={true}
                     id={item.id}
-                    imageSrc={JSON.parse(item.img)[0]}
+                    imageSrc={item.img}
                     title={item.name}
                     desc={item?.desc}
                     status={item.status}
