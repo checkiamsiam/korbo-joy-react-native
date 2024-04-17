@@ -1,4 +1,3 @@
-import { IMAGE_BASE } from "@env";
 import React from "react";
 import {
   Image,
@@ -103,7 +102,7 @@ const Categories = ({ navigation }) => {
                         height: 60,
                       }}
                       source={{
-                        uri: `${IMAGE_BASE}/${data.mobileicon}`,
+                        uri: `${data.mobileicon}`,
                       }}
                     />
                   </View>

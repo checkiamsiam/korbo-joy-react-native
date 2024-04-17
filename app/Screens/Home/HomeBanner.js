@@ -1,4 +1,3 @@
-import { IMAGE_BASE } from "@env";
 import { Skeleton } from "@rneui/themed";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
@@ -47,7 +46,7 @@ const HomeBanner = () => {
                     height: undefined,
                     aspectRatio: 250 / 100,
                   }}
-                  source={{ uri: `${IMAGE_BASE}/${data?.img}` }}
+                  source={{ uri: `${data?.img}` }}
                 />
               </View>
             );

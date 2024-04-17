@@ -1,4 +1,3 @@
-import { IMAGE_BASE } from "@env";
 import React, { memo } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useSelector } from "react-redux";
@@ -31,7 +30,7 @@ const ProductCardStyle1 = ({
           borderTopRightRadius: 6,
         }}
         source={{
-          uri: `${IMAGE_BASE}/${image}`,
+          uri: `${image}`,
         }}
       />
       <View

@@ -1,4 +1,3 @@
-import { IMAGE_BASE } from "@env";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { memo } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
@@ -76,7 +75,7 @@ const ProductItem = ({
             borderTopLeftRadius: 6,
             borderTopRightRadius: 6,
           }}
-          source={imageSrc ? { uri: `${IMAGE_BASE}/${imageSrc}` } : image}
+          source={imageSrc ? { uri: `${imageSrc}` } : image}
         />
         <LinearGradient
           colors={["rgba(0,0,0,.3)", "rgba(0,0,0,0)", "rgba(0,0,0,0)"]}

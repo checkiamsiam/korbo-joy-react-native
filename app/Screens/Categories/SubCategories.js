@@ -1,4 +1,3 @@
-import { IMAGE_BASE } from "@env";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
@@ -54,7 +53,7 @@ const SubCategoriesSection = ({ SubCategories }) => {
                       width: "100%",
                       height: 60,
                     }}
-                    source={{ uri: `${IMAGE_BASE}/${d2.mobileicon}` }}
+                    source={{ uri: `${d2.mobileicon}` }}
                   />
                 </View>
                 <Text

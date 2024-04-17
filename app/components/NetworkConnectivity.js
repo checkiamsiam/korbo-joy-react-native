@@ -1,4 +1,3 @@
-import { API_BASE } from "@env";
 import { MaterialIcons } from "@expo/vector-icons";
 import NetInfo from "@react-native-community/netinfo";
 import React, { useEffect, useState } from "react";
@@ -29,7 +28,10 @@ const NetworkConnectivity = ({ children }) => {
   };
   const checkServerConnectivity = async () => {
     try {
-      const response = await fetch(API_BASE, { method: "HEAD" });
+      const response = await fetch(
+        "https://korbo-joy-backend-sequelize-orm.vercel.app/",
+        { method: "HEAD" }
+      );
       setIsServerOk(response.ok);
     } catch (error) {
       setIsServerOk(false);

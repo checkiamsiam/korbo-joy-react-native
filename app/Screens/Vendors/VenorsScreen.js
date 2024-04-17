@@ -1,4 +1,3 @@
-import { IMAGE_BASE } from "@env";
 import React, { useState } from "react";
 import { FlatList, SafeAreaView, StatusBar, View } from "react-native";
 import { ScrollView } from "react-native-virtualized-view";
@@ -52,7 +51,7 @@ const VendorsScreen = ({ navigation }) => {
                         key: { title: item.name, id: item.id },
                       })
                     }
-                    imageUrl={`${IMAGE_BASE}/${item?.img}`}
+                    imageUrl={`${item?.img}`}
                     title={item.name}
                   />
                 </View>

@@ -1,4 +1,3 @@
-import { IMAGE_BASE } from "@env";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { ScrollView, View } from "react-native";
@@ -30,7 +29,7 @@ const OurVendors = () => {
                       key: { title: data.name, id: data.id },
                     })
                   }
-                  imageUrl={`${IMAGE_BASE}/${data?.img}`}
+                  imageUrl={`${data?.img}`}
                   title={data.name}
                 />
               </View>

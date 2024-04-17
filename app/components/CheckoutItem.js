@@ -1,4 +1,3 @@
-import { IMAGE_BASE } from "@env";
 import React, { memo } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
@@ -59,7 +58,7 @@ const CheckoutItem = ({
           borderRadius: 8,
           marginRight: 12,
         }}
-        source={{ uri: `${IMAGE_BASE}/${image}` }}
+        source={{ uri: `${image}` }}
       />
       <View style={{ flex: 1, paddingVertical: 7 }}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>

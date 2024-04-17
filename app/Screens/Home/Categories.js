@@ -1,4 +1,3 @@
-import { IMAGE_BASE } from "@env";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
@@ -75,7 +74,7 @@ const Categories = () => {
                           height: 60,
                         }}
                         source={{
-                          uri: `${IMAGE_BASE}/${data.mobileicon}`,
+                          uri: `${data.mobileicon}`,
                         }}
                       />
                     )}

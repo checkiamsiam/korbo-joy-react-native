@@ -1,4 +1,3 @@
-import { IMAGE_BASE } from "@env";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Image, View } from "react-native";
@@ -28,7 +27,7 @@ const ProductDetailSlider = ({ images }) => {
         return (
           <View key={index}>
             <Image
-              source={{ uri: `${IMAGE_BASE}/${data}` }}
+              source={{ uri: `${data}` }}
               style={{
                 width: "100%",
                 height: undefined,
