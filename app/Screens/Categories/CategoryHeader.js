@@ -11,6 +11,7 @@ const CategoryHeader = () => {
   const {
     params: { name },
   } = useRoute();
+  const totalProductInCard = useSelector((state) => state.cart.cart.length);
   return (
     <View
       style={{
@@ -57,25 +58,31 @@ const CategoryHeader = () => {
         icon={() => (
           <View>
             <FeatherIcon color={COLORS.title} size={20} name="shopping-cart" />
-            <View
-              style={{
-                height: 14,
-                width: 14,
-                borderRadius: 14,
-                backgroundColor: COLORS.primary,
-                alignItems: "center",
-                justifyContent: "center",
-                position: "absolute",
-                top: -4,
-                right: -6,
-              }}
-            >
-              <Text
-                style={{ ...FONTS.fontXs, fontSize: 10, color: COLORS.white }}
+            {totalProductInCard > 0 && (
+              <View
+                style={{
+                  height: 14,
+                  width: 14,
+                  borderRadius: 14,
+                  backgroundColor: COLORS.primary,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  position: "absolute",
+                  top: -4,
+                  right: -6,
+                }}
               >
-                2
-              </Text>
-            </View>
+                <Text
+                  style={{
+                    ...FONTS.fontXs,
+                    fontSize: 10,
+                    color: COLORS.white,
+                  }}
+                >
+                  {totalProductInCard}
+                </Text>
+              </View>
+            )}
           </View>
         )}
         size={25}

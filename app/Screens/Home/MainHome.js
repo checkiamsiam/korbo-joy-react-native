@@ -12,6 +12,7 @@ import SectionHeader from "./SectionHeader";
 
 const MainHome = ({ navigation }) => {
   const { COLORS } = useSelector((state) => state.theme);
+  const { vendors } = useSelector((state) => state.vendor);
   return (
     <SafeAreaView
       style={{
@@ -24,12 +25,14 @@ const MainHome = ({ navigation }) => {
       <ScrollView>
         <Categories />
         <HomeBanner />
-        <SectionHeader
-          title="Our Vendors"
-          action={true}
-          actionTitle="View all"
-          actionFunc={() => navigation.navigate("Vendor")}
-        />
+        {vendors.length > 0 && (
+          <SectionHeader
+            title="Our Vendors"
+            action={true}
+            actionTitle="View all"
+            actionFunc={() => navigation.navigate("Vendor")}
+          />
+        )}
         <OurVendors />
         <SectionHeader
           title="Flash Sale"

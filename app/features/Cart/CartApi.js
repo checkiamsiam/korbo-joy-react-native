@@ -23,10 +23,10 @@ export const cartApi = ApiBase.injectEndpoints({
           dispatch(setCart(res.data));
         } catch (err) {
           console.log(err);
-          showMessage({
-            message: "There is an server side error!",
-            type: "danger",
-          });
+          // showMessage({
+          //   message: "There is an server side error!",
+          //   type: "danger",
+          // });
         }
       },
       providesTags: ["cart"],

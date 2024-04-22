@@ -67,7 +67,7 @@ const ProductDetail = ({ navigation, route }) => {
         <Header transparent={true} leftIcon={"back"} />
         <View>
           {!isLoading && isSuccess ? (
-            <ProductDetailSlider images={JSON.parse(productDetails.img)} />
+            <ProductDetailSlider images={[productDetails.img]} />
           ) : (
             <Skeleton width={SIZES.width} height={SIZES.width} />
           )}
